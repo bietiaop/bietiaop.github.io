@@ -39,3 +39,7 @@ img.zoom-img {
 .zoom-overlay-transitioning {
   cursor: default;
 }
+
+.entry-content img {
+    border-radius: 10px;
+}

@@ -7834,3 +7834,7 @@ td.hljs-ln-numbers {
 @media(max-width:1200px) {
     .toc {display: none;}
 }
+
+.entry-content img {
+    border-radius: 10px;
+}
