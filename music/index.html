@@ -5,6 +5,25 @@
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
   <title>music | 小惠的私人博客</title>
+  <!--网页标题欺骗，修复BUG：小惠，原作者：asdfv1929-->
+  <script>
+ var OriginTitle = 'music | 小惠的私人博客';
+ var titleTime;
+ document.addEventListener('visibilitychange', function () {
+     if (document.hidden) {
+         $('[rel="icon"]').attr('href', "/img/TEP.ico");
+         document.title = '╭(°A°`)╮ 页面崩溃啦 ~';
+         clearTimeout(titleTime);
+     }
+     else {
+         $('[rel="icon"]').attr('href', "/favicon.ico");
+         document.title = '(ฅ>ω<*ฅ) 噫又好了~' + OriginTitle;
+         titleTime = setTimeout(function () {
+             document.title = OriginTitle;
+         }, 2000);
+     }
+ });
+  </script>
   <meta name="description" content="小惠的博客，啥都有。" />
   <meta name="keywords" content="小惠,小惠的博客,学习,UP主,P主,二次元爱好者,动漫爱好者,宅男,技术分享,资源分享" />
   
@@ -22,6 +41,10 @@
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/xbclub/staticCDN@0.6/css/sharejs.css">
 <!--   <link rel="stylesheet" id="saukra_css-css" href="https://2heng.xin/wp-content/cache/autoptimize/css/autoptimize_ad42a61f4c7d4bdd9f91afcff6b5dda5.css
 " type="text/css" media="all"> -->
+<!--这里设置CDN自定义的看板娘，by小惠-->
+<script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"/>
+<script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js"></script>
   <script>
   /*Initial Variables*/
   var mashiro_option = new Object();
@@ -791,21 +814,5 @@
   });
 </script>
   
-<script type="text/javascript">
- var OriginTitle = document.title;
- var titleTime;
- document.addEventListener('visibilitychange', function () {
-     if (document.hidden) {
-         document.title = '╭(°A°`)╮ 页面崩溃啦 ~';
-         clearTimeout(titleTime);
-     }
-     else {
-         document.title = '(ฅ>ω<*ฅ) 噫又好了~' + OriginTitle;
-         titleTime = setTimeout(function () {
-             document.title = OriginTitle;
-         }, 2000);
-     }
- });
-</script>
 </body>
 </html>
