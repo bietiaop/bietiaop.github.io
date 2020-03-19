@@ -22,6 +22,7 @@
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/xbclub/staticCDN@0.6/css/sharejs.css">
 <!--   <link rel="stylesheet" id="saukra_css-css" href="https://2heng.xin/wp-content/cache/autoptimize/css/autoptimize_ad42a61f4c7d4bdd9f91afcff6b5dda5.css
 " type="text/css" media="all"> -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/honjun/hexo-tag-emojis-byhj/css/emoji.css">
 <!--这里设置CDN自定义的看板娘，by小惠-->
 <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"/>
@@ -795,27 +796,5 @@
   });
 </script>
   
-
-
-  
-  <!--网页标题欺骗，修复BUG：小惠，原作者：asdfv1929-->
-  <script>
- var OriginTitle = 'music | 小惠的私人博客';
- var titleTime;
- document.addEventListener('visibilitychange', function () {
-     if (document.hidden) {
-         $('[rel="icon"]').attr('href', "/img/TEP.ico");
-         document.title = '╭(°A°`)╮ 页面崩溃啦 ~';
-         clearTimeout(titleTime);
-     }
-     else {
-         $('[rel="icon"]').attr('href', "/favicon.ico");
-         document.title = '(ฅ>ω<*ฅ) 噫又好了~' + OriginTitle;
-         titleTime = setTimeout(function () {
-             document.title = OriginTitle;
-         }, 2000);
-     }
- });
-  </script>
 </body>
 </html>
