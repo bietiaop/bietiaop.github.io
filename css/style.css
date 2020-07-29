@@ -4,6 +4,9 @@
     left: 0;
     width: 400px;
 }
+#waifu {
+    z-index:100 !important;
+}
 #veditor {
     background-image: url(https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/comment-bg.png);
     background-size: contain;
