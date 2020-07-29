@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title>HTML+CSS3毛玻璃效果 | 小惠的私人博客</title>
+  <title>小惠的私人博客</title>
   <meta name="description" content="小惠的博客，啥都有。" />
   <meta name="keywords" content="小惠,小惠的博客,学习,UP主,P主,二次元爱好者,动漫爱好者,宅男,技术分享,资源分享,网页,网站,开发,代码,计算机,视频制作,后期,HTML,CSS" />
   
@@ -287,239 +287,78 @@
   </div>
 </header>
 
-      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bietiaop/Hexo-theme-sakura@0.1.1/themes/Sakura/source/css/sharejs.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bietiaop/Hexo-theme-sakura@0.1.1/themes/Sakura/source/css/tocbot.css">
-<div class="pattern-center-blank"></div>
-
-  <div class="pattern-center single-center">
-    <!-- 有配图默认渲染第一张 -->
-    <div class="pattern-attachment-img">
-        <img src="https://cdn.jsdelivr.net/gh/xbclub/imageCDN//upload/20200306164050.gif" data-src="https://s1.ax1x.com/2020/07/28/aE7lo4.jpg" class="lazyload" onerror="imgError(this,3)" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;">
-      </div>
-    <header class="pattern-header single-header">
-      <h1 class="entry-title">
-      HTML+CSS3毛玻璃效果</h1>
-      <p class="entry-census">
-        <span>
-          <a href="bietiaop.top">
-            <img src="https://cdn.jsdelivr.net/gh/bietiaop/CDN@master/img/profile/%E5%A4%B4%E5%83%8F.jpg">
-          </a>
-        </span>
-        <span>
-          <a href="bietiaop.top">小惠</a>
-        </span>
-        <span class="bull">
-        ·</span>
-        2020-7-28
-        
-      
-        ·<span id="readcount"></span>次阅读
-      
-      </p>
-    </header>
-  </div>
-
-<div id="content" class="site-content">
-  <div id="primary" class="content-area">
-    <main id="main" class="site-main" role="main">
-      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
-        <div class="toc"></div>
-        <!--<div class="toc-entry-content"> <!-- 套嵌目录使用（主要为了支援评论）-->
-        
-        <div class="entry-content">
-          <h2 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h2><p>废话不多说，直接开始。</p>
-<p>首先要新建一个HTML文档，新建一个容器（.box），然后里面的盒子（.small-box）是内容。</p>
-<pre><code class="html">&lt;div class=&quot;box&quot;&gt;
-    &lt;div class=&quot;small-box&quot;&gt;
-        1122333
-    &lt;/div&gt;
-&lt;/div&gt;    </code></pre>
-<p>然后开始工作，首先将容器宽高定好（这里我想让容器撑满屏幕）</p>
-<p>设定背景图（不重复，居中，固定，大小是<code>cover</code>，这随便你）</p>
-<pre><code class="css">.box {
-    width: 100vw;/*撑满屏幕*/
-    height: 100vh;/*撑满屏幕*/
-    background: url(&quot;background.png&quot;) center no-repeat fixed;
-    background-size: cover;
-}</code></pre>
-<p>容器设置好了</p>
-<p>然后主体开始了！</p>
-<p>小盒子内容超出部分隐藏，主要是想隐藏<code>::before</code>超出的部分，位置（<code>position</code>）是<code>relative</code>，<code>z-index</code>设置一个比<code>::before</code>大的值，背景是<code>inherit</code>，就是继承了大盒子的背景。</p>
-<p>接下来设置<code>::before</code>的样式，首先让它的内容清空<code>content:&quot;&quot;;</code>，让它的宽和高比小盒子多出20px，这个20px是根据下面的<code>filter</code>的值来定的，最好大于等于<code>filter</code>的值。</p>
-<p>背景也是继承。</p>
-<p>然后是阴影，设为内阴影，值如下，为了把<code>::before</code>弄成透明白色。</p>
-<p><code>position</code>为<code>absolute</code>，top和left的值也是根据<code>filter</code>来定的，他们各自的绝对值大于等于<code>filter</code>的值。</p>
-<p>然后，<code>z-index</code>的值比小盒子的值小，-1即可。</p>
-<p>之后就是毛玻璃效果了，<code>filter: blur(6px);</code>这是非常重要的。</p>
-<p>然后超出部分隐藏。</p>
-<p>就这样毛玻璃效果就完成了。</p>
-<pre><code class="css">.smallbox {
-    overflow: hidden !important;
-    position: relative;
-    z-index:10;
-    background: inherit;
-}
-.smallbox:before {
-    content:&quot;&quot;;
-    width: calc(100% + 20px);
-    height: calc(100% + 20px);
-    background: inherit;
-    box-shadow: inset 0 0 0 200px rgba(255,255,255,0.25);
-    position: absolute;
-    top: -10px;
-    left: -10px;
-    z-index: -1;
-    filter: blur(6px) !important;
-    overflow: hidden;
-}</code></pre>
-<p>上面这些代码都是不可缺少的，其余样式由你自己来定，特别是宽高一定注意，否则可能会显示异常。</p>
-<p>这样就能简单实现效果了，如果上面代码有错误仍然不能实现效果，下面我给大家提供我自己写的代码（一个简单的登录页面），试过了能够正常显示（IE10以下的就别想了）</p>
-<h2 id="模板（能够正常显示）"><a href="#模板（能够正常显示）" class="headerlink" title="模板（能够正常显示）"></a>模板（能够正常显示）</h2><p>HTML：</p>
-<pre><code class="html">&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;zh&quot;&gt;
-&lt;head&gt;
-    &lt;meta charset=&quot;UTF-8&quot;&gt;
-    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
-    &lt;title&gt;登录&lt;/title&gt;
-    &lt;script src=&quot;https://kit.fontawesome.com/1a1876da1b.js&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;div class=&quot;login-box&quot;&gt;
-        &lt;form method=&quot;post&quot; action=&quot;&quot;&gt;
-            &lt;h1&gt;登录&lt;/h1&gt;
-            &lt;label for=&quot;id&quot;&gt;&lt;i class=&quot;fas fa-fingerprint&quot;&gt;&lt;/i&gt; 账号&lt;/label&gt;
-            &lt;input type=&quot;text&quot; name=&quot;id&quot; id=&quot;id&quot; maxlength=&quot;16&quot; placeholder=&quot;账号&quot;&gt;
-            &lt;label for=&quot;password&quot;&gt;&lt;i class=&quot;fas fa-key&quot;&gt;&lt;/i&gt; 密码&lt;/label&gt;
-            &lt;input type=&quot;password&quot; name=&quot;password&quot; id=&quot;password&quot; placeholder=&quot;密码&quot;&gt;
-            &lt;input type=&quot;submit&quot; name=&quot;password&quot; value=&quot;登录&quot;&gt;
-        &lt;/form&gt;
-    &lt;/div&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
-<p>CSS：</p>
-<pre><code class="css">@import &quot;https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@100;300;400;500;700;900&amp;family=Noto+Serif+SC:wght@200;300;400;500;600;700;900&amp;family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&amp;family=ZCOOL+XiaoWei&amp;family=Zhi+Mang+Xing&amp;display=swap&quot;;
-/*上面是导入字体文件*/
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    outline: none;
-    font-family: &quot;Ubuntu&quot;, &quot;苹方&quot;, &quot;Noto Sans SC&quot;, &quot;等线&quot;, &quot;microsoft yahei&quot;, sans-serif;
-}
-html,body {
-    height: 100vh;
-    width: 100vw;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-h1 {
-    font-weight: 400;
-    text-align: center;
-    margin-bottom: 20px;
-    font-family: &quot;Source Code Pro&quot;, &quot;ZCOOL XiaoWei&quot;, &quot;苹方&quot;, &quot;Noto Sans SC&quot;, &quot;等线&quot;, &quot;microsoft yahei&quot;, sans-serif;
-    color: white;
-    text-shadow: 0px 0px 5px #00d9ff,
-    0px 0px 10px #b7e6ff,
-    0px 0px 20px #ffffff;
-}
-label {
-    display: block;
-    font-weight: 400;
-    margin-bottom: 5px;
-    color: #343434;
-}
-label i {
-    color: #e8e8e8;
-}
-input[type=&quot;submit&quot;]{
-    display: block;
-    border: 2px solid #66ccff;
-    background: #66ccff;
-    color: white;
-    outline: none;
-    font-size: 1rem;
-    padding: 6px 8px;
-    border-radius: 3px;
-    transition: .3s;
-    margin-top: 10px;
-}
-input[type=&quot;submit&quot;]:hover{
-    border: 2px solid white;
-    transition: .3s;
-}
-input[type=&quot;text&quot;], input[type=&quot;password&quot;]{
-    margin-bottom: 10px;
-    border: none;
-    background: white;
-    padding: 8px;
-    font-size: 0.8rem;
-    border-radius: 3px;
-    transition: 0.3s;
-    border-bottom: 3px solid white;
-}
-input[type=&quot;text&quot;]:focus, input[type=&quot;password&quot;]:focus {
-    border-bottom: 3px solid #66ccff;
-    transition: 0.3s;
-}
-.login-box {
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: url(&quot;https://cdn.jsdelivr.net/gh/bietiaop/CDN@master/img/20200318123025.jpg&quot;) fixed no-repeat center;
-    background-size: cover;
-}
-.login-box form {
-    display: flex;
-    flex-direction: column;
-    padding: 20px 60px 40px 60px;
-    border-radius: 20px;
-    overflow: hidden;
-    position: relative;
-    z-index: 10;
-    background: inherit;
-    box-shadow: 0px 0px 50px rgba(0,0,0,0.4);
-}
-.login-box form:before {
-    content: &quot;&quot;;
-    width: calc(100% + 20px);
-    height: calc(100% + 20px);
-    background: inherit;
-    box-shadow: inset 0 0 0 200px rgba(255,255,255,0.25);
-    position: absolute;
-    top: -6px;
-    left: -6px;
-    z-index: -1;
-    filter: blur(6px);
-    overflow: hidden;
-}</code></pre>
-<h2 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h2><p>效果如下（只是背景图不一样）</p>
-<p><img data-action="zoom" src="https://s1.ax1x.com/2020/07/28/aE7lo4.jpg" alt="效果图"></p>
-
+        <div class="pattern-center-blank"></div>
+  
+  <div id="content" class="site-content">
+    <article class="post-item post-301 page type-page status-publish has-post-thumbnail hentry">
+      <!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="http://p3.music.126.net/tBTNafgjNnTL1KlZMt7lVA==/18885211718935735.jpg" type="image/x-icon">
+    <title>网抑云</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bietiaop/CDN@0.0.4/css/wyy/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+<meta name="generator" content="Hexo 4.2.0"></head>
+<body>
+    <div class="container">
+        <div class="yiyan">
+            <div id="yiyan"></div>
+            <div id="author"></div>
         </div>
-        <!-- .entry-content -->
+        <div class="look-for-me-text">
+                <h3 class="noto">嘿，朋友，今天的你可好？<small>如果需要的话，随时找我，<b>I will be here for you forever.</b></small></h3>
+        </div>
+        <div class="contact">
+            <div class="qrcode"><img src="https://cdn.jsdelivr.net/gh/bietiaop/CDN@0.0.3/img/qrcode/bilibili_add_me_QRcode.png" alt="B站"><a href="https://space.bilibili.com/152308001" target="_blank"><button>点击加我好友</button></a></div>
+            <div class="qrcode"><img src="https://cdn.jsdelivr.net/gh/bietiaop/CDN@0.0.3/img/qrcode/qq_add_me_QRcode.png" alt="QQ"><a href="https://wpa.qq.com/msgrd?v=3&uin=1527109126&site=qq&menu=yes" target="_blank"><button>点击加我好友</button></a></div>
+            <div class="email">
+                <i class="fa fa-envelope"></i><br><a href="mailto:1527109126@qq.com">1527109126@qq.com</a>
+            </div>
+        </div>
+    </div>
+    
+<meting-js
+	server="netease"
+	type="playlist"
+    id="5148667245"
+    fixed="false"
+    mini="false"
+    autoplay="true"
+    loop="all"
+    order="list"
+    list-folded="true"
+    class="player">
+</meting-js>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script>
+<script>
+    var xhr = new XMLHttpRequest();
+    xhr.open('get', 'https://v1.hitokoto.cn');
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === 4) {
+        var data = JSON.parse(xhr.responseText);
+        var hitokoto = document.getElementById('yiyan');
+        var author = document.getElementById('author');
+        hitokoto.href = 'https://hitokoto.cn/?uuid=' + data.uuid
+        hitokoto.innerText = data.hitokoto;
+        if(!data.from_who){
+            author.innerText = "——《" + data.from +"》";
+        }else{
+            author.innerHTML = '——《' + data.from + '》 <i style="color:rgb(125,125,125)">by</i> ' + data.from_who;
+        }
         
-        <p></p>
-          
-        <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
-        <footer class="post-footer">
-          <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
-          <div class="post-tags">
-          </div>
-          <div class="post-share">
-            <div class="social-share sharehidden share-component"></div>
-            <i class="iconfont show-share icon-forward"></i>
-          </div>
-        </footer><!-- .entry-footer -->
-      </article>
-      <!-- #post-## -->
-      <div class="toc" style="background: none;"></div>
-      <section class="post-squares nextprev">
-        
-        
-      </section>
+      }
+    }
+    xhr.send();
+  </script>
+</body>
+</html>
+      <!-- .entry-content -->
       
 <div id="vcomments"></div>
 <script>
@@ -535,35 +374,43 @@ input[type=&quot;text&quot;]:focus, input[type=&quot;password&quot;]:focus {
   }
 </script>
 
+      <div class="single-reward">
+        <div class="reward-open">赏
+          <div class="reward-main">
+            <ul class="reward-row">
+              <li class="alipay-code"><img src="false"></li>
+              <li class="wechat-code"><img src="false"></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
+      <footer class="post-footer">
+        <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
+        <div class="post-tags">
+        </div>
+        <div class="post-share">
+          <div class="social-share sharehidden share-component"></div>
+          <i class="iconfont show-share icon-forward"></i>
+        </div>
+      </footer><!-- .entry-footer -->
+    </article>
+      <!-- #post-## -->
       <section class="author-profile">
         <div class="info" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
-          <a href="bietiaop.top" class="profile gravatar"><img src="https://cdn.jsdelivr.net/gh/bietiaop/CDN@master/img/profile/%E5%A4%B4%E5%83%8F.jpg" itemprop="image" alt="小惠" height="70" width="70"></a>
+          <a href="/about/" class="profile gravatar"><img src="https://cdn.jsdelivr.net/gh/bietiaop/CDN@master/img/profile/%E5%A4%B4%E5%83%8F.jpg" itemprop="image" alt="博客" height="70" width="70"></a>
           <div class="meta">
             <span class="title">Author</span>
             <h3 itemprop="name">
-            <a href="bietiaop.top" itemprop="url" rel="author">小惠</a>
+            <a href="https://www.bietiaop.top" itemprop="url" rel="author">博客</a>
             </h3>
           </div>
         </div>
         <hr>
-        <p><i class="iconfont icon-write"></i>一个喜欢计算机的学生</p>
+        <p><i class="iconfont icon-write"></i>小惠的博客，什么都有。</p>
       </section>
-    </main><!-- #main -->
   </div><!-- #primary -->
 </div>
-
-
-
-      
-       <script>
-  fetch('https://counts.42cloud.cn/api/counts.html')
-        .then(response => response.json())
-        .then(data => {
-            document.getElementById("readcount").innerHTML=data.Count;
-        })
-        .catch(err => console.error(err))
-</script>
-      
     </div>    
     <div class="ins-search">
     <div class="ins-search-mask"></div>
