@@ -1,0 +1,3 @@
+hexo -s
+
+pause
