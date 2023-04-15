@@ -9,47 +9,59 @@
     <meta name="keywords" content="前端,HTML,bietiaop,别调P,别调皮,编程,学习,大学生,博客,CSS,NodeJS,JavaScript,JS,React,Vue,开发,安全,网络空间安全,网安">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
     
-    
-
     <link rel="shortcut icon" href="https://thirdqq.qlogo.cn/g?b=sdk&amp;k=27Ng6EAub38cF3gdSBSNoA&amp;s=640&amp;t=1654771498" type="image/jpeg" />
-    <meta name="description" content="路由之前已经记过 React Router 的用法。之前提到过 useNavigate，下面学习 useRoute 配置路由 useRoute 配置路由import ...... from ........ import { useRoutes } from &quot;react-router-dom&quot;; function App() {   let element &#x3D; useRoutes([     {">
+    <meta name="description" content="路由之前已经记过 React Router 的用法。之前提到过 useNavigate，下面学习 useRoute 配置路由 useRoute 配置路由12345678910111213141516171819202122232425import ...... from ........import { useRoutes } from &quot;react-router-dom&quot;;function Ap">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[02] React+Vite构建web程序">
 <meta property="og:url" content="https://blog.bietiaop.com/2023/03/17/web/front/react/vite-react/02-vite-react/index.html">
 <meta property="og:site_name" content="别调P的小窝">
-<meta property="og:description" content="路由之前已经记过 React Router 的用法。之前提到过 useNavigate，下面学习 useRoute 配置路由 useRoute 配置路由import ...... from ........ import { useRoutes } from &quot;react-router-dom&quot;; function App() {   let element &#x3D; useRoutes([     {">
+<meta property="og:description" content="路由之前已经记过 React Router 的用法。之前提到过 useNavigate，下面学习 useRoute 配置路由 useRoute 配置路由12345678910111213141516171819202122232425import ...... from ........import { useRoutes } from &quot;react-router-dom&quot;;function Ap">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-03-17T10:38:29.000Z">
 <meta property="article:modified_time" content="2023-03-17T10:38:29.000Z">
 <meta property="article:author" content="别调P">
-<meta property="article:tag" content="React">
 <meta property="article:tag" content="前端">
+<meta property="article:tag" content="React">
 <meta property="article:tag" content="web">
-<meta property="article:tag" content="Vite">
 <meta property="article:tag" content="网站">
 <meta property="article:tag" content="网页">
+<meta property="article:tag" content="Vite">
 <meta name="twitter:card" content="summary">
     
 <link rel="stylesheet" href="/lib/fancybox/fancybox.css">
-<link rel="stylesheet" href="/lib/justifiedGallery/justifiedGallery.min.css">
 <link rel="stylesheet" href="/lib/mdui_043tiny/mdui.css">
-<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/prism/9000.0.1/themes/prism-okaidia.min.css">
 
 
-    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1681566797849">
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1681577188949">
     
-    <link rel="stylesheet" href="/css/style.css?v=1681566797849">
+    <link rel="stylesheet" href="/css/style.css?v=1681577188949">
+
     
-        <link rel="stylesheet" href="/custom.css?v=1681566797849">
+        
+            <link rel="stylesheet" href="/custom.css?v=1681577188949">
+        
+    
+
+    
+<script src="/lib/mdui_043tiny/mdui.js" async></script>
+<script src="/lib/fancybox/fancybox.umd.js" async></script>
+
+
+    <script async src="/js/app.js?v=1681577188949"></script>
+    
+     
+
     
 <meta name="generator" content="Hexo 6.2.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 <body class="mdui-drawer-body-left">
-    
     <div id="nexmoe-background">
-        <div class="nexmoe-bg" style="background-image: url(https://pi.loili.com/2023/f6783b98aff068804ef345ecfab907ab.jpg)"></div>
+        <div class="nexmoe-bg" 
+            style="background-image: url(https://pi.loili.com/2023/f6783b98aff068804ef345ecfab907ab.jpg)"
+        ></div>
         <div class="mdui-appbar mdui-shadow-0">
             <div class="mdui-toolbar">
                 <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
@@ -87,6 +99,13 @@
             </div>
         </a>
         
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/favorites.html" title="收藏夹">
+            <i class="mdui-list-item-icon nexmoefont icon-tags-fill"></i>
+            <div class="mdui-list-item-content">
+                收藏夹
+            </div>
+        </a>
+        
         <a class="nexmoe-list-item mdui-list-item mdui-ripple false" target="_blank" rel="noopener" href="https://www.bietiaop.com" title="关于我">
             <i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
             <div class="mdui-list-item-content">
@@ -103,8 +122,9 @@
         
     </div>
     <aside id="nexmoe-sidebar">
-    
-    <div class="nexmoe-widget-wrap">
+        
+            
+            <div class="nexmoe-widget-wrap">
     <div class="nexmoe-widget nexmoe-search">
         
             <form id="search_form">
@@ -117,181 +137,231 @@
          
     </div>
 </div>
-    
-    <div class="nexmoe-widget-wrap">
-    <div class="nexmoe-widget nexmoe-social">
-        <a class="mdui-ripple" href="https://space.bilibili.com/152308001" target="_blank" mdui-tooltip="{content: '哔哩哔哩'}" style="color: rgb(231, 106, 141);background-color: rgba(231, 106, 141, .15);">
-            <i class="nexmoefont icon-bilibili"></i>
-        </a><a class="mdui-ripple" href="https://github.com/bietiaop/" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
-            <i class="nexmoefont icon-github"></i>
-        </a><a class="mdui-ripple" href="https://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=bietiaop%40bietiaop.com" target="_blank" mdui-tooltip="{content: 'Email'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
-            <i class="nexmoefont icon-mail-fill"></i>
-        </a>
-    </div>
-</div>
-    
-    <!-- 一言 -->
 
+
+	<script async src="/js/search.js?v=1681577188949"></script>
+
+
+
+        
+            
+            <div class="nexmoe-widget-wrap">
+	<div class="nexmoe-widget nexmoe-social">
+		<a
+			class="mdui-ripple"
+			href="https://space.bilibili.com/152308001"
+			target="_blank"
+			mdui-tooltip="{content: '哔哩哔哩'}"
+			style="
+				color: rgb(231, 106, 141);
+				background-color: rgba(231, 106, 141, .15);
+			"
+		>
+			<i
+				class="nexmoefont icon-bilibili"
+			></i> </a
+		><a
+			class="mdui-ripple"
+			href="https://github.com/bietiaop/"
+			target="_blank"
+			mdui-tooltip="{content: 'GitHub'}"
+			style="
+				color: rgb(25, 23, 23);
+				background-color: rgba(25, 23, 23, .15);
+			"
+		>
+			<i
+				class="nexmoefont icon-github"
+			></i> </a
+		><a
+			class="mdui-ripple"
+			href="https://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=bietiaop%40bietiaop.com"
+			target="_blank"
+			mdui-tooltip="{content: 'Email'}"
+			style="
+				color: rgb(25, 23, 23);
+				background-color: rgba(25, 23, 23, .15);
+			"
+		>
+			<i
+				class="nexmoefont icon-mail-fill"
+			></i> </a
+		>
+	</div>
+</div>
+
+        
+            
+            
   <div class="nexmoe-widget-wrap">
-    <h3 class="nexmoe-widget-title">
-      一言
-    </h3>
+    <h3 class="nexmoe-widget-title">文章分类</h3>
     <div class="nexmoe-widget">
-      <ul class="hitokoto-box">
-        <li id="hitokoto_text_parent" class="hitokoto-text" hitokotoCategory="">
-          <a href="#" id="hitokoto_text">
-            
-          </a>
-          <a href="#" id="hitokoto_error_text" style="display: none;">
-            
-          </a>
+
+      <ul class="category-list">
+
+        
+
+
+        
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/web/">web</a>
+          <span class="category-list-count">4</span>
         </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/设计/前端/">前端</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/设计/">设计</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+      </ul>
+
+    </div>
+  </div>
+
+
+        
+            
+            
+  <div class="nexmoe-widget-wrap">
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
+      <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/React/" style="font-size: 15px;">React</a> <a href="/tags/React-Router/" style="font-size: 10px;">React Router</a> <a href="/tags/Vite/" style="font-size: 12.5px;">Vite</a> <a href="/tags/web/" style="font-size: 17.5px;">web</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 20px;">前端</a> <a href="/tags/%E5%9B%BE%E7%89%87%E6%8A%95%E5%BD%B1/" style="font-size: 10px;">图片投影</a> <a href="/tags/%E5%9B%BE%E7%89%87%E9%98%B4%E5%BD%B1/" style="font-size: 10px;">图片阴影</a> <a href="/tags/%E7%BD%91%E7%AB%99/" style="font-size: 15px;">网站</a> <a href="/tags/%E7%BD%91%E9%A1%B5/" style="font-size: 15px;">网页</a> <a href="/tags/%E8%AE%BE%E8%AE%A1/" style="font-size: 10px;">设计</a> <a href="/tags/%E9%85%8D%E8%89%B2/" style="font-size: 10px;">配色</a>
+    </div>
+    
+      <script>
+        var maxTagcloud = parseInt(17);
+        var tags_length = parseInt(12);
+        var tags_arr = [];
+        for(var i = 0; i < tags_length; i++){
+          tags_arr.push(i);
+        }
+        tags_arr.sort(function (l, r) {
+          return Math.random() > 0.5 ? -1 : 1;
+        });
+        tags_arr = tags_arr.slice(0, maxTagcloud < tags_length ? tags_length - maxTagcloud : 0);
+        for(var tag_i = 0; tag_i < tags_arr.length; tag_i++){
+          document.getElementById("randomtagcloud").children[tags_arr[tag_i]].style.display = 'none';
+        }
+      </script>
+    
+  </div>
+
+        
+            
+            
+            
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章归档</h3>
+    <div class="nexmoe-widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/">2023</a><span class="archive-list-count">5</span></li></ul>
+    </div>
+  </div>
+
+
+
+        
+            
+            
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">最新文章</h3>
+    <div class="nexmoe-widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/04/15/web/front/css/tu-pian-tou-ying-yin-ying-xiao-guo/">图片投影阴影效果</a>
+          </li>
+        
+          <li>
+            <a href="/2023/03/17/web/front/react/vite-react/02-vite-react/">[02] React+Vite构建web程序</a>
+          </li>
+        
+          <li>
+            <a href="/2023/03/16/web/front/react/vite-react/01-vite-react/">[01] React+Vite构建web程序</a>
+          </li>
+        
+          <li>
+            <a href="/2023/03/11/web/front/react/react-router/">React路由实现</a>
+          </li>
+        
+          <li>
+            <a href="/2023/03/11/design/pei-se/">🎨 配色《花未眠》</a>
+          </li>
+        
       </ul>
     </div>
   </div>
 
-  <script>
-    let hitokotoText = document.getElementById('hitokoto_text')
-    let hitokotoErroText = document.getElementById('hitokoto_error_text')
-    let hitokotoCategory = document.getElementById('hitokoto_text_parent').getAttribute('hitokotoCategory')
-    window.onload = function () {
-      let url = 'https://v1.hitokoto.cn'
-      if (hitokotoCategory) {
-        url += '?c=' + hitokotoCategory
-      }
-      fetch(url)
-        .then(response => response.json())
-        .then(data => {
-          hitokotoText.innerText = "「 " + data.hitokoto + " 」 from " + data.from
-          hitokotoText.href = 'https://hitokoto.cn/?uuid=' + data.uuid
-        })
-        .catch((reason) => {
-          console.error(11, reason)
-          hitokotoText.style.display = 'none'
-          hitokotoErroText.style.display = 'block'
-        })
-    }
-  </script>
-  
-    
-</aside>
+        
+    </aside>
     <div class="nexmoe-copyright">
         &copy; 2023 别调P
         Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
         & <a href="https://github.com/theme-nexmoe/hexo-theme-nexmoe" target="_blank">Nexmoe</a>
-         | <a href="" target="_blank">又拍云</a>提供加速服务
+        <br><a target="_blank" href="https://beian.miit.gov.cn/">苏ICP备2022027042号-1</a>
+<br><a target="_blank" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral">
+<img src="https://i.dawnlab.me/c0268c1e6cfd0863d6ba35be1575941a.png" width="150px"></a>
+
     </div>
 </div><!-- .nexmoe-drawer -->
     </div>
     <div id="nexmoe-content">
         <div class="nexmoe-primary">
-            <div class="nexmoe-post">
-
+    <div class="nexmoe-post">
   <article>
-      
-          <div class="nexmoe-post-cover" style="border-radius: 16px !important; padding-bottom: NaN%;"> 
-              <img src="https://pi.loili.com/2023/1c4f5102a78ba7fec349dc73a5e2c1a3.png" alt="[02] React+Vite构建web程序" loading="lazy">
-              <h1>[02] React+Vite构建web程序</h1>
-          </div>
-      
-      
-      <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
-    <a><i class="nexmoefont icon-calendar-fill"></i>2023年03月17日</a>
+    
+        <div class="nexmoe-post-cover absolute" style="padding-top: NaN%;"> 
+            <img src="https://pi.loili.com/2023/1c4f5102a78ba7fec349dc73a5e2c1a3.png" alt="[02] React+Vite构建web程序" loading="lazy">
+            <h1>[02] React+Vite构建web程序</h1>
+        </div>
+    
+    
+    <div class="nexmoe-post-meta">
+    <div class="nexmoe-rainbow">
+        <a class="nexmoefont icon-calendar-fill">2023年03月17日</a>
+        
+            <a class="nexmoefont icon-appstore-fill -link" href="/categories/web/">web</a><a class="nexmoefont icon-appstore-fill -link" href="/categories/web/%E5%89%8D%E7%AB%AF/">前端</a>
+        
+        
+    </div>
+    
+    
+    
+    
+    
 </div>
 
-      <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
-    
-        <a><i class="nexmoefont icon-areachart"></i>约320字</a>
-        <a><i class="nexmoefont icon-time-circle-fill"></i>预计需要1分钟</a>
-    
-</div>
-
-      <h1 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h1><p>之前已经记过 <code>React Router</code> 的用法。之前提到过 useNavigate，下面学习 useRoute 配置路由</p>
-<h1 id="useRoute-配置路由"><a href="#useRoute-配置路由" class="headerlink" title="useRoute 配置路由"></a>useRoute 配置路由</h1><pre class="line-numbers language-jsx" data-language="jsx"><code class="language-jsx"><span class="token keyword">import</span> <span class="token operator">...</span><span class="token operator">...</span> from <span class="token operator">...</span><span class="token operator">...</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span> useRoutes <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"react-router-dom"</span><span class="token punctuation">;</span>
-<span class="token keyword">function</span> <span class="token function">App</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token keyword">let</span> element <span class="token operator">=</span> <span class="token function">useRoutes</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
-    <span class="token punctuation">{</span>
-      <span class="token literal-property property">path</span><span class="token operator">:</span> <span class="token string">"/login"</span><span class="token punctuation">,</span>
-      <span class="token literal-property property">element</span><span class="token operator">:</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">Login</span></span> <span class="token punctuation">/&gt;</span></span><span class="token punctuation">,</span>
-      <span class="token literal-property property">children</span><span class="token operator">:</span> <span class="token punctuation">[</span>
-        <span class="token punctuation">{</span>
-          <span class="token literal-property property">path</span><span class="token operator">:</span> <span class="token string">"about"</span><span class="token punctuation">,</span>
-          <span class="token literal-property property">element</span><span class="token operator">:</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">About</span></span> <span class="token punctuation">/&gt;</span></span>
-        <span class="token punctuation">}</span><span class="token punctuation">,</span>
-        <span class="token punctuation">{</span>
-          <span class="token literal-property property">path</span><span class="token operator">:</span> <span class="token string">"user"</span><span class="token punctuation">,</span>
-          <span class="token literal-property property">element</span><span class="token operator">:</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">User</span></span> <span class="token punctuation">/&gt;</span></span>
-        <span class="token punctuation">}</span><span class="token punctuation">,</span>
-      <span class="token punctuation">]</span><span class="token punctuation">,</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token punctuation">{</span>
-      <span class="token literal-property property">path</span><span class="token operator">:</span> <span class="token string">"/"</span><span class="token punctuation">,</span>
-      <span class="token literal-property property">element</span><span class="token operator">:</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">Navigate</span></span> <span class="token attr-name">to</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/login/about<span class="token punctuation">"</span></span> <span class="token punctuation">/&gt;</span></span>
-    <span class="token punctuation">}</span>
-  <span class="token punctuation">]</span><span class="token punctuation">)</span>
-  <span class="token keyword">return</span> element<span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    <h1 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h1><p>之前已经记过 <code>React Router</code> 的用法。之前提到过 useNavigate，下面学习 useRoute 配置路由</p>
+<h1 id="useRoute-配置路由"><a href="#useRoute-配置路由" class="headerlink" title="useRoute 配置路由"></a>useRoute 配置路由</h1><figure class="highlight jsx"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs jsx"><span class="hljs-keyword">import</span> ...... <span class="hljs-keyword">from</span> ........<br><span class="hljs-keyword">import</span> { useRoutes } <span class="hljs-keyword">from</span> <span class="hljs-string">"react-router-dom"</span>;<br><span class="hljs-keyword">function</span> <span class="hljs-title function_">App</span>(<span class="hljs-params"></span>) {<br>  <span class="hljs-keyword">let</span> element = <span class="hljs-title function_">useRoutes</span>([<br>    {<br>      <span class="hljs-attr">path</span>: <span class="hljs-string">"/login"</span>,<br>      <span class="hljs-attr">element</span>: <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">Login</span> /&gt;</span></span>,<br>      <span class="hljs-attr">children</span>: [<br>        {<br>          <span class="hljs-attr">path</span>: <span class="hljs-string">"about"</span>,<br>          <span class="hljs-attr">element</span>: <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">About</span> /&gt;</span></span><br>        },<br>        {<br>          <span class="hljs-attr">path</span>: <span class="hljs-string">"user"</span>,<br>          <span class="hljs-attr">element</span>: <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">User</span> /&gt;</span></span><br>        },<br>      ],<br>    },<br>    {<br>      <span class="hljs-attr">path</span>: <span class="hljs-string">"/"</span>,<br>      <span class="hljs-attr">element</span>: <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">Navigate</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"/login/about"</span> /&gt;</span></span><br>    }<br>  ])<br>  <span class="hljs-keyword"><code class="language-hljs jsx"><span class="hljs-keyword">import</span> ...... <span class="hljs-keyword">from</span> ........<br><span class="hljs-keyword">import</span> { useRoutes } <span class="hljs-keyword">from</span> <span class="hljs-string">"react-router-dom"</span>;<br><span class="hljs-keyword">function</span> <span class="hljs-title function_">App</span>(<span class="hljs-params"></span>) {<br>  <span class="hljs-keyword">let</span> element = <span class="hljs-title function_">useRoutes</span>([<br>    {<br>      <span class="hljs-attr">path</span>: <span class="hljs-string">"/login"</span>,<br>      <span class="hljs-attr">element</span>: <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">Login</span> /&gt;</span></span>,<br>      <span class="hljs-attr">children</span>: [<br>        {<br>          <span class="hljs-attr">path</span>: <span class="hljs-string">"about"</span>,<br>          <span class="hljs-attr">element</span>: <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">About</span> /&gt;</span></span><br>        },<br>        {<br>          <span class="hljs-attr">path</span>: <span class="hljs-string">"user"</span>,<br>          <span class="hljs-attr">element</span>: <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">User</span> /&gt;</span></span><br>        },<br>      ],<br>    },<br>    {<br>      <span class="hljs-attr">path</span>: <span class="hljs-string">"/"</span>,<br>      <span class="hljs-attr">element</span>: <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">Navigate</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"/login/about"</span> /&gt;</span></span><br>    }<br>  ])<br>  <span class="hljs-keyword">return</span> element;<br>}<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></tbody></table></figure>
 
 <p>当然这是我们使用 JS 的写，也是官方给的写法，若我们使用 TS，则应该这样写（写进一个单独的文件，让 APP 文件导入）：</p>
 <p><code>routes.tsx</code>：</p>
-<pre class="line-numbers language-tsx" data-language="tsx"><code class="language-tsx"><span class="token keyword">import</span> <span class="token operator">...</span><span class="token operator">...</span> from <span class="token operator">...</span><span class="token operator">...</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span> useRoutes<span class="token punctuation">,</span> RouteObject <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"react-router-dom"</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> <span class="token function-variable function">GetRouters</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
-  <span class="token keyword">const</span> routes<span class="token operator">:</span>RouteObject<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useRoutes</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
-    <span class="token punctuation">{</span>
-      path<span class="token operator">:</span> <span class="token string">"/login"</span><span class="token punctuation">,</span>
-      element<span class="token operator">:</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">Login</span></span> <span class="token punctuation">/&gt;</span></span><span class="token punctuation">,</span>
-      children<span class="token operator">:</span> <span class="token punctuation">[</span>
-        <span class="token punctuation">{</span>
-          path<span class="token operator">:</span> <span class="token string">"about"</span><span class="token punctuation">,</span>
-          element<span class="token operator">:</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">About</span></span> <span class="token punctuation">/&gt;</span></span>
-        <span class="token punctuation">}</span><span class="token punctuation">,</span>
-        <span class="token punctuation">{</span>
-          path<span class="token operator">:</span> <span class="token string">"user"</span><span class="token punctuation">,</span>
-          element<span class="token operator">:</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">User</span></span> <span class="token punctuation">/&gt;</span></span>
-        <span class="token punctuation">}</span><span class="token punctuation">,</span>
-      <span class="token punctuation">]</span><span class="token punctuation">,</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token punctuation">{</span>
-      path<span class="token operator">:</span> <span class="token string">"/"</span><span class="token punctuation">,</span>
-      element<span class="token operator">:</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">Navigate</span></span> <span class="token attr-name">to</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/login/about<span class="token punctuation">"</span></span> <span class="token punctuation">/&gt;</span></span>
-    <span class="token punctuation">}</span>
-  <span class="token punctuation">]</span><span class="token punctuation">)</span>
-  <span class="token keyword">return</span> routes<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token keyword">export</span> <span class="token keyword">default</span> GetRouters<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight tsx"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs tsx"><span class="hljs-keyword">import</span> ...... <span class="hljs-keyword">from</span> ........<br><span class="hljs-keyword">import</span> { useRoutes, <span class="hljs-title class_">RouteObject</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">"react-router-dom"</span>;<br><span class="hljs-keyword">const</span> <span class="hljs-title function_">GetRouters</span> = (<span class="hljs-params"></span>) =&gt; {<br>  <span class="hljs-keyword">const</span> <span class="hljs-attr">routes</span>:<span class="hljs-title class_">RouteObject</span>[] = <span class="hljs-title function_">useRoutes</span>([<br>    {<br>      <span class="hljs-attr">path</span>: <span class="hljs-string">"/login"</span>,<br>      <span class="hljs-attr">element</span>: <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">Login</span> /&gt;</span></span>,<br>      <span class="hljs-attr">children</span>: [<br>        {<br>          <span class="hljs-attr">path</span>: <span class="hljs-string">"about"</span>,<br>          <span class="hljs-attr">element</span>: <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">About</span> /&gt;</span></span><br>        },<br>        {<br>          <span class="hljs-attr">path</span>: <span class="hljs-string">"user"</span>,<br>          <span class="hljs-attr">element</span>: <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">User</span> /&gt;</span></span><br>        },<br>      ],<br>    },<br>    {<br>      <span class="hljs-attr">path</span>: <span class="hljs-string">"/"</span>,<br>      <span class="hljs-attr">element</span>: <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">Navigate</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"/login/about"</span> /&gt;</span></span><br>    }<br>  ])<br>  <span class="hljs-keyword">return</span> routes;<br>}<br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-title class_"><code class="language-hljs tsx"><span class="hljs-keyword">import</span> ...... <span class="hljs-keyword">from</span> ........<br><span class="hljs-keyword">import</span> { useRoutes, <span class="hljs-title class_">RouteObject</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">"react-router-dom"</span>;<br><span class="hljs-keyword">const</span> <span class="hljs-title function_">GetRouters</span> = (<span class="hljs-params"></span>) =&gt; {<br>  <span class="hljs-keyword">const</span> <span class="hljs-attr">routes</span>:<span class="hljs-title class_">RouteObject</span>[] = <span class="hljs-title function_">useRoutes</span>([<br>    {<br>      <span class="hljs-attr">path</span>: <span class="hljs-string">"/login"</span>,<br>      <span class="hljs-attr">element</span>: <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">Login</span> /&gt;</span></span>,<br>      <span class="hljs-attr">children</span>: [<br>        {<br>          <span class="hljs-attr">path</span>: <span class="hljs-string">"about"</span>,<br>          <span class="hljs-attr">element</span>: <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">About</span> /&gt;</span></span><br>        },<br>        {<br>          <span class="hljs-attr">path</span>: <span class="hljs-string">"user"</span>,<br>          <span class="hljs-attr">element</span>: <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">User</span> /&gt;</span></span><br>        },<br>      ],<br>    },<br>    {<br>      <span class="hljs-attr">path</span>: <span class="hljs-string">"/"</span>,<br>      <span class="hljs-attr">element</span>: <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">Navigate</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"/login/about"</span> /&gt;</span></span><br>    }<br>  ])<br>  <span class="hljs-keyword">return</span> routes;<br>}<br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-title class_">GetRouters</span>;<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></tbody></table></figure>
 
 <p><code>App.tsx</code>：</p>
-<pre class="line-numbers language-tsx" data-language="tsx"><code class="language-tsx"><span class="token keyword">import</span> <span class="token operator">...</span><span class="token operator">...</span><span class="token punctuation">.</span> from <span class="token operator">...</span><span class="token operator">...</span>
-<span class="token keyword">import</span> GetRouters <span class="token keyword">from</span> <span class="token string">"./routes"</span>
-
-<span class="token keyword">function</span> <span class="token function">App</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">BrowserRouter</span></span><span class="token punctuation">&gt;</span></span><span class="token plain-text">
-    </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">GetRouters</span></span> <span class="token punctuation">/&gt;</span></span><span class="token plain-text">
-  </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token class-name">BrowserRouter</span></span><span class="token punctuation">&gt;</span></span>
-<span class="token punctuation">}</span>
-
-<span class="token operator">...</span><span class="token operator">...</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight tsx"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs tsx"><span class="hljs-keyword">import</span> ....... <span class="hljs-keyword">from</span> ......<br><span class="hljs-keyword">import</span> <span class="hljs-title class_">GetRouters</span> <span class="hljs-keyword">from</span> <span class="hljs-string">"./routes"</span><br><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">App</span>(<span class="hljs-params"></span>) {<br>  <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">BrowserRouter</span>&gt;</span></span><br><span class="language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">GetRouters</span> /&gt;</span></span><br><span class="language-xml">  <span class="hljs-tag">&lt;/<span class="hljs-name"><code class="language-hljs tsx"><span class="hljs-keyword">import</span> ....... <span class="hljs-keyword">from</span> ......<br><span class="hljs-keyword">import</span> <span class="hljs-title class_">GetRouters</span> <span class="hljs-keyword">from</span> <span class="hljs-string">"./routes"</span><br><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">App</span>(<span class="hljs-params"></span>) {<br>  <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">BrowserRouter</span>&gt;</span></span><br><span class="language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">GetRouters</span> /&gt;</span></span><br><span class="language-xml">  <span class="hljs-tag">&lt;/<span class="hljs-name">BrowserRouter</span>></span></span><br>}<br><br>........<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></tbody></table></figure>
 
 <p>当然，我们也可以在 <code>routes.tsx</code> 页面中仅写入数组，在 <code>App.tsx</code> 进行 <code>useRoutes</code>，全看个人喜好。</p>
 <p>如果我们在 <code>App.tsx</code> 还有 <code>Layout</code> 布局等，可以直接将此路由标签写入布局。</p>
-<h1 id="useLocation-获取当前地址"><a href="#useLocation-获取当前地址" class="headerlink" title="useLocation 获取当前地址"></a><code>useLocation</code> 获取当前地址</h1><pre class="line-numbers language-tsx" data-language="tsx"><code class="language-tsx"><span class="token keyword">import</span> <span class="token punctuation">{</span> useLocation <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react-router-dom'</span><span class="token punctuation">;</span>
-<span class="token keyword">function</span> <span class="token function">SomeCom</span><span class="token punctuation">(</span>props<span class="token operator">:</span> <span class="token punctuation">{</span>children<span class="token operator">:</span> <span class="token constant">JSX</span><span class="token punctuation">.</span>Element<span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token keyword">const</span> <span class="token punctuation">{</span> pathname <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">useLocation</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// 获取路径</span>
-  <span class="token operator">...</span><span class="token operator">...</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="useLocation-获取当前地址"><a href="#useLocation-获取当前地址" class="headerlink" title="useLocation 获取当前地址"></a><code>useLocation</code> 获取当前地址</h1><figure class="highlight tsx"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs tsx"><span class="hljs-keyword">import</span> { useLocation } <span class="hljs-keyword">from</span> <span class="hljs-string">'react-router-dom'</span>;<br><span class="hljs-keyword">function</span> <span class="hljs-title function_">SomeCom</span>(<span class="hljs-params">props: {children: JSX.Element}</span>) {<br>  <span class="hljs-keyword">const</span> { pathname } = <span class="hljs-title function_">useLocation</span>() <span class="hljs-comment"><code class="language-hljs tsx"><span class="hljs-keyword">import</span> { useLocation } <span class="hljs-keyword">from</span> <span class="hljs-string">'react-router-dom'</span>;<br><span class="hljs-keyword">function</span> <span class="hljs-title function_">SomeCom</span>(<span class="hljs-params">props: {children: JSX.Element}</span>) {<br>  <span class="hljs-keyword">const</span> { pathname } = <span class="hljs-title function_">useLocation</span>() <span class="hljs-comment">// 获取路径</span><br>  ......<br>}<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></tbody></table></figure>
 
 <p>更多用法参考官方文档</p>
-<h1 id="路由懒加载"><a href="#路由懒加载" class="headerlink" title="路由懒加载"></a>路由懒加载</h1><h2 id="React-Suspense"><a href="#React-Suspense" class="headerlink" title="React Suspense"></a>React Suspense</h2><pre class="line-numbers language-tsx" data-language="tsx"><code class="language-tsx"><span class="token keyword">import</span> <span class="token punctuation">{</span> lazy<span class="token punctuation">,</span> Suspense <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> Login <span class="token operator">=</span> <span class="token function">lazy</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token keyword">import</span><span class="token punctuation">(</span><span class="token string">'./Login'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">function</span> <span class="token function">App</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token keyword">return</span> <span class="token punctuation">(</span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">Suspense</span></span> <span class="token attr-name">fallback</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span><span class="token plain-text">Loading...</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">}</span></span><span class="token punctuation">&gt;</span></span><span class="token plain-text">
-      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">Login</span></span> <span class="token punctuation">/&gt;</span></span><span class="token plain-text">
-    </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token class-name">Suspense</span></span><span class="token punctuation">&gt;</span></span>
-  <span class="token punctuation">)</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="路由懒加载"><a href="#路由懒加载" class="headerlink" title="路由懒加载"></a>路由懒加载</h1><h2 id="React-Suspense"><a href="#React-Suspense" class="headerlink" title="React Suspense"></a>React Suspense</h2><figure class="highlight tsx"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre class="line-numbers language-hljs tsx"><span class="hljs-keyword">import</span> { lazy, <span class="hljs-title class_">Suspense</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;<br><span class="hljs-keyword">const</span> <span class="hljs-title class_">Login</span> = <span class="hljs-title function_">lazy</span>(<span class="hljs-function">() =&gt;</span> <span class="hljs-title function_">import</span>(<span class="hljs-string">'./Login'</span>));<br><span class="hljs-keyword">function</span> <span class="hljs-title function_">App</span>(<span class="hljs-params"></span>) {<br>  <span class="hljs-keyword">return</span> (<br>    <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">Suspense</span> <span class="hljs-attr">fallback</span>=<span class="hljs-string">{</span>&lt;<span class="hljs-attr">div</span>&gt;</span>Loading...<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>}&gt;</span><br><span class="language-xml">      <span class="hljs-tag">&lt;<span class="hljs-name">Login</span> /&gt;</span></span><br><span class="language-xml">    <span class="hljs-tag">&lt;/<span class="hljs-name"><code class="language-hljs tsx"><span class="hljs-keyword">import</span> { lazy, <span class="hljs-title class_">Suspense</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;<br><span class="hljs-keyword">const</span> <span class="hljs-title class_">Login</span> = <span class="hljs-title function_">lazy</span>(<span class="hljs-function">() =&gt;</span> <span class="hljs-title function_">import</span>(<span class="hljs-string">'./Login'</span>));<br><span class="hljs-keyword">function</span> <span class="hljs-title function_">App</span>(<span class="hljs-params"></span>) {<br>  <span class="hljs-keyword">return</span> (<br>    <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">Suspense</span> <span class="hljs-attr">fallback</span>=<span class="hljs-string">{</span>&lt;<span class="hljs-attr">div</span>&gt;</span>Loading...<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>}&gt;</span><br><span class="language-xml">      <span class="hljs-tag">&lt;<span class="hljs-name">Login</span> /&gt;</span></span><br><span class="language-xml">    <span class="hljs-tag">&lt;/<span class="hljs-name">Suspense</span>></span></span><br>  )<br>}<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></tbody></table></figure>
+
+<p>路由懒加载的效果就是在加载的时候显示 <code>Loading...</code>（也可以是自定义组件），加载完成后显示 <code>Login</code> 组件。</p>
+
+    
   </article>
 
   
@@ -301,6 +371,7 @@
         <strong>本文链接：</strong><a href="https://blog.bietiaop.com/2023/03/17/web/front/react/vite-react/02-vite-react/" title="https:&#x2F;&#x2F;blog.bietiaop.com&#x2F;2023&#x2F;03&#x2F;17&#x2F;web&#x2F;front&#x2F;react&#x2F;vite-react&#x2F;02-vite-react&#x2F;" target="_blank" rel="noopener">https:&#x2F;&#x2F;blog.bietiaop.com&#x2F;2023&#x2F;03&#x2F;17&#x2F;web&#x2F;front&#x2F;react&#x2F;vite-react&#x2F;02-vite-react&#x2F;</a><br>
         
             <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+
         
     </div>
 
@@ -308,33 +379,36 @@
   
   
   <div class="nexmoe-post-meta nexmoe-rainbow">
-    
-        <a class="nexmoefont icon-appstore-fill -link" href="/categories/web/">web</a><a class="nexmoefont icon-appstore-fill -link" href="/categories/web/%E5%89%8D%E7%AB%AF/">前端</a>
-    
+   
     
         <a class="nexmoefont icon-tag-fill -none-link" href="/tags/React/" rel="tag">React</a> <a class="nexmoefont icon-tag-fill -none-link" href="/tags/Vite/" rel="tag">Vite</a> <a class="nexmoefont icon-tag-fill -none-link" href="/tags/web/" rel="tag">web</a> <a class="nexmoefont icon-tag-fill -none-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a> <a class="nexmoefont icon-tag-fill -none-link" href="/tags/%E7%BD%91%E7%AB%99/" rel="tag">网站</a> <a class="nexmoefont icon-tag-fill -none-link" href="/tags/%E7%BD%91%E9%A1%B5/" rel="tag">网页</a>
     
 </div>
+  
+  
+    <script async src="/js/copy-codeblock.js?v=1681577188887"></script>
+  
 
   
       <div class="nexmoe-post-footer">
-          <h2>评论</h2>
-          <section class="nexmoe-comment">
-    <div class="valine"></div>
-<script src='https://cdn.jsdelivr.net/npm/valine'></script>
+          <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<div id="vcomments">
+  正在努力加载评论
+</div>
 <script>
-    // 使用方法 https://valine.js.org/quickstart.html
     new Valine({
-        el: '.valine',
+        el: '#vcomments',
         appId: 'q3wFidkEgse9PfmKDYl9XugD-gzGzoHsz',
-        appKey: 'SvOMchDSYmvR50to670gIrzE'
+        appKey: 'SvOMchDSYmvR50to670gIrzE',
+        enableQQ: true
     })
 </script>
-</section>
+
       </div>
   
 </div>
-            <div class="nexmoe-post-right">
+</div>
+        <div class="nexmoe-post-right">
               <div class="nexmoe-fixed">
                   <div class="nexmoe-tool"> 
                     
@@ -352,55 +426,30 @@
                           
                       
                     
-                      <a href="#nexmoe-content" class="toc-link" aria-label="回到顶部" title="top"><button class="mdui-fab mdui-ripple"><i class="nexmoefont icon-caret-top"></i></button></a>
+                      <a href="#nexmoe-content" class="toc-link" aria-label="Back To Top" title="top"><button class="mdui-fab mdui-ripple"><i class="nexmoefont icon-caret-top"></i></button></a>
                   </div>
               </div>
             </div>
-        </div>
     </div>
-     
     <div id="nexmoe-search-space">
-        <div class="search-container">
-            <div class="search-header">
-                <div class="search-input-container">
-                    <input class="search-input" type="text" placeholder="搜索" oninput="sinput();">
-                </div>
-                <a class="search-close" onclick="sclose();">×</a>
-            </div>
-            <div class="search-body"></div>
-        </div>
-    </div>
+	<div class="search-container">
+		<div class="search-header">
+			<div class="search-input-container">
+				<input
+					class="search-input"
+					type="text"
+					placeholder="搜索"
+					oninput="sinput();"
+				/>
+			</div>
+			<a class="search-close" onclick="sclose();">×</a>
+		</div>
+		<div class="search-body"></div>
+	</div>
+</div>
 
     
-<script src="/lib/mdui_043tiny/mdui.js"></script>
-<script src="/lib/jquery.min.js"></script>
-<script src="/lib/justifiedGallery/jquery.justifiedGallery.min.js"></script>
-<script src="/lib/fancybox/fancybox.umd.js"></script>
-<script src="https://cdn.bootcdn.net/ajax/libs/prism/9000.0.1/prism.min.js"></script>
-
-
- 
-
-<script async src="/js/app.js?v=1681566797856"></script>
-
-
-	<script async src="/js/search.js?v=1681566797856"></script>
-
-
-<script>
-	$(".justified-gallery").justifiedGallery({
-		rowHeight: 160,
-		margins: 10,
-	});
-</script>
-
-
     
-
-
-
-
-
 
         <script src="//cdn.jsdelivr.net/npm/js-base64/base64.min.js"></script>
         <script>

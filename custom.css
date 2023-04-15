@@ -33,6 +33,7 @@ pre::before {
     border-radius: 10px;
     padding: 5px;
 }
+
 .nexmoe-post {
     border-bottom: 2px solid rgb(196, 196, 196);
     border-radius: 16px;
@@ -43,12 +44,23 @@ pre::before {
     border-radius: 10px;
     overflow: hidden;
 }
-.nexmoe-post-meta.nexmoe-rainbow {
+.nexmoe-post-meta {
+    padding: 10px 0px;
+}
+.nexmoe-post-meta .nexmoe-rainbow {
     padding: 0px 10px;
 }
 .nexmoe-post .nexmoe-post-cover {
-    padding-bottom: 30% !important;
-    border-radius: 16px 16px 0px 0px !important;
+    overflow: hidden;
+    padding-bottom: 15% !important;
+    border-radius: 16px !important;
+}
+.nexmoe-posts .nexmoe-post {
+    border-bottom: 2px solid rgb(231, 201, 205);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+.nexmoe-posts .nexmoe-post-cover {
+    border-radius: 16px 16px 0 0 !important;
 }
 .nexmoe-post-copyright {
     width: 100%;
