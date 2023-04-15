@@ -1,0 +1,93 @@
+code {
+    padding: 0 !important;
+}
+pre {
+    padding-top: 40px !important;
+    padding-bottom: 20px !important;
+    overflow: auto !important;
+    position: relative;
+}
+pre::before {
+    content: '';
+    position: absolute;
+    width: 13px !important;
+    height: 13px !important;
+    border-radius: 50%;
+    background: rgb(231, 26, 26) !important;
+    top: 13px;
+    left: 13px;
+    display: block;
+    box-shadow: 0 0 3px inset rgba(0, 0, 0, 0.8);
+    transition: 0.3s;
+}
+.nexmoe-avatar {
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3) !important;
+    transition: 0.3s !important;
+}
+.nexmoe-avatar:hover {
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5) !important;
+}
+.nexmoe-count &gt; div {
+    background: rgb(248, 248, 248);
+    margin: 0px 5px;
+    border-radius: 10px;
+    padding: 5px;
+}
+.nexmoe-post {
+    border-bottom: 2px solid rgb(196, 196, 196);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: 0.3s;
+}
+.nexmoe-primary {
+    border-radius: 10px;
+    overflow: hidden;
+}
+.nexmoe-post-meta.nexmoe-rainbow {
+    padding: 0px 10px;
+}
+.nexmoe-post .nexmoe-post-cover {
+    padding-bottom: 30% !important;
+    border-radius: 16px 16px 0px 0px !important;
+}
+.nexmoe-post-copyright {
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0 auto !important;
+    margin-top: 40px !important;
+}
+.nexmoe-post-footer {
+    width: 100%;
+    border-radius: 20px 20px 0 0;
+    position: relative;
+    padding: 30px !important;
+    box-sizing: border-box;
+    margin: 0 auto !important;
+}
+.nexmoe-post-footer::before {
+    content: '';
+    position: absolute;
+    width: 5em;
+    height: 10px;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.2);
+    left: 50%;
+    transform: translate(-50%, 0);
+    top: 15px;
+}
+.vpanel {
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+}
+@media screen and (min-width: 1024px){
+    .mdui-drawer-close {
+        transform: translateX(0) !important;
+        display: block !important;
+        left: unset !important;
+    }
+    .nexmoe-primary {
+        width: 100% !important;
+        position: relative !important;
+        min-height: 100vh !important;
+    }
+}
