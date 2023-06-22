@@ -80,10 +80,14 @@ pre::before:hover {
     overflow: hidden;
     transition: 0.3s;
 }
+#nexmoe-content .nexmoe-post .nexmoe-post-cover {
+    min-height: 194px !important;
+}
 .nexmoe-primary {
     border-radius: 10px;
     overflow: hidden;
 }
+
 .nexmoe-post-meta {
     padding: 10px 0px;
 }
@@ -142,5 +146,16 @@ pre::before:hover {
         width: 100% !important;
         position: relative !important;
         min-height: 100vh !important;
+    }
+}
+@media screen and (max-width: 770px) {
+    #nexmoe-content .nexmoe-post .nexmoe-post-cover.absolute h1 {
+        font-size: 2rem !important;
+    }
+}
+@media screen and (max-width: 550px) {
+    #nexmoe-content .nexmoe-post .nexmoe-post-cover.absolute h1 {
+        font-size: 1.5rem !important;
+        padding: 10px !important;
     }
 }
