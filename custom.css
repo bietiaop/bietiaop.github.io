@@ -21,6 +21,9 @@ pre {
     overflow: auto !important;
     position: relative;
 }
+.line-numbers .line-numbers-rows {
+  border-right: 1px solid rgb(62, 64, 74); /* 设置竖线颜色 */
+}
 pre::before {
     content: '';
     position: absolute;
