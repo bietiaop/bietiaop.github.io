@@ -155,7 +155,7 @@ pre::before:hover {
 }
 @media screen and (max-width: 550px) {
     #nexmoe-content .nexmoe-post .nexmoe-post-cover.absolute h1 {
-        font-size: 1.5rem !important;
+        font-size: 1.6rem !important;
         padding: 10px !important;
     }
 }
