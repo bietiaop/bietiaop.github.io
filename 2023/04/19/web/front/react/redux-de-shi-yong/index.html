@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+
+<head>
+    
+    <title>Redux的使用 - 别调P的小窝</title>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="前端,HTML,bietiaop,别调P,别调皮,编程,学习,大学生,博客,CSS,NodeJS,JavaScript,JS,React,Vue,开发,安全,网络空间安全,网安">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    
+    <link rel="shortcut icon" href="https://thirdqq.qlogo.cn/g?b=sdk&amp;k=27Ng6EAub38cF3gdSBSNoA&amp;s=640&amp;t=1654771498" type="image/jpeg" />
+    <meta name="description" content="安装 Redux Tookit 和 React Reduxnpm install @reduxjs&#x2F;toolkit react-redux -S  创建 store 相关文件在 src 目录下创建 store 文件夹，用于存放 Redux 和 store 相关文件。 在 src 目录下创建 hooks 文件夹，用于存放自定义 hooks，我们需要在里面创建一个 store.ts，文件里面存放 Re">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Redux的使用">
+<meta property="og:url" content="https://blog.bietiaop.com/2023/04/19/web/front/react/redux-de-shi-yong/index.html">
+<meta property="og:site_name" content="别调P的小窝">
+<meta property="og:description" content="安装 Redux Tookit 和 React Reduxnpm install @reduxjs&#x2F;toolkit react-redux -S  创建 store 相关文件在 src 目录下创建 store 文件夹，用于存放 Redux 和 store 相关文件。 在 src 目录下创建 hooks 文件夹，用于存放自定义 hooks，我们需要在里面创建一个 store.ts，文件里面存放 Re">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-04-19T08:46:07.000Z">
+<meta property="article:modified_time" content="2023-04-19T08:46:07.000Z">
+<meta property="article:author" content="别调P">
+<meta property="article:tag" content="前端">
+<meta property="article:tag" content="web">
+<meta property="article:tag" content="React">
+<meta property="article:tag" content="Redux">
+<meta name="twitter:card" content="summary">
+    
+<link rel="stylesheet" href="/lib/fancybox/fancybox.css">
+<link rel="stylesheet" href="/lib/mdui_043tiny/mdui.css">
+<link rel="stylesheet" href="/lib/prism.css">
+
+
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1687409187652">
+    
+    <link rel="stylesheet" href="/css/style.css?v=1687409187652">
+
+    
+        
+            <link rel="stylesheet" href="/custom.css?v=1687409187652">
+        
+    
+
+    
+<script src="/lib/mdui_043tiny/mdui.js" async></script>
+<script src="/lib/fancybox/fancybox.umd.js" async></script>
+<script src="/lib/prism.js" async></script>
+
+
+    <script async src="/js/app.js?v=1687409187652"></script>
+    
+     
+
+    
+<meta name="generator" content="Hexo 6.2.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+
+<body class="mdui-drawer-body-left">
+    <div id="nexmoe-background">
+        <div class="nexmoe-bg" 
+            style="background-image: url(https://pi.loili.com/2023/f6783b98aff068804ef345ecfab907ab.jpg)"
+        ></div>
+        <div class="mdui-appbar mdui-shadow-0">
+            <div class="mdui-toolbar">
+                <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
+                <div class="mdui-toolbar-spacer"></div>
+                <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+                <a href="/" title="别调P" class="mdui-btn mdui-btn-icon"><img src="https://thirdqq.qlogo.cn/g?b=sdk&amp;k=27Ng6EAub38cF3gdSBSNoA&amp;s=640&amp;t=1654771498" alt="别调P"></a>
+            </div>
+        </div>
+    </div>
+    <div id="nexmoe-header">
+        <div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="别调P">
+            <img src="https://thirdqq.qlogo.cn/g?b=sdk&amp;k=27Ng6EAub38cF3gdSBSNoA&amp;s=640&amp;t=1654771498" alt="别调P" alt="别调P">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div><span>文章</span>6</div>
+        <div><span>标签</span>13</div>
+        <div><span>分类</span>4</div>
+    </div>
+    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/archive.html" title="文章归档">
+            <i class="mdui-list-item-icon nexmoefont icon-container"></i>
+            <div class="mdui-list-item-content">
+                文章归档
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/favorites.html" title="收藏夹">
+            <i class="mdui-list-item-icon nexmoefont icon-tags-fill"></i>
+            <div class="mdui-list-item-content">
+                收藏夹
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" target="_blank" rel="noopener" href="https://www.bietiaop.com" title="关于我">
+            <i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
+            <div class="mdui-list-item-content">
+                关于我
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/friends.html" title="友情链接">
+            <i class="mdui-list-item-icon nexmoefont icon-unorderedlist"></i>
+            <div class="mdui-list-item-content">
+                友情链接
+            </div>
+        </a>
+        
+    </div>
+    <aside id="nexmoe-sidebar">
+        
+            
+            <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-search">
+        
+            <form id="search_form">
+                <label><input class="st-default-search-input" id="search_value" name="q" type="search" placeholder="搜索" style="
+                    font-size: 15px !important;
+                    height: 56px !important;
+                    background-image: none;
+                "></label>
+            </form>
+         
+    </div>
+</div>
+
+
+	<script async src="/js/search.js?v=1687409187652"></script>
+
+
+
+        
+            
+            <div class="nexmoe-widget-wrap">
+	<div class="nexmoe-widget nexmoe-social">
+		<a
+			class="mdui-ripple"
+			href="https://space.bilibili.com/152308001"
+			target="_blank"
+			mdui-tooltip="{content: '哔哩哔哩'}"
+			style="
+				color: rgb(231, 106, 141);
+				background-color: rgba(231, 106, 141, .15);
+			"
+		>
+			<i
+				class="nexmoefont icon-bilibili"
+			></i> </a
+		><a
+			class="mdui-ripple"
+			href="https://github.com/bietiaop/"
+			target="_blank"
+			mdui-tooltip="{content: 'GitHub'}"
+			style="
+				color: rgb(25, 23, 23);
+				background-color: rgba(25, 23, 23, .15);
+			"
+		>
+			<i
+				class="nexmoefont icon-github"
+			></i> </a
+		><a
+			class="mdui-ripple"
+			href="https://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=bietiaop%40bietiaop.com"
+			target="_blank"
+			mdui-tooltip="{content: 'Email'}"
+			style="
+				color: rgb(25, 23, 23);
+				background-color: rgba(25, 23, 23, .15);
+			"
+		>
+			<i
+				class="nexmoefont icon-mail-fill"
+			></i> </a
+		>
+	</div>
+</div>
+
+        
+            
+            
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章分类</h3>
+    <div class="nexmoe-widget">
+
+      <ul class="category-list">
+
+        
+
+
+        
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/web/">web</a>
+          <span class="category-list-count">5</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/设计/前端/">前端</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/设计/">设计</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+      </ul>
+
+    </div>
+  </div>
+
+
+        
+            
+            
+  <div class="nexmoe-widget-wrap">
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
+      <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/React/" style="font-size: 16px;">React</a> <a href="/tags/React-Router/" style="font-size: 10px;">React Router</a> <a href="/tags/Redux/" style="font-size: 10px;">Redux</a> <a href="/tags/Vite/" style="font-size: 12px;">Vite</a> <a href="/tags/web/" style="font-size: 18px;">web</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 20px;">前端</a> <a href="/tags/%E5%9B%BE%E7%89%87%E6%8A%95%E5%BD%B1/" style="font-size: 10px;">图片投影</a> <a href="/tags/%E5%9B%BE%E7%89%87%E9%98%B4%E5%BD%B1/" style="font-size: 10px;">图片阴影</a> <a href="/tags/%E7%BD%91%E7%AB%99/" style="font-size: 14px;">网站</a> <a href="/tags/%E7%BD%91%E9%A1%B5/" style="font-size: 14px;">网页</a> <a href="/tags/%E8%AE%BE%E8%AE%A1/" style="font-size: 10px;">设计</a> <a href="/tags/%E9%85%8D%E8%89%B2/" style="font-size: 10px;">配色</a>
+    </div>
+    
+      <script>
+        var maxTagcloud = parseInt(17);
+        var tags_length = parseInt(13);
+        var tags_arr = [];
+        for(var i = 0; i < tags_length; i++){
+          tags_arr.push(i);
+        }
+        tags_arr.sort(function (l, r) {
+          return Math.random() > 0.5 ? -1 : 1;
+        });
+        tags_arr = tags_arr.slice(0, maxTagcloud < tags_length ? tags_length - maxTagcloud : 0);
+        for(var tag_i = 0; tag_i < tags_arr.length; tag_i++){
+          document.getElementById("randomtagcloud").children[tags_arr[tag_i]].style.display = 'none';
+        }
+      </script>
+    
+  </div>
+
+        
+            
+            
+            
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章归档</h3>
+    <div class="nexmoe-widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/">2023</a><span class="archive-list-count">6</span></li></ul>
+    </div>
+  </div>
+
+
+
+        
+            
+            
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">最新文章</h3>
+    <div class="nexmoe-widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/04/19/web/front/react/redux-de-shi-yong/">Redux的使用</a>
+          </li>
+        
+          <li>
+            <a href="/2023/04/15/web/front/css/tu-pian-tou-ying-yin-ying-xiao-guo/">图片投影阴影效果</a>
+          </li>
+        
+          <li>
+            <a href="/2023/03/17/web/front/react/vite-react/02-vite-react/">[02] React+Vite构建web程序</a>
+          </li>
+        
+          <li>
+            <a href="/2023/03/16/web/front/react/vite-react/01-vite-react/">[01] React+Vite构建web程序</a>
+          </li>
+        
+          <li>
+            <a href="/2023/03/11/web/front/react/react-router/">React路由实现</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+        
+    </aside>
+    <div class="nexmoe-copyright">
+        &copy; 2023 别调P
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        & <a href="https://github.com/theme-nexmoe/hexo-theme-nexmoe" target="_blank">Nexmoe</a>
+        <br><a target="_blank" href="https://beian.miit.gov.cn/">苏ICP备2022027042号-1</a>
+<br><a target="_blank" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral">
+<img src="https://i.dawnlab.me/c0268c1e6cfd0863d6ba35be1575941a.png" width="150px"></a>
+
+    </div>
+</div><!-- .nexmoe-drawer -->
+    </div>
+    <div id="nexmoe-content">
+        <div class="nexmoe-primary">
+    <div class="nexmoe-post">
+  <article>
+    
+        <div class="nexmoe-post-cover absolute" style="padding-top: NaN%;"> 
+            <img src="https://pi.loili.com/2023/1c4f5102a78ba7fec349dc73a5e2c1a3.png" alt="Redux的使用" loading="lazy">
+            <h1>Redux的使用</h1>
+        </div>
+    
+    
+    <div class="nexmoe-post-meta">
+    <div class="nexmoe-rainbow">
+        <a class="nexmoefont icon-calendar-fill">2023年04月19日</a>
+        
+            <a class="nexmoefont icon-appstore-fill -link" href="/categories/web/">web</a><a class="nexmoefont icon-appstore-fill -link" href="/categories/web/%E5%89%8D%E7%AB%AF/">前端</a>
+        
+        
+    </div>
+    
+    
+    
+    
+    
+</div>
+
+    <h2 id="安装-Redux-Tookit-和-React-Redux"><a href="#安装-Redux-Tookit-和-React-Redux" class="headerlink" title="安装 Redux Tookit 和 React Redux"></a>安装 Redux Tookit 和 React Redux</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> @reduxjs/toolkit react-redux <span class="token parameter variable">-S</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2 id="创建-store-相关文件"><a href="#创建-store-相关文件" class="headerlink" title="创建 store 相关文件"></a>创建 store 相关文件</h2><p>在 <code>src</code> 目录下创建 <code>store</code> 文件夹，用于存放 Redux 和 store 相关文件。</p>
+<p>在 <code>src</code> 目录下创建 <code>hooks</code> 文件夹，用于存放自定义 hooks，我们需要在里面创建一个 <code>store.ts</code>，文件里面存放 Redux 相关的 Hooks。</p>
+<p>在 <code>store</code> 文件夹下创建 <code>index.ts</code> 文件，用于创建 Redux store。</p>
+<p>这里面以登录状态管理为例，创建 <code>login.ts</code> 文件，用于存放登录状态相关的 reducer 和 action。</p>
+<h2 id="store-x2F-index-ts"><a href="#store-x2F-index-ts" class="headerlink" title="store/index.ts"></a>store/index.ts</h2><p>此文件是 Redux store 的入口文件，用于创建 Redux store。</p>
+<p>通过 <code>configureStore</code> 方法创建 Redux store，通过 <code>reducer</code> 属性指定 reducer。</p>
+<p>我们可以导入已创建的 reducer，然后通过 <code>reducer</code> 属性指定。</p>
+<pre class="line-numbers language-typescript" data-language="typescript"><code class="language-typescript"><span class="token comment">// src/store/index.ts</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> configureStore <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@reduxjs/toolkit'</span>
+<span class="token keyword">import</span> loginReducer <span class="token keyword">from</span> <span class="token string">'./login'</span>
+
+<span class="token keyword">export</span> <span class="token keyword">const</span> store <span class="token operator">=</span> <span class="token function">configureStore</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  reducer<span class="token operator">:</span> <span class="token punctuation">{</span>
+    login<span class="token operator">:</span> loginReducer
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token comment">// 从 store 本身推断出 `RootState` 和 `AppDispatch` 类型</span>
+<span class="token keyword">export</span> <span class="token keyword">type</span> <span class="token class-name">RootState</span> <span class="token operator">=</span> ReturnType<span class="token operator">&lt;</span><span class="token keyword">typeof</span> store<span class="token punctuation">.</span>getState<span class="token operator">&gt;</span><span class="token punctuation">;</span>
+<span class="token keyword">export</span> <span class="token keyword">type</span> <span class="token class-name">AppDispatch</span> <span class="token operator">=</span> <span class="token keyword">typeof</span> store<span class="token punctuation">.</span>dispatch<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>导出两个类型，<code>RootState</code> 和 <code>AppDispatch</code>，分别用于获取 store 的 state 和 dispatch 的类型，在 <code>typescript</code> 中使用防止因为数据类型而报错。</p>
+<p>这样，我们就创建了 Redux store。</p>
+<h2 id="hooks-x2F-store-ts"><a href="#hooks-x2F-store-ts" class="headerlink" title="hooks/store.ts"></a>hooks/store.ts</h2><p>此文件用于存放 Redux 相关的 Hooks。</p>
+<pre class="line-numbers language-typescript" data-language="typescript"><code class="language-typescript"><span class="token comment">// src/hooks/store.ts</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> TypedUseSelectorHook<span class="token punctuation">,</span> useDispatch<span class="token punctuation">,</span> useSelector <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react-redux'</span>
+<span class="token keyword">import</span> <span class="token keyword">type</span> <span class="token punctuation">{</span> RootState<span class="token punctuation">,</span> AppDispatch <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'../store'</span>
+<span class="token comment">// 在整个应用程序中使用，而不是简单的 `useDispatch` 和 `useSelector`</span>
+<span class="token comment">// 使用泛型指定 state 的类型</span>
+<span class="token keyword">export</span> <span class="token keyword">const</span> useAppSelector<span class="token operator">:</span> TypedUseSelectorHook<span class="token operator">&lt;</span>RootState<span class="token operator">&gt;</span> <span class="token operator">=</span> useSelector<span class="token punctuation">;</span>
+<span class="token comment">// 指定 dispatch 的类型</span>
+<span class="token keyword">export</span> <span class="token keyword">const</span> <span class="token function-variable function">useAppDispatch</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> AppDispatch <span class="token operator">=</span> useDispatch<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>使用 <code>useAppSelector</code> 和 <code>useAppDispatch</code> 来获取 store 的 state 和 dispatch。如果我们直接使用 <code>useSelector</code> 和 <code>useDispatch</code>，那么我们就需要在每次使用的时候都要指定 state 和 dispatch 的类型，这样就会很麻烦。这样我们在其他地方直接使用 <code>useAppSelector</code> 和 <code>useAppDispatch</code> 代替默认的  <code>useSelector</code> 和 <code>useDispatch</code> 来获取 state 和 dispatch。</p>
+<h2 id="store-x2F-login-ts"><a href="#store-x2F-login-ts" class="headerlink" title="store/login.ts"></a>store/login.ts</h2><p>此文件用于存放登录状态相关的 reducer 和 action。</p>
+<p>通过 <code>createSlice</code> 方法创建 reducer，通过 <code>reducers</code> 属性指定 reducer。通过 <code>actions</code> 属性指定 action。</p>
+<pre class="line-numbers language-typescript" data-language="typescript"><code class="language-typescript"><span class="token comment">// src/store/login.ts</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> createSlice<span class="token punctuation">,</span> PayloadAction <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@reduxjs/toolkit'</span>
+<span class="token keyword">import</span> <span class="token keyword">type</span> <span class="token punctuation">{</span> RootState <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"../store"</span><span class="token punctuation">;</span>
+<span class="token comment">// state 类型</span>
+<span class="token keyword">interface</span> <span class="token class-name">LoginState</span> <span class="token punctuation">{</span>
+  isLogin<span class="token operator">:</span> <span class="token builtin">boolean</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// 初始值</span>
+<span class="token keyword">const</span> initialState<span class="token operator">:</span> LoginState <span class="token operator">=</span> <span class="token punctuation">{</span>
+  isLogin<span class="token operator">:</span> <span class="token boolean">false</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// 创建 slice</span>
+<span class="token keyword">const</span> loginSlice <span class="token operator">=</span> <span class="token function">createSlice</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  name<span class="token operator">:</span> <span class="token string">'login'</span><span class="token punctuation">,</span>
+  initialState<span class="token punctuation">,</span>
+  reducers<span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token function">login</span><span class="token punctuation">(</span>state<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      state<span class="token punctuation">.</span>isLogin <span class="token operator">=</span> <span class="token boolean">true</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token function">logout</span><span class="token punctuation">(</span>state<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      state<span class="token punctuation">.</span>isLogin <span class="token operator">=</span> <span class="token boolean">false</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token comment">// 导出 action</span>
+<span class="token keyword">export</span> <span class="token keyword">const</span> <span class="token punctuation">{</span> login<span class="token punctuation">,</span> logout <span class="token punctuation">}</span> <span class="token operator">=</span> loginSlice<span class="token punctuation">.</span>actions
+<span class="token comment">// 导出 state</span>
+<span class="token comment">// 选择器等其他代码可以使用导入的 `RootState` 类型</span>
+<span class="token keyword">export</span> <span class="token keyword">const</span> <span class="token function-variable function">loginState</span> <span class="token operator">=</span> <span class="token punctuation">(</span>state<span class="token operator">:</span> RootState<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> state<span class="token punctuation">.</span>loginState<span class="token punctuation">;</span>
+<span class="token comment">// 导出 reducer</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> loginSlice<span class="token punctuation">.</span>reducer<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>在 <code>App.tsx</code> 中使用。</p>
+<pre class="line-numbers language-tsx" data-language="tsx"><code class="language-tsx"><span class="token comment">// src/App.tsx</span>
+<span class="token comment">// 导入 provider</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Provider <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react-redux'</span>
+<span class="token comment">// 导入 store</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> store <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./store'</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> useAppSelector<span class="token punctuation">,</span> useAppDispatch <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./hooks/store'</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> login<span class="token punctuation">,</span> logout <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./store/login'</span>
+
+<span class="token keyword">function</span> <span class="token function">App</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> isLogin <span class="token operator">=</span> <span class="token function">useAppSelector</span><span class="token punctuation">(</span>state <span class="token operator">=&gt;</span> state<span class="token punctuation">.</span>login<span class="token punctuation">.</span>isLogin<span class="token punctuation">)</span>
+  <span class="token keyword">const</span> dispatch <span class="token operator">=</span> <span class="token function">useAppDispatch</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">className</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>App<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token plain-text">
+      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">onClick</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token function">dispatch</span><span class="token punctuation">(</span><span class="token function">login</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">}</span></span><span class="token punctuation">&gt;</span></span><span class="token plain-text">登录</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span><span class="token plain-text">
+      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">onClick</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token function">dispatch</span><span class="token punctuation">(</span><span class="token function">logout</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">}</span></span><span class="token punctuation">&gt;</span></span><span class="token plain-text">登出</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span><span class="token plain-text">
+      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">Provider</span></span> <span class="token attr-name">store</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>store<span class="token punctuation">}</span></span><span class="token punctuation">&gt;</span></span><span class="token plain-text">
+       </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">{</span>isLogin <span class="token operator">?</span> <span class="token string">'已登录'</span> <span class="token operator">:</span> <span class="token string">'未登录'</span><span class="token punctuation">}</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span><span class="token plain-text">
+      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token class-name">Provider</span></span><span class="token punctuation">&gt;</span></span><span class="token plain-text"> 
+    </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> App<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    
+  </article>
+
+  
+      
+    <div class="nexmoe-post-copyright">
+        <strong>本文作者：</strong>别调P<br>
+        <strong>本文链接：</strong><a href="https://blog.bietiaop.com/2023/04/19/web/front/react/redux-de-shi-yong/" title="https:&#x2F;&#x2F;blog.bietiaop.com&#x2F;2023&#x2F;04&#x2F;19&#x2F;web&#x2F;front&#x2F;react&#x2F;redux-de-shi-yong&#x2F;" target="_blank" rel="noopener">https:&#x2F;&#x2F;blog.bietiaop.com&#x2F;2023&#x2F;04&#x2F;19&#x2F;web&#x2F;front&#x2F;react&#x2F;redux-de-shi-yong&#x2F;</a><br>
+        
+            <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+
+        
+    </div>
+
+
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow">
+   
+    
+        <a class="nexmoefont icon-tag-fill -none-link" href="/tags/React/" rel="tag">React</a> <a class="nexmoefont icon-tag-fill -none-link" href="/tags/Redux/" rel="tag">Redux</a> <a class="nexmoefont icon-tag-fill -none-link" href="/tags/web/" rel="tag">web</a> <a class="nexmoefont icon-tag-fill -none-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a>
+    
+</div>
+  
+  
+    <script async src="/js/copy-codeblock.js?v=1687409187641"></script>
+  
+
+  
+      <div class="nexmoe-post-footer">
+          <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<div id="vcomments">
+  正在努力加载评论
+</div>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: 'q3wFidkEgse9PfmKDYl9XugD-gzGzoHsz',
+        appKey: 'SvOMchDSYmvR50to670gIrzE',
+        enableQQ: true
+    })
+</script>
+
+      </div>
+  
+</div>
+</div>
+        <div class="nexmoe-post-right">
+              <div class="nexmoe-fixed">
+                  <div class="nexmoe-tool"> 
+                    
+                      
+                        
+                          
+                          
+                              <button class="mdui-fab catalog" style="overflow:unset;">
+                                  <i class="nexmoefont icon-i-catalog"></i>
+                                  <div class="nexmoe-toc">
+                                      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-Redux-Tookit-%E5%92%8C-React-Redux"><span class="toc-number">1.</span> <span class="toc-text">安装 Redux Tookit 和 React Redux</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA-store-%E7%9B%B8%E5%85%B3%E6%96%87%E4%BB%B6"><span class="toc-number">2.</span> <span class="toc-text">创建 store 相关文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#store-x2F-index-ts"><span class="toc-number">3.</span> <span class="toc-text">store&#x2F;index.ts</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#hooks-x2F-store-ts"><span class="toc-number">4.</span> <span class="toc-text">hooks&#x2F;store.ts</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#store-x2F-login-ts"><span class="toc-number">5.</span> <span class="toc-text">store&#x2F;login.ts</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8"><span class="toc-number">6.</span> <span class="toc-text">使用</span></a></li></ol>
+                                  </div>
+                              </button>
+                          
+                          
+                      
+                    
+                      <a href="#nexmoe-content" class="toc-link" aria-label="Back To Top" title="top"><button class="mdui-fab mdui-ripple"><i class="nexmoefont icon-caret-top"></i></button></a>
+                  </div>
+              </div>
+            </div>
+    </div>
+    <div id="nexmoe-search-space">
+	<div class="search-container">
+		<div class="search-header">
+			<div class="search-input-container">
+				<input
+					class="search-input"
+					type="text"
+					placeholder="搜索"
+					oninput="sinput();"
+				/>
+			</div>
+			<a class="search-close" onclick="sclose();">×</a>
+		</div>
+		<div class="search-body"></div>
+	</div>
+</div>
+
+    
+    
+
+        <script src="//cdn.jsdelivr.net/npm/js-base64/base64.min.js"></script>
+        <script>
+        const hasAttr = (e,a) => a.some(_=> e.attr(_)!==undefined);
+        $('a').each(function() {
+          const $this = $(this);
+          if(hasAttr($this,["data-fancybox","ignore-external-link"])) return;
+          const href = $this.attr('href');
+          if (href && href.match('^((http|https|thunder|qqdl|ed2k|Flashget|qbrowser|ftp|rtsp|mms)://)')) {
+            const strs = href.split('/');
+            if (strs.length >= 3) {
+                const host = strs[2];
+                if (host !== '' || window.location.host) {
+                    $this.attr('href', '/go.html?u='+Base64.encode(href)+'').attr('rel', 'external nofollow noopener noreferrer');
+                    if (true) {
+                        $this.attr('target', '_blank');
+                    }
+                }
+            }
+          }
+        });
+        </script></body>
+
+</html>

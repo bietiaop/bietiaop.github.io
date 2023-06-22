@@ -1,5 +1,19 @@
+@font-face {
+    font-family: 'SR';
+    src: url('./font.ttf') format('truetype');
+}
+html,body {
+    font-family: 'SR', 'PingFang SC', 'Helvetica Neue', 'Microsoft YaHei',  Helvetica, Arial, sans-serif;
+}
 code {
     padding: 0 !important;
+}
+p code {
+    padding: 0.2em 0.4em !important;
+    font-size: 0.9em !important;
+    background: rgba(27,31,35,.05) !important;
+    border-radius: 3px !important;
+    box-shadow: inset 0 -1px 0 rgba(27,31,35,.1) !important;
 }
 pre {
     padding-top: 40px !important;
@@ -15,10 +29,30 @@ pre::before {
     border-radius: 50%;
     background: rgb(231, 26, 26) !important;
     top: 13px;
-    left: 13px;
+    left: 23px;
     display: block;
     box-shadow: 0 0 3px inset rgba(0, 0, 0, 0.8);
     transition: 0.3s;
+}
+pre::before:hover {
+    background: rgb(210, 21, 21) !important;
+}
+.code-toolbar .toolbar-item {
+    /* transition: 0.3s; */
+    cursor: default;
+    margin: 0 3px;
+}
+.code-toolbar .toolbar-item:hover {
+    color: azure !important;
+}
+.code-toolbar .toolbar .toolbar-item &gt; span {
+    padding: 5px 10px !important;
+}
+.code-toolbar .toolbar-item button {
+    cursor: pointer;
+}
+.code-toolbar .toolbar-item button:focus {
+    color: azure !important;
 }
 .nexmoe-avatar {
     box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3) !important;
@@ -36,7 +70,7 @@ pre::before {
 
 .nexmoe-post {
     border-bottom: 2px solid rgb(196, 196, 196);
-    border-radius: 16px;
+    /* border-radius: 16px; */
     overflow: hidden;
     transition: 0.3s;
 }
@@ -56,6 +90,7 @@ pre::before {
     border-radius: 16px !important;
 }
 .nexmoe-posts .nexmoe-post {
+    border-radius: 16px;
     border-bottom: 2px solid rgb(231, 201, 205);
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
