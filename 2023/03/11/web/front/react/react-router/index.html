@@ -4,19 +4,20 @@
 
 <head>
     
-    <title>React路由实现 - 别调P的小窝</title>
+    <title>React Router 使用 - 别调P的小窝</title>
     <meta charset="UTF-8">
     <meta name="keywords" content="前端,HTML,bietiaop,别调P,别调皮,编程,学习,大学生,博客,CSS,NodeJS,JavaScript,JS,React,Vue,开发,安全,网络空间安全,网安">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
     
     <link rel="shortcut icon" href="https://thirdqq.qlogo.cn/g?b=sdk&amp;k=27Ng6EAub38cF3gdSBSNoA&amp;s=640&amp;t=1654771498" type="image/jpeg" />
-    <meta name="description" content="React Router 官网：https:&#x2F;&#x2F;reactrouter.com  首先安装 React Router： npm install react-router-dom -S  核心组件 - BrowserRouter作用：包裹整个应用，一个 React 应用只需要使用一次 两种常用 Router：HashRouter 和 BrowserRouter (推荐) function App(">
+    <meta name="description" content="React Router 官网：https:&#x2F;&#x2F;reactrouter.com  首先安装 React Router： npm install react-router-dom -S  核心组件 - BrowserRouter作用：包裹整个应用，一个 React 应用只需要使用一次 两种常用 Router：HashRouter（如果使用Electron，推荐使用这个） 和 BrowserRout">
 <meta property="og:type" content="article">
-<meta property="og:title" content="React路由实现">
+<meta property="og:title" content="React Router 使用">
 <meta property="og:url" content="https://blog.bietiaop.com/2023/03/11/web/front/react/react-router/index.html">
 <meta property="og:site_name" content="别调P的小窝">
-<meta property="og:description" content="React Router 官网：https:&#x2F;&#x2F;reactrouter.com  首先安装 React Router： npm install react-router-dom -S  核心组件 - BrowserRouter作用：包裹整个应用，一个 React 应用只需要使用一次 两种常用 Router：HashRouter 和 BrowserRouter (推荐) function App(">
+<meta property="og:description" content="React Router 官网：https:&#x2F;&#x2F;reactrouter.com  首先安装 React Router： npm install react-router-dom -S  核心组件 - BrowserRouter作用：包裹整个应用，一个 React 应用只需要使用一次 两种常用 Router：HashRouter（如果使用Electron，推荐使用这个） 和 BrowserRout">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blog.csdn.net/qq_21567385/article/details/108423111">
 <meta property="article:published_time" content="2023-03-11T14:30:15.000Z">
 <meta property="article:modified_time" content="2023-03-12T02:07:18.000Z">
 <meta property="article:author" content="别调P">
@@ -25,19 +26,20 @@
 <meta property="article:tag" content="React">
 <meta property="article:tag" content="React Router">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.csdn.net/qq_21567385/article/details/108423111">
     
 <link rel="stylesheet" href="/lib/fancybox/fancybox.css">
 <link rel="stylesheet" href="/lib/mdui_043tiny/mdui.css">
 <link rel="stylesheet" href="/lib/prism.css">
 
 
-    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1687454067426">
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1687497331393">
     
-    <link rel="stylesheet" href="/css/style.css?v=1687454067426">
+    <link rel="stylesheet" href="/css/style.css?v=1687497331393">
 
     
         
-            <link rel="stylesheet" href="/custom.css?v=1687454067426">
+            <link rel="stylesheet" href="/custom.css?v=1687497331393">
         
     
 
@@ -47,7 +49,7 @@
 <script src="/lib/prism.js" async></script>
 
 
-    <script async src="/js/app.js?v=1687454067426"></script>
+    <script async src="/js/app.js?v=1687497331393"></script>
     
      
 
@@ -138,7 +140,7 @@
 </div>
 
 
-	<script async src="/js/search.js?v=1687454067427"></script>
+	<script async src="/js/search.js?v=1687497331393"></script>
 
 
 
@@ -213,8 +215,8 @@
         
 
         <li class="category-list-item">
-          <a class="category-list-link" href="/categories/web/前端/">前端</a>
-          <span class="category-list-count">6</span>
+          <a class="category-list-link" href="/categories/设计/前端/">前端</a>
+          <span class="category-list-count">2</span>
         </li>
 
         
@@ -279,7 +281,7 @@
       <ul>
         
           <li>
-            <a href="/2023/04/19/web/front/react/redux-de-shi-yong-yi-deng-lu-zhuang-tai-guan-li-wei-li/">Redux的使用 - 以登录状态管理为例</a>
+            <a href="/2023/04/19/web/front/react/redux-de-shi-yong/">Redux的使用 - 以登录状态管理为例</a>
           </li>
         
           <li>
@@ -295,7 +297,7 @@
           </li>
         
           <li>
-            <a href="/2023/03/11/web/front/react/react-router/">React路由实现</a>
+            <a href="/2023/03/11/web/front/react/react-router/">React Router 使用</a>
           </li>
         
       </ul>
@@ -321,8 +323,8 @@
   <article>
     
         <div class="nexmoe-post-cover absolute" style="padding-top: NaN%;"> 
-            <img src="https://pi.loili.com/2023/1c4f5102a78ba7fec349dc73a5e2c1a3.png" alt="React路由实现" loading="lazy">
-            <h1>React路由实现</h1>
+            <img src="https://pi.loili.com/2023/1c4f5102a78ba7fec349dc73a5e2c1a3.png" alt="React Router 使用" loading="lazy">
+            <h1>React Router 使用</h1>
         </div>
     
     
@@ -348,7 +350,7 @@
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> react-router-dom <span class="token parameter variable">-S</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h2 id="核心组件-BrowserRouter"><a href="#核心组件-BrowserRouter" class="headerlink" title="核心组件 - BrowserRouter"></a>核心组件 - BrowserRouter</h2><p><strong>作用</strong>：包裹整个应用，一个 React 应用只需要使用一次</p>
-<p><strong>两种常用 Router</strong>：HashRouter 和 BrowserRouter (推荐)</p>
+<p><strong>两种常用 Router</strong>：HashRouter（如果使用Electron，推荐使用这个） 和 BrowserRouter (如果构建web，推荐使用这个)</p>
 <pre class="line-numbers language-jsx" data-language="jsx"><code class="language-jsx"><span class="token keyword">function</span> <span class="token function">App</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token keyword">return</span> <span class="token punctuation">(</span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">BrowserRouter</span></span><span class="token punctuation">&gt;</span></span><span class="token plain-text">
@@ -462,6 +464,22 @@
   </span><span class="token punctuation">{</span><span class="token comment">/* 当所有路径都没有匹配到时渲染此路由 */</span><span class="token punctuation">}</span><span class="token plain-text">
   </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">Route</span></span> <span class="token attr-name">path</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">'</span>*<span class="token punctuation">'</span></span> <span class="token attr-name">element</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">NotFound</span></span> <span class="token punctuation">/&gt;</span></span><span class="token punctuation">}</span></span> <span class="token punctuation">/&gt;</span></span><span class="token plain-text">
 </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token class-name">Routes</span></span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>  在 Github Pages 中，如果使用 <code>BrowserRouter</code>，刷新页面会出现 404，对于这个问题，参考如下：</p>
+<p>  <img onerror="imgOnError(this);" data-fancybox="gallery" src="https://blog.csdn.net/qq_21567385/article/details/108423111" alt="react部署到github pages教程及路由匹配问题" data-caption="react部署到github pages教程及路由匹配问题" loading="lazy"></p>
+<p>  对于 vercel，可以写一个 vercel.json 文件，放置在根目录下（确保打包后在根目录），内容如下：</p>
+  <pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token punctuation">{</span>
+  <span class="token property">"routes"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      <span class="token property">"src"</span><span class="token operator">:</span> <span class="token string">"/[^.]+"</span><span class="token punctuation">,</span>
+      <span class="token property">"dest"</span><span class="token operator">:</span> <span class="token string">"/"</span><span class="token punctuation">,</span>
+      <span class="token property">"status"</span><span class="token operator">:</span> <span class="token number">200</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>  一般来说放到 public 文件夹下。</p>
+
     
   </article>
 
@@ -487,7 +505,7 @@
 </div>
   
   
-    <script async src="/js/copy-codeblock.js?v=1687454067343"></script>
+    <script async src="/js/copy-codeblock.js?v=1687497331342"></script>
   
 
   

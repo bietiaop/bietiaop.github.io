@@ -33,13 +33,13 @@
 <link rel="stylesheet" href="/lib/prism.css">
 
 
-    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1687454067441">
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1687497331389">
     
-    <link rel="stylesheet" href="/css/style.css?v=1687454067441">
+    <link rel="stylesheet" href="/css/style.css?v=1687497331389">
 
     
         
-            <link rel="stylesheet" href="/custom.css?v=1687454067441">
+            <link rel="stylesheet" href="/custom.css?v=1687497331389">
         
     
 
@@ -49,7 +49,7 @@
 <script src="/lib/prism.js" async></script>
 
 
-    <script async src="/js/app.js?v=1687454067442"></script>
+    <script async src="/js/app.js?v=1687497331389"></script>
     
      
 
@@ -140,7 +140,7 @@
 </div>
 
 
-	<script async src="/js/search.js?v=1687454067442"></script>
+	<script async src="/js/search.js?v=1687497331389"></script>
 
 
 
@@ -215,8 +215,8 @@
         
 
         <li class="category-list-item">
-          <a class="category-list-link" href="/categories/web/前端/">前端</a>
-          <span class="category-list-count">6</span>
+          <a class="category-list-link" href="/categories/设计/前端/">前端</a>
+          <span class="category-list-count">2</span>
         </li>
 
         
@@ -281,7 +281,7 @@
       <ul>
         
           <li>
-            <a href="/2023/04/19/web/front/react/redux-de-shi-yong-yi-deng-lu-zhuang-tai-guan-li-wei-li/">Redux的使用 - 以登录状态管理为例</a>
+            <a href="/2023/04/19/web/front/react/redux-de-shi-yong/">Redux的使用 - 以登录状态管理为例</a>
           </li>
         
           <li>
@@ -297,7 +297,7 @@
           </li>
         
           <li>
-            <a href="/2023/03/11/web/front/react/react-router/">React路由实现</a>
+            <a href="/2023/03/11/web/front/react/react-router/">React Router 使用</a>
           </li>
         
       </ul>
@@ -370,7 +370,7 @@
   <span class="token keyword">return</span> element<span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>当然这是我们使用 JS 的写，也是官方给的写法，若我们使用 TS，则应该这样写（写进一个单独的文件，让 APP 文件导入）：</p>
+<p>当然这是我们使用 JS 的写，也是官方给的写法，若我们使用 TS，则应该加上类型，例如这样（最好写进一个单独的文件，让 APP 文件导入）：</p>
 <p><code>routes.tsx</code>：</p>
 <pre class="line-numbers language-tsx" data-language="tsx"><code class="language-tsx"><span class="token keyword">import</span> <span class="token operator">...</span><span class="token operator">...</span> from <span class="token operator">...</span><span class="token operator">...</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> useRoutes<span class="token punctuation">,</span> RouteObject <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"react-router-dom"</span><span class="token punctuation">;</span>
@@ -400,7 +400,7 @@
 <span class="token keyword">export</span> <span class="token keyword">default</span> GetRouters<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><code>App.tsx</code>：</p>
-<pre class="line-numbers language-tsx" data-language="tsx"><code class="language-tsx"><span class="token keyword">import</span> <span class="token operator">...</span><span class="token operator">...</span><span class="token punctuation">.</span> from <span class="token operator">...</span><span class="token operator">...</span>
+<pre class="line-numbers language-tsx" data-language="tsx"><code class="language-tsx"><span class="token keyword">import</span> <span class="token operator">...</span><span class="token operator">...</span> from <span class="token operator">...</span><span class="token operator">...</span>
 <span class="token keyword">import</span> GetRouters <span class="token keyword">from</span> <span class="token string">"./routes"</span>
 
 <span class="token keyword">function</span> <span class="token function">App</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -409,7 +409,7 @@
   </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token class-name">BrowserRouter</span></span><span class="token punctuation">&gt;</span></span>
 <span class="token punctuation">}</span>
 
-<span class="token operator">...</span><span class="token operator">...</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token operator">...</span><span class="token operator">...</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>当然，我们也可以在 <code>routes.tsx</code> 页面中仅写入数组，在 <code>App.tsx</code> 进行 <code>useRoutes</code>，全看个人喜好。</p>
 <p>如果我们在 <code>App.tsx</code> 还有 <code>Layout</code> 布局等，可以直接将此路由标签写入布局。</p>
@@ -420,7 +420,7 @@
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>更多用法参考官方文档</p>
-<h1 id="路由懒加载"><a href="#路由懒加载" class="headerlink" title="路由懒加载"></a>路由懒加载</h1><h2 id="React-Suspense"><a href="#React-Suspense" class="headerlink" title="React Suspense"></a>React Suspense</h2><pre class="line-numbers language-tsx" data-language="tsx"><code class="language-tsx"><span class="token keyword">import</span> <span class="token punctuation">{</span> lazy<span class="token punctuation">,</span> Suspense <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
+<h1 id="组件懒加载"><a href="#组件懒加载" class="headerlink" title="组件懒加载"></a>组件懒加载</h1><h2 id="React-Suspense"><a href="#React-Suspense" class="headerlink" title="React Suspense"></a>React Suspense</h2><pre class="line-numbers language-tsx" data-language="tsx"><code class="language-tsx"><span class="token keyword">import</span> <span class="token punctuation">{</span> lazy<span class="token punctuation">,</span> Suspense <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> Login <span class="token operator">=</span> <span class="token function">lazy</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token keyword">import</span><span class="token punctuation">(</span><span class="token string">'./Login'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">function</span> <span class="token function">App</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token keyword">return</span> <span class="token punctuation">(</span>
@@ -457,7 +457,7 @@
 </div>
   
   
-    <script async src="/js/copy-codeblock.js?v=1687454067343"></script>
+    <script async src="/js/copy-codeblock.js?v=1687497331341"></script>
   
 
   
@@ -490,7 +490,7 @@
                               <button class="mdui-fab catalog" style="overflow:unset;">
                                   <i class="nexmoefont icon-i-catalog"></i>
                                   <div class="nexmoe-toc">
-                                      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1"><span class="toc-number">1.</span> <span class="toc-text">路由</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#useRoute-%E9%85%8D%E7%BD%AE%E8%B7%AF%E7%94%B1"><span class="toc-number">2.</span> <span class="toc-text">useRoute 配置路由</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#useLocation-%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E5%9C%B0%E5%9D%80"><span class="toc-number">3.</span> <span class="toc-text">useLocation 获取当前地址</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E6%87%92%E5%8A%A0%E8%BD%BD"><span class="toc-number">4.</span> <span class="toc-text">路由懒加载</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#React-Suspense"><span class="toc-number">4.1.</span> <span class="toc-text">React Suspense</span></a></li></ol></li></ol>
+                                      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1"><span class="toc-number">1.</span> <span class="toc-text">路由</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#useRoute-%E9%85%8D%E7%BD%AE%E8%B7%AF%E7%94%B1"><span class="toc-number">2.</span> <span class="toc-text">useRoute 配置路由</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#useLocation-%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E5%9C%B0%E5%9D%80"><span class="toc-number">3.</span> <span class="toc-text">useLocation 获取当前地址</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%84%E4%BB%B6%E6%87%92%E5%8A%A0%E8%BD%BD"><span class="toc-number">4.</span> <span class="toc-text">组件懒加载</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#React-Suspense"><span class="toc-number">4.1.</span> <span class="toc-text">React Suspense</span></a></li></ol></li></ol>
                                   </div>
                               </button>
                           

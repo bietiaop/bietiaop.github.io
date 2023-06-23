@@ -8,7 +8,7 @@ html,body {
 code {
     padding: 0 !important;
 }
-p code {
+p code, h1 code, h2 code, h3 code, h4 code, h5 code, h6 code, b code, strong code, table code, i code, u code, a code {
     padding: 0.2em 0.4em !important;
     font-size: 0.9em !important;
     background: rgba(27,31,35,.05) !important;
@@ -20,6 +20,9 @@ pre {
     padding-bottom: 20px !important; */
     overflow: auto !important;
     position: relative;
+}
+article {
+    font-family: 'SR', 'PingFang SC', 'Helvetica Neue', 'Microsoft YaHei',  Helvetica, Arial, sans-serif;
 }
 .line-numbers .line-numbers-rows {
   border-right: 1px solid rgb(62, 64, 74); /* 设置竖线颜色 */
@@ -49,16 +52,19 @@ pre::before:hover {
     color: azure !important;
 }
 .code-toolbar .toolbar .toolbar-item  span {
-    padding-bottom: 3px !important;
+    padding-bottom: 1px !important;
     border-bottom: 2px solid #3d3d3d;
 }
 .code-toolbar .toolbar-item button {
-    padding-bottom: 3px !important;
+    padding-bottom: 1px !important;
     border-bottom: 2px solid #3d3d3d !important;
     cursor: pointer;
 }
 .code-toolbar .toolbar-item button:focus {
     color: azure !important;
+}
+.line-numbers-rows {
+    font-family: 'SR', 'PingFang SC', 'Helvetica Neue', 'Microsoft YaHei',  Helvetica, Arial, sans-serif;
 }
 .nexmoe-avatar {
     box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3) !important;
@@ -87,6 +93,7 @@ pre::before:hover {
     border-radius: 10px;
     overflow: hidden;
 }
+
 
 .nexmoe-post-meta {
     padding: 10px 0px;
@@ -146,6 +153,12 @@ pre::before:hover {
         width: 100% !important;
         position: relative !important;
         min-height: 100vh !important;
+    }
+}
+@media screen and (max-width: 1024px) {
+    .nexmoe-drawer {
+        max-width: 300px !important;
+        min-width: 210px !important;
     }
 }
 @media screen and (max-width: 770px) {
