@@ -87,8 +87,18 @@ pre::before:hover {
 .nexmoe-post {
     border-bottom: 2px solid rgb(196, 196, 196);
     /* border-radius: 16px; */
-    overflow: hidden;
+    overflow: visible;
     transition: 0.3s;
+    margin-bottom: 140px;
+    position: relative;
+}
+.nexmoe-post::after {
+    content: 'Copyright © bietiaop';
+    position: absolute;
+    bottom: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+
 }
 #nexmoe-content .nexmoe-post .nexmoe-post-cover {
     min-height: 194px !important;
@@ -146,6 +156,34 @@ pre::before:hover {
 .vpanel {
     background-color: rgb(255, 255, 255);
     border-radius: 10px;
+}
+.vreply-wrapper .vwrap {
+    background-color: #fff;
+    border: 1px solid #b6b6b6 !important;
+}
+.cancel-reply.text-right {
+    color: #b6b6b6 !important;
+}
+.cancel-reply.text-right svg {
+    fill: #b6b6b6 !important;
+    transition: 0.3s !important;
+}
+.cancel-reply.text-right svg:hover {
+    fill: #000000 !important;
+}
+.cancel-reply.text-right svg:active {
+    fill: #b6b6b6 !important;
+}
+#veditor {
+    /* 隐藏拖动改变大小 */
+    resize: none;
+}
+.vpower.txt-right {
+    /* 只显示一行 */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    height: 1.8rem;
 }
 @media screen and (max-width: 1024px) {
     .nexmoe-drawer {
