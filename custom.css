@@ -22,14 +22,42 @@ p code, h1 code, h2 code, h3 code, h4 code, h5 code, h6 code, b code, strong cod
 pre {
     /* padding-top: 40px !important;
     padding-bottom: 20px !important; */
-    overflow: auto !important;
+    overflow: overlay !important;
     position: relative;
+    transition: 0.4s !important;
+}
+pre::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+    /* 不占位置 */
+    position: absolute;
+}
+pre::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0);
+    border-radius: 8px;
+}
+pre::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0);
+    border-radius: 8px;
+    border: 2px solid rgba(0, 0, 0, 0);
+}
+pre:hover::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 1);
+}
+pre:hover::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
 }
 article {
     font-family: 'SR', 'PingFang SC', 'Helvetica Neue', 'Microsoft YaHei',  Helvetica, Arial, sans-serif;
 }
 .line-numbers .line-numbers-rows {
   border-right: 1px solid rgb(62, 64, 74); /* 设置竖线颜色 */
+}
+article ul code span {
+    margin-right: 0;
+}
+article ul button span {
+    margin-right: 0;
 }
 /* pre::before {
     content: '';
