@@ -214,7 +214,7 @@ pre::before:hover {
     height: 1.8rem;
 }
 @media screen and (max-width: 1024px) {
-    .nexmoe-drawer {
+    .nexmoe-drawer.mdui-drawer-open {
         max-width: 300px !important;
         min-width: 210px !important;
     }
