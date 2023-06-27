@@ -1,7 +1,4 @@
-@font-face {
-    font-family: 'SR';
-    src: url('./font.ttf') format('truetype');
-}
+@import url('./fonts.css');
 html,body {
     font-family: 'SR', 'PingFang SC', 'Helvetica Neue', 'Microsoft YaHei',  Helvetica, Arial, sans-serif;
 }
