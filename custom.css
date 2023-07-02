@@ -4,6 +4,8 @@ html,body {
 }
 code {
     padding: 0 !important;
+    font-family: "Fira Code", Consolas, "Liberation Mono", Menlo, Courier, monospace !important;
+
 }
 p code, h1 code, h2 code, h3 code, h4 code, h5 code, h6 code, b code, strong code, table code, i code, u code, a code {
     display: inline-block;
@@ -16,16 +18,25 @@ p code, h1 code, h2 code, h3 code, h4 code, h5 code, h6 code, b code, strong cod
     /* box-decoration-break: clone !important;
     -wenkit-box-decoration-break: clone; */
 }
+article h1, article h2, article h3, article h4, article h5, article h6 {
+    margin-top: 2em !important;
+    margin-bottom: 0.5em !important;
+}
+.nexmoe-post-cover h1, .nexmoe-post-cover h2, .nexmoe-post-cover h3, .nexmoe-post-cover h4, .nexmoe-post-cover h5, .nexmoe-post-cover h6 {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
 pre {
     /* padding-top: 40px !important;
     padding-bottom: 20px !important; */
     overflow: overlay !important;
     position: relative;
     transition: 0.4s !important;
+    font-family: "Fira Code", Consolas, "Liberation Mono", Menlo, Courier, monospace !important;
 }
-article pre:hover {
+/* article pre:hover {
     border-radius: var(--radius) var(--radius) 4px 4px;
-}
+} */
 pre::-webkit-scrollbar {
     width: 8px;
     height: 8px;
@@ -48,16 +59,40 @@ pre:hover::-webkit-scrollbar-track {
     background: rgba(255, 255, 255, 0.2);
 }
 article {
+    color: #000000;
     font-family: 'SR', 'PingFang SC', 'Helvetica Neue', 'Microsoft YaHei',  Helvetica, Arial, sans-serif;
 }
+article p {
+    margin: 1em 0;
+}
 .line-numbers .line-numbers-rows {
-  border-right: 1px solid rgb(62, 64, 74); /* 设置竖线颜色 */
+    border-right: 1px solid rgb(62, 64, 74); /* 设置竖线颜色 */
+}
+article img {
+    /* border: 1px solid rgb(209, 209, 209); */
+    border-radius: 5px !important;
+    margin-bottom: 1em !important;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 article ul code span {
     margin-right: 0;
 }
 article ul button span {
     margin-right: 0;
+}
+article blockquote {
+    font-family: 'SR', 'PingFang SC', 'Helvetica Neue', 'Microsoft YaHei',  Helvetica, Arial, sans-serif;
+}
+blockquote p {
+    margin: 1em 0;
+}
+strong, b, h1, h2, h3, h4, h5, h6 {
+    font-family: 'PingFang SC', 'Helvetica Neue', 'Microsoft YaHei',  Helvetica, Arial, sans-serif;
+}
+p:has(img) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 /* pre::before {
     content: '';
@@ -105,11 +140,12 @@ pre::before:hover {
 .nexmoe-avatar:hover {
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5) !important;
 }
-.nexmoe-count &gt; div {
-    background: rgb(248, 248, 248);
+.nexmoe-count > div {
+    background: rgba(248, 248, 248, 0.6);
+    backdrop-filter: blur(5px);
     margin: 0px 5px;
     border-radius: 10px;
-    padding: 5px;
+    padding: 8px 10px;
 }
 
 .nexmoe-post {
@@ -126,16 +162,25 @@ pre::before:hover {
     bottom: -100px;
     left: 50%;
     transform: translateX(-50%);
-
 }
 #nexmoe-content .nexmoe-post .nexmoe-post-cover {
     min-height: 194px !important;
 }
 .nexmoe-primary {
+    position: relative;
     border-radius: 10px;
     overflow: hidden;
 }
-
+.nexmoe-primary:has(.nexmoe-posts) {
+    padding-bottom: 100px !important;
+}
+.nexmoe-primary:has(.nexmoe-posts)::after {
+    content: "© bietiaop";
+    position: absolute;
+    left: 50%;
+    bottom: 2em;
+    transform: translate(-50%, 0);
+}
 
 .nexmoe-post-meta {
     padding: 10px 0px;
@@ -148,10 +193,14 @@ pre::before:hover {
     padding-bottom: 15% !important;
     border-radius: 16px !important;
 }
+
 .nexmoe-posts .nexmoe-post {
     border-radius: 16px;
     border-bottom: 2px solid rgb(231, 201, 205);
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+.nexmoe-posts .nexmoe-post::after {
+    display: none;
 }
 .nexmoe-posts .nexmoe-post-cover {
     border-radius: 16px 16px 0 0 !important;
@@ -212,6 +261,44 @@ pre::before:hover {
     text-overflow: ellipsis;
     white-space: nowrap;
     height: 1.8rem;
+}
+.nexmoe-drawer .nexmoe-list .nexmoe-list-item {
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(5px);
+}
+.nexmoe-page-nav {
+    justify-content: right;
+}
+
+.spoiler-title {
+    padding: 0.6em 1em !important;
+    font-size: 1em !important;
+    user-select: none;
+    transition: 0.3s;
+    position: relative;
+    display: flex !important;
+    align-items: center;
+}
+.spoiler-title:hover {
+    background-color: rgba(0, 0, 0, 0.2) !important;
+}
+.spoiler-title::before {
+    /* content: "△" !important; */
+    content: "" !important;
+    display: block;
+    margin-top: -0.1em;
+    margin-right: 0.5em;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 0.6em 0.8em 0.6em;
+    border-color: transparent transparent rgba(0, 0, 0, 0.3) transparent;
+    transform: rotate(180deg);
+    border-radius: 3px;
+    transition: 0.5s;
+}
+.spoiler.expanded .spoiler-title::before {
+    transform: rotate(0deg);
 }
 @media screen and (max-width: 1024px) {
     .nexmoe-drawer.mdui-drawer-open {
