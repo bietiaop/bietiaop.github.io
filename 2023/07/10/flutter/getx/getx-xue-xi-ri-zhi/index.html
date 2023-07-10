@@ -1,0 +1,1526 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+
+<head>
+    
+    <title>GetX 学习日志 - 别调P的小窝</title>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="前端,HTML,bietiaop,别调P,别调皮,编程,学习,大学生,博客,CSS,NodeJS,JavaScript,JS,React,Vue,开发,安全,网络空间安全,网安">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    
+    <link rel="shortcut icon" href="https://thirdqq.qlogo.cn/g?b=sdk&amp;k=27Ng6EAub38cF3gdSBSNoA&amp;s=640&amp;t=1654771498" type="image/jpeg" />
+    <meta name="description" content="前言急匆匆学完了 Flutter（当然后面肯定还要找时间巩固巩固），看的是 IT 营的 Flutter 基础课（也没记住多少），课程后面提到了 GetX，对于状态管理、路由、国际化等的帮助还是很大的，所以顺势就学了 GetX，官网的文档写的也不是特别完善，特别是对于我这种速成 Flutter 的零基础的，还是去 B 站找一个视频学习 GetX，初步筛选下，找到了这个视频：Flutter GetX零">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GetX 学习日志">
+<meta property="og:url" content="https://blog.bietiaop.com/2023/07/10/flutter/getx/getx-xue-xi-ri-zhi/index.html">
+<meta property="og:site_name" content="别调P的小窝">
+<meta property="og:description" content="前言急匆匆学完了 Flutter（当然后面肯定还要找时间巩固巩固），看的是 IT 营的 Flutter 基础课（也没记住多少），课程后面提到了 GetX，对于状态管理、路由、国际化等的帮助还是很大的，所以顺势就学了 GetX，官网的文档写的也不是特别完善，特别是对于我这种速成 Flutter 的零基础的，还是去 B 站找一个视频学习 GetX，初步筛选下，找到了这个视频：Flutter GetX零">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blog.bietiaop.com/2023/07/10/flutter/getx/getx-xue-xi-ri-zhi/2f3cd0173a7e34a5192e539e68f5500b.jpg">
+<meta property="og:image" content="https://blog.bietiaop.com/2023/07/10/flutter/getx/getx-xue-xi-ri-zhi/image-20230710123430941.png">
+<meta property="og:image" content="https://blog.bietiaop.com/2023/07/10/flutter/getx/getx-xue-xi-ri-zhi/3751f2fe36d8c66971e807188f1115a8.jpg">
+<meta property="og:image" content="https://blog.bietiaop.com/2023/07/10/flutter/getx/getx-xue-xi-ri-zhi/image-20230710140645300.png">
+<meta property="og:image" content="https://blog.bietiaop.com/2023/07/10/flutter/getx/getx-xue-xi-ri-zhi/30114530fbf858d9e44c3406fa884ae7.jpg">
+<meta property="og:image" content="https://blog.bietiaop.com/2023/07/10/flutter/getx/getx-xue-xi-ri-zhi/62a8543aba8091ed3a6cea196d45e85e.jpg">
+<meta property="og:image" content="https://blog.bietiaop.com/2023/07/10/flutter/getx/getx-xue-xi-ri-zhi/eddf152133aafe35018cb52535ffdeaa.jpg">
+<meta property="og:image" content="https://blog.bietiaop.com/2023/07/10/flutter/getx/getx-xue-xi-ri-zhi/91f83c028da6f85b7025d561e32e0efa.jpg">
+<meta property="og:image" content="https://blog.bietiaop.com/2023/07/10/flutter/getx/getx-xue-xi-ri-zhi/44841ace8bf7d501eb8c937ff623e2bf.jpeg">
+<meta property="og:image" content="https://blog.bietiaop.com/2023/07/10/flutter/getx/getx-xue-xi-ri-zhi/image-20230710151901558.png">
+<meta property="og:image" content="https://blog.bietiaop.com/2023/07/10/flutter/getx/getx-xue-xi-ri-zhi/image-20230710152016122.png">
+<meta property="og:image" content="https://blog.bietiaop.com/2023/07/10/flutter/getx/getx-xue-xi-ri-zhi/image-20230710220044465.png">
+<meta property="article:published_time" content="2023-07-10T00:15:13.000Z">
+<meta property="article:modified_time" content="2023-07-10T15:59:38.000Z">
+<meta property="article:author" content="别调P">
+<meta property="article:tag" content="Flutter">
+<meta property="article:tag" content="GetX">
+<meta property="article:tag" content="安卓应用开发">
+<meta property="article:tag" content="Android应用开发">
+<meta property="article:tag" content="iOS应用开发">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.bietiaop.com/2023/07/10/flutter/getx/getx-xue-xi-ri-zhi/2f3cd0173a7e34a5192e539e68f5500b.jpg">
+    
+<link rel="stylesheet" href="/lib/fancybox/fancybox.css">
+<link rel="stylesheet" href="/lib/mdui_043tiny/mdui.css">
+
+
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1689004879805">
+    
+    <link rel="stylesheet" href="/css/style.css?v=1689004879805">
+
+    
+        
+            <link rel="stylesheet" href="/custom.css?v=1689004879805">
+        
+            <link rel="stylesheet" href="/custom.css?v=1689004879805">
+        
+    
+
+    
+<script src="/lib/mdui_043tiny/mdui.js" async></script>
+<script src="/lib/fancybox/fancybox.umd.js" async></script>
+
+
+    <script async src="/js/app.js?v=1689004879805"></script>
+    
+     
+
+    <link rel="stylesheet" href="/prism.css">
+<link rel="stylesheet" href="/prism-theme.css">
+<link rel="stylesheet" href="/custom.css">
+
+<meta name="generator" content="Hexo 6.2.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+
+<body class="mdui-drawer-body-left">
+    <div id="nexmoe-background">
+        <div class="nexmoe-bg" 
+            style="background-image: url(https://pi.loili.com/2023/f6783b98aff068804ef345ecfab907ab.jpg)"
+        ></div>
+        <div class="mdui-appbar mdui-shadow-0">
+            <div class="mdui-toolbar">
+                <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
+                <div class="mdui-toolbar-spacer"></div>
+                <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+                <a href="/" title="别调P" class="mdui-btn mdui-btn-icon"><img src="https://thirdqq.qlogo.cn/g?b=sdk&amp;k=27Ng6EAub38cF3gdSBSNoA&amp;s=640&amp;t=1654771498" alt="别调P"></a>
+            </div>
+        </div>
+    </div>
+    <div id="nexmoe-header">
+        <div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="别调P">
+            <img src="https://thirdqq.qlogo.cn/g?b=sdk&amp;k=27Ng6EAub38cF3gdSBSNoA&amp;s=640&amp;t=1654771498" alt="别调P" alt="别调P">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div><span>文章</span>11</div>
+        <div><span>标签</span>32</div>
+        <div><span>分类</span>10</div>
+    </div>
+    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/archive.html" title="文章归档">
+            <i class="mdui-list-item-icon nexmoefont icon-container"></i>
+            <div class="mdui-list-item-content">
+                文章归档
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/works.html" title="我的作品">
+            <i class="mdui-list-item-icon nexmoefont icon-container"></i>
+            <div class="mdui-list-item-content">
+                我的作品
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/favorites.html" title="收 藏 夹">
+            <i class="mdui-list-item-icon nexmoefont icon-tags-fill"></i>
+            <div class="mdui-list-item-content">
+                收 藏 夹
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" target="_blank" rel="noopener" href="https://www.bietiaop.com" title="关 于 我">
+            <i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
+            <div class="mdui-list-item-content">
+                关 于 我
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/friends.html" title="友情链接">
+            <i class="mdui-list-item-icon nexmoefont icon-unorderedlist"></i>
+            <div class="mdui-list-item-content">
+                友情链接
+            </div>
+        </a>
+        
+    </div>
+    <aside id="nexmoe-sidebar">
+        
+            
+            <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-search">
+        
+            <form id="search_form">
+                <label><input class="st-default-search-input" id="search_value" name="q" type="search" placeholder="搜索" style="
+                    font-size: 15px !important;
+                    height: 56px !important;
+                    background-image: none;
+                "></label>
+            </form>
+         
+    </div>
+</div>
+
+
+	<script async src="/js/search.js?v=1689004879805"></script>
+
+
+
+        
+            
+            <div class="nexmoe-widget-wrap">
+	<div class="nexmoe-widget nexmoe-social">
+		<a
+			class="mdui-ripple"
+			href="https://space.bilibili.com/152308001"
+			target="_blank"
+			mdui-tooltip="{content: '哔哩哔哩'}"
+			style="
+				color: rgb(231, 106, 141);
+				background-color: rgba(231, 106, 141, .15);
+			"
+		>
+			<i
+				class="nexmoefont icon-bilibili"
+			></i> </a
+		><a
+			class="mdui-ripple"
+			href="https://github.com/bietiaop/"
+			target="_blank"
+			mdui-tooltip="{content: 'GitHub'}"
+			style="
+				color: rgb(25, 23, 23);
+				background-color: rgba(25, 23, 23, .15);
+			"
+		>
+			<i
+				class="nexmoefont icon-github"
+			></i> </a
+		><a
+			class="mdui-ripple"
+			href="https://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=bietiaop%40bietiaop.com"
+			target="_blank"
+			mdui-tooltip="{content: 'Email'}"
+			style="
+				color: rgb(25, 23, 23);
+				background-color: rgba(25, 23, 23, .15);
+			"
+		>
+			<i
+				class="nexmoefont icon-mail-fill"
+			></i> </a
+		>
+	</div>
+</div>
+
+        
+            
+            
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章分类</h3>
+    <div class="nexmoe-widget">
+
+      <ul class="category-list">
+
+        
+
+
+        
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Flutter/">Flutter</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Vite/">Vite</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/web/">web</a>
+          <span class="category-list-count">7</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/设计/前端/">前端</a>
+          <span class="category-list-count">4</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/数据库/后端/">后端</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/数据库/">数据库</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/设计/">设计</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+      </ul>
+
+    </div>
+  </div>
+
+
+        
+            
+            
+  <div class="nexmoe-widget-wrap">
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
+      <a href="/tags/Android%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91/" style="font-size: 10px;">Android应用开发</a> <a href="/tags/CSS/" style="font-size: 12px;">CSS</a> <a href="/tags/Flutter/" style="font-size: 10px;">Flutter</a> <a href="/tags/GetX/" style="font-size: 10px;">GetX</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/MySql/" style="font-size: 10px;">MySql</a> <a href="/tags/Query/" style="font-size: 10px;">Query</a> <a href="/tags/React/" style="font-size: 16px;">React</a> <a href="/tags/React-Router/" style="font-size: 10px;">React Router</a> <a href="/tags/Redux/" style="font-size: 10px;">Redux</a> <a href="/tags/Vite/" style="font-size: 14px;">Vite</a> <a href="/tags/Vite%E6%8F%92%E4%BB%B6/" style="font-size: 10px;">Vite插件</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/br/" style="font-size: 10px;">br</a> <a href="/tags/gzip/" style="font-size: 10px;">gzip</a> <a href="/tags/iOS%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91/" style="font-size: 10px;">iOS应用开发</a> <a href="/tags/web/" style="font-size: 18px;">web</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 20px;">前端</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E5%AD%97%E4%BD%93/" style="font-size: 10px;">前端字体</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 10px;">博客</a> <a href="/tags/%E5%8E%8B%E7%BC%A9/" style="font-size: 10px;">压缩</a> <a href="/tags/%E5%90%8E%E7%AB%AF/" style="font-size: 10px;">后端</a> <a href="/tags/%E5%9B%BE%E7%89%87%E6%8A%95%E5%BD%B1/" style="font-size: 10px;">图片投影</a> <a href="/tags/%E5%9B%BE%E7%89%87%E9%98%B4%E5%BD%B1/" style="font-size: 10px;">图片阴影</a> <a href="/tags/%E5%AD%97%E4%BD%93%E5%88%87%E5%89%B2/" style="font-size: 10px;">字体切割</a> <a href="/tags/%E5%AE%89%E5%8D%93%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91/" style="font-size: 10px;">安卓应用开发</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 10px;">数据库</a> <a href="/tags/%E6%9F%A5%E8%AF%A2/" style="font-size: 10px;">查询</a> <a href="/tags/%E7%BD%91%E7%AB%99/" style="font-size: 16px;">网站</a> <a href="/tags/%E7%BD%91%E9%A1%B5/" style="font-size: 16px;">网页</a> <a href="/tags/%E8%AE%BE%E8%AE%A1/" style="font-size: 10px;">设计</a> <a href="/tags/%E9%85%8D%E8%89%B2/" style="font-size: 10px;">配色</a>
+    </div>
+    
+      <script>
+        var maxTagcloud = parseInt(17);
+        var tags_length = parseInt(32);
+        var tags_arr = [];
+        for(var i = 0; i < tags_length; i++){
+          tags_arr.push(i);
+        }
+        tags_arr.sort(function (l, r) {
+          return Math.random() > 0.5 ? -1 : 1;
+        });
+        tags_arr = tags_arr.slice(0, maxTagcloud < tags_length ? tags_length - maxTagcloud : 0);
+        for(var tag_i = 0; tag_i < tags_arr.length; tag_i++){
+          document.getElementById("randomtagcloud").children[tags_arr[tag_i]].style.display = 'none';
+        }
+      </script>
+    
+  </div>
+
+        
+            
+            
+            
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章归档</h3>
+    <div class="nexmoe-widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/">2023</a><span class="archive-list-count">11</span></li></ul>
+    </div>
+  </div>
+
+
+
+        
+            
+            
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">最新文章</h3>
+    <div class="nexmoe-widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/07/10/flutter/getx/getx-xue-xi-ri-zhi/">GetX 学习日志</a>
+          </li>
+        
+          <li>
+            <a href="/2023/07/02/web/front/hexo/da-jian-hexo-bo-ke/">Hexo博客搭建</a>
+          </li>
+        
+          <li>
+            <a href="/2023/06/29/web/front/css/zi-ti-qie-ge-jian-shao-zi-ti-da-xiao/">前端字体大小解决方案——字体切片</a>
+          </li>
+        
+          <li>
+            <a href="/2023/06/24/web/front/vite/vite-shi-yong-br-ya-suo/">Vite 使用 br 压缩</a>
+          </li>
+        
+          <li>
+            <a href="/2023/06/23/database/mysql/cha-xun-yu-ju-you-hua/">MySQL 查询语句优化</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+        
+    </aside>
+    <div class="nexmoe-copyright">
+        &copy; 2023 别调P
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        & <a href="https://github.com/theme-nexmoe/hexo-theme-nexmoe" target="_blank">Nexmoe</a>
+        <br><a target="_blank" href="https://beian.miit.gov.cn/">苏ICP备2022027042号-1</a>
+<br><a target="_blank" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral">
+<img src="https://i.dawnlab.me/c0268c1e6cfd0863d6ba35be1575941a.png" width="150px"></a>
+
+    </div>
+</div><!-- .nexmoe-drawer -->
+    </div>
+    <div id="nexmoe-content">
+        <div class="nexmoe-primary">
+    <div class="nexmoe-post">
+  <article>
+    
+        <div class="nexmoe-post-cover absolute" style="padding-top: NaN%;"> 
+            <img src="https://techsolutionshere.com/wp-content/uploads/2021/10/getx.jpg" alt="GetX 学习日志" loading="lazy">
+            <h1>GetX 学习日志</h1>
+        </div>
+    
+    
+    <div class="nexmoe-post-meta">
+    <div class="nexmoe-rainbow">
+        <a class="nexmoefont icon-calendar-fill">2023年07月10日</a>
+        
+            <a class="nexmoefont icon-appstore-fill -link" href="/categories/Flutter/">Flutter</a><a class="nexmoefont icon-appstore-fill -link" href="/categories/Flutter/%E5%89%8D%E7%AB%AF/">前端</a>
+        
+        
+    </div>
+    
+    
+    
+    
+    
+</div>
+
+    <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>急匆匆学完了 Flutter（当然后面肯定还要找时间巩固巩固），看的是 IT 营的 Flutter 基础课（也没记住多少），课程后面提到了 GetX，对于状态管理、路由、国际化等的帮助还是很大的，所以顺势就学了 GetX，官网的文档写的也不是特别完善，特别是对于我这种速成 Flutter 的<strong>零基础</strong>的，还是去 B 站找一个视频学习 GetX，初步筛选下，找到了这个视频：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1uq4y1U7fF/">Flutter GetX零基础视频教程</a>。当然，这个视频里面讲的都是一些基础快速入门的内容，例如路由部分讲的不是特别详细，我会参考其他文章并且实践得到最佳使用方法并且记录下来。对于例如 <code>Obx</code> 的特别基本的使用我就不再记录，最终目标是写出尽量标准化的工程代码。</p>
+<p>这位 up 主还有配套的博客教程：<a target="_blank" rel="noopener" href="http://liujunmin.com/flutter/getx/introduction.html">Flutter GetX系列教程—介绍、Snackbar、Dialog、BottomSheet、Navigation、Obx | Jimi (liujunmin.com)</a></p>
+<p>那么话不多说，开始学习。当然前面用的是真机进行测试的，后来换到了模拟器调试。</p>
+<h2 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h2><p>一般来说我们在写 Flutter App 的时候，会使用 MaterialApp 作为应用顶层，如这样：</p>
+<pre class="line-numbers language-dart" data-language="dart"><code class="language-dart"><span class="token keyword">import</span> <span class="token string-literal"><span class="token string">'package:flutter/material.dart'</span></span><span class="token punctuation">;</span>
+
+<span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">runApp</span><span class="token punctuation">(</span><span class="token keyword">const</span> <span class="token class-name">MyApp</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">MyApp</span> <span class="token keyword">extends</span> <span class="token class-name">StatelessWidget</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token class-name">MyApp</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token keyword">super</span><span class="token punctuation">.</span>key<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token metadata function">@override</span>
+  <span class="token class-name">Widget</span> <span class="token function">build</span><span class="token punctuation">(</span><span class="token class-name">BuildContext</span> context<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token class-name">MaterialApp</span><span class="token punctuation">(</span>    <span class="token comment">// 使用 MaterialApp 作为应用顶层</span>
+      title<span class="token punctuation">:</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">,</span>
+      home<span class="token punctuation">:</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>如果我们使用 GetX，需要将 <code>MaterialApp</code> 替换为 <code>GetMaterialApp</code> ：</p>
+<pre class="line-numbers language-dart" data-language="dart"><code class="language-dart"><span class="token keyword">import</span> <span class="token string-literal"><span class="token string">'package:flutter/material.dart'</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token string-literal"><span class="token string">'package:get/get.dart'</span></span><span class="token punctuation">;</span>    <span class="token comment">// 首先引入 GetX</span>
+
+<span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">runApp</span><span class="token punctuation">(</span><span class="token keyword">const</span> <span class="token class-name">MyApp</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">MyApp</span> <span class="token keyword">extends</span> <span class="token class-name">StatelessWidget</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token class-name">MyApp</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token keyword">super</span><span class="token punctuation">.</span>key<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token metadata function">@override</span>
+  <span class="token class-name">Widget</span> <span class="token function">build</span><span class="token punctuation">(</span><span class="token class-name">BuildContext</span> context<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token class-name">GetMaterialApp</span><span class="token punctuation">(</span>    <span class="token comment">// 使用 GetMaterialApp 作为应用顶层</span>
+      title<span class="token punctuation">:</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">,</span>
+      home<span class="token punctuation">:</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>使用 GetX 可以让我们尽量少使用 Stateful 组件，多的使用 Stateless 组件，提高应用性能。</p>
+<h2 id="Snackbar"><a href="#Snackbar" class="headerlink" title="Snackbar"></a>Snackbar</h2><p>Snackbar 的作用就是弹出一个顶部消息提醒，如下图所示：</p>
+<p><img onerror="imgOnError(this);" data-fancybox="gallery" src="/2023/07/10/flutter/getx/getx-xue-xi-ri-zhi/2f3cd0173a7e34a5192e539e68f5500b.jpg" alt="2f3cd0173a7e34a5192e539e68f5500b" data-caption="2f3cd0173a7e34a5192e539e68f5500b" loading="lazy"></p>
+<p>当点击按钮的时候顶部会弹出提示信息。</p>
+<h3 id="Snackbar-基本使用"><a href="#Snackbar-基本使用" class="headerlink" title="Snackbar 基本使用"></a>Snackbar 基本使用</h3><p>此组件的基本使用如下：</p>
+<pre class="line-numbers language-dart" data-language="dart"><code class="language-dart"><span class="token class-name">Get</span><span class="token punctuation">.</span><span class="token function">snackbar</span><span class="token punctuation">(</span>
+    <span class="token string-literal"><span class="token string">"Snackbar 标题"</span></span><span class="token punctuation">,</span>
+    <span class="token string-literal"><span class="token string">"欢迎使用Snackbar"</span></span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>上面图片例子中，我们通过触发点击事件来执行此 Snackbar，提示标题为“Snackbar 标题”，提示内容为“欢迎使用Snackbar”。</p>
+<p>完整组件代码如下：</p>
+<pre class="line-numbers language-dart" data-language="dart"><code class="language-dart"><span class="token keyword">class</span> <span class="token class-name">DemoWidget</span> <span class="token keyword">extends</span> <span class="token class-name">StatelessWidget</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token class-name">DemoWidget</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token keyword">super</span><span class="token punctuation">.</span>key<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token metadata function">@override</span>
+  <span class="token class-name">Widget</span> <span class="token function">build</span><span class="token punctuation">(</span><span class="token class-name">BuildContext</span> context<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 按钮</span>
+    <span class="token keyword">return</span> <span class="token class-name">Center</span><span class="token punctuation">(</span>
+        child<span class="token punctuation">:</span> <span class="token class-name">ElevatedButton</span><span class="token punctuation">(</span>
+            onPressed<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+              <span class="token class-name">Get</span><span class="token punctuation">.</span><span class="token function">snackbar</span><span class="token punctuation">(</span>
+                <span class="token string-literal"><span class="token string">"Snackbar 标题"</span></span><span class="token punctuation">,</span>
+                <span class="token string-literal"><span class="token string">"欢迎使用Snackbar"</span></span><span class="token punctuation">,</span>
+              <span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            child<span class="token punctuation">:</span> <span class="token keyword">const</span> <span class="token class-name">Text</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"按下去"</span></span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>我们查看一下参数列表：</p>
+<p><img onerror="imgOnError(this);" data-fancybox="gallery" src="/2023/07/10/flutter/getx/getx-xue-xi-ri-zhi/image-20230710123430941.png" alt="image-20230710123430941" data-caption="image-20230710123430941" loading="lazy"></p>
+<p>可以看到 <code>Snackbar</code> 函数必传的参数为 <code>title</code> 和 <code>message</code> ，除此之外，<code>Snackbar</code> 函数还有其他可选参数，例如改变字体颜色，那么可以加上 <code>colorText</code> 参数，参数值类型为颜色类型：</p>
+<pre class="line-numbers language-dart" data-language="dart"><code class="language-dart"><span class="token class-name">Get</span><span class="token punctuation">.</span><span class="token function">snackbar</span><span class="token punctuation">(</span>
+    <span class="token string-literal"><span class="token string">"Snackbar 标题"</span></span><span class="token punctuation">,</span>
+    <span class="token string-literal"><span class="token string">"欢迎使用Snackbar"</span></span><span class="token punctuation">,</span>
+    colorText<span class="token punctuation">:</span> <span class="token keyword">const</span> <span class="token class-name">Color</span><span class="token punctuation">.</span><span class="token function">fromARGB</span><span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">,</span> <span class="token number">207</span><span class="token punctuation">,</span> <span class="token number">76</span><span class="token punctuation">,</span> <span class="token number">76</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token comment">// 改变字体颜色</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="Snackbar-参数和说明"><a href="#Snackbar-参数和说明" class="headerlink" title="Snackbar 参数和说明"></a>Snackbar 参数和说明</h3><table>
+<thead>
+<tr>
+<th>字段</th>
+<th>属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>title</td>
+<td>String</td>
+<td>弹出的标题文字</td>
+</tr>
+<tr>
+<td>message</td>
+<td>String</td>
+<td>弹出的消息文字</td>
+</tr>
+<tr>
+<td>colorText</td>
+<td>Color</td>
+<td>title和message的文字颜色</td>
+</tr>
+<tr>
+<td>duration</td>
+<td>Duration</td>
+<td>Snackbar弹出的持续时间（默认3秒）</td>
+</tr>
+<tr>
+<td>instantInit</td>
+<td>bool</td>
+<td>当false可以把snackbar 放在initState，默认true</td>
+</tr>
+<tr>
+<td>snackPosition</td>
+<td>SnackPosition</td>
+<td>弹出时的位置，有两个选项【TOP，BOTTOM】默认TOP</td>
+</tr>
+<tr>
+<td>titleText</td>
+<td>Widget</td>
+<td>弹出标题的组件，设置该属性会导致title属性失效</td>
+</tr>
+<tr>
+<td>messageText</td>
+<td>Widget</td>
+<td>弹出消息的组件，设置该属性会导致messageText属性失效</td>
+</tr>
+<tr>
+<td>icon</td>
+<td>Widget</td>
+<td>弹出时图标，显示在title和message的左侧</td>
+</tr>
+<tr>
+<td>shouldIconPulse</td>
+<td>bool</td>
+<td>弹出时图标是否闪烁，默认false</td>
+</tr>
+<tr>
+<td>maxWidth</td>
+<td>double</td>
+<td>Snackbar最大的宽度</td>
+</tr>
+<tr>
+<td>margin</td>
+<td>EdgeInsets</td>
+<td>Snackbar外边距，默认zero</td>
+</tr>
+<tr>
+<td>padding</td>
+<td>EdgeInsets</td>
+<td>Snackbar内边距，默认EdgeInsets.all(16)</td>
+</tr>
+<tr>
+<td>borderRadius</td>
+<td>double</td>
+<td>边框圆角大小，默认15</td>
+</tr>
+<tr>
+<td>borderColor</td>
+<td>Color</td>
+<td>边框的颜色，必须设置borderWidth，否则无效果</td>
+</tr>
+<tr>
+<td>borderWidth</td>
+<td>double</td>
+<td>边框的线条宽度</td>
+</tr>
+<tr>
+<td>backgroundColor</td>
+<td>Color</td>
+<td>Snackbar背景颜色，默认Colors.grey.withOpacity(0.2)</td>
+</tr>
+<tr>
+<td>leftBarIndicatorColor</td>
+<td>Color</td>
+<td>左侧指示器的颜色</td>
+</tr>
+<tr>
+<td>boxShadows</td>
+<td>List</td>
+<td>Snackbar阴影颜色</td>
+</tr>
+<tr>
+<td>backgroundGradient</td>
+<td>Gradient</td>
+<td>背景的线性颜色</td>
+</tr>
+<tr>
+<td>mainButton</td>
+<td>TextButton</td>
+<td>主要按钮，一般显示发送、确认按钮</td>
+</tr>
+<tr>
+<td>onTap</td>
+<td>OnTap</td>
+<td>点击Snackbar事件回调</td>
+</tr>
+<tr>
+<td>isDismissible</td>
+<td>bool</td>
+<td>是否开启Snackbar手势关闭，可配合dismissDirection使用</td>
+</tr>
+<tr>
+<td>showProgressIndicator</td>
+<td>bool</td>
+<td>是否显示进度条指示器，默认false</td>
+</tr>
+<tr>
+<td>dismissDirection</td>
+<td>SnackDismissDirection</td>
+<td>Snackbar关闭的方向</td>
+</tr>
+<tr>
+<td>progressIndicatorController</td>
+<td>AnimationController</td>
+<td>进度条指示器的动画控制器</td>
+</tr>
+<tr>
+<td>progressIndicatorBackgroundColor</td>
+<td>Color</td>
+<td>进度条指示器的背景颜色</td>
+</tr>
+<tr>
+<td>progressIndicatorValueColor</td>
+<td>Animation</td>
+<td>进度条指示器的背景颜色，Animation</td>
+</tr>
+<tr>
+<td>snackStyle</td>
+<td>SnackStyle</td>
+<td>Snackbar是否会附加到屏幕边缘</td>
+</tr>
+<tr>
+<td>forwardAnimationCurve</td>
+<td>Curve</td>
+<td>Snackbar弹出的动画，默认Curves.easeOutCirc</td>
+</tr>
+<tr>
+<td>reverseAnimationCurve</td>
+<td>Curve</td>
+<td>Snackbar消失的动画，默认Curves.easeOutCirc</td>
+</tr>
+<tr>
+<td>animationDuration</td>
+<td>Duration</td>
+<td>Snackbar弹出和小时的动画时长，默认1秒</td>
+</tr>
+<tr>
+<td>barBlur</td>
+<td>double</td>
+<td>Snackbar背景的模糊度</td>
+</tr>
+<tr>
+<td>overlayBlur</td>
+<td>double</td>
+<td>弹出时的毛玻璃效果值，默认0</td>
+</tr>
+<tr>
+<td>snackbarStatus</td>
+<td>SnackbarStatusCallback</td>
+<td>Snackbar弹出或消失时的事件回调（即将打开、已打开、即将关闭、已关闭）</td>
+</tr>
+<tr>
+<td>overlayColor</td>
+<td>Color</td>
+<td>弹出时的毛玻璃的背景颜色</td>
+</tr>
+<tr>
+<td>userInputForm</td>
+<td>Form</td>
+<td>用户输入表单</td>
+</tr>
+</tbody></table>
+<h2 id="Dialog"><a href="#Dialog" class="headerlink" title="Dialog"></a>Dialog</h2><p><code>Dialog</code> 即弹出框，实际是对 <code>AlertDialog</code> 进行了封装。</p>
+<p><img onerror="imgOnError(this);" data-fancybox="gallery" src="/2023/07/10/flutter/getx/getx-xue-xi-ri-zhi/3751f2fe36d8c66971e807188f1115a8.jpg" alt="3751f2fe36d8c66971e807188f1115a8" data-caption="3751f2fe36d8c66971e807188f1115a8" loading="lazy"></p>
+<p>当然我们可以对 <code>Dialog</code> 再次进行封装，以满足我们统一风格的定制。</p>
+<p>我们可以新建一个 dart 文件，对 GetX 进行定制，包装成类或者函数供我们进行使用。</p>
+<h3 id="Dialog-的基本使用"><a href="#Dialog-的基本使用" class="headerlink" title="Dialog 的基本使用"></a>Dialog 的基本使用</h3><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart"><span class="token class-name">Get</span><span class="token punctuation">.</span><span class="token function">defaultDialog</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>在没有传任何参数时，效果如上图所示，GetX 的对话框有默认的文字，当我们传入参数后，文字会被替换掉。</p>
+<p><img onerror="imgOnError(this);" data-fancybox="gallery" src="/2023/07/10/flutter/getx/getx-xue-xi-ri-zhi/image-20230710140645300.png" alt="image-20230710140645300" data-caption="image-20230710140645300" loading="lazy"></p>
+<p>下面的代码是弹出一个带有确认和取消按钮的弹出框：</p>
+<pre class="line-numbers language-dart" data-language="dart"><code class="language-dart"><span class="token class-name">Get</span><span class="token punctuation">.</span><span class="token function">defaultDialog</span><span class="token punctuation">(</span>
+    title<span class="token punctuation">:</span> <span class="token string-literal"><span class="token string">"弹出框"</span></span><span class="token punctuation">,</span>
+    content<span class="token punctuation">:</span> <span class="token keyword">const</span> <span class="token class-name">Text</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"内容"</span></span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    textConfirm<span class="token punctuation">:</span> <span class="token string-literal"><span class="token string">"确定"</span></span><span class="token punctuation">,</span>
+    textCancel<span class="token punctuation">:</span> <span class="token string-literal"><span class="token string">"取消"</span></span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img onerror="imgOnError(this);" data-fancybox="gallery" src="/2023/07/10/flutter/getx/getx-xue-xi-ri-zhi/30114530fbf858d9e44c3406fa884ae7.jpg" alt="30114530fbf858d9e44c3406fa884ae7" data-caption="30114530fbf858d9e44c3406fa884ae7" loading="lazy"></p>
+<p>这个确定按钮是禁用的因为我们没有传入处理事件。</p>
+<p>默认的确认、取消的按钮样式不是很好看，我们可以使用 <code>confirm</code> 和 <code>cancel</code> 参数来定义我们的确定和取消按钮。不过想要达到类似于 QQ 那样平铺分配的按钮，我们需要使用 <code>actions</code> 来定义我们的按钮列表，例如：</p>
+<pre class="line-numbers language-dart" data-language="dart"><code class="language-dart"><span class="token class-name">Get</span><span class="token punctuation">.</span><span class="token function">defaultDialog</span><span class="token punctuation">(</span>
+    title<span class="token punctuation">:</span> <span class="token string-literal"><span class="token string">"弹出框"</span></span><span class="token punctuation">,</span>
+    content<span class="token punctuation">:</span> <span class="token keyword">const</span> <span class="token class-name">Text</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"内容"</span></span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    actions<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+      <span class="token class-name">Row</span><span class="token punctuation">(</span>
+        mainAxisAlignment<span class="token punctuation">:</span> <span class="token class-name">MainAxisAlignment</span><span class="token punctuation">.</span>center<span class="token punctuation">,</span>
+        children<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+          <span class="token class-name">Expanded</span><span class="token punctuation">(</span>
+            flex<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+            child<span class="token punctuation">:</span> <span class="token class-name">TextButton</span><span class="token punctuation">(</span>
+              onPressed<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token class-name">Get</span><span class="token punctuation">.</span><span class="token function">back</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              child<span class="token punctuation">:</span> <span class="token keyword">const</span> <span class="token class-name">Text</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"取消"</span></span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token punctuation">)</span><span class="token punctuation">,</span>
+          <span class="token punctuation">)</span><span class="token punctuation">,</span>
+          <span class="token class-name">Expanded</span><span class="token punctuation">(</span>
+            flex<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+            child<span class="token punctuation">:</span> <span class="token class-name">ElevatedButton</span><span class="token punctuation">(</span>
+              onPressed<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token class-name">Get</span><span class="token punctuation">.</span><span class="token function">back</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              child<span class="token punctuation">:</span> <span class="token keyword">const</span> <span class="token class-name">Text</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"确定"</span></span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token punctuation">)</span><span class="token punctuation">,</span>
+          <span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token punctuation">)</span>
+    <span class="token punctuation">]</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>效果如下：</p>
+<p><img onerror="imgOnError(this);" data-fancybox="gallery" src="/2023/07/10/flutter/getx/getx-xue-xi-ri-zhi/62a8543aba8091ed3a6cea196d45e85e.jpg" alt="62a8543aba8091ed3a6cea196d45e85e" data-caption="62a8543aba8091ed3a6cea196d45e85e" loading="lazy"></p>
+<p>上面例子我们可以进一步修改，例如将 <code>padding</code> 设为 <code>0</code> 然后修改按钮样式或者使用 <code>Container</code> 替换掉默认按钮，以达到我们想要的效果，例如 QQ 的弹出框：</p>
+<p><img onerror="imgOnError(this);" data-fancybox="gallery" src="/2023/07/10/flutter/getx/getx-xue-xi-ri-zhi/eddf152133aafe35018cb52535ffdeaa.jpg" alt="eddf152133aafe35018cb52535ffdeaa" data-caption="eddf152133aafe35018cb52535ffdeaa" loading="lazy"></p>
+<p>可以调整一下 <code>padding</code> 以及文字颜色背景颜色、圆角等达到类似的效果。</p>
+<p>在调整好后可以进行封装等操作，方便我们在不同地方多次调用。</p>
+<p>除此之外，其他的一些参数也是比较有用的。</p>
+<h3 id="Dialog-参数和说明"><a href="#Dialog-参数和说明" class="headerlink" title="Dialog 参数和说明"></a>Dialog 参数和说明</h3><table>
+<thead>
+<tr>
+<th>字段</th>
+<th>属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>title</td>
+<td>String</td>
+<td>弹出的标题，默认（Alert)</td>
+</tr>
+<tr>
+<td>titlePadding</td>
+<td>EdgeInsetsGeometry</td>
+<td>标题的内边距，默认（EdgeInsets.all(8)）</td>
+</tr>
+<tr>
+<td>titleStyle</td>
+<td>TextStyle</td>
+<td>标题的样式</td>
+</tr>
+<tr>
+<td>middleText</td>
+<td>String</td>
+<td>中间内容区域显示的文字</td>
+</tr>
+<tr>
+<td>middleTextStyle</td>
+<td>TextStyle</td>
+<td>中间内容区域显示的文字样式</td>
+</tr>
+<tr>
+<td>content</td>
+<td>Widget</td>
+<td>弹出的内容，该值设置后middleText将无效</td>
+</tr>
+<tr>
+<td>contentPadding</td>
+<td>EdgeInsetsGeometry</td>
+<td>内容的内边距，默认（EdgeInsets.all(8)）</td>
+</tr>
+<tr>
+<td>onConfirm</td>
+<td>VoidCallback</td>
+<td>确认按钮回调</td>
+</tr>
+<tr>
+<td>onCancel</td>
+<td>VoidCallback</td>
+<td>取消按钮回调</td>
+</tr>
+<tr>
+<td>onCustom</td>
+<td>VoidCallback</td>
+<td>自定义按钮回调</td>
+</tr>
+<tr>
+<td>cancelTextColor</td>
+<td>Color</td>
+<td>取消按钮文字的颜色</td>
+</tr>
+<tr>
+<td>confirmTextColor</td>
+<td>Color</td>
+<td>确认按钮文字的颜色</td>
+</tr>
+<tr>
+<td>textConfirm</td>
+<td>String</td>
+<td>确认按钮的文字</td>
+</tr>
+<tr>
+<td>textCancel</td>
+<td>String</td>
+<td>取消按钮的文字</td>
+</tr>
+<tr>
+<td>textCustom</td>
+<td>String</td>
+<td>自定义按钮的文字</td>
+</tr>
+<tr>
+<td>confirm</td>
+<td>Widget</td>
+<td>确认按钮的组件</td>
+</tr>
+<tr>
+<td>cancel</td>
+<td>Widget</td>
+<td>取消按钮的组件</td>
+</tr>
+<tr>
+<td>custom</td>
+<td>Widget</td>
+<td>自定义按钮的组件</td>
+</tr>
+<tr>
+<td>backgroundColor</td>
+<td>Color</td>
+<td>弹出框的背景颜色</td>
+</tr>
+<tr>
+<td>barrierDismissible</td>
+<td>bool</td>
+<td>是否可以通过点击背景关闭弹窗</td>
+</tr>
+<tr>
+<td>buttonColor</td>
+<td>Color</td>
+<td>按钮的文字颜色，根据按钮类型来设定不同的位置</td>
+</tr>
+<tr>
+<td>radius</td>
+<td>double</td>
+<td>弹出框的圆角大小，默认20</td>
+</tr>
+<tr>
+<td>actions</td>
+<td>List</td>
+<td>增加额外的子组件</td>
+</tr>
+<tr>
+<td>onWillPop</td>
+<td>WillPopCallback</td>
+<td>拦截关闭之前做一些操作</td>
+</tr>
+<tr>
+<td>navigatorKey</td>
+<td>GlobalKey</td>
+<td>用于打开对话框的key</td>
+</tr>
+</tbody></table>
+<h2 id="BottomSheet"><a href="#BottomSheet" class="headerlink" title="BottomSheet"></a>BottomSheet</h2><p><code>BottomSheet</code> 是底部弹出层。</p>
+<h3 id="BottomSheet-的基本使用"><a href="#BottomSheet-的基本使用" class="headerlink" title="BottomSheet 的基本使用"></a>BottomSheet 的基本使用</h3><p>使用 <code>Get.bottomSheet</code> 来创建显示一个底部弹出层：</p>
+<pre class="line-numbers language-dart" data-language="dart"><code class="language-dart"><span class="token class-name">Get</span><span class="token punctuation">.</span><span class="token function">bottomSheet</span><span class="token punctuation">(</span>
+	<span class="token comment">// ....里面放入组件</span>
+<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>例如：</p>
+<pre class="line-numbers language-dart" data-language="dart"><code class="language-dart"><span class="token class-name">Get</span><span class="token punctuation">.</span><span class="token function">bottomSheet</span><span class="token punctuation">(</span>
+    <span class="token class-name">Container</span><span class="token punctuation">(</span>
+        child<span class="token punctuation">:</span> <span class="token class-name">Wrap</span><span class="token punctuation">(</span>
+          children<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+            <span class="token class-name">ListTile</span><span class="token punctuation">(</span>
+              leading<span class="token punctuation">:</span> <span class="token keyword">const</span> <span class="token class-name">Icon</span><span class="token punctuation">(</span><span class="token class-name">Icons</span><span class="token punctuation">.</span>wb_sunny_outlined<span class="token punctuation">)</span><span class="token punctuation">,</span>
+              title<span class="token punctuation">:</span> <span class="token keyword">const</span> <span class="token class-name">Text</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"白天模式"</span></span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+              onTap<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token class-name">Get</span><span class="token punctuation">.</span><span class="token function">changeTheme</span><span class="token punctuation">(</span><span class="token class-name">ThemeData</span><span class="token punctuation">.</span><span class="token function">light</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token class-name">ListTile</span><span class="token punctuation">(</span>
+              leading<span class="token punctuation">:</span> <span class="token keyword">const</span> <span class="token class-name">Icon</span><span class="token punctuation">(</span><span class="token class-name">Icons</span><span class="token punctuation">.</span>wb_sunny<span class="token punctuation">)</span><span class="token punctuation">,</span>
+              title<span class="token punctuation">:</span> <span class="token keyword">const</span> <span class="token class-name">Text</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"黑夜模式"</span></span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+              onTap<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token class-name">Get</span><span class="token punctuation">.</span><span class="token function">changeTheme</span><span class="token punctuation">(</span><span class="token class-name">ThemeData</span><span class="token punctuation">.</span><span class="token function">dark</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token punctuation">)</span>
+          <span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img onerror="imgOnError(this);" data-fancybox="gallery" src="/2023/07/10/flutter/getx/getx-xue-xi-ri-zhi/91f83c028da6f85b7025d561e32e0efa.jpg" alt="91f83c028da6f85b7025d561e32e0efa" data-caption="91f83c028da6f85b7025d561e32e0efa" loading="lazy"></p>
+<p>我们实现的效果为：按下按钮执行 <code>Get.bottomSheet</code> 创建一个包含 “白天模式” 和 “黑夜模式” 的列表底部弹出。当点击对应的项时，使用 GetX 的功能进行主题的切换（后面会提到）。</p>
+<p>上面的例子中，仅仅在底部弹出层里添加一个 <code>Container</code>，里面包含一个列表，没有配置背景色，因此没有背景，直接看到后面的半透明黑色幕布，当我们为 <code>Container</code> 添加一个背景色时，可以看到如下效果：</p>
+<pre class="line-numbers language-dart" data-language="dart"><code class="language-dart"><span class="token class-name">Container</span><span class="token punctuation">(</span>
+    decoration<span class="token punctuation">:</span> <span class="token keyword">const</span> <span class="token class-name">BoxDecoration</span><span class="token punctuation">(</span>
+      borderRadius<span class="token punctuation">:</span> <span class="token class-name">BorderRadius</span><span class="token punctuation">.</span><span class="token function">only</span><span class="token punctuation">(</span>
+          topLeft<span class="token punctuation">:</span> <span class="token class-name">Radius</span><span class="token punctuation">.</span><span class="token function">circular</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+          topRight<span class="token punctuation">:</span> <span class="token class-name">Radius</span><span class="token punctuation">.</span><span class="token function">circular</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span>
+      <span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token comment">// 左上、右上圆角</span>
+      color<span class="token punctuation">:</span> <span class="token class-name">Colors</span><span class="token punctuation">.</span>white<span class="token punctuation">,</span> <span class="token comment">// 背景色</span>
+    <span class="token punctuation">)</span><span class="token punctuation">,</span>
+    child<span class="token punctuation">:</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img onerror="imgOnError(this);" data-fancybox="gallery" src="/2023/07/10/flutter/getx/getx-xue-xi-ri-zhi/44841ace8bf7d501eb8c937ff623e2bf.jpeg" alt="44841ace8bf7d501eb8c937ff623e2bf" data-caption="44841ace8bf7d501eb8c937ff623e2bf" loading="lazy"></p>
+<p>当然，上面是我们最原始的实现方法，也适合高度定制，<code>Get.bottomSheet</code> 里面有参数可以供我们修改背景色和圆角形状，具体参数列表如下：</p>
+<h3 id="BottomSheet-参数和说明"><a href="#BottomSheet-参数和说明" class="headerlink" title="BottomSheet 参数和说明"></a>BottomSheet 参数和说明</h3><table>
+<thead>
+<tr>
+<th>字段</th>
+<th>属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>bottomsheet</td>
+<td>Widget</td>
+<td>弹出的Widget组件</td>
+</tr>
+<tr>
+<td>backgroundColor</td>
+<td>Color</td>
+<td>bottomsheet的背景颜色</td>
+</tr>
+<tr>
+<td>elevation</td>
+<td>double</td>
+<td>bottomsheet的阴影</td>
+</tr>
+<tr>
+<td>persistent</td>
+<td>bool</td>
+<td>是否添加到路由中</td>
+</tr>
+<tr>
+<td>shape</td>
+<td>ShapeBorder</td>
+<td>边框形状，一般用于圆角效果</td>
+</tr>
+<tr>
+<td>clipBehavior</td>
+<td>Clip</td>
+<td>裁剪的方式</td>
+</tr>
+<tr>
+<td>barrierColor</td>
+<td>Color</td>
+<td>弹出层的背景颜色</td>
+</tr>
+<tr>
+<td>ignoreSafeArea</td>
+<td>bool</td>
+<td>是否忽略安全适配</td>
+</tr>
+<tr>
+<td>isScrollControlled</td>
+<td>bool</td>
+<td>是否支持全屏弹出，默认false</td>
+</tr>
+<tr>
+<td>useRootNavigator</td>
+<td>bool</td>
+<td>是否使用根导航</td>
+</tr>
+<tr>
+<td>isDismissible</td>
+<td>bool</td>
+<td>点击背景是否可关闭，默认ture</td>
+</tr>
+<tr>
+<td>enableDrag</td>
+<td>bool</td>
+<td>是否可以拖动关闭，默认true</td>
+</tr>
+<tr>
+<td>settings</td>
+<td>RouteSettings</td>
+<td>路由设置</td>
+</tr>
+<tr>
+<td>enterBottomSheetDuration</td>
+<td>Duration</td>
+<td>bottomsheet进入时的动画时间</td>
+</tr>
+<tr>
+<td>exitBottomSheetDuration</td>
+<td>Duration</td>
+<td>bottomsheet退出时的动画时间</td>
+</tr>
+</tbody></table>
+<h2 id="Navigation"><a href="#Navigation" class="headerlink" title="Navigation"></a>Navigation</h2><p>原生的 Flutter 自带了路由转跳，但是需要我们写许多代码，而 GetX 为我们进行了封装简化以及一些动画设置。</p>
+<h3 id="Navigation-的基本使用"><a href="#Navigation-的基本使用" class="headerlink" title="Navigation 的基本使用"></a>Navigation 的基本使用</h3><h4 id="使用-to-方法进行路由转跳"><a href="#使用-to-方法进行路由转跳" class="headerlink" title="使用 to 方法进行路由转跳"></a>使用 <code>to</code> 方法进行路由转跳</h4><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart"><span class="token keyword">import</span> <span class="token string-literal"><span class="token string">'package:path/home.dart'</span></span><span class="token punctuation">;</span>
+<span class="token class-name">Get</span><span class="token punctuation">.</span><span class="token function">to</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token keyword">const</span> <span class="token class-name">Home</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>我们可以在函数参数里面配置切换动画，可参考下图的参数列表配置参数：</p>
+<p><img onerror="imgOnError(this);" data-fancybox="gallery" src="/2023/07/10/flutter/getx/getx-xue-xi-ri-zhi/image-20230710151901558.png" alt="image-20230710151901558" data-caption="image-20230710151901558" loading="lazy"></p>
+<p>其中，最常用的为 <code>transition</code> 切换动画以及 <code>arguments</code> 参数传递。</p>
+<p>接受转跳页面的传参：</p>
+<pre class="line-numbers language-dart" data-language="dart"><code class="language-dart"><span class="token keyword">var</span> data <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token class-name">Get</span><span class="token punctuation">.</span><span class="token function">to</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token keyword">const</span> <span class="token class-name">Home</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> arguments<span class="token punctuation">:</span> <span class="token string-literal"><span class="token string">"Hello World"</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 转跳到 Home 页，并且携带参数 Hello World</span>
+<span class="token function">print</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 接收转跳到的 Home 页传来的数据</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>注意：<code>await</code> 的出现代表着该触发函数需要为 <code>async</code>。</p>
+<p>当然，在转跳的 Home 页里，当我们返回转跳过来的父页面，想要传递数据要这样使用：</p>
+<pre class="line-numbers language-dart" data-language="dart"><code class="language-dart"><span class="token class-name">Get</span><span class="token punctuation">.</span><span class="token function">back</span><span class="token punctuation">(</span>result<span class="token punctuation">:</span> <span class="token string-literal"><span class="token string">"返回的数据"</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>转跳页面并携带参数的 <code>arguments</code> 函数参数在 <code>toNamed</code> 函数也是适用的。</p>
+<h4 id="使用-toNamed-方法进行路由转跳"><a href="#使用-toNamed-方法进行路由转跳" class="headerlink" title="使用 toNamed 方法进行路由转跳"></a>使用 <code>toNamed</code> 方法进行路由转跳</h4><ul>
+<li><p>在应用程序入口 <code>GetMaterialApp</code> 进行路由配置，当然我们可以写成一个路由文件然后进行导入。</p>
+<pre class="line-numbers language-dart" data-language="dart"><code class="language-dart"><span class="token keyword">import</span> <span class="token string-literal"><span class="token string">'package:flutter/material.dart'</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token string-literal"><span class="token string">'package:path/home.dart'</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token string-literal"><span class="token string">'package:path/my.dart'</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token string-literal"><span class="token string">'package:get/get.dart'</span></span><span class="token punctuation">;</span>
+
+<span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">runApp</span><span class="token punctuation">(</span><span class="token class-name">MyApp</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">MyApp</span> <span class="token keyword">extends</span> <span class="token class-name">StatelessWidget</span> <span class="token punctuation">{</span>
+  <span class="token metadata function">@override</span>
+  <span class="token class-name">Widget</span> <span class="token function">build</span><span class="token punctuation">(</span><span class="token class-name">BuildContext</span> context<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token class-name">GetMaterialApp</span><span class="token punctuation">(</span>
+      title<span class="token punctuation">:</span> <span class="token string-literal"><span class="token string">"GetX"</span></span><span class="token punctuation">,</span>
+      initialRoute<span class="token punctuation">:</span> <span class="token string-literal"><span class="token string">"/"</span></span><span class="token punctuation">,</span>
+      defaultTransition<span class="token punctuation">:</span> <span class="token class-name">Transition</span><span class="token punctuation">.</span>zoom<span class="token punctuation">,</span>
+      getPages<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+        <span class="token class-name">GetPage</span><span class="token punctuation">(</span>name<span class="token punctuation">:</span> <span class="token string-literal"><span class="token string">"/"</span></span><span class="token punctuation">,</span> page<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token keyword">const</span> <span class="token class-name">MyApp</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token class-name">GetPage</span><span class="token punctuation">(</span>name<span class="token punctuation">:</span> <span class="token string-literal"><span class="token string">"/home"</span></span><span class="token punctuation">,</span> page<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token keyword">const</span> <span class="token class-name">Home</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token class-name">GetPage</span><span class="token punctuation">(</span>name<span class="token punctuation">:</span> <span class="token string-literal"><span class="token string">"/my"</span></span><span class="token punctuation">,</span> page<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token keyword">const</span> <span class="token class-name">My</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> transition<span class="token punctuation">:</span> <span class="token class-name">Transition</span><span class="token punctuation">.</span>rightToLeft<span class="token punctuation">)</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+      home<span class="token punctuation">:</span> <span class="token class-name">MyDemo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>其中 <code>initialRoute</code> 配置应用的根路由为：“<code>/</code>”。</p>
+<p><code>defaultTransition</code> 配置默认的切换路由动画效果 <code>zoom</code>。</p>
+<p><code>getPages</code> 配置我们的三个路由：<code>/</code>、<code>/home</code>、<code>/my</code>，并且使用 <code>transition</code> 参数来配置该路由的切换动画效果。后面会提到中间件的配置。<code>getPages</code> 配置比较多，可以参考官方文档进行配置。</p>
+</li>
+<li><p>在组件中调用 <code>toNamed</code></p>
+<pre class="line-numbers language-dart" data-language="dart"><code class="language-dart"><span class="token class-name">Get</span><span class="token punctuation">.</span><span class="token function">toNamed</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"/my"</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+</ul>
+<p>下图为 <code>Get.toNamed</code> 的参数列表</p>
+<p><img onerror="imgOnError(this);" data-fancybox="gallery" src="/2023/07/10/flutter/getx/getx-xue-xi-ri-zhi/image-20230710152016122.png" alt="image-20230710152016122" data-caption="image-20230710152016122" loading="lazy"></p>
+<h4 id="使用-back-方法进行返回上一页"><a href="#使用-back-方法进行返回上一页" class="headerlink" title="使用 back 方法进行返回上一页"></a>使用 <code>back</code> 方法进行返回上一页</h4><p>上面提到获取转跳的页面返回时的传参，使用的就是 <code>Get.back();</code>。</p>
+<p>我们如果要返回上一个页面并携带参数，需要在 <code>back</code> 方法里加入 <code>result</code> 参数。</p>
+<pre class="line-numbers language-dart" data-language="dart"><code class="language-dart"><span class="token class-name">Get</span><span class="token punctuation">.</span><span class="token function">back</span><span class="token punctuation">(</span>result<span class="token punctuation">:</span> <span class="token string-literal"><span class="token string">"数据"</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h4 id="使用-off-方法替换当前页面"><a href="#使用-off-方法替换当前页面" class="headerlink" title="使用 off 方法替换当前页面"></a>使用 <code>off</code> 方法替换当前页面</h4><p>与 React Router 类似，其中转跳方法里面有参数 <code>replace</code>，即替换当前页面而不是新开一个页面，因此使用替换当前页面进行页面的转跳，不能通过 <code>back</code> 方法返回上一页，若使用 <code>back</code> 方法，则返回的是上上个页面（如果上上个页面转跳上个页面用的不是 <code>off</code> 方法）。</p>
+<pre class="line-numbers language-dart" data-language="dart"><code class="language-dart"><span class="token class-name">Get</span><span class="token punctuation">.</span><span class="token function">off</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token keyword">const</span> <span class="token class-name">Home</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">Get</span><span class="token punctuation">.</span><span class="token function">off</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"/home"</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h4 id="使用-offAll-打开新页面，并关闭之前的所有页面"><a href="#使用-offAll-打开新页面，并关闭之前的所有页面" class="headerlink" title="使用 offAll 打开新页面，并关闭之前的所有页面"></a>使用 <code>offAll</code> 打开新页面，并关闭之前的所有页面</h4><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart"><span class="token class-name">Get</span><span class="token punctuation">.</span><span class="token function">offAll</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token keyword">const</span> <span class="token class-name">Home</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">Get</span><span class="token punctuation">.</span><span class="token function">offAll</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"/home"</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h4 id="arguments-传值的接收"><a href="#arguments-传值的接收" class="headerlink" title="arguments 传值的接收"></a><code>arguments</code> 传值的接收</h4><p>通过 <code>Get.arguments</code> 进行传参值的接收：</p>
+<pre class="line-numbers language-dart" data-language="dart"><code class="language-dart"><span class="token keyword">class</span> <span class="token class-name">Home</span> <span class="token keyword">extends</span> <span class="token class-name">StatelessWidget</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token class-name">Home</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token keyword">super</span><span class="token punctuation">.</span>key<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token metadata function">@override</span>
+  <span class="token class-name">Widget</span> <span class="token function">build</span><span class="token punctuation">(</span><span class="token class-name">BuildContext</span> context<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token class-name">Get</span><span class="token punctuation">.</span>arguments<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 打印出参数值</span>
+    <span class="token keyword">return</span> <span class="token class-name">Scaffold</span><span class="token punctuation">(</span>
+      appBar<span class="token punctuation">:</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">,</span>
+      body<span class="token punctuation">:</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="parameters-传值的接收"><a href="#parameters-传值的接收" class="headerlink" title="parameters 传值的接收"></a><code>parameters</code> 传值的接收</h4><p>通过 <code>Get.parameters</code> 进行传值的接收，注意，<code>parameters</code> 传值类似于 URL 中的 <code>parameters</code> 传值，即路由地址加上 <code>?data=data</code>。</p>
+<pre class="line-numbers language-dart" data-language="dart"><code class="language-dart"><span class="token keyword">class</span> <span class="token class-name">Home</span> <span class="token keyword">extends</span> <span class="token class-name">StatelessWidget</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token class-name">Home</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token keyword">super</span><span class="token punctuation">.</span>key<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token metadata function">@override</span>
+  <span class="token class-name">Widget</span> <span class="token function">build</span><span class="token punctuation">(</span><span class="token class-name">BuildContext</span> context<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token class-name">Get</span><span class="token punctuation">.</span>parameters<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 打印出参数值</span>
+    <span class="token keyword">return</span> <span class="token class-name">Scaffold</span><span class="token punctuation">(</span>
+      appBar<span class="token punctuation">:</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">,</span>
+      body<span class="token punctuation">:</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="使用中间件进行认证等操作"><a href="#使用中间件进行认证等操作" class="headerlink" title="使用中间件进行认证等操作"></a>使用中间件进行认证等操作</h4><p>在使用 <code>toNamed</code> 方法配置路由列表的时候，使用 <code>GetPage</code> 进行路由的创建，其中 <code>middlewares</code> 参数配置我们的中间件，<code>middlewares</code> 里面为中间件的 <code>List</code>：</p>
+<pre class="line-numbers language-dart" data-language="dart"><code class="language-dart"><span class="token comment">// 白名单</span>
+<span class="token class-name">GetPage</span><span class="token punctuation">(</span>
+  name<span class="token punctuation">:</span> <span class="token class-name">AppRoutes.Login</span><span class="token punctuation">,</span>
+  page<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token class-name">LoginView</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token comment">// 需要鉴权的路由</span>
+<span class="token class-name">GetPage</span><span class="token punctuation">(</span>
+  name<span class="token punctuation">:</span> <span class="token class-name">AppRoutes.My</span><span class="token punctuation">,</span>
+  page<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token class-name">MyView</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  middlewares<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+    <span class="token class-name">RouteAuthMiddleware</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span><span class="token punctuation">,</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>其中，<code>RouteAuthMiddleware</code> 为：</p>
+<p>我们在中间件中需要重写 <code>redirect</code> 方法，我们在里面处理路由的跳转，例如满足条件继续加载到目标路由或者不满足条件，跳转到登录页等。</p>
+<p>如果我们不进行其他处理，继续跳转到目标路由，我们可以返回一个 <code>null</code>，如果进行跳转，可以直接返回一个 <code>RouteSettings</code> 函数，参数有两个：<code>name</code> 即路由名称地址、<code>arguments</code> 即传参，都是可选值，但是如果 <code>name</code> 不配置的话，会导致报错喔。</p>
+<pre class="line-numbers language-dart" data-language="dart"><code class="language-dart"><span class="token keyword">class</span> <span class="token class-name">RouteAuthMiddleware</span> <span class="token keyword">extends</span> <span class="token class-name">GetMiddleware</span> <span class="token punctuation">{</span>
+  <span class="token comment">//需要继承GetMiddleware</span>
+  <span class="token metadata function">@override</span>
+  <span class="token comment">//需要实现系统的该方法</span>
+  <span class="token class-name">RouteSettings</span><span class="token operator">?</span> <span class="token function">redirect</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token operator">?</span> route<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">//根据条件进行判断,满足条件进行跳转,否则不进行跳转（return null）</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>满足条件<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span> <span class="token comment">// 表示跳转到目标路由</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token class-name">RouteSettings</span><span class="token punctuation">(</span>name<span class="token punctuation">:</span> <span class="token string-literal"><span class="token string">"/login"</span></span><span class="token punctuation">,</span>arguments<span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 同时传参</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="Obx-响应式状态管理"><a href="#Obx-响应式状态管理" class="headerlink" title="Obx 响应式状态管理"></a>Obx 响应式状态管理</h2><h3 id="定义-Obx-变量的三种方式"><a href="#定义-Obx-变量的三种方式" class="headerlink" title="定义 Obx 变量的三种方式"></a>定义 Obx 变量的三种方式</h3><ul>
+<li><p>第一种 使用 <code>Rx{Type}</code></p>
+  <pre class="line-numbers language-dart" data-language="dart"><code class="language-dart"><span class="token keyword">final</span> name <span class="token operator">=</span> <span class="token class-name">RxString</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">''</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 字符串</span>
+<span class="token keyword">final</span> isLogged <span class="token operator">=</span> <span class="token class-name">RxBool</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 布尔</span>
+<span class="token keyword">final</span> count <span class="token operator">=</span> <span class="token class-name">RxInt</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 整型</span>
+<span class="token keyword">final</span> balance <span class="token operator">=</span> <span class="token class-name">RxDouble</span><span class="token punctuation">(</span><span class="token number">0.0</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 浮点数</span>
+<span class="token keyword">final</span> items <span class="token operator">=</span> <span class="token class-name">RxList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// List</span>
+<span class="token keyword">final</span> myMap <span class="token operator">=</span> <span class="token class-name">RxMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> int<span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Map</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>第二种 使用 <code>Rx</code>，规定泛型 <code>Rx&lt;Type&gt;</code>。</p>
+<pre class="line-numbers language-dart" data-language="dart"><code class="language-dart"><span class="token keyword">final</span> name <span class="token operator">=</span> <span class="token class-name">Rx</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">''</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 字符串</span>
+<span class="token keyword">final</span> isLogged <span class="token operator">=</span> <span class="token class-name">Rx</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Bool</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 布尔</span>
+<span class="token keyword">final</span> count <span class="token operator">=</span> <span class="token class-name">Rx</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Int</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 整型</span>
+<span class="token keyword">final</span> balance <span class="token operator">=</span> <span class="token class-name">Rx</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Double</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token number">0.0</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 浮点数</span>
+<span class="token keyword">final</span> number <span class="token operator">=</span> <span class="token class-name">Rx</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Num</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 数字</span>
+<span class="token keyword">final</span> items <span class="token operator">=</span> <span class="token class-name">Rx</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">List</span><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 字符串 List</span>
+<span class="token keyword">final</span> myMap <span class="token operator">=</span> <span class="token class-name">Rx</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Map</span><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> int<span class="token punctuation">&gt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 字符串、数字 List</span>
+<span class="token comment">// 自定义类 - 可以是任何类</span>
+<span class="token keyword">final</span> user <span class="token operator">=</span> <span class="token class-name">Rx</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">User</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>第三种 只需添加 <code>.obs</code> 作为 <code>value</code> 的属性。（更实用、更简单、更可取的方法）</p>
+<pre class="line-numbers language-dart" data-language="dart"><code class="language-dart"><span class="token keyword">final</span> name <span class="token operator">=</span> <span class="token string-literal"><span class="token string">''</span></span><span class="token punctuation">.</span>obs<span class="token punctuation">;</span>
+<span class="token keyword">final</span> isLogged <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">.</span>obs<span class="token punctuation">;</span>
+<span class="token keyword">final</span> count <span class="token operator">=</span> <span class="token number">0.</span>obs<span class="token punctuation">;</span>
+<span class="token keyword">final</span> balance <span class="token operator">=</span> <span class="token number">0.0</span><span class="token punctuation">.</span>obs<span class="token punctuation">;</span>
+<span class="token keyword">final</span> number <span class="token operator">=</span> <span class="token number">0.</span>obs<span class="token punctuation">;</span>
+<span class="token keyword">final</span> items <span class="token operator">=</span> <span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">.</span>obs<span class="token punctuation">;</span>
+<span class="token keyword">final</span> myMap <span class="token operator">=</span> <span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> int<span class="token punctuation">&gt;</span></span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">.</span>obs<span class="token punctuation">;</span>
+<span class="token comment">// 自定义类 - 可以是任何类</span>
+<span class="token keyword">final</span> user <span class="token operator">=</span> <span class="token class-name">User</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>obs<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul>
+<p>对于 Obx 的基础使用我这里就不再记录，因为后面会用到 <code>GetXController</code> 对 Obx 进行进阶使用，更符合写项目时候的代码习惯，如果结合 <code>GetXController</code> 使用能够理解的话，那么 Obx 的基础使用就自然而然就会了。</p>
+<p>下面先讲述结合 <code>GetXController</code> 使用 Obx，后面再对 <code>GetXController</code> 进行具体记录。</p>
+<p>当然，在使用 <code>GetXController</code> 进行控制 Obx 变量时，我们最好将变量及其操作函数放在一个类里面并放到单独的文件内，例如：</p>
+<pre class="line-numbers language-dart" data-language="dart"><code class="language-dart"><span class="token keyword">class</span> <span class="token class-name">CounterController</span> <span class="token keyword">extends</span> <span class="token class-name">GetxController</span> <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> count <span class="token operator">=</span> <span class="token number">0.</span>obs<span class="token punctuation">;</span>
+  <span class="token function">increment</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> count<span class="token operator">++</span><span class="token punctuation">;</span>
+  <span class="token function">clear</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> count<span class="token punctuation">.</span>value <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>当我们在使用的时候，只需要引入此文件，在组件里面进行初始化等操作。</p>
+<p>例如我们在主页面初始化控制器，使用 <code>Get.put()</code> 方法初始化一个控制器并赋值给类型为 <code>CounterController</code> （我们创建的控制器类）的变量 <code>c</code>：</p>
+<pre class="line-numbers language-dart" data-language="dart"><code class="language-dart"><span class="token keyword">class</span> <span class="token class-name">DemoWidget</span> <span class="token keyword">extends</span> <span class="token class-name">StatelessWidget</span> <span class="token punctuation">{</span>
+  <span class="token class-name">DemoWidget</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token keyword">super</span><span class="token punctuation">.</span>key<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">final</span> <span class="token class-name">CounterController</span> c <span class="token operator">=</span> <span class="token class-name">Get</span><span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token class-name">CounterController</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 初始化控制器</span>
+  <span class="token metadata function">@override</span>
+  <span class="token class-name">Widget</span> <span class="token function">build</span><span class="token punctuation">(</span><span class="token class-name">BuildContext</span> context<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token class-name">Center</span><span class="token punctuation">(</span>
+      child<span class="token punctuation">:</span> <span class="token class-name">Column</span><span class="token punctuation">(</span>children<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+        <span class="token class-name">Container</span><span class="token punctuation">(</span>
+          margin<span class="token punctuation">:</span> <span class="token keyword">const</span> <span class="token class-name">EdgeInsets</span><span class="token punctuation">.</span><span class="token function">only</span><span class="token punctuation">(</span>top<span class="token punctuation">:</span> <span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+          child<span class="token punctuation">:</span> <span class="token class-name">Obx</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token class-name">Text</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"点击了</span><span class="token interpolation"><span class="token punctuation">${</span><span class="token expression">c<span class="token punctuation">.</span>count</span><span class="token punctuation">}</span></span><span class="token string"> 次"</span></span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>  <span class="token comment">// 使用值</span>
+        <span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token class-name">ElevatedButton</span><span class="token punctuation">(</span>
+            onPressed<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+              c<span class="token punctuation">.</span><span class="token function">increment</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 执行操作函数</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            child<span class="token punctuation">:</span> <span class="token keyword">const</span> <span class="token class-name">Text</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"点击＋1"</span></span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token class-name">ElevatedButton</span><span class="token punctuation">(</span>
+            onPressed<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+              c<span class="token punctuation">.</span><span class="token function">clear</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 执行操作函数</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            child<span class="token punctuation">:</span> <span class="token keyword">const</span> <span class="token class-name">Text</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"清除"</span></span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>我们使用变量的时候需要在外面包裹 <code>Obx</code> 函数。</p>
+<p>若我们在其他组件里想要调用相同的控制器，可以在该文件里引入我们控制器类所在的文件（如果其他组件与上面的这个主页面组件在一个文件里就不需要重复引入），并且在组件里使用 <code>Get.find()</code> 方法找到正在使用的相同控制器：</p>
+<pre class="line-numbers language-dart" data-language="dart"><code class="language-dart"><span class="token keyword">import</span> <span class="token string-literal"><span class="token string">'package:flutter/material.dart'</span></span><span class="token punctuation">;</span>
+<span class="token comment">// getx</span>
+<span class="token keyword">import</span> <span class="token string-literal"><span class="token string">'package:get/get.dart'</span></span><span class="token punctuation">;</span>
+<span class="token comment">// 我们的控制器类放到了该文件内</span>
+<span class="token keyword">import</span> <span class="token string-literal"><span class="token string">'./store.dart'</span></span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Test</span> <span class="token keyword">extends</span> <span class="token class-name">StatelessWidget</span> <span class="token punctuation">{</span>
+  <span class="token keyword">final</span> <span class="token class-name">CounterController</span> c <span class="token operator">=</span> <span class="token class-name">Get</span><span class="token punctuation">.</span>find<span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">CounterController</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 找到控制器并赋值给 c</span>
+  <span class="token class-name">Test</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token keyword">super</span><span class="token punctuation">.</span>key<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token metadata function">@override</span>
+  <span class="token class-name">Widget</span> <span class="token function">build</span><span class="token punctuation">(</span><span class="token class-name">BuildContext</span> context<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token class-name">Obx</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token class-name">Text</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"点击了</span><span class="token interpolation"><span class="token punctuation">${</span><span class="token expression">c<span class="token punctuation">.</span>count</span><span class="token punctuation">}</span></span><span class="token string"> 次"</span></span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 使用</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>这样，在主页面“清除”按钮后加上这个 <code>Test</code> 组件，运行可看到如下效果：</p>
+<p><img onerror="imgOnError(this);" data-fancybox="gallery" src="/2023/07/10/flutter/getx/getx-xue-xi-ri-zhi/image-20230710220044465.png" alt="image-20230710220044465" data-caption="image-20230710220044465" loading="lazy"></p>
+<h2 id="GetXController"><a href="#GetXController" class="headerlink" title="GetXController"></a>GetXController</h2><p>GetXController 主要作用就是 UI 代码和业务逻辑的分离。在前面记录的 Obx 的使用，他就是结合了 GetXController 进行管理的，并且其中 <code>Obx()</code> 即其中的一种</p>
+<h3 id="三种创建方式"><a href="#三种创建方式" class="headerlink" title="三种创建方式"></a>三种创建方式</h3><p>首先：</p>
+<pre class="line-numbers language-dart" data-language="dart"><code class="language-dart"><span class="token keyword">class</span> <span class="token class-name">MyController</span> <span class="token keyword">extends</span> <span class="token class-name">GetxController</span> <span class="token punctuation">{</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ul>
+<li><p>第一种</p>
+<pre class="line-numbers language-dart" data-language="dart"><code class="language-dart"><span class="token keyword">var</span> teacher <span class="token operator">=</span> <span class="token class-name">Teacher</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">void</span> <span class="token function">convertToUpperCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	teacher<span class="token punctuation">.</span>name<span class="token punctuation">.</span>value <span class="token operator">=</span> teacher<span class="token punctuation">.</span>name<span class="token punctuation">.</span>value<span class="token punctuation">.</span><span class="token function">toUpperCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>第二种</p>
+<pre class="line-numbers language-dart" data-language="dart"><code class="language-dart"><span class="token keyword">var</span> teacher <span class="token operator">=</span>  <span class="token class-name">Teacher</span><span class="token punctuation">(</span>name<span class="token punctuation">:</span> <span class="token string-literal"><span class="token string">"Jimi"</span></span><span class="token punctuation">,</span> age<span class="token punctuation">:</span> <span class="token number">18</span><span class="token punctuation">)</span><span class="token punctuation">.</span>obs<span class="token punctuation">;</span>
+<span class="token keyword">void</span> <span class="token function">convertToUpperCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	teacher<span class="token punctuation">.</span><span class="token function">update</span><span class="token punctuation">(</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		teacher<span class="token punctuation">.</span>value<span class="token punctuation">.</span>name <span class="token operator">=</span> teacher<span class="token punctuation">.</span>value<span class="token punctuation">.</span>name<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toUpperCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>第三种</p>
+<pre class="line-numbers language-dart" data-language="dart"><code class="language-dart"><span class="token keyword">var</span> teacher <span class="token operator">=</span> <span class="token class-name">Teacher</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">void</span> <span class="token function">convertToUpperCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    teacher<span class="token punctuation">.</span>name<span class="token punctuation">.</span>value <span class="token operator">=</span> teacher<span class="token punctuation">.</span>name<span class="token punctuation">.</span>value<span class="token punctuation">.</span><span class="token function">toUpperCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">update</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul>
+<pre class="line-numbers language-dart" data-language="dart"><code class="language-dart"><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>这样把它们放在 <code>MyController</code> 类（继承 <code>GetxController</code>）里，就实现了控制器的创建。</p>
+<h3 id="实例化控制器并使用（三种使用方式）"><a href="#实例化控制器并使用（三种使用方式）" class="headerlink" title="实例化控制器并使用（三种使用方式）"></a>实例化控制器并使用（三种使用方式）</h3><p>例如我们提前创建好上方的控制器类，下面要在组件里面实例化：</p>
+<pre class="line-numbers language-dart" data-language="dart"><code class="language-dart"><span class="token class-name">MyController</span> myController <span class="token operator">=</span> <span class="token class-name">Get</span><span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token class-name">MyController</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>实例化之后可以在子组件里进行使用，有三种方式：</p>
+<ul>
+<li><p>第一种</p>
+<pre class="line-numbers language-dart" data-language="dart"><code class="language-dart"><span class="token class-name">Obx</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token class-name">Text</span><span class="token punctuation">(</span>
+   <span class="token string-literal"><span class="token string">"我的名字是 </span><span class="token interpolation"><span class="token punctuation">${</span><span class="token expression">myController<span class="token punctuation">.</span>teacher<span class="token punctuation">.</span>name</span><span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">,</span>
+   style<span class="token punctuation">:</span> <span class="token class-name">TextStyle</span><span class="token punctuation">(</span>color<span class="token punctuation">:</span> <span class="token class-name">Colors</span><span class="token punctuation">.</span>red<span class="token punctuation">,</span> fontSize<span class="token punctuation">:</span> <span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>第二种</p>
+<pre class="line-numbers language-dart" data-language="dart"><code class="language-dart"><span class="token class-name">GetX</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">MyController</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span>
+   init<span class="token punctuation">:</span> <span class="token class-name">MyController</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+   builder<span class="token punctuation">:</span> <span class="token punctuation">(</span>controller<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token class-name">Text</span><span class="token punctuation">(</span>
+         <span class="token string-literal"><span class="token string">"我的名字是 </span><span class="token interpolation"><span class="token punctuation">${</span><span class="token expression">controller<span class="token punctuation">.</span>teacher<span class="token punctuation">.</span>name</span><span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">,</span>
+         style<span class="token punctuation">:</span> <span class="token class-name">TextStyle</span><span class="token punctuation">(</span>color<span class="token punctuation">:</span> <span class="token class-name">Colors</span><span class="token punctuation">.</span>green<span class="token punctuation">,</span> fontSize<span class="token punctuation">:</span> <span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span><span class="token punctuation">,</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>第三种</p>
+<pre class="line-numbers language-dart" data-language="dart"><code class="language-dart"><span class="token class-name">GetBuilder</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">MyController</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span>
+    init<span class="token punctuation">:</span> myController<span class="token punctuation">,</span>
+    builder<span class="token punctuation">:</span> <span class="token punctuation">(</span>controller<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token class-name">Text</span><span class="token punctuation">(</span>
+            <span class="token string-literal"><span class="token string">"我的名字是 </span><span class="token interpolation"><span class="token punctuation">${</span><span class="token expression">controller<span class="token punctuation">.</span>teacher<span class="token punctuation">.</span>name</span><span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">,</span>
+            style<span class="token punctuation">:</span> <span class="token class-name">TextStyle</span><span class="token punctuation">(</span>color<span class="token punctuation">:</span> <span class="token class-name">Colors</span><span class="token punctuation">.</span>green<span class="token punctuation">,</span> fontSize<span class="token punctuation">:</span> <span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span><span class="token punctuation">,</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul>
+<p>在前面的 Obx 的使用中已经介绍过第一种使用方法了。</p>
+<h3 id="事件监听"><a href="#事件监听" class="headerlink" title="事件监听"></a>事件监听</h3><p>上面我们已经学会了创建控制器，这里我们简单的创建一个：</p>
+<pre class="line-numbers language-dart" data-language="dart"><code class="language-dart"><span class="token keyword">class</span> <span class="token class-name">WorkersController</span> <span class="token keyword">extends</span> <span class="token class-name">GetxController</span> <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> count <span class="token operator">=</span> <span class="token number">0.</span>obs<span class="token punctuation">;</span>
+
+  <span class="token keyword">void</span> <span class="token function">increment</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    count<span class="token operator">++</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>想要实现事件的监听，我们需要在类里重写 <code>onInit</code> 事件：</p>
+<pre class="line-numbers language-dart" data-language="dart"><code class="language-dart"><span class="token metadata function">@override</span>
+<span class="token keyword">void</span> <span class="token function">onInit</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+  <span class="token comment">// 监听count的值，当它发生改变的时候调用</span>
+  <span class="token function">ever</span><span class="token punctuation">(</span>count<span class="token punctuation">,</span> <span class="token punctuation">(</span>callback<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token function">print</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"ever----</span><span class="token interpolation"><span class="token punctuation">$</span><span class="token expression">count</span></span><span class="token string">"</span></span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment">// 监听多个值，当它们发生改变的时候调用</span>
+  <span class="token function">everAll</span><span class="token punctuation">(</span><span class="token punctuation">[</span>count<span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>callback<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token function">print</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"everAll----</span><span class="token interpolation"><span class="token punctuation">$</span><span class="token expression">count</span></span><span class="token string">"</span></span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment">// count值改变时调用，只执行一次</span>
+  <span class="token function">once</span><span class="token punctuation">(</span>count<span class="token punctuation">,</span> <span class="token punctuation">(</span>callback<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token function">print</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"once----</span><span class="token interpolation"><span class="token punctuation">$</span><span class="token expression">count</span></span><span class="token string">"</span></span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment">// 用户停止打字时1秒后调用，主要是防抖</span>
+  <span class="token function">debounce</span><span class="token punctuation">(</span>count<span class="token punctuation">,</span> <span class="token punctuation">(</span>callback<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token function">print</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"debounce----</span><span class="token interpolation"><span class="token punctuation">$</span><span class="token expression">count</span></span><span class="token string">"</span></span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment">// 忽略3秒内的所有变动</span>
+  <span class="token function">interval</span><span class="token punctuation">(</span>count<span class="token punctuation">,</span> <span class="token punctuation">(</span>callback<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token function">print</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"interval----</span><span class="token interpolation"><span class="token punctuation">$</span><span class="token expression">count</span></span><span class="token string">"</span></span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">onInit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h3><p>在创建控制器类的时候，我们可以重写生命周期方法：</p>
+<pre class="line-numbers language-dart" data-language="dart"><code class="language-dart"><span class="token metadata function">@override</span>
+<span class="token keyword">void</span> <span class="token function">onInit</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// TODO: implement onInit</span>
+  <span class="token function">print</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"初始化"</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">onInit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token metadata function">@override</span>
+<span class="token keyword">void</span> <span class="token function">onReady</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// TODO: implement onReady</span>
+  <span class="token function">print</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"加载完成"</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">onReady</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token metadata function">@override</span>
+<span class="token keyword">void</span> <span class="token function">onClose</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// TODO: implement onClose</span>
+  <span class="token function">print</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"控制器被释放"</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">onClose</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>然后实例化使用：</p>
+<pre class="line-numbers language-dart" data-language="dart"><code class="language-dart"><span class="token class-name">GetBuilder</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">MyLifecycleController</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span>
+    initState<span class="token punctuation">:</span> <span class="token punctuation">(</span>data<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> myLifecycleController<span class="token punctuation">.</span><span class="token function">increment</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    dispose<span class="token punctuation">:</span> <span class="token punctuation">(</span>_<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> myLifecycleController<span class="token punctuation">.</span><span class="token function">cleanTask</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    builder<span class="token punctuation">:</span> <span class="token punctuation">(</span>controller<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token class-name">Text</span><span class="token punctuation">(</span>
+            <span class="token string-literal"><span class="token string">"计数器值为: </span><span class="token interpolation"><span class="token punctuation">${</span><span class="token expression">myLifecycleController<span class="token punctuation">.</span>count</span><span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">,</span>
+            style<span class="token punctuation">:</span> <span class="token class-name">TextStyle</span><span class="token punctuation">(</span>color<span class="token punctuation">:</span> <span class="token class-name">Colors</span><span class="token punctuation">.</span>green<span class="token punctuation">,</span> fontSize<span class="token punctuation">:</span> <span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span><span class="token punctuation">,</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>上面代码当组件销毁的时候会执行 <code>cleanTask()</code> 清除计数器数据，初始化的时候会执行 <code>increment()</code>。</p>
+<h3 id="UniqueID"><a href="#UniqueID" class="headerlink" title="UniqueID"></a>UniqueID</h3><p>我们在开发的过程中会碰到一种情况，就是多个地方引用了同一个属性，但我只想单独更新某一个地方，那么就可以用<code>UniqueID</code>来进行区分。</p>
+<p>在创建控制器的时候加入 UniqueID：</p>
+<pre class="line-numbers language-dart" data-language="dart"><code class="language-dart"><span class="token keyword">import</span> <span class="token string-literal"><span class="token string">'package:get/get.dart'</span></span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">CountController</span> <span class="token keyword">extends</span> <span class="token class-name">GetxController</span> <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> count <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">void</span> <span class="token function">increment</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    count<span class="token operator">++</span><span class="token punctuation">;</span>
+    <span class="token function">update</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string-literal"><span class="token string">'jimi_count'</span></span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 在这里写入 id</span>
+  <span class="token punctuation">}</span>
+  
+  <span class="token keyword">void</span> <span class="token function">increment2</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    count<span class="token operator">++</span><span class="token punctuation">;</span>
+    <span class="token function">update</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>在实例化使用的时候：</p>
+<pre class="line-numbers language-dart" data-language="dart"><code class="language-dart"><span class="token class-name">GetBuilder</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">CountController</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span>
+    id<span class="token punctuation">:</span> <span class="token string-literal"><span class="token string">'jimi_count'</span></span><span class="token punctuation">,</span> <span class="token comment">// 加入 id</span>
+    builder<span class="token punctuation">:</span> <span class="token punctuation">(</span>controller<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token class-name">Text</span><span class="token punctuation">(</span>
+            <span class="token string-literal"><span class="token string">"计数器值为: </span><span class="token interpolation"><span class="token punctuation">${</span><span class="token expression">controller<span class="token punctuation">.</span>count</span><span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">,</span>
+            style<span class="token punctuation">:</span> <span class="token class-name">TextStyle</span><span class="token punctuation">(</span>color<span class="token punctuation">:</span> <span class="token class-name">Colors</span><span class="token punctuation">.</span>green<span class="token punctuation">,</span> fontSize<span class="token punctuation">:</span> <span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token class-name">GetBuilder</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">CountController</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span>
+    builder<span class="token punctuation">:</span> <span class="token punctuation">(</span>controller<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token class-name">Text</span><span class="token punctuation">(</span>
+            <span class="token string-literal"><span class="token string">"计数器值为: </span><span class="token interpolation"><span class="token punctuation">${</span><span class="token expression">controller<span class="token punctuation">.</span>count</span><span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">,</span>
+            style<span class="token punctuation">:</span> <span class="token class-name">TextStyle</span><span class="token punctuation">(</span>color<span class="token punctuation">:</span> <span class="token class-name">Colors</span><span class="token punctuation">.</span>green<span class="token punctuation">,</span> fontSize<span class="token punctuation">:</span> <span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span><span class="token punctuation">,</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>此时如果触发 <code>increment()</code> ，上面的组件会显示 <code>count</code> 自增1，而下面的不会，触发 <code>increment2()</code>，下面的组件会在上面的组件的显示的 <code>count</code> 的值的基础上自增1，也就是说触发哪个 <code>increment</code> 都会导致 <code>count</code> 自增1，但是根据 id 的不同（2中没有标明id，但是这种情况下与1中指定的有所区分），组件显示的也会不同，标有相应id的组件会显示变化的值。</p>
+<p>例如此时的 <code>children</code> 如下：</p>
+<pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">children<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+    <span class="token class-name">GetBuilder</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">CountController</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span>
+      builder<span class="token punctuation">:</span> <span class="token punctuation">(</span>controller<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token class-name">Text</span><span class="token punctuation">(</span>
+          <span class="token string-literal"><span class="token string">"计数器值为: </span><span class="token interpolation"><span class="token punctuation">${</span><span class="token expression">controller<span class="token punctuation">.</span>count</span><span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">,</span>
+          style<span class="token punctuation">:</span> <span class="token class-name">TextStyle</span><span class="token punctuation">(</span>color<span class="token punctuation">:</span> <span class="token class-name">Colors</span><span class="token punctuation">.</span>red<span class="token punctuation">,</span> fontSize<span class="token punctuation">:</span> <span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token class-name">GetBuilder</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">CountController</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span>
+      builder<span class="token punctuation">:</span> <span class="token punctuation">(</span>controller<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token class-name">Text</span><span class="token punctuation">(</span>
+          <span class="token string-literal"><span class="token string">"计数器值为: </span><span class="token interpolation"><span class="token punctuation">${</span><span class="token expression">controller<span class="token punctuation">.</span>count</span><span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">,</span>
+          style<span class="token punctuation">:</span> <span class="token class-name">TextStyle</span><span class="token punctuation">(</span>color<span class="token punctuation">:</span> <span class="token class-name">Colors</span><span class="token punctuation">.</span>red<span class="token punctuation">,</span> fontSize<span class="token punctuation">:</span> <span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token class-name">GetBuilder</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">CountController</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span>
+      id<span class="token punctuation">:</span> <span class="token string-literal"><span class="token string">'jimi_count'</span></span><span class="token punctuation">,</span>
+      builder<span class="token punctuation">:</span> <span class="token punctuation">(</span>controller<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token class-name">Text</span><span class="token punctuation">(</span>
+          <span class="token string-literal"><span class="token string">"计数器值为: </span><span class="token interpolation"><span class="token punctuation">${</span><span class="token expression">controller<span class="token punctuation">.</span>count</span><span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">,</span>
+          style<span class="token punctuation">:</span> <span class="token class-name">TextStyle</span><span class="token punctuation">(</span>color<span class="token punctuation">:</span> <span class="token class-name">Colors</span><span class="token punctuation">.</span>green<span class="token punctuation">,</span> fontSize<span class="token punctuation">:</span> <span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token class-name">SizedBox</span><span class="token punctuation">(</span>
+      height<span class="token punctuation">:</span> <span class="token number">20</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token class-name">ElevatedButton</span><span class="token punctuation">(</span>
+        onPressed<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> countController<span class="token punctuation">.</span><span class="token function">increment</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        child<span class="token punctuation">:</span> <span class="token class-name">Text</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"增加"</span></span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token class-name">ElevatedButton</span><span class="token punctuation">(</span>
+        onPressed<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> countController<span class="token punctuation">.</span><span class="token function">increment2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        child<span class="token punctuation">:</span> <span class="token class-name">Text</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"增加2"</span></span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">]</span><span class="token punctuation">,</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>当我们点击”增加“按钮时，第一个和第二个组件同时会变化（因为没有指定id，与已指定id的有所区别），变化后的值为1，第三个组件的值不会变化，仍为0。当我们两次点击”增加2“按钮时，第三个组件会变化（第一第二无变化），变化后的值为3，因为我们指定了id，如果再加上同一个id的组件，值内容也会跟第三个组件一样变化，第一第二个组件不变化，值仍为1。再点击”增加“按钮时，第一第二个组件会变化，变化后的值为4，第三个组件仍为3。</p>
+<p>看上面的文字有点绕脑子，自己手写一遍就会非常清晰明了。</p>
+<h2 id="国际化配置"><a href="#国际化配置" class="headerlink" title="国际化配置"></a>国际化配置</h2><p>还在学习，未完待续……最后更新日期：2023/07/10 23:59:38</p>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
+    
+  </article>
+
+  
+      
+    <div class="nexmoe-post-copyright">
+        <strong>本文作者：</strong>别调P<br>
+        <strong>本文链接：</strong><a href="https://blog.bietiaop.com/2023/07/10/flutter/getx/getx-xue-xi-ri-zhi/" title="https:&#x2F;&#x2F;blog.bietiaop.com&#x2F;2023&#x2F;07&#x2F;10&#x2F;flutter&#x2F;getx&#x2F;getx-xue-xi-ri-zhi&#x2F;" target="_blank" rel="noopener">https:&#x2F;&#x2F;blog.bietiaop.com&#x2F;2023&#x2F;07&#x2F;10&#x2F;flutter&#x2F;getx&#x2F;getx-xue-xi-ri-zhi&#x2F;</a><br>
+        
+            <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+
+        
+    </div>
+
+
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow">
+   
+    
+        <a class="nexmoefont icon-tag-fill -none-link" href="/tags/Android%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91/" rel="tag">Android应用开发</a> <a class="nexmoefont icon-tag-fill -none-link" href="/tags/Flutter/" rel="tag">Flutter</a> <a class="nexmoefont icon-tag-fill -none-link" href="/tags/GetX/" rel="tag">GetX</a> <a class="nexmoefont icon-tag-fill -none-link" href="/tags/iOS%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91/" rel="tag">iOS应用开发</a> <a class="nexmoefont icon-tag-fill -none-link" href="/tags/%E5%AE%89%E5%8D%93%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91/" rel="tag">安卓应用开发</a>
+    
+</div>
+  
+  
+    <script async src="/js/copy-codeblock.js?v=1689004879755"></script>
+  
+
+  
+      <div class="nexmoe-post-footer">
+          <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script type="text/javascript" color="0,0,255" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+<div id="vcomments">
+  正在努力加载评论
+</div>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: 'q3wFidkEgse9PfmKDYl9XugD-gzGzoHsz',
+        appKey: 'SvOMchDSYmvR50to670gIrzE',
+        placeholder: '留下你的足迹...',
+        enableQQ: true
+    })
+</script>
+
+      </div>
+  
+</div>
+</div>
+        <div class="nexmoe-post-right">
+              <div class="nexmoe-fixed">
+                  <div class="nexmoe-tool"> 
+                    
+                      
+                        
+                          
+                          
+                              <button class="mdui-fab catalog" style="overflow:unset;">
+                                  <i class="nexmoefont icon-i-catalog"></i>
+                                  <div class="nexmoe-toc">
+                                      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="toc-number">2.</span> <span class="toc-text">基本使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Snackbar"><span class="toc-number">3.</span> <span class="toc-text">Snackbar</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Snackbar-%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="toc-number">3.1.</span> <span class="toc-text">Snackbar 基本使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Snackbar-%E5%8F%82%E6%95%B0%E5%92%8C%E8%AF%B4%E6%98%8E"><span class="toc-number">3.2.</span> <span class="toc-text">Snackbar 参数和说明</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Dialog"><span class="toc-number">4.</span> <span class="toc-text">Dialog</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Dialog-%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="toc-number">4.1.</span> <span class="toc-text">Dialog 的基本使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Dialog-%E5%8F%82%E6%95%B0%E5%92%8C%E8%AF%B4%E6%98%8E"><span class="toc-number">4.2.</span> <span class="toc-text">Dialog 参数和说明</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BottomSheet"><span class="toc-number">5.</span> <span class="toc-text">BottomSheet</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#BottomSheet-%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="toc-number">5.1.</span> <span class="toc-text">BottomSheet 的基本使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BottomSheet-%E5%8F%82%E6%95%B0%E5%92%8C%E8%AF%B4%E6%98%8E"><span class="toc-number">5.2.</span> <span class="toc-text">BottomSheet 参数和说明</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Navigation"><span class="toc-number">6.</span> <span class="toc-text">Navigation</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Navigation-%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="toc-number">6.1.</span> <span class="toc-text">Navigation 的基本使用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-to-%E6%96%B9%E6%B3%95%E8%BF%9B%E8%A1%8C%E8%B7%AF%E7%94%B1%E8%BD%AC%E8%B7%B3"><span class="toc-number">6.1.1.</span> <span class="toc-text">使用 to 方法进行路由转跳</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-toNamed-%E6%96%B9%E6%B3%95%E8%BF%9B%E8%A1%8C%E8%B7%AF%E7%94%B1%E8%BD%AC%E8%B7%B3"><span class="toc-number">6.1.2.</span> <span class="toc-text">使用 toNamed 方法进行路由转跳</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-back-%E6%96%B9%E6%B3%95%E8%BF%9B%E8%A1%8C%E8%BF%94%E5%9B%9E%E4%B8%8A%E4%B8%80%E9%A1%B5"><span class="toc-number">6.1.3.</span> <span class="toc-text">使用 back 方法进行返回上一页</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-off-%E6%96%B9%E6%B3%95%E6%9B%BF%E6%8D%A2%E5%BD%93%E5%89%8D%E9%A1%B5%E9%9D%A2"><span class="toc-number">6.1.4.</span> <span class="toc-text">使用 off 方法替换当前页面</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-offAll-%E6%89%93%E5%BC%80%E6%96%B0%E9%A1%B5%E9%9D%A2%EF%BC%8C%E5%B9%B6%E5%85%B3%E9%97%AD%E4%B9%8B%E5%89%8D%E7%9A%84%E6%89%80%E6%9C%89%E9%A1%B5%E9%9D%A2"><span class="toc-number">6.1.5.</span> <span class="toc-text">使用 offAll 打开新页面，并关闭之前的所有页面</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#arguments-%E4%BC%A0%E5%80%BC%E7%9A%84%E6%8E%A5%E6%94%B6"><span class="toc-number">6.1.6.</span> <span class="toc-text">arguments 传值的接收</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#parameters-%E4%BC%A0%E5%80%BC%E7%9A%84%E6%8E%A5%E6%94%B6"><span class="toc-number">6.1.7.</span> <span class="toc-text">parameters 传值的接收</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E4%B8%AD%E9%97%B4%E4%BB%B6%E8%BF%9B%E8%A1%8C%E8%AE%A4%E8%AF%81%E7%AD%89%E6%93%8D%E4%BD%9C"><span class="toc-number">6.1.8.</span> <span class="toc-text">使用中间件进行认证等操作</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Obx-%E5%93%8D%E5%BA%94%E5%BC%8F%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86"><span class="toc-number">7.</span> <span class="toc-text">Obx 响应式状态管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89-Obx-%E5%8F%98%E9%87%8F%E7%9A%84%E4%B8%89%E7%A7%8D%E6%96%B9%E5%BC%8F"><span class="toc-number">7.1.</span> <span class="toc-text">定义 Obx 变量的三种方式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GetXController"><span class="toc-number">8.</span> <span class="toc-text">GetXController</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E7%A7%8D%E5%88%9B%E5%BB%BA%E6%96%B9%E5%BC%8F"><span class="toc-number">8.1.</span> <span class="toc-text">三种创建方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E4%BE%8B%E5%8C%96%E6%8E%A7%E5%88%B6%E5%99%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%EF%BC%88%E4%B8%89%E7%A7%8D%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F%EF%BC%89"><span class="toc-number">8.2.</span> <span class="toc-text">实例化控制器并使用（三种使用方式）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E7%9B%91%E5%90%AC"><span class="toc-number">8.3.</span> <span class="toc-text">事件监听</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-number">8.4.</span> <span class="toc-text">生命周期</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#UniqueID"><span class="toc-number">8.5.</span> <span class="toc-text">UniqueID</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BD%E9%99%85%E5%8C%96%E9%85%8D%E7%BD%AE"><span class="toc-number">9.</span> <span class="toc-text">国际化配置</span></a></li></ol>
+                                  </div>
+                              </button>
+                          
+                          
+                      
+                    
+                      <a href="#nexmoe-content" class="toc-link" aria-label="Back To Top" title="top"><button class="mdui-fab mdui-ripple"><i class="nexmoefont icon-caret-top"></i></button></a>
+                  </div>
+              </div>
+            </div>
+    </div>
+    <div id="nexmoe-search-space">
+	<div class="search-container">
+		<div class="search-header">
+			<div class="search-input-container">
+				<input
+					class="search-input"
+					type="text"
+					placeholder="搜索"
+					oninput="sinput();"
+				/>
+			</div>
+			<a class="search-close" onclick="sclose();">×</a>
+		</div>
+		<div class="search-body"></div>
+	</div>
+</div>
+
+    
+    <script src="/prism.js"></script>
+
+
+        <script src="//cdn.jsdelivr.net/npm/js-base64/base64.min.js"></script>
+        <script>
+        const hasAttr = (e,a) => a.some(_=> e.attr(_)!==undefined);
+        $('a').each(function() {
+          const $this = $(this);
+          if(hasAttr($this,["data-fancybox","ignore-external-link"])) return;
+          const href = $this.attr('href');
+          if (href && href.match('^((http|https|thunder|qqdl|ed2k|Flashget|qbrowser|ftp|rtsp|mms)://)')) {
+            const strs = href.split('/');
+            if (strs.length >= 3) {
+                const host = strs[2];
+                if (host !== '' || window.location.host) {
+                    $this.attr('href', '/go.html?u='+href+'').attr('rel', 'external nofollow noopener noreferrer');
+                    if (true) {
+                        $this.attr('target', '_blank');
+                    }
+                }
+            }
+          }
+        });
+        </script></body>
+
+</html>
