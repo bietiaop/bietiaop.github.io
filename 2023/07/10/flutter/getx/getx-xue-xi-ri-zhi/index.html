@@ -30,7 +30,7 @@
 <meta property="og:image" content="https://blog.bietiaop.com/2023/07/10/flutter/getx/getx-xue-xi-ri-zhi/image-20230710152016122.png">
 <meta property="og:image" content="https://blog.bietiaop.com/2023/07/10/flutter/getx/getx-xue-xi-ri-zhi/image-20230710220044465.png">
 <meta property="article:published_time" content="2023-07-10T00:15:13.000Z">
-<meta property="article:modified_time" content="2023-07-10T15:59:38.000Z">
+<meta property="article:modified_time" content="2023-07-11T15:59:38.000Z">
 <meta property="article:author" content="别调P">
 <meta property="article:tag" content="Flutter">
 <meta property="article:tag" content="GetX">
@@ -44,15 +44,15 @@
 <link rel="stylesheet" href="/lib/mdui_043tiny/mdui.css">
 
 
-    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1689004879805">
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1689091581252">
     
-    <link rel="stylesheet" href="/css/style.css?v=1689004879805">
+    <link rel="stylesheet" href="/css/style.css?v=1689091581252">
 
     
         
-            <link rel="stylesheet" href="/custom.css?v=1689004879805">
+            <link rel="stylesheet" href="/custom.css?v=1689091581252">
         
-            <link rel="stylesheet" href="/custom.css?v=1689004879805">
+            <link rel="stylesheet" href="/custom.css?v=1689091581252">
         
     
 
@@ -61,7 +61,7 @@
 <script src="/lib/fancybox/fancybox.umd.js" async></script>
 
 
-    <script async src="/js/app.js?v=1689004879805"></script>
+    <script async src="/js/app.js?v=1689091581252"></script>
     
      
 
@@ -162,7 +162,7 @@
 </div>
 
 
-	<script async src="/js/search.js?v=1689004879805"></script>
+	<script async src="/js/search.js?v=1689091581252"></script>
 
 
 
@@ -415,7 +415,7 @@
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>如果我们使用 GetX，需要将 <code>MaterialApp</code> 替换为 <code>GetMaterialApp</code> ：</p>
+<p>如果我们使用 GetX 的一些功能例如路由功能，需要将 <code>MaterialApp</code> 替换为 <code>GetMaterialApp</code> ：</p>
 <pre class="line-numbers language-dart" data-language="dart"><code class="language-dart"><span class="token keyword">import</span> <span class="token string-literal"><span class="token string">'package:flutter/material.dart'</span></span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token string-literal"><span class="token string">'package:get/get.dart'</span></span><span class="token punctuation">;</span>    <span class="token comment">// 首先引入 GetX</span>
 
@@ -435,7 +435,7 @@
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>使用 GetX 可以让我们尽量少使用 Stateful 组件，多的使用 Stateless 组件，提高应用性能。</p>
+<p>当然其他功能比如 Obx 等不需要替换程序入口。使用 GetX 可以让我们尽量少使用 Stateful 组件，多的使用 Stateless 组件，提高应用性能。</p>
 <h2 id="Snackbar"><a href="#Snackbar" class="headerlink" title="Snackbar"></a>Snackbar</h2><p>Snackbar 的作用就是弹出一个顶部消息提醒，如下图所示：</p>
 <p><img onerror="imgOnError(this);" data-fancybox="gallery" src="/2023/07/10/flutter/getx/getx-xue-xi-ri-zhi/2f3cd0173a7e34a5192e539e68f5500b.jpg" alt="2f3cd0173a7e34a5192e539e68f5500b" data-caption="2f3cd0173a7e34a5192e539e68f5500b" loading="lazy"></p>
 <p>当点击按钮的时候顶部会弹出提示信息。</p>
@@ -1229,7 +1229,7 @@
 
 <p>这样把它们放在 <code>MyController</code> 类（继承 <code>GetxController</code>）里，就实现了控制器的创建。</p>
 <h3 id="实例化控制器并使用（三种使用方式）"><a href="#实例化控制器并使用（三种使用方式）" class="headerlink" title="实例化控制器并使用（三种使用方式）"></a>实例化控制器并使用（三种使用方式）</h3><p>例如我们提前创建好上方的控制器类，下面要在组件里面实例化：</p>
-<pre class="line-numbers language-dart" data-language="dart"><code class="language-dart"><span class="token class-name">MyController</span> myController <span class="token operator">=</span> <span class="token class-name">Get</span><span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token class-name">MyController</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-dart" data-language="dart"><code class="language-dart"><span class="token keyword">final</span> <span class="token class-name">MyController</span> myController <span class="token operator">=</span> <span class="token class-name">Get</span><span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token class-name">MyController</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>实例化之后可以在子组件里进行使用，有三种方式：</p>
 <ul>
@@ -1406,7 +1406,749 @@
 
 <p>当我们点击”增加“按钮时，第一个和第二个组件同时会变化（因为没有指定id，与已指定id的有所区别），变化后的值为1，第三个组件的值不会变化，仍为0。当我们两次点击”增加2“按钮时，第三个组件会变化（第一第二无变化），变化后的值为3，因为我们指定了id，如果再加上同一个id的组件，值内容也会跟第三个组件一样变化，第一第二个组件不变化，值仍为1。再点击”增加“按钮时，第一第二个组件会变化，变化后的值为4，第三个组件仍为3。</p>
 <p>看上面的文字有点绕脑子，自己手写一遍就会非常清晰明了。</p>
-<h2 id="国际化配置"><a href="#国际化配置" class="headerlink" title="国际化配置"></a>国际化配置</h2><p>还在学习，未完待续……最后更新日期：2023/07/10 23:59:38</p>
+<h2 id="国际化配置"><a href="#国际化配置" class="headerlink" title="国际化配置"></a>国际化配置</h2><h3 id="程序入口"><a href="#程序入口" class="headerlink" title="程序入口"></a>程序入口</h3><p>在 <code>GetMaterialApp</code> 中配置国际化：</p>
+<pre class="line-numbers language-dart" data-language="dart"><code class="language-dart"><span class="token class-name">GetMaterialApp</span><span class="token punctuation">(</span>
+    title<span class="token punctuation">:</span> <span class="token string-literal"><span class="token string">"GetX"</span></span><span class="token punctuation">,</span>
+    translations<span class="token punctuation">:</span> <span class="token class-name">Messages</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    locale<span class="token punctuation">:</span> <span class="token class-name">Locale</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">'zh'</span></span><span class="token punctuation">,</span> <span class="token string-literal"><span class="token string">'CN'</span></span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token comment">//设置默认语言</span>
+    fallbackLocale<span class="token punctuation">:</span> <span class="token class-name">Locale</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"zh"</span></span><span class="token punctuation">,</span> <span class="token string-literal"><span class="token string">"CN"</span></span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token comment">// 在配置错误的情况下,使用的语言</span>
+    home<span class="token punctuation">:</span> <span class="token class-name">InternationalizationExample</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="创建国际化类"><a href="#创建国际化类" class="headerlink" title="创建国际化类"></a>创建国际化类</h3><p>创建一个类继承 <code>Translations</code>，重写 <code>keys</code>，类型为 Map。</p>
+<pre class="line-numbers language-dart" data-language="dart"><code class="language-dart"><span class="token keyword">import</span> <span class="token string-literal"><span class="token string">'package:get/get.dart'</span></span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Messages</span> <span class="token keyword">extends</span> <span class="token class-name">Translations</span> <span class="token punctuation">{</span>
+
+  <span class="token metadata function">@override</span>
+  <span class="token comment">// TODO: implement keys</span>
+  <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Map</span><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">String</span><span class="token punctuation">&gt;</span><span class="token punctuation">&gt;</span></span> <span class="token keyword">get</span> keys <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+    <span class="token string-literal"><span class="token string">'zh_CN'</span></span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      <span class="token string-literal"><span class="token string">'hello'</span></span><span class="token punctuation">:</span> <span class="token string-literal"><span class="token string">"你好, 世界"</span></span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token string-literal"><span class="token string">'en_US'</span></span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      <span class="token string-literal"><span class="token string">'hello'</span></span><span class="token punctuation">:</span> <span class="token string-literal"><span class="token string">'hello world'</span></span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="创建控制器类，用于切换语言"><a href="#创建控制器类，用于切换语言" class="headerlink" title="创建控制器类，用于切换语言"></a>创建控制器类，用于切换语言</h3><p>创建一个控制器类，写入切换语言函数 <code>changeLanguage</code>，传入 <code>languageCode</code> 和 <code>countryCode</code>。然后使用 <code>Locale</code> 函数传入 <code>languageCode</code> 和 <code>countryCode</code> 获取地区参数。我们的语言类型组成为 <code>zh_CN</code> 用字符 <code>_</code> 隔开的。其中 <code>zh</code> 为我们所指的 <code>languageCode</code>，<code>CN</code> 为我们所指的 <code>countryCode</code>。因此在我们切换语言传入参数的时候，<code>languageCode</code> 和 <code>countryCode</code> 要对应我们配置的如 <code>zh_CN</code> 的 <code>zh</code> 和 <code>CN</code> 两个部分，参考下面的<strong>实例化控制器并使用</strong>。</p>
+<p>函数里使用 <code>Get.updateLocale()</code> 切换语言，传入参数为使用 <code>Locale</code> 获取到的地区参数。</p>
+<pre class="line-numbers language-dart" data-language="dart"><code class="language-dart"><span class="token keyword">import</span> <span class="token string-literal"><span class="token string">'dart:ui'</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token string-literal"><span class="token string">'package:get/get.dart'</span></span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">MessagesController</span> <span class="token keyword">extends</span> <span class="token class-name">GetxController</span> <span class="token punctuation">{</span>
+
+  <span class="token keyword">void</span> <span class="token function">changeLanguage</span><span class="token punctuation">(</span><span class="token class-name">String</span> languageCode<span class="token punctuation">,</span> <span class="token class-name">String</span>  countryCode<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> locale <span class="token operator">=</span> <span class="token class-name">Locale</span><span class="token punctuation">(</span>languageCode<span class="token punctuation">,</span> countryCode<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">Get</span><span class="token punctuation">.</span><span class="token function">updateLocale</span><span class="token punctuation">(</span>locale<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="实例化控制器并使用"><a href="#实例化控制器并使用" class="headerlink" title="实例化控制器并使用"></a>实例化控制器并使用</h3><p>使用国际化语言只需要在字符串后面加上 <code>.tr</code>。GetX 会根据配置的国际化类里的内容转换为相应的内容。例如我们在 <code>zh_CN</code> 配置的内容为：</p>
+<pre class="line-numbers language-json" data-language="json"><code class="language-json">'zh_CN'<span class="token operator">:</span> <span class="token punctuation">{</span>
+	'hello'<span class="token operator">:</span> <span class="token string">"你好, 世界"</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>我们在使用 <code>‘hello’.tr</code> 会获取中文语言中 key 为 <code>‘hello’</code> 的 Map 键的值，即为 <code>你好，世界</code>。</p>
+<pre class="line-numbers language-dart" data-language="dart"><code class="language-dart"><span class="token keyword">import</span> <span class="token string-literal"><span class="token string">'package:flutter/material.dart'</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token string-literal"><span class="token string">'package:flutter_getx_example/GetXControllerWorkersExample/WorkersConroller.dart'</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token string-literal"><span class="token string">'package:flutter_getx_example/InternationalizationExample/MessagesCnotroller.dart'</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token string-literal"><span class="token string">'package:get/get.dart'</span></span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">InternationalizationExample</span> <span class="token keyword">extends</span> <span class="token class-name">StatelessWidget</span> <span class="token punctuation">{</span>
+
+  <span class="token keyword">final</span> <span class="token class-name">MessagesController</span> messagesController <span class="token operator">=</span> <span class="token class-name">Get</span><span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token class-name">MessagesController</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token metadata function">@override</span>
+  <span class="token class-name">Widget</span> <span class="token function">build</span><span class="token punctuation">(</span><span class="token class-name">BuildContext</span> context<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token class-name">Scaffold</span><span class="token punctuation">(</span>
+      appBar<span class="token punctuation">:</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">,</span>
+      body<span class="token punctuation">:</span> <span class="token class-name">Center</span><span class="token punctuation">(</span>
+        child<span class="token punctuation">:</span> <span class="token class-name">Column</span><span class="token punctuation">(</span>
+          children<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+            <span class="token class-name">Text</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">'hello'</span></span><span class="token punctuation">.</span>tr<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token comment">// 使用国际化语言</span>
+            <span class="token class-name">ElevatedButton</span><span class="token punctuation">(</span>
+              onPressed<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> messagesController<span class="token punctuation">.</span><span class="token function">changeLanguage</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">'zh'</span></span><span class="token punctuation">,</span> <span class="token string-literal"><span class="token string">"CN"</span></span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+              child<span class="token punctuation">:</span> <span class="token class-name">Text</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"切换到中文"</span></span><span class="token punctuation">)</span>
+            <span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token class-name">SizedBox</span><span class="token punctuation">(</span>height<span class="token punctuation">:</span> <span class="token number">20</span><span class="token punctuation">,</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token class-name">ElevatedButton</span><span class="token punctuation">(</span>
+              onPressed<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> messagesController<span class="token punctuation">.</span><span class="token function">changeLanguage</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">'en'</span></span><span class="token punctuation">,</span> <span class="token string-literal"><span class="token string">"US"</span></span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+              child<span class="token punctuation">:</span> <span class="token class-name">Text</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"切换到英文"</span></span><span class="token punctuation">)</span>
+            <span class="token punctuation">)</span><span class="token punctuation">,</span>
+          <span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>在上面的代码中使用了切换语言的函数 <code>changeLanguage</code>，传入两个参数 <code>languageCode</code> 和 <code>countryCode</code> 分别为 <code>zh</code> 和 <code>CN</code>，对应 <code>zh_CN</code>。</p>
+<h2 id="依赖注入"><a href="#依赖注入" class="headerlink" title="依赖注入"></a>依赖注入</h2><p>在上面的笔记中，我们使用 <code>Get.put(MyController())</code> 来进行控制器实例的创建，其实 <code>GetX</code> 还提供很多创建实例的方法，可根据不同的业务来进行创建，接下来我们简单介绍一下几个最常用的：</p>
+<ul>
+<li><code>Get.put()</code>：不使用控制器实例也会被创建</li>
+<li><code>Get.lazyPut()</code>：懒加载方式创建实例，只有在使用时才创建</li>
+<li><code>Get.putAsync()</code>：<code>Get.put()</code> 的异步版本</li>
+<li><code>Get.create()</code>：每次使用都会创建一个新的实例</li>
+</ul>
+<h3 id="代码演示"><a href="#代码演示" class="headerlink" title="代码演示"></a>代码演示</h3><ul>
+<li><p>创建控制器</p>
+<pre class="line-numbers language-dart" data-language="dart"><code class="language-dart"><span class="token keyword">import</span> <span class="token string-literal"><span class="token string">'package:flutter_getx_example/ObxCustomClassExample/Teacher.dart'</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token string-literal"><span class="token string">'package:get/get.dart'</span></span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">MyController</span> <span class="token keyword">extends</span> <span class="token class-name">GetxController</span> <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> teacher <span class="token operator">=</span> <span class="token class-name">Teacher</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  
+  <span class="token keyword">void</span> <span class="token function">convertToUpperCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+     teacher<span class="token punctuation">.</span>name<span class="token punctuation">.</span>value <span class="token operator">=</span> teacher<span class="token punctuation">.</span>name<span class="token punctuation">.</span>value<span class="token punctuation">.</span><span class="token function">toUpperCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>实例化控制器并使用</p>
+<ul>
+<li><p><code>Get.put()</code> 即使不使用控制器实例也会被创建；<code>tag</code> 将用于查找具有标签名称的实例；控制器在不使用时被处理，但如果永久为真，则实例将在整个应用程序中保持活动状态。</p>
+<pre class="line-numbers language-dart" data-language="dart"><code class="language-dart"><span class="token keyword">final</span> <span class="token class-name">MyController</span> myController <span class="token operator">=</span> <span class="token class-name">Get</span><span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token class-name">MyController</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> permanent<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
+<li><p><code>Get.lazyPut()</code> 实例将在使用时创建，它类似于 <code>permanent</code>，区别在于实例在不使用时被丢弃；但是当它再次被需要使用时，GetX 将重新创建实例。</p>
+<pre class="line-numbers language-dart" data-language="dart"><code class="language-dart"><span class="token class-name">Get</span><span class="token punctuation">.</span><span class="token function">lazyPut</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token class-name">MyController</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">Get</span><span class="token punctuation">.</span><span class="token function">lazyPut</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token class-name">MyController</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> tag<span class="token punctuation">:</span> <span class="token string-literal"><span class="token string">"instancel"</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</li>
+<li><p><code>Get.putSync()</code> 为 <code>Get.put()</code> 异步版本。</p>
+<pre class="line-numbers language-dart" data-language="dart"><code class="language-dart"><span class="token class-name">Get</span><span class="token punctuation">.</span>putAsync<span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">MyController</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">async</span>  <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token keyword">await</span> <span class="token class-name">MyController</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
+<li><p><code>Get.create()</code> 每次都将返回一个新的实例。</p>
+<pre class="line-numbers language-dart" data-language="dart"><code class="language-dart"><span class="token class-name">Get</span><span class="token punctuation">.</span>create<span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">MyController</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token class-name">MyController</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+</ul>
+</li>
+</ul>
+<p>使用时：</p>
+<pre class="line-numbers language-dart" data-language="dart"><code class="language-dart"><span class="token comment">// 放在 onPressed 触发：</span>
+onPressed<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 实例使用的 tag 创建</span>
+    <span class="token comment">// Get.find&lt;MyController&gt;(tag: 'instancel');</span>
+
+    <span class="token class-name">Get</span><span class="token punctuation">.</span>find<span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">MyController</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="Get-Service"><a href="#Get-Service" class="headerlink" title="Get Service"></a>Get Service</h2><p>这个类就像一个 <code>GetxController</code>，它共享相同的生命周期 <code>onInit()</code>、<code>onReady()</code>、<code>onClose()</code>。 但里面没有 “逻辑”。它只是通知<strong>GetX</strong>的依赖注入系统，这个子类<strong>不能</strong>从内存中删除。所以如果你需要在你的应用程序的生命周期内对一个类实例进行绝对的持久化，那么就可以使用 <code>GetxService</code>。</p>
+<ul>
+<li><h3 id="创建-Service"><a href="#创建-Service" class="headerlink" title="创建 Service"></a>创建 Service</h3><p>想要创建 Service，我们需要定义一个类继承 <code>GetxService</code>：</p>
+<pre class="line-numbers language-dart" data-language="dart"><code class="language-dart"><span class="token keyword">import</span> <span class="token string-literal"><span class="token string">'package:get/get.dart'</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token string-literal"><span class="token string">'package:shared_preferences/shared_preferences.dart'</span></span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Service</span> <span class="token keyword">extends</span> <span class="token class-name">GetxService</span> <span class="token punctuation">{</span>
+
+  <span class="token class-name">Future</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token keyword">void</span><span class="token punctuation">&gt;</span></span> <span class="token function">getCounter</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">async</span> <span class="token punctuation">{</span>
+    <span class="token class-name">SharedPreferences</span> prefs <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token class-name">SharedPreferences</span><span class="token punctuation">.</span><span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    int count <span class="token operator">=</span> <span class="token punctuation">(</span>prefs<span class="token punctuation">.</span><span class="token function">getInt</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"counter"</span></span><span class="token punctuation">)</span> <span class="token operator">?</span><span class="token operator">?</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"count 的值为: </span><span class="token interpolation"><span class="token punctuation">$</span><span class="token expression">count</span></span><span class="token string">"</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">await</span> prefs<span class="token punctuation">.</span><span class="token function">setInt</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"counter"</span></span><span class="token punctuation">,</span> count<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><h3 id="初始化-Service"><a href="#初始化-Service" class="headerlink" title="初始化 Service"></a>初始化 Service</h3><p>我们需要创建一个初始化函数并在运行程序前进行调用：</p>
+<p>在初始化函数中我们需要使用 <code>async-await</code> 等待所有我们定义的服务启动成功，在 <code>main</code> 函数中也使用 <code>async-await</code> 进行调用，确保所有的服务启动成功。</p>
+<pre class="line-numbers language-dart" data-language="dart"><code class="language-dart"><span class="token keyword">import</span> <span class="token string-literal"><span class="token string">'package:flutter/material.dart'</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token string-literal"><span class="token string">'package:flutter_getx_example/GetXServiceExample/GetXServiceExample.dart'</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token string-literal"><span class="token string">'package:flutter_getx_example/GetXServiceExample/Service.dart'</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token string-literal"><span class="token string">'package:get/get.dart'</span></span><span class="token punctuation">;</span>
+
+<span class="token comment">/// 初始化服务</span>
+<span class="token class-name">Future</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token keyword">void</span><span class="token punctuation">&gt;</span></span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">async</span> <span class="token punctuation">{</span>
+  <span class="token keyword">await</span> <span class="token function">initServices</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">runApp</span><span class="token punctuation">(</span><span class="token class-name">MyApp</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token class-name">Future</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token keyword">void</span><span class="token punctuation">&gt;</span></span> <span class="token function">initServices</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">async</span> <span class="token punctuation">{</span>
+  <span class="token function">print</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"初始化服务"</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">await</span> <span class="token class-name">Get</span><span class="token punctuation">.</span><span class="token function">putAsync</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">async</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token keyword">await</span> <span class="token class-name">Service</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">print</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"所有服务启动"</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">MyApp</span> <span class="token keyword">extends</span> <span class="token class-name">StatelessWidget</span> <span class="token punctuation">{</span>
+  <span class="token metadata function">@override</span>
+  <span class="token class-name">Widget</span> <span class="token function">build</span><span class="token punctuation">(</span><span class="token class-name">BuildContext</span> context<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token class-name">GetMaterialApp</span><span class="token punctuation">(</span>
+      title<span class="token punctuation">:</span> <span class="token string-literal"><span class="token string">"GetX"</span></span><span class="token punctuation">,</span>
+      home<span class="token punctuation">:</span> <span class="token class-name">GetXServiceExample</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><h3 id="调用-Service"><a href="#调用-Service" class="headerlink" title="调用 Service"></a>调用 Service</h3></li>
+</ul>
+<pre class="line-numbers language-dart" data-language="dart"><code class="language-dart"><span class="token keyword">import</span> <span class="token string-literal"><span class="token string">'package:flutter/material.dart'</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token string-literal"><span class="token string">'package:flutter_getx_example/GetXServiceExample/Service.dart'</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token string-literal"><span class="token string">'package:get/get.dart'</span></span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">GetXServiceExample</span> <span class="token keyword">extends</span> <span class="token class-name">StatelessWidget</span> <span class="token punctuation">{</span>
+
+  <span class="token metadata function">@override</span>
+  <span class="token class-name">Widget</span> <span class="token function">build</span><span class="token punctuation">(</span><span class="token class-name">BuildContext</span> context<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token class-name">Scaffold</span><span class="token punctuation">(</span>
+      appBar<span class="token punctuation">:</span> <span class="token class-name">AppBar</span><span class="token punctuation">(</span>
+        title<span class="token punctuation">:</span> <span class="token class-name">Text</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"GetX Service"</span></span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">)</span><span class="token punctuation">,</span>
+      body<span class="token punctuation">:</span> <span class="token class-name">Center</span><span class="token punctuation">(</span>
+        child<span class="token punctuation">:</span> <span class="token class-name">Column</span><span class="token punctuation">(</span>
+          mainAxisAlignment<span class="token punctuation">:</span> <span class="token class-name">MainAxisAlignment</span><span class="token punctuation">.</span>center<span class="token punctuation">,</span>
+          crossAxisAlignment<span class="token punctuation">:</span> <span class="token class-name">CrossAxisAlignment</span><span class="token punctuation">.</span>center<span class="token punctuation">,</span>
+          children<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+            <span class="token class-name">ElevatedButton</span><span class="token punctuation">(</span>
+              onPressed<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token class-name">Get</span><span class="token punctuation">.</span>find<span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Service</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getCounter</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              child<span class="token punctuation">:</span> <span class="token class-name">Text</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"点我加1"</span></span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+          <span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="Binding"><a href="#Binding" class="headerlink" title="Binding"></a>Binding</h2><p>在我们使用 <code>GetX</code> 状态管理器的时候，往往每次都是用需要手动实例化一个控制器，这样的话基本页面都需要实例化一次，这样就太麻烦了，而 <code>Binding</code> 能解决上述问题，可以在项目初始化时把所有需要进行状态管理的控制器进行统一初始化，接下来看代码演示：</p>
+<ul>
+<li><h3 id="声明需要进行的绑定控制器类"><a href="#声明需要进行的绑定控制器类" class="headerlink" title="声明需要进行的绑定控制器类"></a>声明需要进行的绑定控制器类</h3><p>下面有三个文件：</p>
+<h4 id="①-AllControllerBinding-dart"><a href="#①-AllControllerBinding-dart" class="headerlink" title="① AllControllerBinding.dart"></a>① AllControllerBinding.dart</h4><p>在这个文件中创建一个类继承 <code>Bindings</code>，重写 <code>dependencies()</code> 方法，在这个方法中启动我们所有的控制器：</p>
+<pre class="line-numbers language-dart" data-language="dart"><code class="language-dart"><span class="token keyword">import</span> <span class="token string-literal"><span class="token string">'package:flutter_getx_example/GetXBindingExample/controller/BindingHomeController.dart'</span></span><span class="token punctuation">;</span> <span class="token comment">// 引入文件 ② 从而导入控制器 BindingMyController</span>
+<span class="token keyword">import</span> <span class="token string-literal"><span class="token string">'package:flutter_getx_example/GetXBindingExample/controller/BindingMyController.dart'</span></span><span class="token punctuation">;</span> <span class="token comment">// 引入文件 ③ 从而导入控制器 BindingHomeController</span>
+<span class="token keyword">import</span> <span class="token string-literal"><span class="token string">'package:get/get.dart'</span></span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">AllControllerBinding</span> <span class="token keyword">implements</span> <span class="token class-name">Bindings</span> <span class="token punctuation">{</span>
+  
+  <span class="token metadata function">@override</span>
+  <span class="token keyword">void</span> <span class="token function">dependencies</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// TODO: implement dependencies</span>
+    <span class="token class-name">Get</span><span class="token punctuation">.</span>lazyPut<span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">BindingMyController</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token class-name">BindingMyController</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 启动控制器</span>
+    <span class="token class-name">Get</span><span class="token punctuation">.</span>lazyPut<span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">BindingHomeController</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token class-name">BindingHomeController</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 启动控制器</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="②-BindingHomeController-dart"><a href="#②-BindingHomeController-dart" class="headerlink" title="② BindingHomeController.dart"></a>② BindingHomeController.dart</h4><p>②和③文件都是定义控制器的，在上面文件中引入并启动</p>
+<pre class="line-numbers language-dart" data-language="dart"><code class="language-dart"><span class="token keyword">import</span> <span class="token string-literal"><span class="token string">'package:get/get.dart'</span></span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">BindingHomeController</span> <span class="token keyword">extends</span> <span class="token class-name">GetxController</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> count <span class="token operator">=</span> <span class="token number">0.</span>obs<span class="token punctuation">;</span>
+    <span class="token keyword">void</span> <span class="token function">increment</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      count<span class="token operator">++</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="③-BindingMyController-dart"><a href="#③-BindingMyController-dart" class="headerlink" title="③ BindingMyController.dart"></a>③ BindingMyController.dart</h4><pre class="line-numbers language-dart" data-language="dart"><code class="language-dart"><span class="token keyword">import</span> <span class="token string-literal"><span class="token string">'package:get/get.dart'</span></span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">BindingMyController</span> <span class="token keyword">extends</span> <span class="token class-name">GetxController</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> count <span class="token operator">=</span> <span class="token number">0.</span>obs<span class="token punctuation">;</span>
+    <span class="token keyword">void</span> <span class="token function">increment</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      count<span class="token operator">++</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul>
+<p>我们的绑定文件就已经写好了，下面就要进行初始化，我们若要进行初始化，那么就要在项目启动的时候，在 <code>GetMaterialApp()</code> 里面使用参数 <code>initialBinding</code> 导入我们的实例化绑定类，如下所示：</p>
+<ul>
+<li><h3 id="在项目启动时进行初始化绑定"><a href="#在项目启动时进行初始化绑定" class="headerlink" title="在项目启动时进行初始化绑定"></a>在项目启动时进行初始化绑定</h3><h4 id="④-main-dart"><a href="#④-main-dart" class="headerlink" title="④ main.dart"></a>④ main.dart</h4><p>在主文件中我们在</p>
+<pre class="line-numbers language-dart" data-language="dart"><code class="language-dart"><span class="token keyword">import</span> <span class="token string-literal"><span class="token string">'package:flutter/material.dart'</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token string-literal"><span class="token string">'package:flutter_getx_example/GetXBindingExample/binding/AllControllerBinding.dart'</span></span><span class="token punctuation">;</span> <span class="token comment">// 引入文件 ① 即绑定文件，里面实现了绑定类，我们需要引入并且使用绑定类</span>
+<span class="token keyword">import</span> <span class="token string-literal"><span class="token string">'package:flutter_getx_example/GetXBindingExample/GetXBindingExample.dart'</span></span><span class="token punctuation">;</span> <span class="token comment">// 引入文件 ⑤，此文件里面有组件使用了控制器，我们引入就是为了使用这个组件</span>
+<span class="token keyword">import</span> <span class="token string-literal"><span class="token string">'package:get/get.dart'</span></span><span class="token punctuation">;</span>
+
+<span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">runApp</span><span class="token punctuation">(</span><span class="token class-name">MyApp</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+
+<span class="token keyword">class</span> <span class="token class-name">MyApp</span> <span class="token keyword">extends</span> <span class="token class-name">StatelessWidget</span> <span class="token punctuation">{</span>
+  <span class="token metadata function">@override</span>
+  <span class="token class-name">Widget</span> <span class="token function">build</span><span class="token punctuation">(</span><span class="token class-name">BuildContext</span> context<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">/// GetX Binding</span>
+    <span class="token keyword">return</span> <span class="token class-name">GetMaterialApp</span><span class="token punctuation">(</span>
+      title<span class="token punctuation">:</span> <span class="token string-literal"><span class="token string">"GetX"</span></span><span class="token punctuation">,</span>
+      initialBinding<span class="token punctuation">:</span> <span class="token class-name">AllControllerBinding</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token comment">// 在这个地方我们初始化绑定</span>
+      home<span class="token punctuation">:</span> <span class="token class-name">GetXBindingExample</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>初始化绑定后我们就可以在组件中使用控制器了。</p>
+<h5 id="路由绑定"><a href="#路由绑定" class="headerlink" title="路由绑定"></a>路由绑定</h5><p>如果我们想绑定到指定路由内，我们可以在 <code>getPages</code> 配置项（上面已经提到过）里面在相应路由的 <code>GetPage</code> 方法内加上参数 <code>binding</code>，例如：</p>
+<blockquote>
+<p>注意：</p>
+<ul>
+<li>下面所说的 <code>BHomeControllerBinding</code> 其实就是控制器 <code>BindingHomeController</code> 的绑定类，与上面的 <code>AllControllerBinding</code> 不同的是，<code>AllControllerBinding</code> 是将两个控制器合并在一起的（<code>dependencies()</code> 方法里启动了两个控制器），而 <code>BHomeControllerBinding</code> 仅仅启动了 <code>BindingHomeController</code>，因此没啥太大区别。然而代码比较重复我就不再记录。</li>
+<li><code>BHome</code> 组件内容与 <code>GetXBindingExample</code> 组件内容大致一样，因为为了演示路由绑定，因此复制粘贴了一个 <code>BHome</code> 组件页面，唯一的区别就是没有那个转跳按钮。</li>
+</ul>
+</blockquote>
+<pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">getPages<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+    <span class="token class-name">GetPage</span><span class="token punctuation">(</span>
+    	name<span class="token punctuation">:</span> <span class="token string-literal"><span class="token string">"/home"</span></span><span class="token punctuation">,</span>
+        page<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token keyword">const</span> <span class="token class-name">BHome</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        binding<span class="token punctuation">:</span> <span class="token class-name">BHomeControllerBinding</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// 值为绑定类实例</span>
+    <span class="token punctuation">)</span>
+<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>此时运行是会报错的因为我们还没有对绑定类进行初始化，此时要在 <code>main()</code> 里面 <code>runApp()</code> 之前进行初始化：</p>
+<pre class="line-numbers language-dart" data-language="dart"><code class="language-dart"><span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token class-name">BMyControllerBinding</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">dependencies</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">runApp</span><span class="token punctuation">(</span><span class="token class-name">MyApp</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>当然如果我们不想使用单独的绑定类，也可以绑定构建器，那么 <code>binding</code> 参数此时应该这样写（使用 <code>BindingsBuilder()</code> 方法）：</p>
+<pre class="line-numbers language-dart" data-language="dart"><code class="language-dart">binding<span class="token punctuation">:</span> <span class="token class-name">BindingsBuilder</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+    <span class="token class-name">Get</span><span class="token punctuation">.</span>lazyPut<span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">BindingHomeController</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token class-name">BindingHomeController</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>此时 <code>main()</code> 函数里面<strong>不需要</strong>再初始化控制器了。</p>
+</li>
+<li><h3 id="在页面中使用状态管理器"><a href="#在页面中使用状态管理器" class="headerlink" title="在页面中使用状态管理器"></a>在页面中使用状态管理器</h3><h4 id="⑤-GetXBindingExample-dart"><a href="#⑤-GetXBindingExample-dart" class="headerlink" title="⑤ GetXBindingExample.dart"></a>⑤ GetXBindingExample.dart</h4><p>此文件内包含 <code>main.dart</code> 文件中引入的组件 <code>GetXBindingExample</code>，在这个组件里我们使用控制器 <code>BindingMyController</code>，我们只需要引入这个类并且使用 <code>Get.find()</code> 例如 <code>Get.find&lt;BindingMyController&gt;()</code> 就可以使用该控制器。</p>
+<p>在 <code>BHome</code> 组件里（没有展示代码）我们使用的不是 <code>BindingMyController</code> 而是 <code>BindingHomeController</code> 是为了演示<strong>路由绑定</strong>。</p>
+<pre class="line-numbers language-dart" data-language="dart"><code class="language-dart"><span class="token keyword">import</span> <span class="token string-literal"><span class="token string">'package:flutter/material.dart'</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token string-literal"><span class="token string">'package:flutter_getx_example/GetXBindingExample/BHome.dart'</span></span><span class="token punctuation">;</span> <span class="token comment">// 这个文件是一个页面组件，我们下面要使用路由转跳绑定进行演示 注释1（见下面使用例子里的解释）</span>
+<span class="token keyword">import</span> <span class="token string-literal"><span class="token string">'package:flutter_getx_example/GetXBindingExample/binding/BHomeControllerBinding.dart'</span></span><span class="token punctuation">;</span> <span class="token comment">// 这个文件里面 BHome 页面组件使用的绑定类，我们在不使用声明式路由的时候在参数中使用绑定需要使用绑定类 注释1（见下面使用例子里的解释）</span>
+<span class="token keyword">import</span> <span class="token string-literal"><span class="token string">'package:flutter_getx_example/GetXBindingExample/controller/BindingMyController.dart'</span></span><span class="token punctuation">;</span> <span class="token comment">// 引入文件 ③，即我们想使用的控制器</span>
+<span class="token keyword">import</span> <span class="token string-literal"><span class="token string">'package:get/get.dart'</span></span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">GetXBindingExample</span> <span class="token keyword">extends</span> <span class="token class-name">StatelessWidget</span> <span class="token punctuation">{</span>
+  <span class="token metadata function">@override</span>
+  <span class="token class-name">Widget</span> <span class="token function">build</span><span class="token punctuation">(</span><span class="token class-name">BuildContext</span> context<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token class-name">Scaffold</span><span class="token punctuation">(</span>
+      appBar<span class="token punctuation">:</span> <span class="token class-name">AppBar</span><span class="token punctuation">(</span>
+        title<span class="token punctuation">:</span> <span class="token class-name">Text</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"GetXBinding"</span></span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">)</span><span class="token punctuation">,</span>
+      body<span class="token punctuation">:</span> <span class="token class-name">Center</span><span class="token punctuation">(</span>
+        child<span class="token punctuation">:</span> <span class="token class-name">Column</span><span class="token punctuation">(</span>
+          mainAxisAlignment<span class="token punctuation">:</span> <span class="token class-name">MainAxisAlignment</span><span class="token punctuation">.</span>center<span class="token punctuation">,</span>
+          crossAxisAlignment<span class="token punctuation">:</span> <span class="token class-name">CrossAxisAlignment</span><span class="token punctuation">.</span>center<span class="token punctuation">,</span>
+          children<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+            <span class="token class-name">Obx</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token class-name">Text</span><span class="token punctuation">(</span>
+              <span class="token comment">// 我们可以直接通过 Get.find() 来查找并使用我们的控制器</span>
+              <span class="token string-literal"><span class="token string">"计数器的值为 </span><span class="token interpolation"><span class="token punctuation">${</span><span class="token expression"><span class="token class-name">Get</span><span class="token punctuation">.</span>find<span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">BindingMyController</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>count</span><span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">,</span>
+              style<span class="token punctuation">:</span> <span class="token class-name">TextStyle</span><span class="token punctuation">(</span>color<span class="token punctuation">:</span> <span class="token class-name">Colors</span><span class="token punctuation">.</span>red<span class="token punctuation">,</span> fontSize<span class="token punctuation">:</span> <span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token class-name">SizedBox</span><span class="token punctuation">(</span>height<span class="token punctuation">:</span> <span class="token number">20</span><span class="token punctuation">,</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token class-name">ElevatedButton</span><span class="token punctuation">(</span>
+              onPressed<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token class-name">Get</span><span class="token punctuation">.</span>find<span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">BindingMyController</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">increment</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              child<span class="token punctuation">:</span> <span class="token class-name">Text</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"点击加1"</span></span><span class="token punctuation">)</span>
+            <span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token class-name">SizedBox</span><span class="token punctuation">(</span>height<span class="token punctuation">:</span> <span class="token number">20</span><span class="token punctuation">,</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token class-name">ElevatedButton</span><span class="token punctuation">(</span>
+              onPressed<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token comment">// 没有绑定进入页面，则点击加1没有效果</span>
+                <span class="token class-name">Get</span><span class="token punctuation">.</span><span class="token function">to</span><span class="token punctuation">(</span><span class="token class-name">BHome</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+                <span class="token comment">// 若在声明式路由 即 getPages 里面配置了绑定，那么使用声明式路由转跳会使用控制器，点击加1是有效果的</span>
+                <span class="token comment">// Get.toNamed("/bHome");</span>
+
+                <span class="token comment">// 若不使用声明式路由并且想要使用绑定，需要添加参数 binding，值为绑定类实例</span>
+                <span class="token comment">// 注释1：若不使用这种方式，注释1引入的两个文件都不需要引入了。</span>
+                <span class="token comment">// Get.to(BHome(), binding: BHomeControllerBinding());</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              child<span class="token punctuation">:</span> <span class="token class-name">Text</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"跳转去 Home 页"</span></span><span class="token punctuation">)</span>
+            <span class="token punctuation">)</span><span class="token punctuation">,</span>
+          <span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul>
+<blockquote>
+<p>将服务器获取的数据转为类型，可以使用这个网站：<a target="_blank" rel="noopener" href="https://app.quicktype.io/">Instantly parse JSON in any language | quicktype</a></p>
+<p>只需要把数据粘贴到左侧右侧选择相应的语言就可以生成。</p>
+</blockquote>
+<h2 id="GetUtils"><a href="#GetUtils" class="headerlink" title="GetUtils"></a>GetUtils</h2><p><code>GetUtils </code> 是 <code>getx</code> 为我们提供一些常用的工具类库，包括<strong>值是否为空</strong>、<strong>是否是数字</strong>、<strong>是否是视频、图片、音频、PPT、Word、APK</strong>、<strong>邮箱、手机号码、日期、MD5、SHA1</strong>等等。</p>
+<p>以判断是否是邮箱、手机号、IPV4地址为例：</p>
+<pre class="line-numbers language-dart" data-language="dart"><code class="language-dart"><span class="token keyword">import</span> <span class="token string-literal"><span class="token string">'package:flutter/material.dart'</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token string-literal"><span class="token string">'package:get/get.dart'</span></span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">GetXUtilsExample</span> <span class="token keyword">extends</span> <span class="token class-name">StatelessWidget</span> <span class="token punctuation">{</span>
+
+  <span class="token keyword">var</span> textFieldController <span class="token operator">=</span> <span class="token class-name">TextEditingController</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token metadata function">@override</span>
+  <span class="token class-name">Widget</span> <span class="token function">build</span><span class="token punctuation">(</span><span class="token class-name">BuildContext</span> context<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token class-name">Scaffold</span><span class="token punctuation">(</span>
+      appBar<span class="token punctuation">:</span> <span class="token class-name">AppBar</span><span class="token punctuation">(</span>
+        title<span class="token punctuation">:</span> <span class="token class-name">Text</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"GetX Utils"</span></span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">)</span><span class="token punctuation">,</span>
+      body<span class="token punctuation">:</span> <span class="token class-name">Center</span><span class="token punctuation">(</span>
+        child<span class="token punctuation">:</span> <span class="token class-name">Column</span><span class="token punctuation">(</span>
+          mainAxisAlignment<span class="token punctuation">:</span> <span class="token class-name">MainAxisAlignment</span><span class="token punctuation">.</span>center<span class="token punctuation">,</span>
+          crossAxisAlignment<span class="token punctuation">:</span> <span class="token class-name">CrossAxisAlignment</span><span class="token punctuation">.</span>center<span class="token punctuation">,</span>
+          children<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+            <span class="token class-name">Padding</span><span class="token punctuation">(</span>
+              padding<span class="token punctuation">:</span> <span class="token class-name">EdgeInsets</span><span class="token punctuation">.</span><span class="token function">all</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+              child<span class="token punctuation">:</span> <span class="token class-name">TextField</span><span class="token punctuation">(</span>
+                controller<span class="token punctuation">:</span> textFieldController<span class="token punctuation">,</span>
+              <span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token class-name">SizedBox</span><span class="token punctuation">(</span>height<span class="token punctuation">:</span> <span class="token number">10</span><span class="token punctuation">,</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token class-name">Padding</span><span class="token punctuation">(</span>
+              padding<span class="token punctuation">:</span> <span class="token class-name">EdgeInsets</span><span class="token punctuation">.</span><span class="token function">all</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+              child<span class="token punctuation">:</span> <span class="token class-name">ElevatedButton</span><span class="token punctuation">(</span>
+                child<span class="token punctuation">:</span> <span class="token class-name">Text</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"判断是否是邮箱"</span></span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                onPressed<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">async</span> <span class="token punctuation">{</span>
+                  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token class-name">GetUtils</span><span class="token punctuation">.</span><span class="token function">isEmail</span><span class="token punctuation">(</span>textFieldController<span class="token punctuation">.</span>text<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    <span class="token class-name">Get</span><span class="token punctuation">.</span><span class="token function">snackbar</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"正确"</span></span><span class="token punctuation">,</span> <span class="token string-literal"><span class="token string">"恭喜你, 完全正确"</span></span><span class="token punctuation">,</span> backgroundColor<span class="token punctuation">:</span> <span class="token class-name">Colors</span><span class="token punctuation">.</span>greenAccent<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+                    <span class="token class-name">Get</span><span class="token punctuation">.</span><span class="token function">snackbar</span><span class="token punctuation">(</span>
+                        <span class="token string-literal"><span class="token string">"邮箱错误"</span></span><span class="token punctuation">,</span>
+                        <span class="token string-literal"><span class="token string">"请输入正确的邮箱"</span></span><span class="token punctuation">,</span>
+                        backgroundColor<span class="token punctuation">:</span> <span class="token class-name">Colors</span><span class="token punctuation">.</span>pink
+                    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+                  <span class="token punctuation">}</span>
+                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token class-name">Padding</span><span class="token punctuation">(</span>
+              padding<span class="token punctuation">:</span> <span class="token class-name">EdgeInsets</span><span class="token punctuation">.</span><span class="token function">all</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+              child<span class="token punctuation">:</span> <span class="token class-name">ElevatedButton</span><span class="token punctuation">(</span>
+                child<span class="token punctuation">:</span> <span class="token class-name">Text</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"判断是否是手机号"</span></span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                onPressed<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">async</span> <span class="token punctuation">{</span>
+                  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token class-name">GetUtils</span><span class="token punctuation">.</span><span class="token function">isPhoneNumber</span><span class="token punctuation">(</span>textFieldController<span class="token punctuation">.</span>text<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+                    <span class="token class-name">Get</span><span class="token punctuation">.</span><span class="token function">snackbar</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"正确"</span></span><span class="token punctuation">,</span> <span class="token string-literal"><span class="token string">"恭喜你, 完全正确"</span></span><span class="token punctuation">,</span> backgroundColor<span class="token punctuation">:</span> <span class="token class-name">Colors</span><span class="token punctuation">.</span>greenAccent<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+                    <span class="token class-name">Get</span><span class="token punctuation">.</span><span class="token function">snackbar</span><span class="token punctuation">(</span>
+                        <span class="token string-literal"><span class="token string">"手机号错误"</span></span><span class="token punctuation">,</span>
+                        <span class="token string-literal"><span class="token string">"请输入正确的手机号"</span></span><span class="token punctuation">,</span>
+                        backgroundColor<span class="token punctuation">:</span> <span class="token class-name">Colors</span><span class="token punctuation">.</span>pink
+                    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+                  <span class="token punctuation">}</span>
+                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token class-name">Padding</span><span class="token punctuation">(</span>
+              padding<span class="token punctuation">:</span> <span class="token class-name">EdgeInsets</span><span class="token punctuation">.</span><span class="token function">all</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+              child<span class="token punctuation">:</span> <span class="token class-name">ElevatedButton</span><span class="token punctuation">(</span>
+                child<span class="token punctuation">:</span> <span class="token class-name">Text</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"判断是否是IPv4"</span></span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                onPressed<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">async</span> <span class="token punctuation">{</span>
+                  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token class-name">GetUtils</span><span class="token punctuation">.</span><span class="token function">isIPv4</span><span class="token punctuation">(</span>textFieldController<span class="token punctuation">.</span>text<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+                    <span class="token class-name">Get</span><span class="token punctuation">.</span><span class="token function">snackbar</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"正确"</span></span><span class="token punctuation">,</span> <span class="token string-literal"><span class="token string">"恭喜你, 完全正确"</span></span><span class="token punctuation">,</span> backgroundColor<span class="token punctuation">:</span> <span class="token class-name">Colors</span><span class="token punctuation">.</span>greenAccent<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+                    <span class="token class-name">Get</span><span class="token punctuation">.</span><span class="token function">snackbar</span><span class="token punctuation">(</span>
+                        <span class="token string-literal"><span class="token string">"地址错误"</span></span><span class="token punctuation">,</span>
+                        <span class="token string-literal"><span class="token string">"请输入正确的IPv4地址"</span></span><span class="token punctuation">,</span>
+                        backgroundColor<span class="token punctuation">:</span> <span class="token class-name">Colors</span><span class="token punctuation">.</span>pink
+                    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+                  <span class="token punctuation">}</span>
+                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token punctuation">)</span><span class="token punctuation">,</span>
+          <span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><code>GetUtils</code> 有以下方法（转自文档）：</p>
+<h3 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h3><ul>
+<li><p><em><a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/Object/hashCode.html">hashCode</a></em> → <a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/int-class.html">int</a></p>
+<p>The hash code for this object.read-onlyinherited</p>
+</li>
+<li><p><em><a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/Object/runtimeType.html">runtimeType</a></em> → <a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/Type-class.html">Type</a></p>
+<p>A representation of the runtime type of the object.read-onlyinherited</p>
+</li>
+</ul>
+<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><ul>
+<li><p><em><a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/Object/noSuchMethod.html">noSuchMethod</a></em>(<a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/Invocation-class.html">Invocation</a> invocation) → dynamic</p>
+<p>Invoked when a nonexistent method or property is accessed.inherited</p>
+</li>
+<li><p><em><a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/Object/toString.html">toString</a></em>() → <a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/String-class.html">String</a></p>
+<p>A string representation of this object.inherited</p>
+</li>
+</ul>
+<h3 id="Operators"><a href="#Operators" class="headerlink" title="Operators"></a>Operators</h3><ul>
+<li><p><em><a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/Object/operator_equals.html">operator ==</a></em>(<a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/Object-class.html">Object</a> other) → <a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/bool-class.html">bool</a></p>
+<p>The equality operator.inherited</p>
+</li>
+</ul>
+<h3 id="静态方法"><a href="#静态方法" class="headerlink" title="静态方法"></a>静态方法</h3><ul>
+<li><p><a target="_blank" rel="noopener" href="https://pub.dev/documentation/get/latest/get_utils_src_get_utils_get_utils/GetUtils/camelCase.html">camelCase</a>(<a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/String-class.html">String</a> value) → <a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/String-class.html">String</a>?</p>
+<p>用于将短句子或者短语转为驼峰字符串</p>
+<p>Example: your name =&gt; yourName</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://pub.dev/documentation/get/latest/get_utils_src_get_utils_get_utils/GetUtils/capitalize.html">capitalize</a>(<a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/String-class.html">String</a> value) → <a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/String-class.html">String</a>?</p>
+<p>将每个单词首字母大写</p>
+<p>Example: your name =&gt; Your Name</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://pub.dev/documentation/get/latest/get_utils_src_get_utils_get_utils/GetUtils/capitalizeFirst.html">capitalizeFirst</a>(<a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/String-class.html">String</a> s) → <a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/String-class.html">String</a>?</p>
+<p>将第一个单词首字母大写</p>
+<p>Example: your name =&gt; Your name</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://pub.dev/documentation/get/latest/get_utils_src_get_utils_get_utils/GetUtils/createPath.html">createPath</a>(<a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/String-class.html">String</a> path, [<a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/Iterable-class.html">Iterable</a>? segments]) → <a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/String-class.html">String</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://pub.dev/documentation/get/latest/get_utils_src_get_utils_get_utils/GetUtils/hasCapitalletter.html">hasCapitalletter</a>(<a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/String-class.html">String</a> s) → <a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/bool-class.html">bool</a></p>
+<p>检查字符串中是否含有大写字母</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://pub.dev/documentation/get/latest/get_utils_src_get_utils_get_utils/GetUtils/hasMatch.html">hasMatch</a>(<a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/String-class.html">String</a>? value, <a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/String-class.html">String</a> pattern) → <a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/bool-class.html">bool</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://pub.dev/documentation/get/latest/get_utils_src_get_utils_get_utils/GetUtils/isAlphabetOnly.html">isAlphabetOnly</a>(<a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/String-class.html">String</a> s) → <a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/bool-class.html">bool</a></p>
+<p>检查字符串是否仅由字母组成。 (不包含空格)</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://pub.dev/documentation/get/latest/get_utils_src_get_utils_get_utils/GetUtils/isAPK.html">isAPK</a>(<a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/String-class.html">String</a> filePath) → <a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/bool-class.html">bool</a></p>
+<p>检查路径地址是否为 APK 文件地址 (判断字符串结尾是不是 <code>.apk</code>)</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://pub.dev/documentation/get/latest/get_utils_src_get_utils_get_utils/GetUtils/isAudio.html">isAudio</a>(<a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/String-class.html">String</a> filePath) → <a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/bool-class.html">bool</a></p>
+<p>检查路径地址是否为音频文件地址 (判断字符串结尾是不是常见的音频格式)</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://pub.dev/documentation/get/latest/get_utils_src_get_utils_get_utils/GetUtils/isBinary.html">isBinary</a>(<a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/String-class.html">String</a> s) → <a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/bool-class.html">bool</a></p>
+<p>检查字符是否为二进制</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://pub.dev/documentation/get/latest/get_utils_src_get_utils_get_utils/GetUtils/isBlank.html">isBlank</a>(dynamic value) → <a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/bool-class.html">bool</a>?</p>
+<p>检查数据是否为纯空格组成或者空白字符串</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://pub.dev/documentation/get/latest/get_utils_src_get_utils_get_utils/GetUtils/isBool.html">isBool</a>(<a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/String-class.html">String</a> value) → <a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/bool-class.html">bool</a></p>
+<p>检查字符串是否为布尔（<code>true</code> 或 <code>false</code>）</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://pub.dev/documentation/get/latest/get_utils_src_get_utils_get_utils/GetUtils/isCaseInsensitiveContains.html">isCaseInsensitiveContains</a>(<a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/String-class.html">String</a> a, <a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/String-class.html">String</a> b) → <a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/bool-class.html">bool</a></p>
+<p>检查字符串 <code>a</code> 中是否包含字符串 <code>b</code> (不区分大小写)</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://pub.dev/documentation/get/latest/get_utils_src_get_utils_get_utils/GetUtils/isCaseInsensitiveContainsAny.html">isCaseInsensitiveContainsAny</a>(<a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/String-class.html">String</a> a, <a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/String-class.html">String</a> b) → <a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/bool-class.html">bool</a></p>
+<p>检查字符串 <code>a</code> 中是否包含字符串 <code>b</code> 或字符串 <code>b</code> 中是否包含字符串 <code>a</code> (不区分大小写) </p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://pub.dev/documentation/get/latest/get_utils_src_get_utils_get_utils/GetUtils/isChm.html">isChm</a>(<a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/String-class.html">String</a> filePath) → <a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/bool-class.html">bool</a></p>
+<p>检查路径地址是否为 chm 文件地址</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://pub.dev/documentation/get/latest/get_utils_src_get_utils_get_utils/GetUtils/isCnpj.html">isCnpj</a>(<a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/String-class.html">String</a> cnpj) → <a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/bool-class.html">bool</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://pub.dev/documentation/get/latest/get_utils_src_get_utils_get_utils/GetUtils/isCpf.html">isCpf</a>(<a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/String-class.html">String</a> cpf) → <a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/bool-class.html">bool</a></p>
+<p>检查字符串是否为有效 cpf</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://pub.dev/documentation/get/latest/get_utils_src_get_utils_get_utils/GetUtils/isCurrency.html">isCurrency</a>(<a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/String-class.html">String</a> s) → <a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/bool-class.html">bool</a></p>
+<p>检查字符串是否为货币</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://pub.dev/documentation/get/latest/get_utils_src_get_utils_get_utils/GetUtils/isDateTime.html">isDateTime</a>(<a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/String-class.html">String</a> s) → <a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/bool-class.html">bool</a></p>
+<p>检查字符串是否为时间戳 (UTC or Iso8601)</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://pub.dev/documentation/get/latest/get_utils_src_get_utils_get_utils/GetUtils/isEmail.html">isEmail</a>(<a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/String-class.html">String</a> s) → <a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/bool-class.html">bool</a></p>
+<p>检查字符串是否为邮箱格式</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://pub.dev/documentation/get/latest/get_utils_src_get_utils_get_utils/GetUtils/isEqual.html">isEqual</a>(<a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/num-class.html">num</a> a, <a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/num-class.html">num</a> b) → <a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/bool-class.html">bool</a></p>
+<p>检查两个数字是否相等</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://pub.dev/documentation/get/latest/get_utils_src_get_utils_get_utils/GetUtils/isExcel.html">isExcel</a>(<a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/String-class.html">String</a> filePath) → <a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/bool-class.html">bool</a></p>
+<p>检查路径地址是否为 Excel 文件地址</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://pub.dev/documentation/get/latest/get_utils_src_get_utils_get_utils/GetUtils/isGreaterThan.html">isGreaterThan</a>(<a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/num-class.html">num</a> a, <a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/num-class.html">num</a> b) → <a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/bool-class.html">bool</a></p>
+<p>比较数字 <code>a</code> 是否大于数字 <code>b</code></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://pub.dev/documentation/get/latest/get_utils_src_get_utils_get_utils/GetUtils/isHexadecimal.html">isHexadecimal</a>(<a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/String-class.html">String</a> s) → <a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/bool-class.html">bool</a></p>
+<p>检查字符串是否为十六进制</p>
+<p>Example: HexColor =&gt; #12F</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://pub.dev/documentation/get/latest/get_utils_src_get_utils_get_utils/GetUtils/isHTML.html">isHTML</a>(<a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/String-class.html">String</a> filePath) → <a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/bool-class.html">bool</a></p>
+<p>检查路径地址是否为 HTML 文件地址</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://pub.dev/documentation/get/latest/get_utils_src_get_utils_get_utils/GetUtils/isImage.html">isImage</a>(<a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/String-class.html">String</a> filePath) → <a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/bool-class.html">bool</a></p>
+<p>检查路径地址是否为图片文件地址</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://pub.dev/documentation/get/latest/get_utils_src_get_utils_get_utils/GetUtils/isIPv4.html">isIPv4</a>(<a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/String-class.html">String</a> s) → <a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/bool-class.html">bool</a></p>
+<p>检查字符串是否为 IPv4 地址</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://pub.dev/documentation/get/latest/get_utils_src_get_utils_get_utils/GetUtils/isIPv6.html">isIPv6</a>(<a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/String-class.html">String</a> s) → <a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/bool-class.html">bool</a></p>
+<p>检查字符串是否为 IPv6 地址</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://pub.dev/documentation/get/latest/get_utils_src_get_utils_get_utils/GetUtils/isLengthBetween.html">isLengthBetween</a>(dynamic value, <a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/int-class.html">int</a> minLength, <a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/int-class.html">int</a> maxLength) → <a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/bool-class.html">bool</a></p>
+<p>检查数据长度是否在 <code>minLength</code> 到 <code>maxLength</code> 之间</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://pub.dev/documentation/get/latest/get_utils_src_get_utils_get_utils/GetUtils/isLengthEqualTo.html">isLengthEqualTo</a>(dynamic value, <a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/int-class.html">int</a> otherLength) → <a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/bool-class.html">bool</a></p>
+<p>检查数据长度是否等于 <code>otherLength</code></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://pub.dev/documentation/get/latest/get_utils_src_get_utils_get_utils/GetUtils/isLengthGreaterOrEqual.html">isLengthGreaterOrEqual</a>(dynamic value, <a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/int-class.html">int</a> maxLength) → <a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/bool-class.html">bool</a></p>
+<p>检查数据长度是否大于或等于 <code>maxLength</code></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://pub.dev/documentation/get/latest/get_utils_src_get_utils_get_utils/GetUtils/isLengthGreaterThan.html">isLengthGreaterThan</a>(dynamic value, <a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/int-class.html">int</a> maxLength) → <a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/bool-class.html">bool</a></p>
+<p>检查数据长度是否大于 <code>maxLength</code></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://pub.dev/documentation/get/latest/get_utils_src_get_utils_get_utils/GetUtils/isLengthLessOrEqual.html">isLengthLessOrEqual</a>(dynamic value, <a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/int-class.html">int</a> maxLength) → <a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/bool-class.html">bool</a></p>
+<p>检查数据长度是否小于或等于 <code>maxLength</code></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://pub.dev/documentation/get/latest/get_utils_src_get_utils_get_utils/GetUtils/isLengthLessThan.html">isLengthLessThan</a>(dynamic value, <a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/int-class.html">int</a> maxLength) → <a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/bool-class.html">bool</a></p>
+<p>检查数据长度是否小于 <code>maxLength</code></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://pub.dev/documentation/get/latest/get_utils_src_get_utils_get_utils/GetUtils/isLengthLowerOrEqual.html">isLengthLowerOrEqual</a>(dynamic value, <a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/int-class.html">int</a> maxLength) → <a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/bool-class.html">bool</a></p>
+<p>检查数据长度是否小于或等于 <code>maxLength</code> （方法废除，用 <code>isLengthLessOrEqual</code> 代替）</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://pub.dev/documentation/get/latest/get_utils_src_get_utils_get_utils/GetUtils/isLengthLowerThan.html">isLengthLowerThan</a>(dynamic value, <a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/int-class.html">int</a> maxLength) → <a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/bool-class.html">bool</a></p>
+<p>检查数据长度是否小于 <code>maxLength</code>（方法废除，用 <code>isLengthLessThan</code> 代替）</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://pub.dev/documentation/get/latest/get_utils_src_get_utils_get_utils/GetUtils/isLowerThan.html">isLowerThan</a>(<a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/num-class.html">num</a> a, <a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/num-class.html">num</a> b) → <a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/bool-class.html">bool</a></p>
+<p>检查数字 <code>a</code> 是否小于数字 <code>b</code></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://pub.dev/documentation/get/latest/get_utils_src_get_utils_get_utils/GetUtils/isMD5.html">isMD5</a>(<a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/String-class.html">String</a> s) → <a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/bool-class.html">bool</a></p>
+<p>检查字符串是否为 MD5</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://pub.dev/documentation/get/latest/get_utils_src_get_utils_get_utils/GetUtils/isNull.html">isNull</a>(dynamic value) → <a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/bool-class.html">bool</a></p>
+<p>检查数据是否为空 <code>null</code></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://pub.dev/documentation/get/latest/get_utils_src_get_utils_get_utils/GetUtils/isNullOrBlank.html">isNullOrBlank</a>(dynamic value) → <a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/bool-class.html">bool</a>?</p>
+<p>检查数据是否为 <code>null</code> 或者空白 (为空或者仅由空格组成)</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://pub.dev/documentation/get/latest/get_utils_src_get_utils_get_utils/GetUtils/isNum.html">isNum</a>(<a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/String-class.html">String</a> value) → <a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/bool-class.html">bool</a></p>
+<p>检查字符串是否是否符合整型或者浮点型格式</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://pub.dev/documentation/get/latest/get_utils_src_get_utils_get_utils/GetUtils/isNumericOnly.html">isNumericOnly</a>(<a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/String-class.html">String</a> s) → <a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/bool-class.html">bool</a></p>
+<p>检查字符串是否只包含数字。数字不包含”<code>.</code>“。</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://pub.dev/documentation/get/latest/get_utils_src_get_utils_get_utils/GetUtils/isOneAKind.html">isOneAKind</a>(dynamic value) → <a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/bool-class.html">bool</a></p>
+<p>检查所有数据是否具有相同的值</p>
+<p>Example: 111111 -&gt; true, wwwww -&gt; true, 1,1,1,1 -&gt; true</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://pub.dev/documentation/get/latest/get_utils_src_get_utils_get_utils/GetUtils/isPalindrom.html">isPalindrom</a>(<a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/String-class.html">String</a> string) → <a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/bool-class.html">bool</a></p>
+<p>检查字符串是否为 Palindrom</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://pub.dev/documentation/get/latest/get_utils_src_get_utils_get_utils/GetUtils/isPassport.html">isPassport</a>(<a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/String-class.html">String</a> s) → <a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/bool-class.html">bool</a></p>
+<p>检查字符串是否为护照号码</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://pub.dev/documentation/get/latest/get_utils_src_get_utils_get_utils/GetUtils/isPDF.html">isPDF</a>(<a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/String-class.html">String</a> filePath) → <a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/bool-class.html">bool</a></p>
+<p>检查路径地址是否为 PDF 文件地址</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://pub.dev/documentation/get/latest/get_utils_src_get_utils_get_utils/GetUtils/isPhoneNumber.html">isPhoneNumber</a>(<a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/String-class.html">String</a> s) → <a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/bool-class.html">bool</a></p>
+<p>检查字符串是否为手机号格式</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://pub.dev/documentation/get/latest/get_utils_src_get_utils_get_utils/GetUtils/isPPT.html">isPPT</a>(<a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/String-class.html">String</a> filePath) → <a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/bool-class.html">bool</a></p>
+<p>检查路径地址是否为 PPT 文件地址</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://pub.dev/documentation/get/latest/get_utils_src_get_utils_get_utils/GetUtils/isSHA1.html">isSHA1</a>(<a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/String-class.html">String</a> s) → <a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/bool-class.html">bool</a></p>
+<p>检查字符串是否为 SHA1</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://pub.dev/documentation/get/latest/get_utils_src_get_utils_get_utils/GetUtils/isSHA256.html">isSHA256</a>(<a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/String-class.html">String</a> s) → <a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/bool-class.html">bool</a></p>
+<p>检查字符串是否为 SHA256</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://pub.dev/documentation/get/latest/get_utils_src_get_utils_get_utils/GetUtils/isSSN.html">isSSN</a>(<a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/String-class.html">String</a> s) → <a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/bool-class.html">bool</a></p>
+<p>检查字符串是否为SSN（社会安全号）</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://pub.dev/documentation/get/latest/get_utils_src_get_utils_get_utils/GetUtils/isTxt.html">isTxt</a>(<a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/String-class.html">String</a> filePath) → <a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/bool-class.html">bool</a></p>
+<p>检查路径地址是否为文本文件地址</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://pub.dev/documentation/get/latest/get_utils_src_get_utils_get_utils/GetUtils/isURL.html">isURL</a>(<a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/String-class.html">String</a> s) → <a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/bool-class.html">bool</a></p>
+<p>检查字符串是否为网址格式</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://pub.dev/documentation/get/latest/get_utils_src_get_utils_get_utils/GetUtils/isUsername.html">isUsername</a>(<a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/String-class.html">String</a> s) → <a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/bool-class.html">bool</a></p>
+<p>检查字符串是否为有效的用户名</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://pub.dev/documentation/get/latest/get_utils_src_get_utils_get_utils/GetUtils/isVector.html">isVector</a>(<a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/String-class.html">String</a> filePath) → <a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/bool-class.html">bool</a></p>
+<p>检查路径地址是否为 vector 文件地址</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://pub.dev/documentation/get/latest/get_utils_src_get_utils_get_utils/GetUtils/isVideo.html">isVideo</a>(<a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/String-class.html">String</a> filePath) → <a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/bool-class.html">bool</a></p>
+<p>检查路径地址是否为视频文件地址</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://pub.dev/documentation/get/latest/get_utils_src_get_utils_get_utils/GetUtils/isWord.html">isWord</a>(<a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/String-class.html">String</a> filePath) → <a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/bool-class.html">bool</a></p>
+<p>检查路径地址是否为 Word 文件地址</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://pub.dev/documentation/get/latest/get_utils_src_get_utils_get_utils/GetUtils/nil.html">nil</a>(dynamic s) → dynamic</p>
+<p>In dart2js (in flutter v1.17) a var by default is undefined. <em>Use this only if you are in version &lt;- 1.17</em>. So we assure the null type in json convertions to avoid the “value”:value==null?null:value; someVar.nil will force the null type if the var is null or undefined. <code>nil</code> taken from ObjC just to have a shorter sintax.</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://pub.dev/documentation/get/latest/get_utils_src_get_utils_get_utils/GetUtils/numericOnly.html">numericOnly</a>(<a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/String-class.html">String</a> s, {<a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/bool-class.html">bool</a> firstWordOnly = false}) → <a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/String-class.html">String</a></p>
+<p>提取字符串中的数字</p>
+<p>Example: OTP 12312 27/04/2020 =&gt; 1231227042020</p>
+<p>如果 <code>firstWordOnly </code> 为 <code>true</code>，那么返回示例 “12312”（第一个找到的数字单词）</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://pub.dev/documentation/get/latest/get_utils_src_get_utils_get_utils/GetUtils/paramCase.html">paramCase</a>(<a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/String-class.html">String</a>? text) → <a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/String-class.html">String</a>?</p>
+<p>将短语或短句子用 <code>-</code> 连接</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://pub.dev/documentation/get/latest/get_utils_src_get_utils_get_utils/GetUtils/printFunction.html">printFunction</a>(<a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/String-class.html">String</a> prefix, dynamic value, <a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/String-class.html">String</a> info, {<a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/bool-class.html">bool</a> isError = false}) → void</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://pub.dev/documentation/get/latest/get_utils_src_get_utils_get_utils/GetUtils/removeAllWhitespace.html">removeAllWhitespace</a>(<a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/String-class.html">String</a> value) → <a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/String-class.html">String</a></p>
+<p>删掉所有空格</p>
+<p>Example: your name =&gt; yourname</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://pub.dev/documentation/get/latest/get_utils_src_get_utils_get_utils/GetUtils/snakeCase.html">snakeCase</a>(<a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/String-class.html">String</a>? text, {<a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/String-class.html">String</a> separator = ‘_’}) → <a target="_blank" rel="noopener" href="https://api.dart.dev/stable/3.0.5/dart-core/String-class.html">String</a>?</p>
+<p>将短语或短句子用 <code>_</code> 连接</p>
+</li>
+</ul>
+<h2 id="GetView"><a href="#GetView" class="headerlink" title="GetView"></a>GetView</h2><p><code>GetView</code> 只是对已注册的 <code>Controller</code> 有一个名为 <code>controller</code> 的 getter 的 <code>const Stateless</code> 的Widget，如果我们只有单个控制器作为依赖项，那我们就可以使用 <code>GetView</code> ，而不是使用 <code>StatelessWidget</code> ，并且避免了写 <code>Get.Find()</code>。</p>
+<p>GetView 的使用方法非常简单，只是要将视图层继承自 <code>GetView</code> 并传入需要注册的控制器并 <code>Get.put()</code> 即可，例如如下组件：</p>
+<pre class="line-numbers language-dart" data-language="dart"><code class="language-dart"><span class="token keyword">import</span> <span class="token string-literal"><span class="token string">'package:flutter/material.dart'</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token string-literal"><span class="token string">'package:flutter_getx_example/GetViewAndGetWidgetExample/GetViewCountController.dart'</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token string-literal"><span class="token string">'package:get/get.dart'</span></span><span class="token punctuation">;</span>
+<span class="token comment">// 我们仅需要继承 GetView</span>
+<span class="token keyword">class</span> <span class="token class-name">GetViewAndGetWidgetExample</span> <span class="token keyword">extends</span> <span class="token class-name">GetView</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">GetViewCountController</span><span class="token punctuation">&gt;</span></span> <span class="token punctuation">{</span>
+
+  <span class="token metadata function">@override</span>
+  <span class="token class-name">Widget</span> <span class="token function">build</span><span class="token punctuation">(</span><span class="token class-name">BuildContext</span> context<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+    <span class="token class-name">Get</span><span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token class-name">GetViewCountController</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> <span class="token class-name">Scaffold</span><span class="token punctuation">(</span>
+      appBar<span class="token punctuation">:</span> <span class="token class-name">AppBar</span><span class="token punctuation">(</span>
+        title<span class="token punctuation">:</span> <span class="token class-name">Text</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"GetX GetView"</span></span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">)</span><span class="token punctuation">,</span>
+      body<span class="token punctuation">:</span> <span class="token class-name">Center</span><span class="token punctuation">(</span>
+        child<span class="token punctuation">:</span> <span class="token class-name">Column</span><span class="token punctuation">(</span>
+          mainAxisAlignment<span class="token punctuation">:</span> <span class="token class-name">MainAxisAlignment</span><span class="token punctuation">.</span>center<span class="token punctuation">,</span>
+          crossAxisAlignment<span class="token punctuation">:</span> <span class="token class-name">CrossAxisAlignment</span><span class="token punctuation">.</span>center<span class="token punctuation">,</span>
+          children<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+            <span class="token class-name">Obx</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token class-name">Text</span><span class="token punctuation">(</span>
+              <span class="token string-literal"><span class="token string">"count的值为:  </span><span class="token interpolation"><span class="token punctuation">${</span><span class="token expression">controller<span class="token operator">?</span><span class="token punctuation">.</span>count</span><span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">,</span>
+              style<span class="token punctuation">:</span> <span class="token class-name">TextStyle</span><span class="token punctuation">(</span>
+                color<span class="token punctuation">:</span> <span class="token class-name">Colors</span><span class="token punctuation">.</span>red<span class="token punctuation">,</span>
+                fontSize<span class="token punctuation">:</span> <span class="token number">30</span>
+              <span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token class-name">SizedBox</span><span class="token punctuation">(</span>height<span class="token punctuation">:</span> <span class="token number">20</span><span class="token punctuation">,</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token class-name">ElevatedButton</span><span class="token punctuation">(</span>
+                onPressed<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                  controller<span class="token punctuation">.</span><span class="token function">increment</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                child<span class="token punctuation">:</span> <span class="token class-name">Text</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"点我加1"</span></span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+          <span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="GetWidget"><a href="#GetWidget" class="headerlink" title="GetWidget"></a>GetWidget</h2><p>它 “缓存 “了一个 Controller，由于 <code>_cache_</code> ，不能成为一个 “<code>const Stateless</code>”。当我们使用<code>Get.create(()=&gt;Controller())</code> 会在每次调用时生成一个新的<code>Controller</code> <code>Get.find()</code></p>
+<pre class="line-numbers language-dart" data-language="dart"><code class="language-dart"><span class="token keyword">import</span> <span class="token string-literal"><span class="token string">'package:flutter/material.dart'</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token string-literal"><span class="token string">'package:flutter_getx_example/GetViewAndGetWidgetExample/GetViewCountController.dart'</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token string-literal"><span class="token string">'package:get/get.dart'</span></span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">GetViewAndGetWidgetExample</span> <span class="token keyword">extends</span> <span class="token class-name">GetWidget</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">GetViewCountController</span><span class="token punctuation">&gt;</span></span> <span class="token punctuation">{</span>
+
+  <span class="token metadata function">@override</span>
+  <span class="token class-name">Widget</span> <span class="token function">build</span><span class="token punctuation">(</span><span class="token class-name">BuildContext</span> context<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+    <span class="token class-name">Get</span><span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token class-name">GetViewCountController</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> <span class="token class-name">Scaffold</span><span class="token punctuation">(</span>
+      appBar<span class="token punctuation">:</span> <span class="token class-name">AppBar</span><span class="token punctuation">(</span>
+        title<span class="token punctuation">:</span> <span class="token class-name">Text</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"GetX GetView"</span></span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">)</span><span class="token punctuation">,</span>
+      body<span class="token punctuation">:</span> <span class="token class-name">Center</span><span class="token punctuation">(</span>
+        child<span class="token punctuation">:</span> <span class="token class-name">Column</span><span class="token punctuation">(</span>
+          mainAxisAlignment<span class="token punctuation">:</span> <span class="token class-name">MainAxisAlignment</span><span class="token punctuation">.</span>center<span class="token punctuation">,</span>
+          crossAxisAlignment<span class="token punctuation">:</span> <span class="token class-name">CrossAxisAlignment</span><span class="token punctuation">.</span>center<span class="token punctuation">,</span>
+          children<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+            <span class="token class-name">Obx</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token class-name">Text</span><span class="token punctuation">(</span>
+              <span class="token string-literal"><span class="token string">"count的值为:  </span><span class="token interpolation"><span class="token punctuation">${</span><span class="token expression">controller<span class="token operator">?</span><span class="token punctuation">.</span>count</span><span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">,</span>
+              style<span class="token punctuation">:</span> <span class="token class-name">TextStyle</span><span class="token punctuation">(</span>
+                color<span class="token punctuation">:</span> <span class="token class-name">Colors</span><span class="token punctuation">.</span>red<span class="token punctuation">,</span>
+                fontSize<span class="token punctuation">:</span> <span class="token number">30</span>
+              <span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token class-name">SizedBox</span><span class="token punctuation">(</span>height<span class="token punctuation">:</span> <span class="token number">20</span><span class="token punctuation">,</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token class-name">ElevatedButton</span><span class="token punctuation">(</span>
+              onPressed<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                controller<span class="token punctuation">.</span><span class="token function">increment</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              child<span class="token punctuation">:</span> <span class="token class-name">Text</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"点我加1"</span></span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+          <span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>在我们平时的开发过程中基本上很少会用到 <code>GetWidget</code>，因为我们在大部分情况下都不需要缓存 Controller。</p>
+<p>当我们的页面中只依赖了一个控制器的情况话，那么使用 <code>GetView</code> 将是很好的选择，因为他大大简化了我们的代码。</p>
+<h2 id="Cli-脚手架"><a href="#Cli-脚手架" class="headerlink" title="Cli 脚手架"></a>Cli 脚手架</h2><p>未完待续</p>
 <link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
     
   </article>
@@ -1433,7 +2175,7 @@
 </div>
   
   
-    <script async src="/js/copy-codeblock.js?v=1689004879755"></script>
+    <script async src="/js/copy-codeblock.js?v=1689091581213"></script>
   
 
   
@@ -1468,7 +2210,7 @@
                               <button class="mdui-fab catalog" style="overflow:unset;">
                                   <i class="nexmoefont icon-i-catalog"></i>
                                   <div class="nexmoe-toc">
-                                      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="toc-number">2.</span> <span class="toc-text">基本使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Snackbar"><span class="toc-number">3.</span> <span class="toc-text">Snackbar</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Snackbar-%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="toc-number">3.1.</span> <span class="toc-text">Snackbar 基本使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Snackbar-%E5%8F%82%E6%95%B0%E5%92%8C%E8%AF%B4%E6%98%8E"><span class="toc-number">3.2.</span> <span class="toc-text">Snackbar 参数和说明</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Dialog"><span class="toc-number">4.</span> <span class="toc-text">Dialog</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Dialog-%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="toc-number">4.1.</span> <span class="toc-text">Dialog 的基本使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Dialog-%E5%8F%82%E6%95%B0%E5%92%8C%E8%AF%B4%E6%98%8E"><span class="toc-number">4.2.</span> <span class="toc-text">Dialog 参数和说明</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BottomSheet"><span class="toc-number">5.</span> <span class="toc-text">BottomSheet</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#BottomSheet-%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="toc-number">5.1.</span> <span class="toc-text">BottomSheet 的基本使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BottomSheet-%E5%8F%82%E6%95%B0%E5%92%8C%E8%AF%B4%E6%98%8E"><span class="toc-number">5.2.</span> <span class="toc-text">BottomSheet 参数和说明</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Navigation"><span class="toc-number">6.</span> <span class="toc-text">Navigation</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Navigation-%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="toc-number">6.1.</span> <span class="toc-text">Navigation 的基本使用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-to-%E6%96%B9%E6%B3%95%E8%BF%9B%E8%A1%8C%E8%B7%AF%E7%94%B1%E8%BD%AC%E8%B7%B3"><span class="toc-number">6.1.1.</span> <span class="toc-text">使用 to 方法进行路由转跳</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-toNamed-%E6%96%B9%E6%B3%95%E8%BF%9B%E8%A1%8C%E8%B7%AF%E7%94%B1%E8%BD%AC%E8%B7%B3"><span class="toc-number">6.1.2.</span> <span class="toc-text">使用 toNamed 方法进行路由转跳</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-back-%E6%96%B9%E6%B3%95%E8%BF%9B%E8%A1%8C%E8%BF%94%E5%9B%9E%E4%B8%8A%E4%B8%80%E9%A1%B5"><span class="toc-number">6.1.3.</span> <span class="toc-text">使用 back 方法进行返回上一页</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-off-%E6%96%B9%E6%B3%95%E6%9B%BF%E6%8D%A2%E5%BD%93%E5%89%8D%E9%A1%B5%E9%9D%A2"><span class="toc-number">6.1.4.</span> <span class="toc-text">使用 off 方法替换当前页面</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-offAll-%E6%89%93%E5%BC%80%E6%96%B0%E9%A1%B5%E9%9D%A2%EF%BC%8C%E5%B9%B6%E5%85%B3%E9%97%AD%E4%B9%8B%E5%89%8D%E7%9A%84%E6%89%80%E6%9C%89%E9%A1%B5%E9%9D%A2"><span class="toc-number">6.1.5.</span> <span class="toc-text">使用 offAll 打开新页面，并关闭之前的所有页面</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#arguments-%E4%BC%A0%E5%80%BC%E7%9A%84%E6%8E%A5%E6%94%B6"><span class="toc-number">6.1.6.</span> <span class="toc-text">arguments 传值的接收</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#parameters-%E4%BC%A0%E5%80%BC%E7%9A%84%E6%8E%A5%E6%94%B6"><span class="toc-number">6.1.7.</span> <span class="toc-text">parameters 传值的接收</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E4%B8%AD%E9%97%B4%E4%BB%B6%E8%BF%9B%E8%A1%8C%E8%AE%A4%E8%AF%81%E7%AD%89%E6%93%8D%E4%BD%9C"><span class="toc-number">6.1.8.</span> <span class="toc-text">使用中间件进行认证等操作</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Obx-%E5%93%8D%E5%BA%94%E5%BC%8F%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86"><span class="toc-number">7.</span> <span class="toc-text">Obx 响应式状态管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89-Obx-%E5%8F%98%E9%87%8F%E7%9A%84%E4%B8%89%E7%A7%8D%E6%96%B9%E5%BC%8F"><span class="toc-number">7.1.</span> <span class="toc-text">定义 Obx 变量的三种方式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GetXController"><span class="toc-number">8.</span> <span class="toc-text">GetXController</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E7%A7%8D%E5%88%9B%E5%BB%BA%E6%96%B9%E5%BC%8F"><span class="toc-number">8.1.</span> <span class="toc-text">三种创建方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E4%BE%8B%E5%8C%96%E6%8E%A7%E5%88%B6%E5%99%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%EF%BC%88%E4%B8%89%E7%A7%8D%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F%EF%BC%89"><span class="toc-number">8.2.</span> <span class="toc-text">实例化控制器并使用（三种使用方式）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E7%9B%91%E5%90%AC"><span class="toc-number">8.3.</span> <span class="toc-text">事件监听</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-number">8.4.</span> <span class="toc-text">生命周期</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#UniqueID"><span class="toc-number">8.5.</span> <span class="toc-text">UniqueID</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BD%E9%99%85%E5%8C%96%E9%85%8D%E7%BD%AE"><span class="toc-number">9.</span> <span class="toc-text">国际化配置</span></a></li></ol>
+                                      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="toc-number">2.</span> <span class="toc-text">基本使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Snackbar"><span class="toc-number">3.</span> <span class="toc-text">Snackbar</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Snackbar-%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="toc-number">3.1.</span> <span class="toc-text">Snackbar 基本使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Snackbar-%E5%8F%82%E6%95%B0%E5%92%8C%E8%AF%B4%E6%98%8E"><span class="toc-number">3.2.</span> <span class="toc-text">Snackbar 参数和说明</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Dialog"><span class="toc-number">4.</span> <span class="toc-text">Dialog</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Dialog-%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="toc-number">4.1.</span> <span class="toc-text">Dialog 的基本使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Dialog-%E5%8F%82%E6%95%B0%E5%92%8C%E8%AF%B4%E6%98%8E"><span class="toc-number">4.2.</span> <span class="toc-text">Dialog 参数和说明</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BottomSheet"><span class="toc-number">5.</span> <span class="toc-text">BottomSheet</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#BottomSheet-%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="toc-number">5.1.</span> <span class="toc-text">BottomSheet 的基本使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BottomSheet-%E5%8F%82%E6%95%B0%E5%92%8C%E8%AF%B4%E6%98%8E"><span class="toc-number">5.2.</span> <span class="toc-text">BottomSheet 参数和说明</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Navigation"><span class="toc-number">6.</span> <span class="toc-text">Navigation</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Navigation-%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="toc-number">6.1.</span> <span class="toc-text">Navigation 的基本使用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-to-%E6%96%B9%E6%B3%95%E8%BF%9B%E8%A1%8C%E8%B7%AF%E7%94%B1%E8%BD%AC%E8%B7%B3"><span class="toc-number">6.1.1.</span> <span class="toc-text">使用 to 方法进行路由转跳</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-toNamed-%E6%96%B9%E6%B3%95%E8%BF%9B%E8%A1%8C%E8%B7%AF%E7%94%B1%E8%BD%AC%E8%B7%B3"><span class="toc-number">6.1.2.</span> <span class="toc-text">使用 toNamed 方法进行路由转跳</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-back-%E6%96%B9%E6%B3%95%E8%BF%9B%E8%A1%8C%E8%BF%94%E5%9B%9E%E4%B8%8A%E4%B8%80%E9%A1%B5"><span class="toc-number">6.1.3.</span> <span class="toc-text">使用 back 方法进行返回上一页</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-off-%E6%96%B9%E6%B3%95%E6%9B%BF%E6%8D%A2%E5%BD%93%E5%89%8D%E9%A1%B5%E9%9D%A2"><span class="toc-number">6.1.4.</span> <span class="toc-text">使用 off 方法替换当前页面</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-offAll-%E6%89%93%E5%BC%80%E6%96%B0%E9%A1%B5%E9%9D%A2%EF%BC%8C%E5%B9%B6%E5%85%B3%E9%97%AD%E4%B9%8B%E5%89%8D%E7%9A%84%E6%89%80%E6%9C%89%E9%A1%B5%E9%9D%A2"><span class="toc-number">6.1.5.</span> <span class="toc-text">使用 offAll 打开新页面，并关闭之前的所有页面</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#arguments-%E4%BC%A0%E5%80%BC%E7%9A%84%E6%8E%A5%E6%94%B6"><span class="toc-number">6.1.6.</span> <span class="toc-text">arguments 传值的接收</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#parameters-%E4%BC%A0%E5%80%BC%E7%9A%84%E6%8E%A5%E6%94%B6"><span class="toc-number">6.1.7.</span> <span class="toc-text">parameters 传值的接收</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E4%B8%AD%E9%97%B4%E4%BB%B6%E8%BF%9B%E8%A1%8C%E8%AE%A4%E8%AF%81%E7%AD%89%E6%93%8D%E4%BD%9C"><span class="toc-number">6.1.8.</span> <span class="toc-text">使用中间件进行认证等操作</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Obx-%E5%93%8D%E5%BA%94%E5%BC%8F%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86"><span class="toc-number">7.</span> <span class="toc-text">Obx 响应式状态管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89-Obx-%E5%8F%98%E9%87%8F%E7%9A%84%E4%B8%89%E7%A7%8D%E6%96%B9%E5%BC%8F"><span class="toc-number">7.1.</span> <span class="toc-text">定义 Obx 变量的三种方式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GetXController"><span class="toc-number">8.</span> <span class="toc-text">GetXController</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E7%A7%8D%E5%88%9B%E5%BB%BA%E6%96%B9%E5%BC%8F"><span class="toc-number">8.1.</span> <span class="toc-text">三种创建方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E4%BE%8B%E5%8C%96%E6%8E%A7%E5%88%B6%E5%99%A8%E5%B9%B6%E4%BD%BF%E7%94%A8%EF%BC%88%E4%B8%89%E7%A7%8D%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F%EF%BC%89"><span class="toc-number">8.2.</span> <span class="toc-text">实例化控制器并使用（三种使用方式）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E7%9B%91%E5%90%AC"><span class="toc-number">8.3.</span> <span class="toc-text">事件监听</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-number">8.4.</span> <span class="toc-text">生命周期</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#UniqueID"><span class="toc-number">8.5.</span> <span class="toc-text">UniqueID</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BD%E9%99%85%E5%8C%96%E9%85%8D%E7%BD%AE"><span class="toc-number">9.</span> <span class="toc-text">国际化配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A8%8B%E5%BA%8F%E5%85%A5%E5%8F%A3"><span class="toc-number">9.1.</span> <span class="toc-text">程序入口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E5%9B%BD%E9%99%85%E5%8C%96%E7%B1%BB"><span class="toc-number">9.2.</span> <span class="toc-text">创建国际化类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E6%8E%A7%E5%88%B6%E5%99%A8%E7%B1%BB%EF%BC%8C%E7%94%A8%E4%BA%8E%E5%88%87%E6%8D%A2%E8%AF%AD%E8%A8%80"><span class="toc-number">9.3.</span> <span class="toc-text">创建控制器类，用于切换语言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E4%BE%8B%E5%8C%96%E6%8E%A7%E5%88%B6%E5%99%A8%E5%B9%B6%E4%BD%BF%E7%94%A8"><span class="toc-number">9.4.</span> <span class="toc-text">实例化控制器并使用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5"><span class="toc-number">10.</span> <span class="toc-text">依赖注入</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E6%BC%94%E7%A4%BA"><span class="toc-number">10.1.</span> <span class="toc-text">代码演示</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Get-Service"><span class="toc-number">11.</span> <span class="toc-text">Get Service</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA-Service"><span class="toc-number">11.1.</span> <span class="toc-text">创建 Service</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96-Service"><span class="toc-number">11.2.</span> <span class="toc-text">初始化 Service</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B0%83%E7%94%A8-Service"><span class="toc-number">11.3.</span> <span class="toc-text">调用 Service</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Binding"><span class="toc-number">12.</span> <span class="toc-text">Binding</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A3%B0%E6%98%8E%E9%9C%80%E8%A6%81%E8%BF%9B%E8%A1%8C%E7%9A%84%E7%BB%91%E5%AE%9A%E6%8E%A7%E5%88%B6%E5%99%A8%E7%B1%BB"><span class="toc-number">12.1.</span> <span class="toc-text">声明需要进行的绑定控制器类</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E2%91%A0-AllControllerBinding-dart"><span class="toc-number">12.1.1.</span> <span class="toc-text">① AllControllerBinding.dart</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E2%91%A1-BindingHomeController-dart"><span class="toc-number">12.1.2.</span> <span class="toc-text">② BindingHomeController.dart</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E2%91%A2-BindingMyController-dart"><span class="toc-number">12.1.3.</span> <span class="toc-text">③ BindingMyController.dart</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8%E9%A1%B9%E7%9B%AE%E5%90%AF%E5%8A%A8%E6%97%B6%E8%BF%9B%E8%A1%8C%E5%88%9D%E5%A7%8B%E5%8C%96%E7%BB%91%E5%AE%9A"><span class="toc-number">12.2.</span> <span class="toc-text">在项目启动时进行初始化绑定</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E2%91%A3-main-dart"><span class="toc-number">12.2.1.</span> <span class="toc-text">④ main.dart</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E7%BB%91%E5%AE%9A"><span class="toc-number">12.2.1.1.</span> <span class="toc-text">路由绑定</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8%E9%A1%B5%E9%9D%A2%E4%B8%AD%E4%BD%BF%E7%94%A8%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86%E5%99%A8"><span class="toc-number">12.3.</span> <span class="toc-text">在页面中使用状态管理器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E2%91%A4-GetXBindingExample-dart"><span class="toc-number">12.3.1.</span> <span class="toc-text">⑤ GetXBindingExample.dart</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GetUtils"><span class="toc-number">13.</span> <span class="toc-text">GetUtils</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B1%9E%E6%80%A7"><span class="toc-number">13.1.</span> <span class="toc-text">属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E6%B3%95"><span class="toc-number">13.2.</span> <span class="toc-text">方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Operators"><span class="toc-number">13.3.</span> <span class="toc-text">Operators</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95"><span class="toc-number">13.4.</span> <span class="toc-text">静态方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GetView"><span class="toc-number">14.</span> <span class="toc-text">GetView</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GetWidget"><span class="toc-number">15.</span> <span class="toc-text">GetWidget</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Cli-%E8%84%9A%E6%89%8B%E6%9E%B6"><span class="toc-number">16.</span> <span class="toc-text">Cli 脚手架</span></a></li></ol>
                                   </div>
                               </button>
                           

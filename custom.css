@@ -330,6 +330,15 @@ pre::before:hover {
         font-size: 2rem !important;
     }
 }
+@media screen and (max-width: 610px) {
+    .nexmoe-post-footer {
+        width: calc(100% + 48px) !important;
+        padding-left: 5px !important;
+        padding-right: 5px !important;
+        left: -24px !important;
+        position: relative;
+    }
+}
 @media screen and (max-width: 550px) {
     #nexmoe-content .nexmoe-post .nexmoe-post-cover.absolute h1 {
         font-size: 1.6rem !important;
