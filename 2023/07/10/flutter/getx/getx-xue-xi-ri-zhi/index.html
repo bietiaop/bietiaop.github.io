@@ -60,15 +60,15 @@
 <link rel="stylesheet" href="/lib/mdui_043tiny/mdui.css">
 
 
-    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1689138513586">
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1689139583644">
     
-    <link rel="stylesheet" href="/css/style.css?v=1689138513586">
+    <link rel="stylesheet" href="/css/style.css?v=1689139583644">
 
     
         
-            <link rel="stylesheet" href="/custom.css?v=1689138513586">
+            <link rel="stylesheet" href="/custom.css?v=1689139583644">
         
-            <link rel="stylesheet" href="/custom.css?v=1689138513586">
+            <link rel="stylesheet" href="/custom.css?v=1689139583644">
         
     
 
@@ -77,7 +77,7 @@
 <script src="/lib/fancybox/fancybox.umd.js" async></script>
 
 
-    <script async src="/js/app.js?v=1689138513586"></script>
+    <script async src="/js/app.js?v=1689139583644"></script>
     
      
 
@@ -178,7 +178,7 @@
 </div>
 
 
-	<script async src="/js/search.js?v=1689138513586"></script>
+	<script async src="/js/search.js?v=1689139583644"></script>
 
 
 
@@ -2487,22 +2487,23 @@ Time: <span class="token number">94</span> Milliseconds<span aria-hidden="true" 
       body<span class="token punctuation">:</span> <span class="token class-name">Column</span><span class="token punctuation">(</span>
         mainAxisAlignment<span class="token punctuation">:</span> <span class="token class-name">MainAxisAlignment</span><span class="token punctuation">.</span>center<span class="token punctuation">,</span>
         children<span class="token punctuation">:</span> <span class="token punctuation">[</span>
-        <span class="token class-name">Center</span><span class="token punctuation">(</span>
-          child<span class="token punctuation">:</span>controller<span class="token punctuation">.</span><span class="token function">obx</span><span class="token punctuation">(</span>
+          <span class="token class-name">Center</span><span class="token punctuation">(</span>
+            child<span class="token punctuation">:</span>controller<span class="token punctuation">.</span><span class="token function">obx</span><span class="token punctuation">(</span>
               <span class="token punctuation">(</span>state<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token class-name">Text</span><span class="token punctuation">(</span>state<span class="token operator">!</span><span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">,</span>
-          <span class="token comment">//onLoading: const CupertinoActivityIndicator(radius: 10), //加载中，默认是个Center(child:CircularProgressIndicator())</span>
-          onEmpty<span class="token punctuation">:</span> <span class="token keyword">const</span> <span class="token class-name">Text</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">'No data found'</span></span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token comment">//空数据显示</span>
-          onError<span class="token punctuation">:</span> <span class="token punctuation">(</span>error<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token class-name">Text</span><span class="token punctuation">(</span>error<span class="token operator">!</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token comment">//出错界面显示</span>
-        <span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-        <span class="token class-name">RaisedButton</span><span class="token punctuation">(</span>child<span class="token punctuation">:</span> <span class="token class-name">Text</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"Loading"</span></span><span class="token punctuation">)</span><span class="token punctuation">,</span> onPressed<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>controller<span class="token punctuation">.</span><span class="token function">changeLoading</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token comment">//TextButton文字</span>
-        <span class="token class-name">RaisedButton</span><span class="token punctuation">(</span>child<span class="token punctuation">:</span> <span class="token class-name">Text</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"Success"</span></span><span class="token punctuation">)</span><span class="token punctuation">,</span> onPressed<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>controller<span class="token punctuation">.</span><span class="token function">changeSuccess</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token comment">//TextButton文字</span>
-        <span class="token class-name">RaisedButton</span><span class="token punctuation">(</span>child<span class="token punctuation">:</span> <span class="token class-name">Text</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"Empty"</span></span><span class="token punctuation">)</span><span class="token punctuation">,</span> onPressed<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>controller<span class="token punctuation">.</span><span class="token function">changeEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token comment">//TextButton文字</span>
-        <span class="token class-name">RaisedButton</span><span class="token punctuation">(</span>child<span class="token punctuation">:</span> <span class="token class-name">Text</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"Error"</span></span><span class="token punctuation">)</span><span class="token punctuation">,</span> onPressed<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>controller<span class="token punctuation">.</span><span class="token function">changeError</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token comment">//TextButton文字</span>
-      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+              onLoading<span class="token punctuation">:</span> <span class="token keyword">const</span> <span class="token class-name">CupertinoActivityIndicator</span><span class="token punctuation">(</span>radius<span class="token punctuation">:</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token comment">//加载中，默认是个Center(child:CircularProgressIndicator())</span>
+              onEmpty<span class="token punctuation">:</span> <span class="token keyword">const</span> <span class="token class-name">Text</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">'No data found'</span></span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token comment">//空数据显示</span>
+              onError<span class="token punctuation">:</span> <span class="token punctuation">(</span>error<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token class-name">Text</span><span class="token punctuation">(</span>error<span class="token operator">!</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token comment">//出错界面显示</span>
+            <span class="token punctuation">)</span>
+          <span class="token punctuation">)</span><span class="token punctuation">,</span>
+          <span class="token class-name">RaisedButton</span><span class="token punctuation">(</span>child<span class="token punctuation">:</span> <span class="token class-name">Text</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"Loading"</span></span><span class="token punctuation">)</span><span class="token punctuation">,</span> onPressed<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>controller<span class="token punctuation">.</span><span class="token function">changeLoading</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token comment">//TextButton文字</span>
+          <span class="token class-name">RaisedButton</span><span class="token punctuation">(</span>child<span class="token punctuation">:</span> <span class="token class-name">Text</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"Success"</span></span><span class="token punctuation">)</span><span class="token punctuation">,</span> onPressed<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>controller<span class="token punctuation">.</span><span class="token function">changeSuccess</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token comment">//TextButton文字</span>
+          <span class="token class-name">RaisedButton</span><span class="token punctuation">(</span>child<span class="token punctuation">:</span> <span class="token class-name">Text</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"Empty"</span></span><span class="token punctuation">)</span><span class="token punctuation">,</span> onPressed<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>controller<span class="token punctuation">.</span><span class="token function">changeEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token comment">//TextButton文字</span>
+          <span class="token class-name">RaisedButton</span><span class="token punctuation">(</span>child<span class="token punctuation">:</span> <span class="token class-name">Text</span><span class="token punctuation">(</span><span class="token string-literal"><span class="token string">"Error"</span></span><span class="token punctuation">)</span><span class="token punctuation">,</span> onPressed<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>controller<span class="token punctuation">.</span><span class="token function">changeError</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token comment">//TextButton文字</span>
+        <span class="token punctuation">]</span><span class="token punctuation">,</span>
       <span class="token punctuation">)</span>
     <span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="GetConnect"><a href="#GetConnect" class="headerlink" title="GetConnect"></a>GetConnect</h2><ul>
 <li>GetX提供一种简便的网络请求方式：GetConnect</li>
@@ -2622,7 +2623,7 @@ Time: <span class="token number">94</span> Milliseconds<span aria-hidden="true" 
 </div>
   
   
-    <script async src="/js/copy-codeblock.js?v=1689138513534"></script>
+    <script async src="/js/copy-codeblock.js?v=1689139583592"></script>
   
 
   
