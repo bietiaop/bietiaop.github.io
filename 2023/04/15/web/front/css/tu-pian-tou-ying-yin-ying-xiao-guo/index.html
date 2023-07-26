@@ -40,15 +40,15 @@
 <link rel="stylesheet" href="/lib/mdui_043tiny/mdui.css">
 
 
-    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1690356120617">
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1690356211358">
     
-    <link rel="stylesheet" href="/css/style.css?v=1690356120617">
+    <link rel="stylesheet" href="/css/style.css?v=1690356211358">
 
     
         
-            <link rel="stylesheet" href="/custom.css?v=1690356120617">
+            <link rel="stylesheet" href="/custom.css?v=1690356211358">
         
-            <link rel="stylesheet" href="/custom.css?v=1690356120617">
+            <link rel="stylesheet" href="/custom.css?v=1690356211358">
         
     
 
@@ -57,7 +57,7 @@
 <script src="/lib/fancybox/fancybox.umd.js" async></script>
 
 
-    <script async src="/js/app.js?v=1690356120617"></script>
+    <script async src="/js/app.js?v=1690356211358"></script>
     
      
 
@@ -158,7 +158,7 @@
 </div>
 
 
-	<script async src="/js/search.js?v=1690356120617"></script>
+	<script async src="/js/search.js?v=1690356211358"></script>
 
 
 
@@ -509,7 +509,7 @@
 </div>
   
   
-    <script async src="/js/copy-codeblock.js?v=1690356120514"></script>
+    <script async src="/js/copy-codeblock.js?v=1690356211228"></script>
   
 
   
@@ -576,6 +576,21 @@
     
     <script src="/prism.js"></script>
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
         <script src="//cdn.jsdelivr.net/npm/js-base64/base64.min.js"></script>
         <script>
