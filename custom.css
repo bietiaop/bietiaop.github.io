@@ -22,6 +22,56 @@ article h1, article h2, article h3, article h4, article h5, article h6 {
     margin-top: 2em !important;
     margin-bottom: 0.5em !important;
 }
+ul {
+    background-color: var(--color-primary-bg);
+    border-radius: 5px;
+    margin: 5px !important;
+    box-sizing: border-box;
+}
+li {
+    padding-top: 0.25em !important;
+    position: relative;
+    box-sizing: border-box;
+}
+li::before {
+    position: absolute !important;
+    margin-top: 0px !important;
+}
+li::after {
+    display: block !important;
+    height: auto !important;
+    /* top: 0 !important; */
+    bottom: 0 !important;
+}
+ul table {
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #000000 !important;
+    border-collapse: collapse !important;
+}
+ul table th {
+    background-color: var(--color-primary-bg);
+    padding: 0.5em !important;
+    border: 1px solid #000000 !important;
+    text-align: center;
+}
+ul table tr td {
+    padding: 0.5em !important;
+    border: 1px solid #000000 !important;
+}
+ul table tr td:first-child {
+    padding-left: 0.5em !important;
+}
+ul table tr td:last-child {
+    padding-right: 0.5em !important;
+}
+ul table tr td:first-child::before {
+    display: none !important;
+}
+ul table tr td:last-child::after {
+    display: none !important;
+}
+
 .nexmoe-post-cover h1, .nexmoe-post-cover h2, .nexmoe-post-cover h3, .nexmoe-post-cover h4, .nexmoe-post-cover h5, .nexmoe-post-cover h6 {
     margin-top: 0 !important;
     margin-bottom: 0 !important;

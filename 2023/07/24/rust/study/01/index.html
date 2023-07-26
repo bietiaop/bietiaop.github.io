@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+
+<head>
+    
+    <title>Rust 学习笔记（一） - 别调P的小窝</title>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="前端,HTML,bietiaop,别调P,别调皮,编程,学习,大学生,博客,CSS,NodeJS,JavaScript,JS,React,Vue,开发,安全,网络空间安全,网安">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    
+    <link rel="shortcut icon" href="https://thirdqq.qlogo.cn/g?b=sdk&amp;k=27Ng6EAub38cF3gdSBSNoA&amp;s=640&amp;t=1654771498" type="image/jpeg" />
+    <meta name="description" content="看的是 B 站 up “软件工艺师”的视频：https:&#x2F;&#x2F;www.bilibili.com&#x2F;video&#x2F;BV1hp4y1k7SV  起步编写 Hello Worldfn main() {     println!(&quot;Hello World!&quot;); }  与大部分编程语言一样，Rust 也有 main 函数，如上所示。而 Rust 的后缀名为 .rs，当我们需要编译运行简单的 Rust 程序，只">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Rust 学习笔记（一）">
+<meta property="og:url" content="https://blog.bietiaop.com/2023/07/24/rust/study/01/index.html">
+<meta property="og:site_name" content="别调P的小窝">
+<meta property="og:description" content="看的是 B 站 up “软件工艺师”的视频：https:&#x2F;&#x2F;www.bilibili.com&#x2F;video&#x2F;BV1hp4y1k7SV  起步编写 Hello Worldfn main() {     println!(&quot;Hello World!&quot;); }  与大部分编程语言一样，Rust 也有 main 函数，如上所示。而 Rust 的后缀名为 .rs，当我们需要编译运行简单的 Rust 程序，只">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blog.bietiaop.com/2023/07/24/rust/study/01/image-20230724153620076.png">
+<meta property="og:image" content="https://blog.bietiaop.com/2023/07/24/rust/study/01/image-20230724170506055.png">
+<meta property="og:image" content="https://blog.bietiaop.com/2023/07/24/rust/study/01/image-20230724170724850.png">
+<meta property="article:published_time" content="2023-07-24T02:12:38.000Z">
+<meta property="article:modified_time" content="2023-07-24T02:12:38.000Z">
+<meta property="article:author" content="别调P">
+<meta property="article:tag" content="Rust">
+<meta property="article:tag" content="编程">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.bietiaop.com/2023/07/24/rust/study/01/image-20230724153620076.png">
+    
+<link rel="stylesheet" href="/lib/fancybox/fancybox.css">
+<link rel="stylesheet" href="/lib/mdui_043tiny/mdui.css">
+
+
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1690356120559">
+    
+    <link rel="stylesheet" href="/css/style.css?v=1690356120559">
+
+    
+        
+            <link rel="stylesheet" href="/custom.css?v=1690356120559">
+        
+            <link rel="stylesheet" href="/custom.css?v=1690356120559">
+        
+    
+
+    
+<script src="/lib/mdui_043tiny/mdui.js" async></script>
+<script src="/lib/fancybox/fancybox.umd.js" async></script>
+
+
+    <script async src="/js/app.js?v=1690356120559"></script>
+    
+     
+
+    <link rel="stylesheet" href="/prism.css">
+<link rel="stylesheet" href="/prism-theme.css">
+<link rel="stylesheet" href="/custom.css">
+
+<meta name="generator" content="Hexo 6.2.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+
+<body class="mdui-drawer-body-left">
+    <div id="nexmoe-background">
+        <div class="nexmoe-bg" 
+            style="background-image: url(https://pi.loili.com/2023/f6783b98aff068804ef345ecfab907ab.jpg)"
+        ></div>
+        <div class="mdui-appbar mdui-shadow-0">
+            <div class="mdui-toolbar">
+                <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
+                <div class="mdui-toolbar-spacer"></div>
+                <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+                <a href="/" title="别调P" class="mdui-btn mdui-btn-icon"><img src="https://thirdqq.qlogo.cn/g?b=sdk&amp;k=27Ng6EAub38cF3gdSBSNoA&amp;s=640&amp;t=1654771498" alt="别调P"></a>
+            </div>
+        </div>
+    </div>
+    <div id="nexmoe-header">
+        <div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="别调P">
+            <img src="https://thirdqq.qlogo.cn/g?b=sdk&amp;k=27Ng6EAub38cF3gdSBSNoA&amp;s=640&amp;t=1654771498" alt="别调P" alt="别调P">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div><span>文章</span>13</div>
+        <div><span>标签</span>35</div>
+        <div><span>分类</span>12</div>
+    </div>
+    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/archive.html" title="文章归档">
+            <i class="mdui-list-item-icon nexmoefont icon-container"></i>
+            <div class="mdui-list-item-content">
+                文章归档
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/works.html" title="我的作品">
+            <i class="mdui-list-item-icon nexmoefont icon-container"></i>
+            <div class="mdui-list-item-content">
+                我的作品
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/favorites.html" title="收 藏 夹">
+            <i class="mdui-list-item-icon nexmoefont icon-tags-fill"></i>
+            <div class="mdui-list-item-content">
+                收 藏 夹
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" target="_blank" rel="noopener" href="https://www.bietiaop.com" title="关 于 我">
+            <i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
+            <div class="mdui-list-item-content">
+                关 于 我
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/friends.html" title="友情链接">
+            <i class="mdui-list-item-icon nexmoefont icon-unorderedlist"></i>
+            <div class="mdui-list-item-content">
+                友情链接
+            </div>
+        </a>
+        
+    </div>
+    <aside id="nexmoe-sidebar">
+        
+            
+            <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-search">
+        
+            <form id="search_form">
+                <label><input class="st-default-search-input" id="search_value" name="q" type="search" placeholder="搜索" style="
+                    font-size: 15px !important;
+                    height: 56px !important;
+                    background-image: none;
+                "></label>
+            </form>
+         
+    </div>
+</div>
+
+
+	<script async src="/js/search.js?v=1690356120559"></script>
+
+
+
+        
+            
+            <div class="nexmoe-widget-wrap">
+	<div class="nexmoe-widget nexmoe-social">
+		<a
+			class="mdui-ripple"
+			href="https://space.bilibili.com/152308001"
+			target="_blank"
+			mdui-tooltip="{content: '哔哩哔哩'}"
+			style="
+				color: rgb(231, 106, 141);
+				background-color: rgba(231, 106, 141, .15);
+			"
+		>
+			<i
+				class="nexmoefont icon-bilibili"
+			></i> </a
+		><a
+			class="mdui-ripple"
+			href="https://github.com/bietiaop/"
+			target="_blank"
+			mdui-tooltip="{content: 'GitHub'}"
+			style="
+				color: rgb(25, 23, 23);
+				background-color: rgba(25, 23, 23, .15);
+			"
+		>
+			<i
+				class="nexmoefont icon-github"
+			></i> </a
+		><a
+			class="mdui-ripple"
+			href="https://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=bietiaop%40bietiaop.com"
+			target="_blank"
+			mdui-tooltip="{content: 'Email'}"
+			style="
+				color: rgb(25, 23, 23);
+				background-color: rgba(25, 23, 23, .15);
+			"
+		>
+			<i
+				class="nexmoefont icon-mail-fill"
+			></i> </a
+		>
+	</div>
+</div>
+
+        
+            
+            
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章分类</h3>
+    <div class="nexmoe-widget">
+
+      <ul class="category-list">
+
+        
+
+
+        
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Flutter/">Flutter</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Rust/">Rust</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Vite/">Vite</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/web/">web</a>
+          <span class="category-list-count">8</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/设计/前端/">前端</a>
+          <span class="category-list-count">4</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/数据库/后端/">后端</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/数据库/">数据库</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Rust/编程/">编程</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/设计/">设计</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+      </ul>
+
+    </div>
+  </div>
+
+
+        
+            
+            
+  <div class="nexmoe-widget-wrap">
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
+      <a href="/tags/Android%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91/" style="font-size: 10px;">Android应用开发</a> <a href="/tags/CSS/" style="font-size: 12px;">CSS</a> <a href="/tags/Canvas/" style="font-size: 10px;">Canvas</a> <a href="/tags/Flutter/" style="font-size: 10px;">Flutter</a> <a href="/tags/GetX/" style="font-size: 10px;">GetX</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/MySql/" style="font-size: 10px;">MySql</a> <a href="/tags/Query/" style="font-size: 10px;">Query</a> <a href="/tags/React/" style="font-size: 16px;">React</a> <a href="/tags/React-Router/" style="font-size: 10px;">React Router</a> <a href="/tags/Redux/" style="font-size: 10px;">Redux</a> <a href="/tags/Rust/" style="font-size: 10px;">Rust</a> <a href="/tags/Vite/" style="font-size: 14px;">Vite</a> <a href="/tags/Vite%E6%8F%92%E4%BB%B6/" style="font-size: 10px;">Vite插件</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/br/" style="font-size: 10px;">br</a> <a href="/tags/gzip/" style="font-size: 10px;">gzip</a> <a href="/tags/iOS%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91/" style="font-size: 10px;">iOS应用开发</a> <a href="/tags/web/" style="font-size: 18px;">web</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 20px;">前端</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E5%AD%97%E4%BD%93/" style="font-size: 10px;">前端字体</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 10px;">博客</a> <a href="/tags/%E5%8E%8B%E7%BC%A9/" style="font-size: 10px;">压缩</a> <a href="/tags/%E5%90%8E%E7%AB%AF/" style="font-size: 10px;">后端</a> <a href="/tags/%E5%9B%BE%E7%89%87%E6%8A%95%E5%BD%B1/" style="font-size: 10px;">图片投影</a> <a href="/tags/%E5%9B%BE%E7%89%87%E9%98%B4%E5%BD%B1/" style="font-size: 10px;">图片阴影</a> <a href="/tags/%E5%AD%97%E4%BD%93%E5%88%87%E5%89%B2/" style="font-size: 10px;">字体切割</a> <a href="/tags/%E5%AE%89%E5%8D%93%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91/" style="font-size: 10px;">安卓应用开发</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 10px;">数据库</a> <a href="/tags/%E6%9F%A5%E8%AF%A2/" style="font-size: 10px;">查询</a> <a href="/tags/%E7%BC%96%E7%A8%8B/" style="font-size: 10px;">编程</a> <a href="/tags/%E7%BD%91%E7%AB%99/" style="font-size: 16px;">网站</a> <a href="/tags/%E7%BD%91%E9%A1%B5/" style="font-size: 16px;">网页</a> <a href="/tags/%E8%AE%BE%E8%AE%A1/" style="font-size: 10px;">设计</a> <a href="/tags/%E9%85%8D%E8%89%B2/" style="font-size: 10px;">配色</a>
+    </div>
+    
+      <script>
+        var maxTagcloud = parseInt(17);
+        var tags_length = parseInt(35);
+        var tags_arr = [];
+        for(var i = 0; i < tags_length; i++){
+          tags_arr.push(i);
+        }
+        tags_arr.sort(function (l, r) {
+          return Math.random() > 0.5 ? -1 : 1;
+        });
+        tags_arr = tags_arr.slice(0, maxTagcloud < tags_length ? tags_length - maxTagcloud : 0);
+        for(var tag_i = 0; tag_i < tags_arr.length; tag_i++){
+          document.getElementById("randomtagcloud").children[tags_arr[tag_i]].style.display = 'none';
+        }
+      </script>
+    
+  </div>
+
+        
+            
+            
+            
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章归档</h3>
+    <div class="nexmoe-widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/">2023</a><span class="archive-list-count">13</span></li></ul>
+    </div>
+  </div>
+
+
+
+        
+            
+            
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">最新文章</h3>
+    <div class="nexmoe-widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/07/24/rust/study/01/">Rust 学习笔记（一）</a>
+          </li>
+        
+          <li>
+            <a href="/2023/07/20/web/front/react/canvas-tu-pian-tian-chong-yan-se/">Canvas 使用纯色填充图片</a>
+          </li>
+        
+          <li>
+            <a href="/2023/07/10/flutter/getx/getx-xue-xi-ri-zhi/">GetX 学习日志</a>
+          </li>
+        
+          <li>
+            <a href="/2023/07/02/web/front/hexo/da-jian-hexo-bo-ke/">Hexo博客搭建</a>
+          </li>
+        
+          <li>
+            <a href="/2023/06/29/web/front/css/zi-ti-qie-ge-jian-shao-zi-ti-da-xiao/">前端字体大小解决方案——字体切片</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+        
+    </aside>
+    <div class="nexmoe-copyright">
+        &copy; 2023 别调P
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        & <a href="https://github.com/theme-nexmoe/hexo-theme-nexmoe" target="_blank">Nexmoe</a>
+        <br><a target="_blank" href="https://beian.miit.gov.cn/">苏ICP备2022027042号-1</a>
+<br><a target="_blank" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral">
+<img src="https://i.dawnlab.me/c0268c1e6cfd0863d6ba35be1575941a.png" width="150px"></a>
+
+    </div>
+</div><!-- .nexmoe-drawer -->
+    </div>
+    <div id="nexmoe-content">
+        <div class="nexmoe-primary">
+    <div class="nexmoe-post">
+  <article>
+    
+        <div class="nexmoe-post-cover absolute" style="padding-top: NaN%;"> 
+            <img src="https://pi.loili.com/2023/c6ac2491d6f5ed92f9f1b60fd1d77571.png" alt="Rust 学习笔记（一）" loading="lazy">
+            <h1>Rust 学习笔记（一）</h1>
+        </div>
+    
+    
+    <div class="nexmoe-post-meta">
+    <div class="nexmoe-rainbow">
+        <a class="nexmoefont icon-calendar-fill">2023年07月24日</a>
+        
+            <a class="nexmoefont icon-appstore-fill -link" href="/categories/Rust/">Rust</a><a class="nexmoefont icon-appstore-fill -link" href="/categories/Rust/%E7%BC%96%E7%A8%8B/">编程</a>
+        
+        
+    </div>
+    
+    
+    
+    
+    
+</div>
+
+    <blockquote>
+<p>看的是 B 站 up “软件工艺师”的视频：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1hp4y1k7SV">https://www.bilibili.com/video/BV1hp4y1k7SV</a></p>
+</blockquote>
+<h2 id="起步"><a href="#起步" class="headerlink" title="起步"></a>起步</h2><h3 id="编写-Hello-World"><a href="#编写-Hello-World" class="headerlink" title="编写 Hello World"></a>编写 Hello World</h3><pre class="line-numbers language-rust" data-language="rust"><code class="language-rust"><span class="token keyword">fn</span> <span class="token function-definition function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token macro property">println!</span><span class="token punctuation">(</span><span class="token string">"Hello World!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>与大部分编程语言一样，<code>Rust</code> 也有 <code>main</code> 函数，如上所示。而 <code>Rust</code> 的后缀名为 <code>.rs</code>，当我们需要编译运行简单的 <code>Rust</code> 程序，只需要命令行运行 <code>rustc</code>：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">rustc helloworld.rs<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>此时同目录下会生成两个文件：<code>&lt;同文件名&gt;.pdb</code>、<code>&lt;同文件名&gt;.exe</code>。其中 <code>pdb</code> 带有调试信息，而 <code>exe</code> 为可执行程序，可直接运行。</p>
+<p>当然，<code>rustc</code> 命令只适合小型项目或文件，若大型项目则需要 Cargo。</p>
+<p>Cargo 是 <code>Rust</code> 的构建系统和包管理工具，安装 <code>Rust</code> 时默认是安装 Cargo 的。</p>
+<h3 id="使用-Cargo-创建项目"><a href="#使用-Cargo-创建项目" class="headerlink" title="使用 Cargo 创建项目"></a>使用 Cargo 创建项目</h3><p>运行命令创建项目：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">cargo</span> new <span class="token operator">&lt;</span>项目名称<span class="token operator">&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>使用 Cargo 创建项目会创建一个项目文件夹即项目名称，进入文件夹可以看到 Cargo 为我们创建了如下文件以及目录结构：</p>
+<pre class="line-numbers language-none"><code class="language-none">&lt;项目名称&gt;
+├── Cargo.toml
+└── src
+    └── main.rs<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>除此之外还有一个 <code>.gitignore</code> 文件，为 git 的文件忽略配置文件，也就是说 Cargo 为我们初始化了 git 仓库。</p>
+<p><code>Cargo.toml</code> 为 Cargo 的配置文件，与 <code>nodejs</code> 中的 <code>package.json</code> 一样。</p>
+<p>根据 Cargo 生成的目录结构来看，项目的源代码都应该放在 <code>src</code> 文件夹下，Cargo 为我们创建了一个 <code>main.rs</code> 文件。</p>
+<h3 id="使用-Cargo-编译项目"><a href="#使用-Cargo-编译项目" class="headerlink" title="使用 Cargo 编译项目"></a>使用 Cargo 编译项目</h3><p>运行命令编译项目：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">cargo</span> build<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>运行此命令将创建可执行程序文件，第一次运行 <code>cargo build</code> 会在顶层目录生成 <code>cargo.lock</code> 文件，该文件不需手动修改。</p>
+<p>上面命令生成可执行文件放在指定目录，如果我们想构建并运行项目，需要执行以下命令：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">cargo</span> run<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>若我们只需要检查代码，确保能通过编译，我们可以使用以下命令：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">cargo</span> check<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>该命令会检查代码文件是否能通过编译，并不会产生任何可执行文件。</p>
+<p>如果我们需要进行发布的构建，需要在 <code>build</code> 命令加上参数：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">cargo</span> build <span class="token parameter variable">--release</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>此命令在编译时会进行优化，但是编译时间会比开发版更长。</p>
+<p>加不加这个参数的编译目录也有区别，开发版在 <code>target/debug</code>，发布版在 <code>target/debug</code>。</p>
+<h2 id="经典例子——猜数游戏"><a href="#经典例子——猜数游戏" class="headerlink" title="经典例子——猜数游戏"></a>经典例子——猜数游戏</h2><blockquote>
+<h3 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h3><ul>
+<li>生成一个 <code>1</code> 到 <code>100</code> 间的随机数</li>
+<li>提示玩家输入一个猜测</li>
+<li>猜完之后 ，程序会提示猜测是太小了还是太大了</li>
+<li>如果猜的正确，那么打印出一个庆祝信息，程序退出</li>
+</ul>
+</blockquote>
+<h3 id="基本输入输出"><a href="#基本输入输出" class="headerlink" title="基本输入输出"></a>基本输入输出</h3><pre class="line-numbers language-rust" data-language="rust"><code class="language-rust"><span class="token keyword">use</span> <span class="token namespace">std<span class="token punctuation">::</span></span>io<span class="token punctuation">;</span>
+<span class="token keyword">fn</span> <span class="token function-definition function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token macro property">println!</span><span class="token punctuation">(</span><span class="token string">"猜数"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token macro property">println!</span><span class="token punctuation">(</span><span class="token string">"猜一个数字"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">let</span> <span class="token keyword">mut</span> guess <span class="token operator">=</span> <span class="token class-name">String</span><span class="token punctuation">::</span><span class="token function">new</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token namespace">io<span class="token punctuation">::</span></span><span class="token function">stdin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">read_line</span><span class="token punctuation">(</span><span class="token operator">&amp;</span><span class="token keyword">mut</span> guess<span class="token punctuation">)</span>
+        <span class="token punctuation">.</span><span class="token function">expect</span><span class="token punctuation">(</span><span class="token string">"无法读取行"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token macro property">println!</span><span class="token punctuation">(</span><span class="token string">"你猜的数字是: {}"</span><span class="token punctuation">,</span> guess<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>上面的代码作用试试获取用户的输入。</p>
+<p><code>println!()</code> 作用就是打印一行内容，在 C 语言中，我们要想在打印内容中拼接变量，需要用到 <code>%</code> 占位符：<code>printf("数字为：%d", num);</code>，而在 <code>Rust</code> 中，我们使用的是 <code>{}</code>：<code>println!("你猜的数字是: {}", guess);</code>，而 <code>println!()</code> 是宏，不是函数。我们如果想要获取用户输入，需要引入标准库 <code>io</code>：<code>use std::io;</code>。</p>
+<p>我们使用 <code>let</code> 声明变量，在 <code>Rust</code> 中，所有的变量默认都是不可变的，我们要想使其可变，就要跟上面的代码一样加上 <code>mun</code>：</p>
+<pre class="line-numbers language-rust" data-language="rust"><code class="language-rust"><span class="token keyword">let</span> num <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> <span class="token comment">// 不可变</span>
+<span class="token keyword">let</span> <span class="token keyword">mut</span> num2 <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> <span class="token comment">// 可变</span>
+num2 <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>在上面的代码中 <code>String::new()</code> 新建了一个字符串类型实例，它是由标准库提供的，值为空的字符串。</p>
+<p>再往下看，<code>io</code> 库中有一个函数 <code>stdin</code>，会返回类型  <code>Stdin</code> 的实例，它会被用作句柄（Handler）来处理终端中的标准输入。若我们不在文件开头引入 <code>io</code> 库，则需要这样写：</p>
+<pre class="line-numbers language-rust" data-language="rust"><code class="language-rust"><span class="token namespace">std<span class="token punctuation">::</span>io<span class="token punctuation">::</span></span><span class="token function">stdin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">read_line</span><span class="token punctuation">(</span><span class="token operator">&amp;</span><span class="token keyword">mut</span> guess<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">expect</span><span class="token punctuation">(</span><span class="token string">"无法读取行"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>但是不推荐这样写。</p>
+<p>通过 <code>read_line</code> 我们可以读取终端中用户的输入，因此我们需要传入我们的可变的字符串引用地址：<code>&amp;mut guess</code>。引用地址默认也是不可变的，因此我们需要把它变为可变的，加上 <code>mut</code>。</p>
+<p>当然，<code>read_line</code> 方法也是有返回值的，它的返回值类型为 <code>io::Result&lt;usize&gt;</code> 泛型，此方法的返回值通常有两种：<code>Ok</code> 和 <code>Err</code>，并且返回值通常会带上附加值，供我们进行使用，而 <code>io</code> 库中这个方法也为我们提供了处理方法，即 <code>expect</code>，当 <code>read_line</code> 返回 <code>Ok</code> 时，<code>expect</code> 会提取出 <code>Ok</code> 中附加的值，并将这个值作为结果返回给用户。</p>
+<h3 id="生成随机数"><a href="#生成随机数" class="headerlink" title="生成随机数"></a>生成随机数</h3><p><code>Rust</code> 标准库没有生成随机数的方法，但是我们可以使用 <code>rand</code> 包，我们需要通过 Cargo  包管理进行安装，首先访问网站寻找库：<a target="_blank" rel="noopener" href="https://crates.io/">crates.io: Rust Package Registry</a></p>
+<p>找到 rand 包：<a target="_blank" rel="noopener" href="https://crates.io/crates/rand">rand - crates.io: Rust Package Registry</a></p>
+<p>发现最新版本为 <code>0.8.5</code>，那么在顶层目录的 <code>Cargo.toml</code> 文件内添加依赖：</p>
+<p><img onerror="imgOnError(this);" data-fancybox="gallery" src="/2023/07/24/rust/study/01/image-20230724153620076.png" alt="添加依赖" data-caption="添加依赖" loading="lazy"></p>
+<p>上面这种写法就是指定了一个版本，当在版本号前面添加 <code>^</code> 代表着与该版本 API 兼容的版本，通常取与其兼容的最高版本：<code>“^0.8.5”</code>。</p>
+<p>当我们执行 <code>cargo build</code> 时同时会下载库。如果我们不主动更新库，那么 Cargo 将会一直使用与代码兼容的库的版本。</p>
+<p>若我们想要更新库，可以使用命令 <code>cargo update</code>，此时 Cargo 将忽略 <code>Cargo.lock</code> 文件直接检查 <code>Cargo.toml</code> 内的版本，并且更新到与之兼容的小版本的最新版本，例如我在 <code>Cargo.toml</code> 内写的版本为 <code>0.8.0</code>，那么其会帮我们更新到 <code>0.8.5</code> (<code>0.8.x</code> 中最新版)。其不会修改 <code>Cargo.toml</code> 文件，而是修改 <code>Cargo.lock</code> 文件，我们在更细完后可以看到 <code>Cargo.lock</code> 文件内的 <code>rand</code> 版本号为 <code>0.8.5</code>。</p>
+<p>接下来我们使用 <code>rand</code> 包中的接口生成随机数：</p>
+<pre class="line-numbers language-rust" data-language="rust"><code class="language-rust"><span class="token comment">// .. 其他代码</span>
+<span class="token keyword">use</span> <span class="token namespace">rand<span class="token punctuation">::</span></span><span class="token class-name">Rng</span><span class="token punctuation">;</span> <span class="token comment">// 使用 rand  包</span>
+<span class="token keyword">fn</span> <span class="token function-definition function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// .. 其他代码</span>
+    <span class="token keyword">let</span> secret_number <span class="token operator">=</span> <span class="token namespace">rand<span class="token punctuation">::</span></span><span class="token function">thread_rng</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">gen_range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">..=</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 创建 1-100 随机数</span>
+    <span class="token macro property">println!</span><span class="token punctuation">(</span><span class="token string">"秘密数字是: {}"</span><span class="token punctuation">,</span> secret_number<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// .. 其他代码</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>版本 <code>0.8.0</code> 以后生成 1-100 随机数里面的参数不再是 <code>1, 101</code>，而是 <code>1..=100</code>。新版本用法如下：</p>
+<p><code>1..100</code>：左闭右开，即 <code>1~99</code>；<code>1..=100</code>：左闭右闭，即 <code>1~100</code>。</p>
+<h3 id="比较数字大小"><a href="#比较数字大小" class="headerlink" title="比较数字大小"></a>比较数字大小</h3><p>我们需要从标准库中引入 <code>cmp</code> 的 <code>Ordering</code> 类型，它有三个值：<code>Less</code>、<code>Greater</code>、<code>Equal</code>，我们声明了变量 <code>guess</code> 并且读取用户输入，我们声明的变量有一个方法 <code>cmp</code>，它会与另外一个（传参）值进行比较（Compare），如果大于就返回 <code>Odering</code> 类型中的 <code>Greater</code>，小于就是 <code>Less</code>，等于就是 <code>Equal</code>。</p>
+<p>但是我们定义的是一个字符串 <code>String</code> 类型，但是我们要比较的是整数类型，在 <code>Rust</code> 中有许多整数类型，<code>Rust</code> 也自带有类型推断，而我们写的变量赋值默认类型即为 <code>i32</code>，后面会讲到。</p>
+<p>因此我们需要转换一下类型，最好把字符串转为整数类型：</p>
+<pre class="line-numbers language-rust" data-language="rust"><code class="language-rust"><span class="token keyword">let</span> guess<span class="token punctuation">:</span><span class="token keyword">u32</span> <span class="token operator">=</span> guess<span class="token punctuation">.</span><span class="token function">trim</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">expect</span><span class="token punctuation">(</span><span class="token string">"请输入一个数字！"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>因处理类型可以失败，因此需要使用 <code>expect</code> 处理。</p>
+<p>我们之前已经声明了一个变量 <code>guess</code>，但是我们可以再次声明同名称变量来“隐藏（shadow）”旧变量，这一特性通常用在转换类型。</p>
+<p>上面代码中，<code>trim</code> 用于去掉两端的空白，<code>parse</code> 进行类型转换。我们在声明变量时加上什么类型就转成什么类型。我们使用 <code>u32</code> 类型是因为 <code>Rust</code> 拥有类型推断功能，我们在后面用到 <code>guess</code> 时 <code>Rust</code> 推断出我们的 <code>guess</code> 取值在 <code>1</code> ~ <code>100</code>，因此自动推断类型为 <code>u32</code>（无符号整型）而非 <code>i32</code>，若我们只写到最开始的 <code>guess</code> 赋值，那么可以看到 <code>guess</code> 的类型为 <code>i32</code>。</p>
+<p>接下来我们可以对两个数字进行比较：</p>
+<pre class="line-numbers language-rust" data-language="rust"><code class="language-rust"><span class="token keyword">use</span> <span class="token namespace">std<span class="token punctuation">::</span></span>io<span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token namespace">std<span class="token punctuation">::</span>cmp<span class="token punctuation">::</span></span><span class="token class-name">Ordering</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token namespace">rand<span class="token punctuation">::</span></span><span class="token class-name">Rng</span><span class="token punctuation">;</span>
+<span class="token keyword">fn</span> <span class="token function-definition function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token macro property">println!</span><span class="token punctuation">(</span><span class="token string">"猜数"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token macro property">println!</span><span class="token punctuation">(</span><span class="token string">"猜一个数字"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">let</span> secret_number <span class="token operator">=</span> <span class="token namespace">rand<span class="token punctuation">::</span></span><span class="token function">thread_rng</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">gen_range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">..=</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">let</span> <span class="token keyword">mut</span> guess <span class="token operator">=</span> <span class="token class-name">String</span><span class="token punctuation">::</span><span class="token function">new</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token namespace">io<span class="token punctuation">::</span></span><span class="token function">stdin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">read_line</span><span class="token punctuation">(</span><span class="token operator">&amp;</span><span class="token keyword">mut</span> guess<span class="token punctuation">)</span>
+        <span class="token punctuation">.</span><span class="token function">expect</span><span class="token punctuation">(</span><span class="token string">"无法读取行"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">let</span> guess<span class="token punctuation">:</span><span class="token keyword">u32</span> <span class="token operator">=</span> guess<span class="token punctuation">.</span><span class="token function">trim</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">expect</span><span class="token punctuation">(</span><span class="token string">"请输入数字"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">match</span> guess<span class="token punctuation">.</span><span class="token function">cmp</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>secret_number<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">Ordering</span><span class="token punctuation">::</span><span class="token class-name">Less</span> <span class="token operator">=&gt;</span> <span class="token macro property">println!</span><span class="token punctuation">(</span><span class="token string">"太小了"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token class-name">Ordering</span><span class="token punctuation">::</span><span class="token class-name">Greater</span> <span class="token operator">=&gt;</span> <span class="token macro property">println!</span><span class="token punctuation">(</span><span class="token string">"太大了"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token class-name">Ordering</span><span class="token punctuation">::</span><span class="token class-name">Equal</span> <span class="token operator">=&gt;</span> <span class="token macro property">println!</span><span class="token punctuation">(</span><span class="token string">"你赢了"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>其中 <code>match</code> 的左右就好比 <code>switch</code>，它允许代码根据条件进行运行。事实上，<code>match</code> 就是用来枚举的。</p>
+<h3 id="允许多次猜测——循环"><a href="#允许多次猜测——循环" class="headerlink" title="允许多次猜测——循环"></a>允许多次猜测——循环</h3><p>我们使用 <code>loop</code> 进行循环：</p>
+<pre class="line-numbers language-rust" data-language="rust"><code class="language-rust"><span class="token keyword">loop</span> <span class="token punctuation">{</span>
+    <span class="token comment">// ... 执行代码</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>我们调整一下代码顺序，将程序生成的随机数放到循环外面，提示以及输入放到循环里面：</p>
+<pre class="line-numbers language-rust" data-language="rust"><code class="language-rust"><span class="token keyword">use</span> <span class="token namespace">rand<span class="token punctuation">::</span></span><span class="token class-name">Rng</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token namespace">std<span class="token punctuation">::</span>cmp<span class="token punctuation">::</span></span><span class="token class-name">Ordering</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token namespace">std<span class="token punctuation">::</span></span>io<span class="token punctuation">;</span>
+<span class="token keyword">fn</span> <span class="token function-definition function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token macro property">println!</span><span class="token punctuation">(</span><span class="token string">"猜数"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">let</span> secret_number<span class="token punctuation">:</span> <span class="token keyword">u32</span> <span class="token operator">=</span> <span class="token namespace">rand<span class="token punctuation">::</span></span><span class="token function">thread_rng</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">gen_range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">..=</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">loop</span> <span class="token punctuation">{</span>
+        <span class="token macro property">println!</span><span class="token punctuation">(</span><span class="token string">"猜一个数字"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">let</span> <span class="token keyword">mut</span> guess <span class="token operator">=</span> <span class="token class-name">String</span><span class="token punctuation">::</span><span class="token function">new</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token namespace">io<span class="token punctuation">::</span></span><span class="token function">stdin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">read_line</span><span class="token punctuation">(</span><span class="token operator">&amp;</span><span class="token keyword">mut</span> guess<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">expect</span><span class="token punctuation">(</span><span class="token string">"无法读取行"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">let</span> guess<span class="token punctuation">:</span> <span class="token keyword">u32</span> <span class="token operator">=</span> guess<span class="token punctuation">.</span><span class="token function">trim</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">expect</span><span class="token punctuation">(</span><span class="token string">"请输入数字"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">match</span> guess<span class="token punctuation">.</span><span class="token function">cmp</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>secret_number<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token class-name">Ordering</span><span class="token punctuation">::</span><span class="token class-name">Less</span> <span class="token operator">=&gt;</span> <span class="token macro property">println!</span><span class="token punctuation">(</span><span class="token string">"太小了"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token class-name">Ordering</span><span class="token punctuation">::</span><span class="token class-name">Greater</span> <span class="token operator">=&gt;</span> <span class="token macro property">println!</span><span class="token punctuation">(</span><span class="token string">"太大了"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token class-name">Ordering</span><span class="token punctuation">::</span><span class="token class-name">Equal</span> <span class="token operator">=&gt;</span> <span class="token macro property">println!</span><span class="token punctuation">(</span><span class="token string">"你赢了"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>此时，我们可以一直进行猜测，程序也会一直进行反馈。</p>
+<p>接下来我们就需要处理猜对跳出循环。与其他语言循环一样，<code>Rust</code> 跳出循环也是用的 <code>break</code>：</p>
+<pre class="line-numbers language-rust" data-language="rust"><code class="language-rust"><span class="token keyword">use</span> <span class="token namespace">rand<span class="token punctuation">::</span></span><span class="token class-name">Rng</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token namespace">std<span class="token punctuation">::</span>cmp<span class="token punctuation">::</span></span><span class="token class-name">Ordering</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token namespace">std<span class="token punctuation">::</span></span>io<span class="token punctuation">;</span>
+<span class="token keyword">fn</span> <span class="token function-definition function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token macro property">println!</span><span class="token punctuation">(</span><span class="token string">"猜数"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">let</span> secret_number<span class="token punctuation">:</span> <span class="token keyword">u32</span> <span class="token operator">=</span> <span class="token namespace">rand<span class="token punctuation">::</span></span><span class="token function">thread_rng</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">gen_range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">..=</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">loop</span> <span class="token punctuation">{</span>
+        <span class="token macro property">println!</span><span class="token punctuation">(</span><span class="token string">"猜一个数字"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">let</span> <span class="token keyword">mut</span> guess <span class="token operator">=</span> <span class="token class-name">String</span><span class="token punctuation">::</span><span class="token function">new</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token namespace">io<span class="token punctuation">::</span></span><span class="token function">stdin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">read_line</span><span class="token punctuation">(</span><span class="token operator">&amp;</span><span class="token keyword">mut</span> guess<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">expect</span><span class="token punctuation">(</span><span class="token string">"无法读取行"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">let</span> guess<span class="token punctuation">:</span> <span class="token keyword">u32</span> <span class="token operator">=</span> guess<span class="token punctuation">.</span><span class="token function">trim</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">expect</span><span class="token punctuation">(</span><span class="token string">"请输入数字"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">match</span> guess<span class="token punctuation">.</span><span class="token function">cmp</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>secret_number<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token class-name">Ordering</span><span class="token punctuation">::</span><span class="token class-name">Less</span> <span class="token operator">=&gt;</span> <span class="token macro property">println!</span><span class="token punctuation">(</span><span class="token string">"太小了"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token class-name">Ordering</span><span class="token punctuation">::</span><span class="token class-name">Greater</span> <span class="token operator">=&gt;</span> <span class="token macro property">println!</span><span class="token punctuation">(</span><span class="token string">"太大了"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token class-name">Ordering</span><span class="token punctuation">::</span><span class="token class-name">Equal</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+                <span class="token macro property">println!</span><span class="token punctuation">(</span><span class="token string">"你赢了"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">break</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img onerror="imgOnError(this);" data-fancybox="gallery" src="/2023/07/24/rust/study/01/image-20230724170506055.png" alt="image-20230724170506055" data-caption="image-20230724170506055" loading="lazy"></p>
+<h3 id="处理报错"><a href="#处理报错" class="headerlink" title="处理报错"></a>处理报错</h3><p>如果我们输入一个非数字字符，会出现如下报错：</p>
+<p><img onerror="imgOnError(this);" data-fancybox="gallery" src="/2023/07/24/rust/study/01/image-20230724170724850.png" alt="报错" data-caption="报错" loading="lazy"></p>
+<p>还会看到我们在 <code>expect</code> 里面的提示内容“请输入数字”，若我们对错误进行处理而不是直接抛出错误使程序停止，那么就需要对返回内容使用枚举，之前提到过，<code>expect</code> 会返回两个内容：<code>Ok</code> 和 <code>Err</code>，因此我们可以对此进行枚举：</p>
+<pre class="line-numbers language-rust" data-language="rust"><code class="language-rust"><span class="token keyword">let</span> guess<span class="token punctuation">:</span> <span class="token keyword">u32</span> <span class="token operator">=</span> <span class="token keyword">match</span> guess<span class="token punctuation">.</span><span class="token function">trim</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token class-name">Ok</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> num<span class="token punctuation">,</span>
+    <span class="token class-name">Err</span><span class="token punctuation">(</span>_<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token keyword">continue</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>这样的语法与 <code>js</code> 中的箭头函数很像，也只是很像，其中 <code>continue</code> 即跳出<strong>本次</strong>循环。</p>
+<h2 id="基础语法"><a href="#基础语法" class="headerlink" title="基础语法"></a>基础语法</h2><h3 id="变量与可变性"><a href="#变量与可变性" class="headerlink" title="变量与可变性"></a>变量与可变性</h3><ul>
+<li>声明变量使用 <code>let</code> 关键词</li>
+<li>默认情况下，变量是不可变的（Immutable）</li>
+<li>声明变量时，在变量前面加上 <code>mut</code>，就可以使变量可变。</li>
+</ul>
+<blockquote>
+<h3 id="变量与常量"><a href="#变量与常量" class="headerlink" title="变量与常量"></a>变量与常量</h3><p>常量（Constant）：常量在绑定值以后也是不可变的，但它与不可变的变量有很多区别：</p>
+<ul>
+<li>不可以使用 <code>mut</code>，常量永远都是不可变的<ul>
+<li>声明常量使用 <code>const</code> 关键字，它的类型必须被标注</li>
+<li>常量可以在任何作用域内进行声明，包括全局作用域</li>
+<li>常量只可以绑定到常量表达式，无法绑定导函数的调用结果或只能在运行时才能计算出的值</li>
+</ul>
+</li>
+<li>在程序运行期间，常量在其声明的作用域内一直有效</li>
+<li>命名规范：<code>Rust</code> 里常量使用全大写字母，每个单词之间用下划线分开，例如：<code>MAX_POINTS</code></li>
+</ul>
+</blockquote>
+<h3 id="隐藏（遮蔽）"><a href="#隐藏（遮蔽）" class="headerlink" title="隐藏（遮蔽）"></a>隐藏（遮蔽）</h3><p>在 <code>Rust</code> 里可以使用相同的名字声明新的变量，新的变量就会 shadow （隐藏，遮蔽）之前声明的变量：</p>
+<pre class="line-numbers language-rust" data-language="rust"><code class="language-rust"><span class="token keyword">fn</span> <span class="token function-definition function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> x <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>
+    <span class="token keyword">let</span> x <span class="token operator">=</span> x <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">let</span> x <span class="token operator">=</span> x <span class="token operator">*</span> <span class="token number">2</span><span class="token punctuation">;</span>
+    
+    <span class="token macro property">println!</span><span class="token punctuation">(</span><span class="token string">"The value of x is {}"</span><span class="token punctuation">,</span> x<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 12</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>shadow 和把变量标记为 <code>mut</code> 是不一样的：</p>
+<ul>
+<li>如果不使用 <code>let</code> 关键字，那么重新给非 <code>mut</code> 的变量赋值会导致编译时错误</li>
+<li>使用 <code>let</code> 声明的同名新变量，也是不可变的</li>
+<li>而使用 <code>let</code> 声明的同名新变量，它的类型可以与之前不同</li>
+</ul>
+<h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><h4 id="标量和复合类型"><a href="#标量和复合类型" class="headerlink" title="标量和复合类型"></a>标量和复合类型</h4><p><code>Rust</code> 是静态编译语言，在编译时必须知道所有变量的类型</p>
+<ul>
+<li>基于使用的值，编译器通常能够推断出它的具体类型</li>
+<li>但如果可能的类型比较多（例如把 String 转为整数的 parse 方法），就必须添加类型的标注，否则编译会报错。</li>
+</ul>
+<h4 id="标量类型"><a href="#标量类型" class="headerlink" title="标量类型"></a>标量类型</h4><p>一个标量类型代表一个单个的值</p>
+<p><code>Rust</code> 有四个主要的标量类型：</p>
+<ul>
+<li><p>整数类型</p>
+<ul>
+<li><p>整数类型没有小数部分</p>
+</li>
+<li><p>整数可以<strong>用下划线切割</strong>方便阅读，例如 <code>12000</code> 可以写为 <code>12_000</code>，没有影响</p>
+</li>
+<li><p>例如 <code>u32</code> 就是一个无符号的整数类型，占据 32 位的空间</p>
+</li>
+<li><p>无符号整数类型以 <code>u</code> 开头</p>
+</li>
+<li><p>有符号的整数类型以 <code>i</code> 开头</p>
+</li>
+<li><p><code>Rust</code> 的整数类型列表如下：</p>
+<table>
+<thead>
+<tr>
+<th>长度</th>
+<th>有符号</th>
+<th>无符号</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>8-bit</td>
+<td>i8</td>
+<td>u8</td>
+</tr>
+<tr>
+<td>16-bit</td>
+<td>i16</td>
+<td>u16</td>
+</tr>
+<tr>
+<td>32-bit</td>
+<td>i32</td>
+<td>u32</td>
+</tr>
+<tr>
+<td>64-bit</td>
+<td>i64</td>
+<td>u64</td>
+</tr>
+<tr>
+<td>128-bit</td>
+<td>i128</td>
+<td>u128</td>
+</tr>
+<tr>
+<td>arch</td>
+<td>isize</td>
+<td>usize</td>
+</tr>
+</tbody></table>
+<ul>
+<li><p>每种都分 <code>i</code> 和 <code>u</code>，以及固定的位数</p>
+</li>
+<li><p>有符号范围：</p>
+<p>$-2^{n-1}$ 到 $2^{n-1}-1$</p>
+</li>
+<li><p>无符号范围：</p>
+<p>$0$ 到 $2^n-1$</p>
+</li>
+<li><p><code>isize</code> 和<code>usize</code> 类型</p>
+<p><code>isize</code> 和 <code>usize</code> 类型的位数由程序运行的计算机的架构所决定：</p>
+<ul>
+<li>如果是 64 位计算机，那就是 64 位的</li>
+<li>……</li>
+</ul>
+<p>使用 <code>isize</code> 或 <code>usize</code> 的主要场景是对某种集合进行索引操作。</p>
+</li>
+</ul>
+</li>
+<li><p>整数字面值</p>
+<table>
+<thead>
+<tr>
+<th>进制</th>
+<th>例子</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>十进制 <code>Decimal</code></td>
+<td>98_222</td>
+</tr>
+<tr>
+<td>十六进制 <code>Hex</code></td>
+<td>0xff</td>
+</tr>
+<tr>
+<td>八进制 <code>Octal</code></td>
+<td>0o77</td>
+</tr>
+<tr>
+<td>二进制 <code>Binary</code></td>
+<td>0b1111_0000</td>
+</tr>
+<tr>
+<td>字节 <code>Byte</code> (仅限 <code>u8</code>)</td>
+<td>b’A’</td>
+</tr>
+</tbody></table>
+<ul>
+<li>除了 <code>byte</code> 类型外，所有的数值字面值都允许使用类型后缀，例如 <code>57u8</code>，<code>57</code> 为整数，<code>u8</code> 为类型。</li>
+<li>如通不太清楚应该使用哪种类型，可以使用 Rust 相应的默认类型：<ul>
+<li>整数的默认类型就是 <code>i32</code>；<code>i32</code> 总体上来说速度很快，即使在 64 位系统中。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>整数溢出</p>
+<p>例如：<code>u8</code> 的范围是 <code>0~255</code>，如果把 <code>u8</code> 的变量的值设为 <code>256</code>，那么：</p>
+<ul>
+<li>调试模式下编译：<code>Rust</code> 会检查整数溢出，如果发生溢出，程序在运行时就会 panic</li>
+<li>发布模式下（–release）编译：<code>Rust</code> 不会检查可能导致 panic 的整数溢出<ul>
+<li>如果溢出发生：<code>Rust</code> 会执行“环绕操作”：<code>256</code> 变成 <code>0</code>，<code>257</code> 变成 <code>1</code> ……</li>
+<li>但程序不会 panic</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>浮点类型</p>
+<ul>
+<li><code>Rust</code> 有两种基础的浮点类型，也就是含有小数部分的类型<ul>
+<li><code>f32</code>，32 位，单精度</li>
+<li><code>f64</code>，64 位，双精度</li>
+</ul>
+</li>
+<li><code>Rust</code> 的浮点类型使用了 IEEE-754 标准来表述</li>
+<li><code>f64</code> 是默认类型，因为在现代 CPU 上 <code>f64</code> 和 <code>f32</code> 的速度差不多，而且精度更高。</li>
+</ul>
+<h5 id="数值操作"><a href="#数值操作" class="headerlink" title="数值操作"></a>数值操作</h5><p>加、减、乘、除、取余略。</p>
+</li>
+<li><p>布尔类型</p>
+<p><code>bool</code></p>
+</li>
+<li><p>字符类型</p>
+<ul>
+<li><code>Rust</code> 中 <code>char</code> 类型被用来描述语言中最基础的单个字符。</li>
+<li>字符类型的字面值使用单引号</li>
+<li>占用 4 字节大小</li>
+<li>是 Unicode 标量值，可以表示比 ASCII 多得多的字符内容：拼音、中日韩文、零长度空白字符、emoji 表情等。<ul>
+<li><code>U+0000</code> 到 <code>U+D7FF</code></li>
+<li><code>U+E000</code> 到 <code>U+10FFFF</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="复合类型"><a href="#复合类型" class="headerlink" title="复合类型"></a>复合类型</h4><ul>
+<li>复合类型可以将多个值放在一个类型里。</li>
+<li><code>Rust</code> 提供了两种基础的复合类型：元组（Tuple）、数组</li>
+</ul>
+<h5 id="Tuple"><a href="#Tuple" class="headerlink" title="Tuple"></a>Tuple</h5><p><code>Tuple</code> 可以将多个类型的多个值放在一个类型里</p>
+<p><code>Touple</code> 的长度是固定的，一旦声明就无法改变</p>
+<h6 id="创建-Tuple"><a href="#创建-Tuple" class="headerlink" title="创建 Tuple"></a>创建 Tuple</h6><ul>
+<li>在小括号里，将值用逗号分开</li>
+<li><code>Tuple</code> 中的每个位置都对应一个类型，<code>Tuple</code> 中各元素的类型不必相同</li>
+</ul>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
+    
+  </article>
+
+  
+      
+    <div class="nexmoe-post-copyright">
+        <strong>本文作者：</strong>别调P<br>
+        <strong>本文链接：</strong><a href="https://blog.bietiaop.com/2023/07/24/rust/study/01/" title="https:&#x2F;&#x2F;blog.bietiaop.com&#x2F;2023&#x2F;07&#x2F;24&#x2F;rust&#x2F;study&#x2F;01&#x2F;" target="_blank" rel="noopener">https:&#x2F;&#x2F;blog.bietiaop.com&#x2F;2023&#x2F;07&#x2F;24&#x2F;rust&#x2F;study&#x2F;01&#x2F;</a><br>
+        
+            <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+
+        
+    </div>
+
+
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow">
+   
+    
+        <a class="nexmoefont icon-tag-fill -none-link" href="/tags/Rust/" rel="tag">Rust</a> <a class="nexmoefont icon-tag-fill -none-link" href="/tags/%E7%BC%96%E7%A8%8B/" rel="tag">编程</a>
+    
+</div>
+  
+  
+    <script async src="/js/copy-codeblock.js?v=1690356120509"></script>
+  
+
+  
+      <div class="nexmoe-post-footer">
+          <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script type="text/javascript" color="0,0,255" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+<div id="vcomments">
+  正在努力加载评论
+</div>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: 'q3wFidkEgse9PfmKDYl9XugD-gzGzoHsz',
+        appKey: 'SvOMchDSYmvR50to670gIrzE',
+        placeholder: '留下你的足迹...',
+        enableQQ: true
+    })
+</script>
+
+      </div>
+  
+</div>
+</div>
+        <div class="nexmoe-post-right">
+              <div class="nexmoe-fixed">
+                  <div class="nexmoe-tool"> 
+                    
+                      
+                        
+                          
+                          
+                              <button class="mdui-fab catalog" style="overflow:unset;">
+                                  <i class="nexmoefont icon-i-catalog"></i>
+                                  <div class="nexmoe-toc">
+                                      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B5%B7%E6%AD%A5"><span class="toc-number">1.</span> <span class="toc-text">起步</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E5%86%99-Hello-World"><span class="toc-number">1.1.</span> <span class="toc-text">编写 Hello World</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-Cargo-%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE"><span class="toc-number">1.2.</span> <span class="toc-text">使用 Cargo 创建项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-Cargo-%E7%BC%96%E8%AF%91%E9%A1%B9%E7%9B%AE"><span class="toc-number">1.3.</span> <span class="toc-text">使用 Cargo 编译项目</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%8F%E5%85%B8%E4%BE%8B%E5%AD%90%E2%80%94%E2%80%94%E7%8C%9C%E6%95%B0%E6%B8%B8%E6%88%8F"><span class="toc-number">2.</span> <span class="toc-text">经典例子——猜数游戏</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%AE%E6%A0%87"><span class="toc-number">2.1.</span> <span class="toc-text">目标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA"><span class="toc-number">2.2.</span> <span class="toc-text">基本输入输出</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E9%9A%8F%E6%9C%BA%E6%95%B0"><span class="toc-number">2.3.</span> <span class="toc-text">生成随机数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AF%94%E8%BE%83%E6%95%B0%E5%AD%97%E5%A4%A7%E5%B0%8F"><span class="toc-number">2.4.</span> <span class="toc-text">比较数字大小</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%81%E8%AE%B8%E5%A4%9A%E6%AC%A1%E7%8C%9C%E6%B5%8B%E2%80%94%E2%80%94%E5%BE%AA%E7%8E%AF"><span class="toc-number">2.5.</span> <span class="toc-text">允许多次猜测——循环</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%84%E7%90%86%E6%8A%A5%E9%94%99"><span class="toc-number">2.6.</span> <span class="toc-text">处理报错</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95"><span class="toc-number">3.</span> <span class="toc-text">基础语法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%98%E9%87%8F%E4%B8%8E%E5%8F%AF%E5%8F%98%E6%80%A7"><span class="toc-number">3.1.</span> <span class="toc-text">变量与可变性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%98%E9%87%8F%E4%B8%8E%E5%B8%B8%E9%87%8F"><span class="toc-number">3.2.</span> <span class="toc-text">变量与常量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9A%90%E8%97%8F%EF%BC%88%E9%81%AE%E8%94%BD%EF%BC%89"><span class="toc-number">3.3.</span> <span class="toc-text">隐藏（遮蔽）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">3.4.</span> <span class="toc-text">数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%87%E9%87%8F%E5%92%8C%E5%A4%8D%E5%90%88%E7%B1%BB%E5%9E%8B"><span class="toc-number">3.4.1.</span> <span class="toc-text">标量和复合类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%87%E9%87%8F%E7%B1%BB%E5%9E%8B"><span class="toc-number">3.4.2.</span> <span class="toc-text">标量类型</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%95%B0%E5%80%BC%E6%93%8D%E4%BD%9C"><span class="toc-number">3.4.2.1.</span> <span class="toc-text">数值操作</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%8D%E5%90%88%E7%B1%BB%E5%9E%8B"><span class="toc-number">3.4.3.</span> <span class="toc-text">复合类型</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Tuple"><span class="toc-number">3.4.3.1.</span> <span class="toc-text">Tuple</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA-Tuple"><span class="toc-number">3.4.3.1.1.</span> <span class="toc-text">创建 Tuple</span></a></li></ol></li></ol></li></ol></li></ol></li></ol>
+                                  </div>
+                              </button>
+                          
+                          
+                      
+                    
+                      <a href="#nexmoe-content" class="toc-link" aria-label="Back To Top" title="top"><button class="mdui-fab mdui-ripple"><i class="nexmoefont icon-caret-top"></i></button></a>
+                  </div>
+              </div>
+            </div>
+    </div>
+    <div id="nexmoe-search-space">
+	<div class="search-container">
+		<div class="search-header">
+			<div class="search-input-container">
+				<input
+					class="search-input"
+					type="text"
+					placeholder="搜索"
+					oninput="sinput();"
+				/>
+			</div>
+			<a class="search-close" onclick="sclose();">×</a>
+		</div>
+		<div class="search-body"></div>
+	</div>
+</div>
+
+    
+    <script src="/prism.js"></script>
+
+
+        <script src="//cdn.jsdelivr.net/npm/js-base64/base64.min.js"></script>
+        <script>
+        const hasAttr = (e,a) => a.some(_=> e.attr(_)!==undefined);
+        $('a').each(function() {
+          const $this = $(this);
+          if(hasAttr($this,["data-fancybox","ignore-external-link"])) return;
+          const href = $this.attr('href');
+          if (href && href.match('^((http|https|thunder|qqdl|ed2k|Flashget|qbrowser|ftp|rtsp|mms)://)')) {
+            const strs = href.split('/');
+            if (strs.length >= 3) {
+                const host = strs[2];
+                if (host !== '' || window.location.host) {
+                    $this.attr('href', '/go.html?u='+href+'').attr('rel', 'external nofollow noopener noreferrer');
+                    if (true) {
+                        $this.attr('target', '_blank');
+                    }
+                }
+            }
+          }
+        });
+        </script></body>
+
+</html>
