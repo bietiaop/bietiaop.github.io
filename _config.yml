@@ -1,0 +1,175 @@
+# Hexo Configuration
+## Docs: https://hexo.io/docs/configuration.html
+## Source: https://github.com/hexojs/hexo/
+
+# Site
+title: 别调P的小窝
+subtitle: ''
+description: '别调P的个人小窝，记录自己学习web、开发、安全的笔记。分享自己的经验。'
+keywords: '前端,HTML,bietiaop,别调P,别调皮,编程,学习,大学生,博客,CSS,NodeJS,JavaScript,JS,React,Vue,开发,安全,网络空间安全,网安'
+author: 别调P
+language: zh-CN
+timezone: 'Asia/Shanghai'
+
+# URL
+## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
+url: https://blog.bietiaop.com
+permalink: :year/:month/:day/:title/
+permalink_defaults:
+pretty_urls:
+  trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
+  trailing_html: true # Set to false to remove trailing '.html' from permalinks
+
+# Directory
+source_dir: source
+public_dir: public
+tag_dir: tags
+archive_dir: archives
+category_dir: categories
+code_dir: downloads/code
+i18n_dir: :lang
+skip_render:
+  - '*.scss'
+  - '*.js'
+  - '*.css'
+  - 'prism/*'
+  - '*.html'
+  - '_posts/.obsidian/**'
+  - '_posts/scaffolds/**'
+
+# Writing
+new_post_name: :title.md # File name of new posts
+default_layout: post
+titlecase: false # Transform title into titlecase
+external_link:
+  enable: true # Open external links in new tab
+  field: site # Apply to the whole site
+  exclude: ''
+filename_case: 0
+render_drafts: false
+post_asset_folder: true
+relative_link: false
+future: true
+highlight:
+  enable: false
+  line_number: true
+  auto_detect: true
+  tab_replace: ''
+  wrap: true
+  hljs: true
+prismjs:
+  enable: true
+  preprocess: true
+  line_number: true
+  line_threshold: 10
+  tab_replace: ''
+  copy_text: '复制'
+# prism_plugin:
+#   mode: 'preprocess' # realtime/preprocess
+#   theme: 'tomorrow'
+#   line_number: true # default false
+#   custom_css:
+# Home page setting
+# path: Root path for your blogs index page. (default = '')
+# per_page: Posts displayed per page. (0 = disable pagination)
+# order_by: Posts order. (Order by date descending by default)
+index_generator:
+  path: ''
+  per_page: 10
+  order_by: -date
+
+# Category & Tag
+default_category: uncategorized
+category_map:
+tag_map:
+
+# Metadata elements
+## https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta
+meta_generator: true
+
+# Date / Time format
+## Hexo uses Moment.js to parse and display date
+## You can customize the date format as defined in
+## http://momentjs.com/docs/#/displaying/format/
+date_format: YYYY-MM-DD
+time_format: HH:mm:ss
+## updated_option supports 'mtime', 'date', 'empty'
+updated_option: 'mtime'
+
+# Pagination
+## Set per_page to 0 to disable pagination
+per_page: 10
+pagination_dir: page
+
+# Include / Exclude file(s)
+## include:/exclude: options only apply to the 'source/' folder
+include: []
+exclude: []
+ignore:
+
+# Extensions
+## Plugins: https://hexo.io/plugins/
+plugins:
+  - hexo-sliding-spoiler
+  - hexo-asset-image-for-hexo5
+  # - hexo-asset-img
+## Themes: https://hexo.io/themes/
+theme: nexmoe
+
+# Deployment
+## Docs: https://hexo.io/docs/one-command-deployment
+deploy:
+  type: git
+  repo: https://github.com/bietiaop/bietiaop.github.io
+  branch: web
+  message: '站点更新'
+
+post_wordcount:
+  date: true # 发布日期
+  update: true # 更新日期
+  wordCount: true # 文章字数统计
+  totalCount: true # 站点总文章字数
+  min2read: true # 文章阅读时长
+  readCount: true # 文章阅读次数
+
+hexo_external_link:
+  enable: true
+  enable_base64_encode: false
+  url_param_name: 'u'
+  html_file_name: 'go.html'
+  target_blank: true
+  link_rel: 'external nofollow noopener noreferrer'
+  #domain: 'your_domain' # 如果开启了防盗链
+  safety_chain: true
+
+# Math Formulas Render Support
+math:
+  enable: false
+  # Default (true) will load mathjax / katex script on demand.
+  # That is it only render those page which has `mathjax: true` in Front-matter.
+  # If you set it to false, it will load mathjax / katex srcipt EVERY PAGE.
+  per_page: true
+
+  # hexo-renderer-pandoc (or hexo-renderer-kramed) required for full MathJax support.
+  mathjax:
+    enable: false
+    # See: https://mhchem.github.io/MathJax-mhchem/
+    mhchem: false
+
+permalink_pinyin:
+  enable: true
+  separator: '-' # default: '-'
+
+githubEmojis:
+  enable: true
+  className: github-emoji
+  inject: true
+  styles:
+  customEmojis:
+copy_button:
+  enable: true
+  # Show text copy result
+  show_result: true
+# copy_button: 复制
+# copy_success: 复制成功
+# copy_failure: 复制失败

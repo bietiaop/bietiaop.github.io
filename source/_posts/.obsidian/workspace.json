@@ -1,0 +1,174 @@
+{
+  "main": {
+    "id": "236d57cd7f34c7de",
+    "type": "split",
+    "children": [
+      {
+        "id": "a1d99b10e6c3fc34",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "bfc09006210c3349",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "新标签页"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "ccef810f32ef981f",
+    "type": "split",
+    "children": [
+      {
+        "id": "3ef95e9080123faf",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "e80402e95ed7af49",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "文件列表"
+            }
+          },
+          {
+            "id": "aa6a82c834c12bc8",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "搜索"
+            }
+          },
+          {
+            "id": "87803088247c37fb",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "书签"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "0f0468b06cebe737",
+    "type": "split",
+    "children": [
+      {
+        "id": "2fbb8723754a1986",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "93b4fc56a17b36d4",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "web/front/hexo/搭建hexo博客.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "搭建hexo博客 的反向链接列表"
+            }
+          },
+          {
+            "id": "b60f576098b00181",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "web/front/hexo/搭建hexo博客.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "搭建hexo博客 的出链列表"
+            }
+          },
+          {
+            "id": "085ca992f6060a4c",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              },
+              "icon": "lucide-tags",
+              "title": "标签"
+            }
+          },
+          {
+            "id": "38c869247da399c9",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "web/front/hexo/搭建hexo博客.md"
+              },
+              "icon": "lucide-list",
+              "title": "搭建hexo博客 的大纲"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false
+    }
+  },
+  "active": "e80402e95ed7af49",
+  "lastOpenFiles": [
+    "未命名.md",
+    "web/front/vite/vite使用br压缩.md",
+    "scaffolds/post.md",
+    "scaffolds/page.md",
+    "scaffolds/draft.md",
+    "rust/study/01.md",
+    "scaffolds",
+    "web/front/hexo/搭建hexo博客.md"
+  ]
+}

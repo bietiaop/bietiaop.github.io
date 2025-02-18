@@ -1,0 +1,176 @@
+avatar: https://thirdqq.qlogo.cn/g?b=sdk&k=27Ng6EAub38cF3gdSBSNoA&s=640&t=1654771498 # 网站 Logo
+background: # 既是博客的背景，又是文章默认头图
+  path: https://pi.loili.com/2023/f6783b98aff068804ef345ecfab907ab.jpg
+  width: 1440
+  height: 960
+favicon:
+  href: https://thirdqq.qlogo.cn/g?b=sdk&k=27Ng6EAub38cF3gdSBSNoA&s=640&t=1654771498 # 网站图标
+  type: image/jpeg # 图标类型，可能的值有(image/png, image/vnd.microsoft.icon, image/x-icon, image/gif)
+
+function: # 功能开关，可选值（true,false）
+  globalToc: true # 开启该功能会自动开启文章 TOC（文章目录） 功能
+  wordCount: false # 是否开启文章字数统计 (true, false)
+  copyCode: true # 是否允许复制代码块
+
+imageCDN: # 图片 CDN 功能
+  enable: false # 开启该功能
+  origin: /../../images/ # 图片原始目录
+  to: https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/ # 图片 CDN 域名
+
+# 自定义样式，启用后可在站点的source文件夹下新建custom.css自定义站点样式
+customStyles:
+  - custom.css
+  - prism.css
+
+# 附加图标库 使用说明：https://docs.nexmoe.com/config/icon
+iconlib: # //at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css
+
+menu:
+  回到首页:
+    - /
+    - icon-home
+  文章归档: # 使用说明：https://docs.nexmoe.com/article/archive
+    - /archive.html
+    - icon-container
+  我的作品:
+    - /works.html
+    - icon-container
+  收 藏 夹:
+    - /favorites.html
+    - icon-tags-fill
+  关 于 我:
+    - https://www.bietiaop.com
+    - icon-info-circle
+  友情链接:
+    - /friends.html # 使用说明：https://docs.nexmoe.com/article/py
+
+widgets:
+  - name: search
+    enable: true
+    options:
+      search:
+        type: local # 可选engine（用搜索引擎搜索）、swiftype、或local（本地搜索）
+        # url: https://cn.bing.com/search?q=site:nexmoe.com # 搜索引擎地址，在type为swiftype时无效 e.g:https://www.google.com/search?q={你的博客链接}
+        id: <swiftype-id> # swiftype的id，见启用教程。在type为engine时无效
+  - name: social
+    enable: true
+    options:
+      social:
+        #QQ群:
+        #  - https://jq.qq.com/?_wv=1027&k=5CfKHun
+        #  - icon-QQ
+        #  - rgb(249, 174, 8)
+        #  - rgba(249, 174, 8, .1)
+        哔哩哔哩:
+          - https://space.bilibili.com/152308001
+          - icon-bilibili
+          - rgb(231, 106, 141)
+          - rgba(231, 106, 141, .15)
+        GitHub:
+          - https://github.com/bietiaop/
+          - icon-github
+          - rgb(25, 23, 23)
+          - rgba(25, 23, 23, .15)
+        Email:
+          - https://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=bietiaop%40bietiaop.com
+          - icon-mail-fill
+          - rgb(25, 23, 23)
+          - rgba(25, 23, 23, .15)
+  - name: category
+    enable: true
+  - name: tagcloud
+    enable: true
+    options:
+      maxTagcloud: 17 # 标签云组件显示的标签数量，0 表示不限制
+  - name: hitokoto # 一言 widget
+    enable: false
+    options:
+      widgetHitokoto: # 一言组件
+        loading_placeholder: '🚀 获取中...' # 正在一言时的占位符
+        loading_error_placeholder: '🐞 获取失败...' # 加载一言失败时的占位符
+        category: # 一言句子类型（可选），不配置的话随机获取，详见 https://developer.hitokoto.cn/sentence/#%E5%8F%A5%E5%AD%90%E7%B1%BB%E5%9E%8B-%E5%8F%82%E6%95%B0
+  - name: archive #settings: widgetAchive
+    enable: true
+    options:
+      widgetAchive: #文章归档组件
+        archive_type: 'year' #按月展示还是按年展示
+        show_count: true #是否展示数量
+  - name: recent_posts
+    enable: true
+  # - name: link #settings: widgetLink
+  #   enable: false
+  #   options:
+  #     widgetLink: #链接组件
+  #       - title: 小舒同学
+  #         img: https://xsm.nexmoe.com/images/Infinite/Snipaste_2022-05-18_20-46-50.png
+  #         link: https://xiaoshu.app/
+  #       - title: 折影轻梦
+  #         img: https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/avatar.png
+  #         link: https://nexmoe.com/
+
+copyTip: "著作权归作者所有。\n商业转载请联系作者获得授权，非商业转载请注明出处。\n来源：%url" # 自定义复制版权文案,使用 %url 代替当前页面URL, 修改为false禁用
+
+slotHead: |
+  <link rel="stylesheet" href="/prism.css">
+  <link rel="stylesheet" href="/prism-theme.css">
+  <link rel="stylesheet" href="/custom.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/medium-zoom@latest/dist/style.css">
+# <link href="https://cdn.bootcdn.net/ajax/libs/prism/1.9.0/themes/prism.min.css" rel="stylesheet">
+# <link href="https://cdn.bootcdn.net/ajax/libs/prism/1.9.0/plugins/toolbar/prism-toolbar.min.css" rel="stylesheet">
+#  <link href="https://cdn.bootcdn.net/ajax/libs/prism/1.9.0/prism.min.css" rel="stylesheet">
+#   <!-- Global site tag (gtag.js) - Google Analytics -->
+#   <script async src="https://www.googletagmanager.com/gtag/js?id=G-4D4ZJ9G024"></script>
+#   <script>
+#     window.dataLayer = window.dataLayer || [];
+#     function gtag(){dataLayer.push(arguments);}
+#     gtag("js", new Date());
+#     gtag("config", "G-4D4ZJ9G024");
+#   </script>
+slotFooter: |
+  <script src="/prism.js"></script>
+
+# <script src="https://cdn.jsdelivr.net/npm/medium-zoom@latest/dist/medium-zoom.min.js"></script>
+  # <script>
+  #   const doms = document.querySelectorAll('article img');
+  #   mediumZoom(doms)
+  # </script>
+# <script src="https://cdn.bootcdn.net/ajax/libs/prism/1.9.0/prism.min.js"></script>
+# <script src="https://cdn.bootcdn.net/ajax/libs/prism/1.9.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+# <script src="https://cdn.bootcdn.net/ajax/libs/prism/1.9.0/plugins/show-language/prism-show-language.min.js"></script>
+# <script src="https://cdn.bootcdn.net/ajax/libs/prism/1.9.0/plugins/autolinker/prism-autolinker.min.js"></script>
+# <script src="https://cdn.bootcdn.net/ajax/libs/prism/1.9.0/plugins/file-highlight/prism-file-highlight.min.js"></script>
+# <script src="https://cdn.bootcdn.net/ajax/libs/prism/1.9.0/plugins/highlight-keywords/prism-highlight-keywords.min.js"></script>
+# <script src="https://cdn.bootcdn.net/ajax/libs/prism/1.9.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+# <script src="https://cdn.bootcdn.net/ajax/libs/prism/1.9.0/plugins/toolbar/prism-toolbar.min.js"></script>
+# <script src="https://cdn.bootcdn.net/ajax/libs/prism/1.9.0/components/prism-bash.min.js"></script>
+# <script src="https://cdn.bootcdn.net/ajax/libs/prism/1.9.0/components/prism-typescript.min.js"></script>
+# <script src="https://cdn.bootcdn.net/ajax/libs/prism/1.9.0/components/prism-c.js"></script>
+# <script src="https://cdn.bootcdn.net/ajax/libs/prism/1.9.0/components/prism-powershell.min.js"></script>
+# <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2058306854838448" crossorigin="anonymous"></script>
+# 自定义侧边栏尾部内容
+slotSidebar: |
+  <br><a target="_blank" href="https://beian.miit.gov.cn/">苏ICP备2022027042号-1</a>
+  <!-- <br><a target="_blank" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral">
+  <img src="https://i.dawnlab.me/c0268c1e6cfd0863d6ba35be1575941a.png" width="150px"></a> -->
+  <!-- <script type="text/javascript" color="0,0,255" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script> -->
+  <script src="/cursor-effects.js" defer></script>
+# 评论框插槽
+slotComment: |
+  <script src='https://cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js'></script>
+  <div id="vcomments">
+    正在努力加载评论
+  </div>
+  <script>
+      new Valine({
+          el: '#vcomments',
+          appId: 'q3wFidkEgse9PfmKDYl9XugD-gzGzoHsz',
+          appKey: 'SvOMchDSYmvR50to670gIrzE',
+          placeholder: '留下你的足迹...',
+          enableQQ: true
+      })
+  </script>
+slotCopyright: |
+  <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+
+# slotArticleEnd: |
+#   <p><img src="https://i.dawnlab.me/53a8c7cf3ad77a0f0a456ce2c6afe88a.png" loading="lazy"></p>

@@ -1,0 +1,400 @@
+@import url('./fonts.css');
+html,body {
+    font-family: 'SR', 'PingFang SC', 'Helvetica Neue', 'Microsoft YaHei',  Helvetica, Arial, sans-serif;
+}
+code {
+    padding: 0 !important;
+    font-family: "Fira Code", Consolas, "Liberation Mono", Menlo, Courier, monospace !important;
+
+}
+p code, h1 code, h2 code, h3 code, h4 code, h5 code, h6 code, b code, strong code, table code, i code, u code, a code {
+    display: inline-block;
+    white-space: pre-wrap;
+    padding: 0.05em 0.4em !important;
+    font-size: 0.9em !important;
+    background: rgba(27,31,35,.05) !important;
+    border-radius: 3px !important;
+    box-shadow: inset 0 -1px 0 rgba(27,31,35,.1) !important;
+    /* box-decoration-break: clone !important;
+    -wenkit-box-decoration-break: clone; */
+}
+article h1, article h2, article h3, article h4, article h5, article h6 {
+    margin-top: 2em !important;
+    margin-bottom: 0.5em !important;
+}
+article ul {
+    background-color: var(--color-primary-bg);
+    border-radius: 5px;
+    margin: 5px !important;
+    box-sizing: border-box;
+}
+article li {
+    padding-top: 0.25em !important;
+    position: relative;
+    box-sizing: border-box;
+}
+article li::before {
+    position: absolute !important;
+    margin-top: 0px !important;
+}
+article li::after {
+    display: block !important;
+    height: auto !important;
+    /* top: 0 !important; */
+    bottom: 0 !important;
+}
+article ul table {
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #000000 !important;
+    border-collapse: collapse !important;
+}
+article ul table th {
+    background-color: var(--color-primary-bg);
+    padding: 0.5em !important;
+    border: 1px solid #000000 !important;
+    text-align: center;
+}
+article ul table tr td {
+    padding: 0.5em !important;
+    border: 1px solid #000000 !important;
+}
+article ul table tr td:first-child {
+    padding-left: 0.5em !important;
+}
+article ul table tr td:last-child {
+    padding-right: 0.5em !important;
+}
+article ul table tr td:first-child::before {
+    display: none !important;
+}
+article ul table tr td:last-child::after {
+    display: none !important;
+}
+
+.nexmoe-post-cover h1, .nexmoe-post-cover h2, .nexmoe-post-cover h3, .nexmoe-post-cover h4, .nexmoe-post-cover h5, .nexmoe-post-cover h6 {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+pre {
+    /* padding-top: 40px !important;
+    padding-bottom: 20px !important; */
+    overflow: overlay !important;
+    position: relative;
+    transition: 0.4s !important;
+    font-family: "Fira Code", Consolas, "Liberation Mono", Menlo, Courier, monospace !important;
+}
+/* article pre:hover {
+    border-radius: var(--radius) var(--radius) 4px 4px;
+} */
+pre::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+    /* 不占位置 */
+    position: absolute;
+}
+pre::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0);
+    border-radius: 4px;
+}
+pre::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0);
+    border-radius: 4px;
+}
+pre:hover::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.616) !important;
+}
+pre:hover::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.2);
+}
+article {
+    color: #000000;
+    font-family: 'SR', 'PingFang SC', 'Helvetica Neue', 'Microsoft YaHei',  Helvetica, Arial, sans-serif;
+}
+article p {
+    margin: 1em 0;
+}
+.line-numbers .line-numbers-rows {
+    border-right: 1px solid rgb(62, 64, 74); /* 设置竖线颜色 */
+}
+article img {
+    /* border: 1px solid rgb(209, 209, 209); */
+    border-radius: 5px !important;
+    margin-bottom: 1em !important;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.nexmoe-py li a img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+}
+article ul code span {
+    margin-right: 0;
+}
+article ul button span {
+    margin-right: 0;
+}
+article blockquote {
+    font-family: 'SR', 'PingFang SC', 'Helvetica Neue', 'Microsoft YaHei',  Helvetica, Arial, sans-serif;
+}
+blockquote p {
+    margin: 1em 0;
+}
+strong, b, h1, h2, h3, h4, h5, h6 {
+    font-family: 'PingFang SC', 'Helvetica Neue', 'Microsoft YaHei',  Helvetica, Arial, sans-serif;
+}
+p:has(img) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+/* pre::before {
+    content: '';
+    position: absolute;
+    width: 13px !important;
+    height: 13px !important;
+    border-radius: 50%;
+    background: rgb(231, 26, 26) !important;
+    top: 13px;
+    left: 23px;
+    display: block;
+    box-shadow: 0 0 3px inset rgba(0, 0, 0, 0.8);
+    transition: 0.3s;
+}
+pre::before:hover {
+    background: rgb(210, 21, 21) !important;
+} */
+.code-toolbar .toolbar-item {
+    /* transition: 0.3s; */
+    cursor: default;
+    margin: 0 3px;
+}
+.code-toolbar .toolbar-item:hover {
+    color: azure !important;
+}
+.code-toolbar .toolbar .toolbar-item  span {
+    padding-bottom: 1px !important;
+    border-bottom: 2px solid #3d3d3d;
+}
+.code-toolbar .toolbar-item button {
+    padding-bottom: 1px !important;
+    border-bottom: 2px solid #3d3d3d !important;
+    cursor: pointer;
+}
+.code-toolbar .toolbar-item button:focus {
+    color: azure !important;
+}
+.line-numbers-rows {
+    font-family: 'SR', 'PingFang SC', 'Helvetica Neue', 'Microsoft YaHei',  Helvetica, Arial, sans-serif;
+}
+.nexmoe-avatar {
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3) !important;
+    transition: 0.3s !important;
+}
+.nexmoe-avatar:hover {
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5) !important;
+}
+.nexmoe-count > div {
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(5px);
+    margin: 0px 5px;
+    border-radius: 3px;
+    padding: 8px 10px;
+    /* border: 1px solid #fbe9ee; */
+    color: #9f7b7b !important;
+    box-shadow: 0 5px 10px rgba(255, 199, 199, 0.3);
+}
+.nexmoe-count > div:nth-child(1) {
+    border-radius: 10px 3px 3px 10px;
+}
+.nexmoe-count > div:nth-last-child(1) {
+    border-radius: 3px 10px 10px 3px;
+}
+.nexmoe-count > div > span {
+    color: #ffa5b3 !important;
+    margin-bottom: 3px;
+}
+.nexmoe-post {
+    border-bottom: 2px solid rgb(196, 196, 196);
+    /* border-radius: 16px; */
+    overflow: visible;
+    transition: 0.3s;
+    margin-bottom: 140px;
+    position: relative;
+}
+.nexmoe-post::after {
+    content: 'Copyright © bietiaop';
+    position: absolute;
+    bottom: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+#nexmoe-content .nexmoe-post .nexmoe-post-cover {
+    min-height: 194px !important;
+}
+.nexmoe-primary {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.nexmoe-primary:has(.nexmoe-posts) {
+    padding-bottom: 100px !important;
+}
+.nexmoe-primary:has(.nexmoe-posts)::after {
+    content: "© bietiaop";
+    position: absolute;
+    left: 50%;
+    bottom: 2em;
+    transform: translate(-50%, 0);
+}
+
+.nexmoe-post-meta {
+    padding: 10px 0px;
+}
+.nexmoe-post-meta .nexmoe-rainbow {
+    padding: 0px 10px;
+}
+.nexmoe-post .nexmoe-post-cover {
+    overflow: hidden;
+    padding-bottom: 15% !important;
+    border-radius: 16px !important;
+}
+
+.nexmoe-posts .nexmoe-post {
+    border-radius: 16px;
+    border-bottom: 2px solid rgb(231, 201, 205);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+.nexmoe-posts .nexmoe-post::after {
+    display: none;
+}
+.nexmoe-posts .nexmoe-post-cover {
+    border-radius: 16px 16px 0 0 !important;
+}
+.nexmoe-post-copyright {
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0 auto !important;
+    margin-top: 40px !important;
+}
+.nexmoe-post-footer {
+    width: 100%;
+    border-radius: 20px 20px 0 0;
+    position: relative;
+    padding: 30px !important;
+    box-sizing: border-box;
+    margin: 0 auto !important;
+}
+.nexmoe-post-footer::before {
+    content: '';
+    position: absolute;
+    width: 5em;
+    height: 10px;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.2);
+    left: 50%;
+    transform: translate(-50%, 0);
+    top: 15px;
+}
+.vpanel {
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+}
+.vreply-wrapper .vwrap {
+    background-color: #fff;
+    border: 1px solid #b6b6b6 !important;
+}
+.cancel-reply.text-right {
+    color: #b6b6b6 !important;
+}
+.cancel-reply.text-right svg {
+    fill: #b6b6b6 !important;
+    transition: 0.3s !important;
+}
+.cancel-reply.text-right svg:hover {
+    fill: #000000 !important;
+}
+.cancel-reply.text-right svg:active {
+    fill: #b6b6b6 !important;
+}
+#veditor {
+    /* 隐藏拖动改变大小 */
+    resize: none;
+}
+.vpower.txt-right {
+    /* 只显示一行 */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    height: 1.8rem;
+}
+.nexmoe-drawer .nexmoe-list .nexmoe-list-item {
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(5px);
+}
+.nexmoe-page-nav {
+    justify-content: right;
+}
+
+.spoiler-title {
+    padding: 0.6em 1em !important;
+    font-size: 1em !important;
+    user-select: none;
+    transition: 0.3s;
+    position: relative;
+    display: flex !important;
+    align-items: center;
+}
+.spoiler-title:hover {
+    background-color: rgba(0, 0, 0, 0.2) !important;
+}
+.spoiler-title::before {
+    /* content: "△" !important; */
+    content: "" !important;
+    display: block;
+    margin-top: -0.1em;
+    margin-right: 0.5em;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 0.6em 0.8em 0.6em;
+    border-color: transparent transparent rgba(0, 0, 0, 0.3) transparent;
+    transform: rotate(180deg);
+    border-radius: 3px;
+    transition: 0.5s;
+}
+.spoiler.expanded .spoiler-title::before {
+    transform: rotate(0deg);
+}
+@media screen and (max-width: 1024px) {
+    .nexmoe-drawer.mdui-drawer-open {
+        max-width: 300px !important;
+        min-width: 210px !important;
+    }
+}
+@media screen and (max-width: 770px) {
+    #nexmoe-content .nexmoe-post .nexmoe-post-cover.absolute h1 {
+        font-size: 2rem !important;
+    }
+}
+@media screen and (max-width: 610px) {
+    .nexmoe-post-footer {
+        width: calc(100% + 48px) !important;
+        padding-left: 5px !important;
+        padding-right: 5px !important;
+        left: -24px !important;
+        position: relative;
+    }
+}
+@media screen and (max-width: 550px) {
+    #nexmoe-content .nexmoe-post .nexmoe-post-cover.absolute h1 {
+        font-size: 1.6rem !important;
+        padding: 10px !important;
+    }
+}
