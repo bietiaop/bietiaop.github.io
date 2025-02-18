@@ -4,17 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "a1d99b10e6c3fc34",
+        "id": "95c0995445ac8b9e",
         "type": "tabs",
         "children": [
           {
-            "id": "bfc09006210c3349",
+            "id": "5a96b8f64add9786",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "web/nextjs/NextJS、Next-Auth 小记（1）——登录、鉴权（踩坑记录）.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "新标签页"
+              "title": "NextJS、Next-Auth 小记（1）——登录、鉴权（踩坑记录）"
             }
           }
         ]
@@ -157,14 +161,21 @@
       "daily-notes:打开/创建今天的日记": false,
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
-      "obsidian-excalidraw-plugin:新建绘图文件": false
+      "obsidian-excalidraw-plugin:新建绘图文件": false,
+      "hexo-publisher:Publish posts to hexo": false,
+      "obsidian-kanban:创建新看板": false
     }
   },
-  "active": "e80402e95ed7af49",
+  "active": "5a96b8f64add9786",
   "lastOpenFiles": [
+    "未命名看板.md",
+    "web/nextjs/NextJS、Next-Auth 小记（1）——登录、鉴权（踩坑记录）.md",
+    "web/front/css/图片投影阴影效果.md",
+    "web/front/css/字体切割减少字体大小.md",
+    "scaffolds/post.md",
+    "web/nextjs",
     "未命名.md",
     "web/front/vite/vite使用br压缩.md",
-    "scaffolds/post.md",
     "scaffolds/page.md",
     "scaffolds/draft.md",
     "rust/study/01.md",
