@@ -5,6 +5,18 @@ body {
   font-family: 'PingFang SC', 'Helvetica Neue', 'Microsoft YaHei', Helvetica,
     Arial, sans-serif;
 }
+
+mark {
+  background-color: var(--color-primary-bg);
+  color: var(--color-primary);
+  border-radius: 3px;
+}
+
+code {
+  font-family: 'Fira Code', Consolas, 'Liberation Mono', Menlo, Courier,
+    monospace !important;
+}
+
 p code,
 h1 code,
 h2 code,
@@ -17,16 +29,17 @@ strong code,
 table code,
 i code,
 u code,
-a code {
+a code,
+span code,
+li code,
+ol code,
+ul code {
   display: inline-block;
   overflow: visible !important;
   padding: 0.05em 0.4em !important;
   background: rgba(27, 31, 35, 0.05) !important;
   border-radius: 3px !important;
   box-shadow: inset 0 -1px 0 rgba(27, 31, 35, 0.1) !important;
-
-  font-family: 'Fira Code', Consolas, 'Liberation Mono', Menlo, Courier,
-    monospace !important;
 }
 article p {
   line-height: 1.8;

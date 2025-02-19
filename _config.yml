@@ -201,3 +201,4 @@ markdown:
   plugins:
     - markdown-it-footnote
     - markdown-it-task-lists
+    - markdown-it-mark

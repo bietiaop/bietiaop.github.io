@@ -88,6 +88,7 @@ signIn?: (params: {
 import NextAuth from 'next-auth';
 
 export const { handlers, auth, signIn, signOut, unstable_update } = NextAuth({
+// [!code highlight:2]
 	callbacks: {
 		async signIn(params) {
 			const { user, account } = params;
@@ -102,6 +103,7 @@ export const { handlers, auth, signIn, signOut, unstable_update } = NextAuth({
 				if (!account.providerAccountId) {
 					return '/login?error=OAuthAccountNotLinked';
 				}
+				// [!code highlight:5]
 			    // 使用自定义的方法 findUserByOAuth 查询是否有绑定关系
 				const oauthUser = await findUserByOAuth(account.provider, account.providerAccountId);
 				if (!oauthUser) {
@@ -110,6 +112,7 @@ export const { handlers, auth, signIn, signOut, unstable_update } = NextAuth({
 				return true;
 			}
 			return !!user;
+// [!code highlight:2]
 		},
 	},
 });
@@ -117,7 +120,8 @@ export const { handlers, auth, signIn, signOut, unstable_update } = NextAuth({
 
 ### Edge Runtime
 
-在我刚开始使用 NextJS 的时候是 25 年 1 月份，当时 NextJS 的中间件仍然仅支持 [Edge Runtime]([Edge Runtime](https://vercel.com/docs/functions/edge-middleware/edge-runtime))。这就造成了一些困扰——**无法连接数据库**（Serverless除外）。由于 Edge Runtime 仅支持部分 NodeJS 和 Web API，因此造成了一种很尴尬的局面：有些库使用了 NodeJS 的 API 或者 Node Add-on（例如 `bcrypt`），它无法在 Edge Runtime 上面运行，然而有些库不仅支持Node 也支持 Web 环境（例如 `rust-bcrypt`），然而 Edge Runtime 不支持 Wasm，也就是说，你无法在中间件使用 `bcrypt` 检查密码一致性（登录时）。除此之外，你还无法使用 Redis、MySQL、PostgreSQL。
+在我刚开始使用 NextJS 的时候是 25 年 1 月份，当时 NextJS 的中间件仍然仅支持 [Edge Runtime](https://vercel.com/docs/functions/edge-middleware/edge-runtime)。这就造成了一些困扰——**无法连接数据库**==（Serverless除外）==。由于 Edge Runtime 仅支持部分 NodeJS 和 Web API，因此造成了一种很尴尬的局面：有些库使用了 NodeJS 的 API 或者 Node Add-on（例如 `bcrypt`），它无法在 Edge Runtime 上面运行，然而有些库不仅支持Node 也支持 Web 环境（例如 `rust-bcrypt`），然而 Edge Runtime 不支持 Wasm，也就是说，你无法在中间件使用 `bcrypt` 检查密码一致性（登录时）。除此之外，你还无法使用 Redis、MySQL、PostgreSQL。
+
 由于 NextAuth 的部分方法如鉴权、jwt 方法等运行在中间件，因此如果想要实现 jwt 用户信息更新等就很麻烦，下面是经常看到的报错：
 
 [Next middleware with ioredis error: \[TypeError\]: Cannot read properties of undefined (reading 'charCodeAt') · Issue #73424 · vercel/next.js](https://github.com/vercel/next.js/issues/73424)
@@ -147,7 +151,7 @@ Error: The edge runtime does not support Node.js 'crypto' module.
 ```
 
 好消息是，二月发布的一个版本中，middleware 支持 NodeJS Runtime 了，具体做法：
-首先切换 NextJS 版本至最新 Canary，然后修改 `next.config.ts` ：
+首先==切换 NextJS 版本至最新 Canary==，然后修改 `next.config.ts` ：
 
 ```typescript
 const nextConfig: NextConfig = {
@@ -170,7 +174,7 @@ export const config = {
 
 这样就可以在中间件中使用数据库，并且自定义 jwt 方法中使用数据库。
 
-但是由于这是**实验性功能**，还存在很多问题，下面会提到。
+但是由于这是**实验性功能**，还==存在很多问题==，下面会提到。
 ### AuthJS 更新 Session 用户信息
 
 在写需求的时候有一个很头疼的问题就是当用户更新用户信息，例如昵称、头像等，Session 里面的用户信息无法及时更新，按照网上的方法就是通过修改 jwt 方法，根据 jwt 里面的参数的新内容更新用户信息……吧啦吧啦……
@@ -206,6 +210,7 @@ export const editProfileAction = async (data: z.infer<typeof editProfileFormSche
 		const profile = await editProfile(userId, data.nickname);
 		// 过滤敏感信息（自定义 getFinalUser 方法过滤）
 		const user = await getFinalUser(profile);
+// [!code highlight:4]
 		// 调用 NextAuth 暴露的 unstable_update 方法更新服务端 Session
 		await unstable_update({
 			user,
@@ -222,11 +227,11 @@ export const editProfileAction = async (data: z.infer<typeof editProfileFormSche
 import { useSession } from 'next-auth';
 
 export default function Page() {
-	const session = useSession();
+	const session = useSession(); // [!code highlight]
 
 	// 某个方法
 	const update = async () => {
-		await session.update()
+		await session.update()  // [!code highlight]
 	}
 }
 ```
@@ -242,6 +247,7 @@ export const { handlers, auth, signIn, signOut, unstable_update } = NextAuth({
 			if (user) {
 				token.user = user;
 			}
+ // [!code highlight:2]
 			// 如果是更新 Session 或者登录，在这里面处理用户信息
 			if (trigger === 'update' || trigger === 'signIn') {
 				const existUserInfo = (user ?? token?.user) as {
@@ -253,10 +259,10 @@ export const { handlers, auth, signIn, signOut, unstable_update } = NextAuth({
 				if (dbuser) {
 					// 更新用户信息
 					const userInfo = await getFinalUser(dbuser);
-					token.user = userInfo;
+					token.user = userInfo;  // [!code highlight]
 				}
 			}
-			return token;
+			return token;  // [!code highlight]
 		},
 	},
 });
@@ -271,9 +277,9 @@ export const { handlers, auth, signIn, signOut, unstable_update } = NextAuth({
 	callbacks: {
 		async session({ session, token }) {
 			if (token.user) {
-				session.user = token.user as typeof session.user;
+				session.user = token.user as typeof session.user;  // [!code highlight]
 			}
-			return session;
+			return session;  // [!code highlight]
 		},
 	},
 });
@@ -301,7 +307,7 @@ Did you mean to import "next/server.js"?] {
 ```typescript
 import type { NextConfig } from 'next';
 const nextConfig: NextConfig = {
-	transpilePackages: ['next-auth'], // 添加此行
+	transpilePackages: ['next-auth'], // [!code ++]
 };
 export default nextConfig;
 ```
@@ -312,10 +318,10 @@ export default nextConfig;
 
 ```typescript
 import type { NextMiddleware } from 'next/server';
-let auth: typeof import('@/auth').auth;
+let auth: typeof import('@/auth').auth;  // [!code highlight]
 export const middleware: NextMiddleware = async (req, evt) => {
 	// 动态导入
-	if (!auth) auth = (await import('@/auth')).auth;
+	if (!auth) auth = (await import('@/auth')).auth;  // [!code highlight]
 	const authMiddleware = auth((req) => {
 		const pathname = req.nextUrl.pathname;
 		const auth = req.auth;

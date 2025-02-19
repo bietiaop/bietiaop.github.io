@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "95c0995445ac8b9e",
+        "id": "ebb2df02b2d68a47",
         "type": "tabs",
         "children": [
           {
-            "id": "5a96b8f64add9786",
+            "id": "dc7490ab062d6da0",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "web/front/hexo/搭建hexo博客.md",
+                "file": "web/nextjs/NextJS、Next-Auth 小记（1）——登录、鉴权（踩坑记录）.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "搭建hexo博客 的反向链接列表"
+              "title": "NextJS、Next-Auth 小记（1）——登录、鉴权（踩坑记录） 的反向链接列表"
             }
           },
           {
@@ -145,13 +145,23 @@
               "icon": "lucide-list",
               "title": "搭建hexo博客 的大纲"
             }
+          },
+          {
+            "id": "41bfe03a4df2b1ce",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {},
+              "icon": "git-pull-request",
+              "title": "Source Control"
+            }
           }
-        ]
+        ],
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -162,15 +172,17 @@
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
       "obsidian-kanban:创建新看板": false,
-      "obsidian-excalidraw-plugin:新建绘图文件": false
+      "obsidian-excalidraw-plugin:新建绘图文件": false,
+      "obsidian-git:Open Git source control": false
     }
   },
-  "active": "5a96b8f64add9786",
+  "active": "dc7490ab062d6da0",
   "lastOpenFiles": [
-    "未命名看板.md",
+    "[Edge.md",
     "web/nextjs/NextJS、Next-Auth 小记（1）——登录、鉴权（踩坑记录）.md",
     "web/front/css/图片投影阴影效果.md",
     "web/front/css/字体切割减少字体大小.md",
+    "未命名看板.md",
     "scaffolds/post.md",
     "web/nextjs",
     "未命名.md",
