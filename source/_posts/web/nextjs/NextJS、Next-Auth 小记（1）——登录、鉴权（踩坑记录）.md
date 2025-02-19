@@ -129,7 +129,7 @@ Error: The edge runtime does not support Node.js 'crypto' module.
 ```typescript
 const nextConfig: NextConfig = {
 	experimental: {
-		nodeMiddleware: true, // 开启 NodeJS 运行时
+		nodeMiddleware: true,// 开启 NodeJS 运行时 // [!code ++]
 		// 其他配置
 	},
 	// 其他配置

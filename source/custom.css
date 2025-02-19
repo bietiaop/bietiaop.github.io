@@ -1,27 +1,9 @@
 @import url('./fonts.css');
+@import url('./code-block.css');
 html,
 body {
   font-family: 'SR', 'PingFang SC', 'Helvetica Neue', 'Microsoft YaHei',
     Helvetica, Arial, sans-serif;
-}
-figure table {
-  width: 100%;
-  table-layout: fixed;
-}
-code,
-.highlight .gutter pre {
-  padding: 0 !important;
-  font-family: 'Fira Code', Consolas, 'Liberation Mono', Menlo, Courier,
-    monospace !important;
-}
-td.gutter {
-  width: 3em;
-}
-article code::-webkit-scrollbar {
-  width: 5px;
-  height: 5px;
-  /* 不占位置 */
-  position: absolute;
 }
 p code,
 h1 code,
@@ -37,14 +19,14 @@ i code,
 u code,
 a code {
   display: inline-block;
-  /* white-space: pre-wrap; */
+  overflow: visible !important;
   padding: 0.05em 0.4em !important;
-  overflow-x: auto;
   background: rgba(27, 31, 35, 0.05) !important;
   border-radius: 3px !important;
   box-shadow: inset 0 -1px 0 rgba(27, 31, 35, 0.1) !important;
-  /* box-decoration-break: clone !important;
-    -wenkit-box-decoration-break: clone; */
+
+  font-family: 'Fira Code', Consolas, 'Liberation Mono', Menlo, Courier,
+    monospace !important;
 }
 article h1,
 article h2,
@@ -114,39 +96,12 @@ article ul table tr td:last-child::after {
   margin-top: 0 !important;
   margin-bottom: 0 !important;
 }
+
 pre {
-  /* padding-top: 40px !important;
-    padding-bottom: 20px !important; */
-  overflow: overlay !important;
-  position: relative;
-  transition: 0.4s !important;
   font-family: 'Fira Code', Consolas, 'Liberation Mono', Menlo, Courier,
     monospace !important;
 }
-/* article pre:hover {
-    border-radius: var(--radius) var(--radius) 4px 4px;
-} */
-pre::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-  /* 不占位置 */
-  position: absolute;
-}
-pre::-webkit-scrollbar-thumb {
-  background: rgba(0, 0, 0, 0);
-  border-radius: 4px;
-}
-pre::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0);
-  border-radius: 4px;
-}
-pre:hover::-webkit-scrollbar-thumb {
-  background: rgba(0, 0, 0, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.616) !important;
-}
-pre:hover::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.2);
-}
+
 article {
   color: #000000;
   font-family: 'SR', 'PingFang SC', 'Helvetica Neue', 'Microsoft YaHei',

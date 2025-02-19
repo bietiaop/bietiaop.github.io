@@ -20,7 +20,7 @@ imageCDN: # 图片 CDN 功能
 # 自定义样式，启用后可在站点的source文件夹下新建custom.css自定义站点样式
 customStyles:
   - custom.css
-  - prism.css
+  # - prism.css
 
 # 附加图标库 使用说明：https://docs.nexmoe.com/config/icon
 iconlib: # //at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css
@@ -111,10 +111,13 @@ widgets:
 copyTip: "著作权归作者所有。\n商业转载请联系作者获得授权，非商业转载请注明出处。\n来源：%url" # 自定义复制版权文案,使用 %url 代替当前页面URL, 修改为false禁用
 
 slotHead: |
-  <link rel="stylesheet" href="/prism.css">
-  <link rel="stylesheet" href="/prism-theme.css">
   <link rel="stylesheet" href="/custom.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/medium-zoom@latest/dist/style.css">
+  <link rel="stylesheet" href="https://npm.elemecdn.com/@fortawesome/fontawesome-free@latest/css/all.min.css">
+  
+#
+  # <link rel="stylesheet" href="/prism.css">
+  # <link rel="stylesheet" href="/prism-theme.css">
 # <link href="https://cdn.bootcdn.net/ajax/libs/prism/1.9.0/themes/prism.min.css" rel="stylesheet">
 # <link href="https://cdn.bootcdn.net/ajax/libs/prism/1.9.0/plugins/toolbar/prism-toolbar.min.css" rel="stylesheet">
 #  <link href="https://cdn.bootcdn.net/ajax/libs/prism/1.9.0/prism.min.css" rel="stylesheet">
@@ -127,8 +130,10 @@ slotHead: |
 #     gtag("config", "G-4D4ZJ9G024");
 #   </script>
 slotFooter: |
-  <script src="/prism.js"></script>
-
+  
+# <script src="https://cdn.bootcdn.net/ajax/libs/prism/1.9.0/plugins/file-highlight/prism-file-highlight.min.js"></script>
+# <script src="https://cdn.bootcdn.net/ajax/libs/prism/1.9.0/plugins/highlight-keywords/prism-highlight-keywords.min.js"></script>
+# <script src="/prism.js"></script>
 # <script src="https://cdn.jsdelivr.net/npm/medium-zoom@latest/dist/medium-zoom.min.js"></script>
   # <script>
   #   const doms = document.querySelectorAll('article img');

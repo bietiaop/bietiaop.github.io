@@ -161,9 +161,8 @@
       "daily-notes:打开/创建今天的日记": false,
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
-      "obsidian-excalidraw-plugin:新建绘图文件": false,
-      "hexo-publisher:Publish posts to hexo": false,
-      "obsidian-kanban:创建新看板": false
+      "obsidian-kanban:创建新看板": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
   "active": "5a96b8f64add9786",

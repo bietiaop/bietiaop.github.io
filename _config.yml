@@ -50,20 +50,38 @@ render_drafts: false
 post_asset_folder: true
 relative_link: false
 future: true
-highlight:
-  enable: false
-  line_number: true
-  auto_detect: true
-  tab_replace: ''
-  wrap: true
-  hljs: true
-prismjs:
-  enable: true
-  preprocess: true
-  line_number: true
-  line_threshold: 10
-  tab_replace: ''
-  copy_text: '复制'
+syntax_highlighter: shiki
+shiki:
+  theme: one-dark-pro # Please refer to https://shiki.style/themes for supported themes.
+  line_number: true # default: false
+  strip_indent: true # default: true
+  tab_replace: "  "
+  original_lang_name: false
+  pre_style: true
+  default_color: light
+  code_config:
+    highlightCopy: true
+    highlightLang: true
+    highlightHeightLimit: 300
+    isHighlightShrink: false
+    copy:
+      success: '复制成功'
+      error: '复制失败'
+      no_support: '浏览器不支持复制'
+# highlight:
+#   auto_detect: false
+#   line_number: true
+#   line_threshold: 0
+#   tab_replace: ""
+#   exclude_languages:
+#     - example
+#   wrap: true
+#   hljs: false
+# prismjs:
+#   preprocess: true
+#   line_number: true
+#   line_threshold: 0
+#   tab_replace: ""
 # prism_plugin:
 #   mode: 'preprocess' # realtime/preprocess
 #   theme: 'tomorrow'
@@ -166,10 +184,20 @@ githubEmojis:
   inject: true
   styles:
   customEmojis:
-copy_button:
-  enable: true
-  # Show text copy result
-  show_result: true
-# copy_button: 复制
-# copy_success: 复制成功
-# copy_failure: 复制失败
+
+
+markdown:
+  preset: default
+  render:
+    html: true
+    xhtmlOut: false
+    langPrefix: 'language-'
+    breaks: true
+    linkify: true
+    typographer: true
+    quotes: '“”‘’'
+  enable_rules:
+  disable_rules:
+  plugins:
+    - markdown-it-footnote
+    - markdown-it-task-lists
