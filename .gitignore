@@ -7,8 +7,3 @@ public/
 .deploy*/
 _multiconfig.yml
 
-*-lock.json
-*-lock.yaml
-*-lock.yml
-*.lock
-
