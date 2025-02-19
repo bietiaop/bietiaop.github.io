@@ -18,16 +18,26 @@ mathjax: false
 > 将 dev 命令中的 `--turbopack` 删掉。
 
 好久没有更新博客了，正好最近遇到了 NextJS 的需求，也折腾了一会儿，就把遇到的一些问题记录一下。
+
 这次写的项目我是用 NextJS + AuthJS（Next-Auth）完成的，并且主要的后端业务并不是在 NextJS 中，而是通过 NextJS 与 Go 后端进行互相通信。这样，一是为了优化针对某些搜索引擎的 SEO，二是更方便地动态配置网站，例如标题、ICON、简介等，三是隐藏主要API 调用。
+
 # 登录、鉴权（Next-Auth，AuthJS）
+
 主要的登录和鉴权是使用 Next-Auth（AuthJS）进行的，然后 Go 后端保持一样的 jwt 算法和 secret 即可。因此首先要解决的是 AuthJS 的配置问题。
 使用 AuthJS 最方便的就是其开封即用的 OAuth、WebAuth 等功能，并且其提供了中间件进行鉴权，我们可以在 Server Components 和 Client Components 很方便的获取 Session 信息。我们也可以自定义 Credentials 实现我们自定义的认证（账号密码登录、验证码登录等）。
+
 AuthJS 的缺点就是目前文档可以用“一塌糊涂”来形容，那不像是给人读的，什么都找不到。
+
 ## 问题
+
 ### AuthJS 默认自动创建账户
+
 在使用 AuthJS 的时候，它会明确告诉你，它推荐的是使用 OAuth 的时候，默认会自动创建一个基于该邮箱的账户。但是对于我们国内的业务来说，大部分我们不希望自动创建账户，而是仅通过 OAuth 进行快速登录（也就是说先有账户再进行绑定），因此我们需要自定义登录的方法，先检查是否绑定账户。而这部分在文档里很难找，在我写博客的时候我想快速找到对应文档链接，已经翻不到了，这里我大致说一下。
+
 #### 解决过程
+
 在 NextAuth 的配置中，有一个 `callback` 配置，在这里可以配置登录、重定向、JWT 方法、session 方法等。
+
 在 `callback` 中，处理登录的方法是 `signIn` ，这个方法会传入一个参数，我们直接跳转到它的类型文件中查看：
 
 ```typescript
@@ -57,11 +67,17 @@ signIn?: (params: {
 
 可以看到，这个参数里面提供了 `user` 、`account` 、`profile` 、 `email` 、 `credentials` 五个参数，这里要说一下关于这部分的 AuthJS 数据库的组成：
 在 AuthJS 数据库适配器文档页面，AuthJS 会要求我们建立几个数据库模型，其中两个为`User` 和 `Account`。
+
 `User` 数据库其实就是我们的用户数据库，里面可以存用户的信息，如账号、头像、邮箱等，`Account` 数据库是提供给 `OAuth` 使用的，当用户通过 `OAuth` 登录的时候，AuthJS 首先会查询 `User` 数据库中有没有相同邮箱的用户，如果有，那么就会进行用户绑定，如果没有，那么就会创建一个用户，这就是“AuthJS 默认自动创建账户“。
+
 既然如此，我们就能一眼看出来 `user` 和 `profile` 两个参数对应的就是这两个数据库的内容，`profile` 是用户信息，举个例子，如果你是通过自定义的 Credentials 进行认证的，那么你自定义的 Credentials 适配器一定会返回一个用户信息（`profile`），这个用户信息就是这里的 `profile` ，同时，如果你也自定义了 JWT 方法、Session 方法等的话，它也会传递进参数，这个 `profile` 就可以作为 `session` 的用户信息。
+
 很显然我们这里只需要用到 `user` 和 `account` 。
+
 #### 解决方法
+
 我们可以写一个方法 `findUserByOAuth` 去查询 `Account` 数据库，查找 OAuth 对应的 `id` 有没有绑定的账户。其次要知道的是，在 `signIn` 方法里返回布尔值 `true` 就代表登录通过，可以进行下一步，返回**字符串**，就会触发**重定向**。接下来就可以实现我们自定义的登录检查：
+
 1. 首先在 `callbacks` 里面写入自定义的 `signIn` 方法，接收 `user` 和 `account` 两个参数。
 2. 在 `account` 参数里有一个 `type` 属性，这里就可以判断登录类型（例如 OAuth、Credentials 或者 Email Magic Link）。如果是 OAuth 登录，那么就进行检查，否则直接判断 `user` 是否存在（自此 `user` 参数的作用结束了）。
 3. 如果是 OAuth 类型的登录，首先判断当前是否已经登录，已经登录就代表当前的操作是绑定账户，直接通过进行下一步即可。我们虽然在这里初始化 NextAuth 后才获得的 `auth` 认证方法，但是我们检查 `signIn` 是一个方法，在用户登录的时候才执行，此时 `auth` 方法已经初始化完毕，我们可以在这里进行调用。顺便说一下为什么不用 `user` 参数进行判断，这个 `user` 是 NextAuth 查询数据库获得的结果，如果 OAuth 的邮箱与数据库中的某个账户的邮箱匹配了，但是当前已登录的用户（即要绑定 OAuth 的用户）的邮箱不匹配，那么就会导致 `user` 参数不匹配。
@@ -98,27 +114,34 @@ export const { handlers, auth, signIn, signOut, unstable_update } = NextAuth({
 	},
 });
 ```
+
 ### Edge Runtime
+
 在我刚开始使用 NextJS 的时候是 25 年 1 月份，当时 NextJS 的中间件仍然仅支持 [Edge Runtime]([Edge Runtime](https://vercel.com/docs/functions/edge-middleware/edge-runtime))。这就造成了一些困扰——**无法连接数据库**（Serverless除外）。由于 Edge Runtime 仅支持部分 NodeJS 和 Web API，因此造成了一种很尴尬的局面：有些库使用了 NodeJS 的 API 或者 Node Add-on（例如 `bcrypt`），它无法在 Edge Runtime 上面运行，然而有些库不仅支持Node 也支持 Web 环境（例如 `rust-bcrypt`），然而 Edge Runtime 不支持 Wasm，也就是说，你无法在中间件使用 `bcrypt` 检查密码一致性（登录时）。除此之外，你还无法使用 Redis、MySQL、PostgreSQL。
 由于 NextAuth 的部分方法如鉴权、jwt 方法等运行在中间件，因此如果想要实现 jwt 用户信息更新等就很麻烦，下面是经常看到的报错：
+
 [Next middleware with ioredis error: \[TypeError\]: Cannot read properties of undefined (reading 'charCodeAt') · Issue #73424 · vercel/next.js](https://github.com/vercel/next.js/issues/73424)
 [Uncaught TypeError: Cannot read property 'charCodeAt' of undefined · Issue #769 · redis/ioredis](https://github.com/redis/ioredis/issues/769)
+
 ```bash
 Uncaught TypeError: Cannot read property 'charCodeAt' of undefined
 ```
 
 [⨯ Error: The edge runtime does not support Node.js 'crypto' module. · Issue #10540 · nextauthjs/next-auth](https://github.com/nextauthjs/next-auth/issues/10540)
 [typescript - Next.js Middleware Error :- [Error: The edge runtime does not support Node.js 'crypto' module] - Stack Overflow](https://stackoverflow.com/questions/76080784/next-js-middleware-error-error-the-edge-runtime-does-not-support-node-js-c)
+
 ```bash
 Error: The edge runtime does not support Node.js 'https' module.
 ```
 
 [Can't use Prisma Client in Next.js middleware with `@prisma/adapter-pg` and `pg`, even locally · Issue #24430 · prisma/prisma](https://github.com/prisma/prisma/issues/24430)
+
 ```bash
 Error: The edge runtime does not support Node.js 'crypto' module.
 ```
 
 [`Error: Prisma Client is unable to run in an edge runtime. As an alternative, try Accelerate: https://pris.ly/d/accelerate.` · Issue #22889 · prisma/prisma](https://github.com/prisma/prisma/issues/22889)
+
 ```bash
 [auth][cause]: Error: PrismaClient is not configured to run in Edge Runtime (Vercel Edge Functions, Vercel Edge Middleware, Next.js (Pages Router) Edge API Routes, Next.js (App Router) Edge Route Handlers or Next.js Middleware). In order to run Prisma Client on edge runtime, either:
 ```
@@ -149,7 +172,9 @@ export const config = {
 
 但是由于这是**实验性功能**，还存在很多问题，下面会提到。
 ### AuthJS 更新 Session 用户信息
+
 在写需求的时候有一个很头疼的问题就是当用户更新用户信息，例如昵称、头像等，Session 里面的用户信息无法及时更新，按照网上的方法就是通过修改 jwt 方法，根据 jwt 里面的参数的新内容更新用户信息……吧啦吧啦……
+
 但是！里面的参数是前端传过来的，前端传输的内容并不可靠，我们不能根据前端传输过来的信息更新 Session。
 
 > 注：这里面提到的前端传过来的信息指的是，在 client 页面使用 next-auth 提供的 useSession hook 的 update 方法传入参数，调用 session api 更新用户信息，这个 update 方法会把参数携带传给 Session API，而在 jwt 方法中获取到的新内容即 update 方法内的参数。如果涉及到敏感信息更新更是不可信。
