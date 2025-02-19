@@ -2,8 +2,8 @@
 @import url('./code-block.css');
 html,
 body {
-  font-family: 'SR', 'PingFang SC', 'Helvetica Neue', 'Microsoft YaHei',
-    Helvetica, Arial, sans-serif;
+  font-family: 'PingFang SC', 'Helvetica Neue', 'Microsoft YaHei', Helvetica,
+    Arial, sans-serif;
 }
 p code,
 h1 code,
@@ -28,14 +28,37 @@ a code {
   font-family: 'Fira Code', Consolas, 'Liberation Mono', Menlo, Courier,
     monospace !important;
 }
+article p {
+  line-height: 1.8;
+  margin: 1em 0;
+}
 article h1,
 article h2,
 article h3,
 article h4,
 article h5,
 article h6 {
-  margin-top: 2em !important;
+  margin-top: 0.5em !important;
   margin-bottom: 0.5em !important;
+  position: relative;
+}
+article h1 {
+  font-size: 2em;
+}
+article h3 {
+  display: flex;
+  align-items: center;
+}
+article h3::before {
+  content: '';
+  display: inline-block;
+  margin-right: 0.5em;
+  width: 0.8em;
+  height: 0.8em;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+  left: -1em;
+  top: 50%;
 }
 article ul {
   background-color: var(--color-primary-bg);
@@ -104,11 +127,8 @@ pre {
 
 article {
   color: #000000;
-  font-family: 'SR', 'PingFang SC', 'Helvetica Neue', 'Microsoft YaHei',
-    Helvetica, Arial, sans-serif;
-}
-article p {
-  margin: 1em 0;
+  font-family: 'PingFang SC', 'Helvetica Neue', 'Microsoft YaHei', Helvetica,
+    Arial, sans-serif;
 }
 .line-numbers .line-numbers-rows {
   border-right: 1px solid rgb(62, 64, 74); /* 设置竖线颜色 */
@@ -121,6 +141,18 @@ article img {
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+article p a[href]::before {
+  content: '';
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  background-image: url('data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyNCcgaGVpZ2h0PScyNCcgdmlld0JveD0nMCAwIDI0IDI0JyBmaWxsPSdub25lJyBzdHJva2U9JyNmZjRlNmEnIHN0cm9rZS13aWR0aD0nMicgc3Ryb2tlLWxpbmVjYXA9J3JvdW5kJyBzdHJva2UtbGluZWpvaW49J3JvdW5kJz48cGF0aCBkPSdNMTAgMTNhNSA1IDAgMCAwIDcuNTQuNTRsMy0zYTUgNSAwIDAgMC03LjA3LTcuMDdsLTEuNzIgMS43MScvPjxwYXRoIGQ9J00xNCAxMWE1IDUgMCAwIDAtNy41NC0uNTRsLTMgM2E1IDUgMCAwIDAgNy4wNyA3LjA3bDEuNzEtMS43MScvPjwvc3ZnPg==');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-right: 0.5em;
+  margin-bottom: -0.1em;
 }
 .nexmoe-py li a img {
   width: 100%;
@@ -136,8 +168,8 @@ article ul button span {
   margin-right: 0;
 }
 article blockquote {
-  font-family: 'SR', 'PingFang SC', 'Helvetica Neue', 'Microsoft YaHei',
-    Helvetica, Arial, sans-serif;
+  font-family: 'PingFang SC', 'Helvetica Neue', 'Microsoft YaHei', Helvetica,
+    Arial, sans-serif;
 }
 blockquote p {
   margin: 1em 0;
@@ -195,8 +227,8 @@ pre::before:hover {
   color: azure !important;
 }
 .line-numbers-rows {
-  font-family: 'SR', 'PingFang SC', 'Helvetica Neue', 'Microsoft YaHei',
-    Helvetica, Arial, sans-serif;
+  font-family: 'PingFang SC', 'Helvetica Neue', 'Microsoft YaHei', Helvetica,
+    Arial, sans-serif;
 }
 .nexmoe-avatar {
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3) !important;
