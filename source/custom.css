@@ -164,7 +164,7 @@ article p a[href]::before {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  margin-right: 0.5em;
+  margin-right: 0.1em;
   margin-bottom: -0.1em;
 }
 .nexmoe-py li a img {

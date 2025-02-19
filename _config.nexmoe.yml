@@ -113,7 +113,7 @@ copyTip: "著作权归作者所有。\n商业转载请联系作者获得授权�
 slotHead: |
   <link rel="stylesheet" href="/custom.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/medium-zoom@latest/dist/style.css">
-  <link rel="stylesheet" href="https://npm.elemecdn.com/@fortawesome/fontawesome-free@latest/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
   
 #
   # <link rel="stylesheet" href="/prism.css">

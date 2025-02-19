@@ -2,6 +2,7 @@
 :root {
   --hl-color: #abb2bf;
   --hl-bg: #282c34;
+  --hl-bg-with-opacity: rgba(40, 44, 52, 0.3);
   --hltools-bg: #21252b;
   --hltools-color: #bbbbbc;
   --hlnumber-bg: #282c34;
@@ -250,7 +251,8 @@ figure.shiki .gutter {
 figure.shiki .gutter pre {
   padding-right: 10px !important;
   padding-left: 10px !important;
-  background-color: var(--hlnumber-bg) !important;
+  background-color: var(--hl-bg-with-opacity) !important;
+  backdrop-filter: blur(1em);
   color: var(--hlnumber-color) !important;
   text-align: right !important;
   user-select: none !important;
