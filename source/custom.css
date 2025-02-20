@@ -67,6 +67,66 @@ body {
   color: var(--color-text-1);
 }
 
+* {
+  cursor: url('/cursor/arrow.cur'), auto;
+}
+
+a[href],
+button,
+a[href] *,
+button * {
+  cursor: url('/cursor/hand.cur'), pointer;
+}
+
+a[target='_blank'],
+a[target='_blank'] * {
+  cursor: url('/cursor/link.cur'), pointer;
+}
+
+.shiki-tools * {
+  cursor: url('/cursor/arrow.cur'), auto !important;
+}
+
+.shiki-tools i {
+  cursor: url('/cursor/hand.cur'), pointer !important;
+}
+
+i.copy-button {
+  cursor: url('/cursor/copy.cur'), pointer !important;
+}
+
+.wl-reaction-list .wl-reaction-item * {
+  cursor: url('/cursor/hand.cur'), pointer !important;
+}
+
+*:disabled,
+*[disabled],
+*:disabled *,
+*[disabled] * {
+  cursor: url('/cursor/forbidden.cur'), not-allowed;
+}
+
+.wl-btn {
+  cursor: url('/cursor/hand.cur'), pointer !important;
+}
+
+.wl-sort li {
+  cursor: url('/cursor/hand.cur'), pointer !important;
+}
+
+.wl-comment-actions * {
+  cursor: url('/cursor/hand.cur'), pointer !important;
+}
+
+.wl-content a,
+.wl-power a {
+  cursor: url('/cursor/hand.cur'), pointer !important;
+}
+
+.code-expand-btn {
+  cursor: url('/cursor/hand.cur'), pointer !important;
+}
+
 input {
   color: var(--color-text-1);
 }

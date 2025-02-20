@@ -26,8 +26,14 @@ layout: py
  {
   "title": "willing-sir",
   "link": "https://www.cnblogs.com/willing-sir/",
-  "img": "https://pic.cnblogs.com/avatar/2676435/20211209085058.png",
+  "img": "https://q.qlogo.cn/g?b=qq&nk=869296898&s=640",
   "des": "willing"
+ },
+ {
+  "title": "呓语",
+  "link": "http://www.nightying.com/",
+  "img": "https://q.qlogo.cn/g?b=qq&nk=1152792207&s=640",
+  "des": "没有"
  },
  {
   "title": "Mlikiowa",
