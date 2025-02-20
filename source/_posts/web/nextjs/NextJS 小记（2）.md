@@ -391,7 +391,7 @@ export async function pageRequestWithAuth<T = DefaultResponseType>(
 ```
 
 > 这里必须注意：
-> 一定==**不要使用** ==`try-catch` 来捕获 `pageRequestWithAuth` 错误，因为 NextJS 的 `redirect` 就是通过抛出错误进行重定向的！
+> 一定 ==**不要使用**==  `try-catch` 来捕获 `pageRequestWithAuth` 错误，因为 NextJS 的 `redirect` 就是通过抛出错误进行重定向的！
 > 你不需要捕获错误，因为非预期错误会被网页的错误边界捕获，然后传入错误信息，在开发环境中可以直接打印错误信息到页面上，在生产环境中，NextJS 会==自行屏蔽错误信息==，但是我们可以在后端后台日志上看到。
 
 客户端请求示例就不放了，只需要把除了非 200 情况的判断为错误，使用自定义的 `createResponse` 进行封装返回即可。
