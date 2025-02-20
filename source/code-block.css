@@ -294,16 +294,21 @@ figure.shiki .code pre {
 
 span.line.highlighted {
   background-color: #3e4451;
-  padding: 4px 100% 4px 0;
-  margin-right: -100%;
   box-decoration-break: clone;
+  width: 100%;
+  display: inline-block;
+  margin-bottom: -0.51em;
+}
+
+span.line {
+  width: 100%;
+  display: inline-block;
+  margin-bottom: -0.51em;
 }
 
 /* 差异对比样式 */
 span.line.diff.remove {
   background-color: rgba(224, 108, 117, 0.2);
-  padding: 4px 100% 4px 1.5em; /* 增加左侧padding为加减号留出空间 */
-  margin-right: -100%;
   position: relative;
 }
 
@@ -317,8 +322,6 @@ span.line.diff.remove::before {
 
 span.line.diff.add {
   background-color: rgba(152, 195, 121, 0.2);
-  padding: 4px 100% 4px 1.5em; /* 增加左侧padding为加减号留出空间 */
-  margin-right: -100%;
   position: relative;
 }
 
@@ -357,12 +360,8 @@ pre.has-focused:hover span.line {
 /* 错误和警告样式 */
 span.line.highlighted.error {
   background-color: rgba(224, 108, 117, 0.2);
-  padding: 4px 100% 4px 0;
-  margin-right: -100%;
 }
 
 span.line.highlighted.warning {
   background-color: rgba(229, 192, 123, 0.2);
-  padding: 4px 100% 4px 0;
-  margin-right: -100%;
 }
