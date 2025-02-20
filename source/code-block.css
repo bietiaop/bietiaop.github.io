@@ -246,6 +246,7 @@ figure.shiki div.codeblock div {
 figure.shiki .gutter {
   position: sticky;
   left: 0;
+  z-index: 1;
 }
 
 figure.shiki .gutter pre {
@@ -256,6 +257,8 @@ figure.shiki .gutter pre {
   color: var(--hlnumber-color) !important;
   text-align: right !important;
   user-select: none !important;
+  border-radius: 0 0 0 7px;
+  height: 100%;
 }
 figure.shiki pre {
   margin: 0 !important;
@@ -364,4 +367,19 @@ span.line.highlighted.error {
 
 span.line.highlighted.warning {
   background-color: rgba(229, 192, 123, 0.2);
+}
+
+.code-expand-btn:not(.expand-done) ~ div.codeblock,
+.code-expand-btn:not(.expand-done) ~ * div.codeblock {
+  overflow: hidden;
+  height: 360px;
+}
+
+/* figure.shiki .gutter  */
+
+.code-expand-btn:not(.expand-done) ~ .codeblock .gutter {
+  position: relative;
+  flex-shrink: 0;
+  overflow: hidden;
+  border-radius: 0 0 7px 7px;
 }

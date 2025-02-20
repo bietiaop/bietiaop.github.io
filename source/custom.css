@@ -74,25 +74,30 @@ article h3::before {
   top: 50%;
 }
 article ul {
-  background-color: var(--color-primary-bg);
+  /* background-color: var(--color-primary-bg); */
   border-radius: 5px;
   margin: 5px !important;
   box-sizing: border-box;
+  margin-bottom: 1em !important;
 }
 article li {
   padding-top: 0.25em !important;
   position: relative;
   box-sizing: border-box;
+  line-height: 1.8 !important;
 }
 article li::before {
   position: absolute !important;
-  margin-top: 0px !important;
+  margin-top: 0.5em !important;
 }
 article li::after {
   display: block !important;
   height: auto !important;
   /* top: 0 !important; */
-  bottom: 0 !important;
+  bottom: -1em !important;
+}
+article li:nth-last-child(1)::after {
+  bottom: 0.8em !important;
 }
 article ul table {
   width: 100%;
