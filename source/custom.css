@@ -81,6 +81,25 @@ input {
   }
 }
 
+article.nexmoe-py ul li {
+  box-shadow: 0 0 0 1px var(--color-shadow);
+}
+
+article.nexmoe-py ul li > a::after {
+  font-size: 1rem !important;
+  font-weight: bold;
+  height: 36px;
+}
+
+article.nexmoe-py ul li > a:before {
+  height: 48px;
+  background-image: linear-gradient(
+    to top,
+    rgb(16, 16, 16) 0%,
+    rgba(16, 16, 16, 0) 100%
+  );
+}
+
 .nexmoe-post-right .nexmoe-tool .mdui-fab {
   background-color: var(--color-floating-button-bg);
   color: var(--color-floating-button-text);
