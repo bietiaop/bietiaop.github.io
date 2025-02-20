@@ -2,7 +2,7 @@
 title: NextJS 小记（2）
 date: 2025-02-20 12:32:23
 updated: 2025-02-20 12:32:23
-cover: https://pi.loili.com/2023/221762512aea1ab863978877368b4254.jpg
+cover: https://sa.ffft.net/2025/2c647988-0a93-0b6d-7565-d0f3ec1b4c3a.png
 categories:
   - web
   - 全栈

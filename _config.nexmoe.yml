@@ -114,13 +114,7 @@ slotHead: |
   <link rel="stylesheet" href="/custom.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/medium-zoom@latest/dist/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-  
-#
-  # <link rel="stylesheet" href="/prism.css">
-  # <link rel="stylesheet" href="/prism-theme.css">
-# <link href="https://cdn.bootcdn.net/ajax/libs/prism/1.9.0/themes/prism.min.css" rel="stylesheet">
-# <link href="https://cdn.bootcdn.net/ajax/libs/prism/1.9.0/plugins/toolbar/prism-toolbar.min.css" rel="stylesheet">
-#  <link href="https://cdn.bootcdn.net/ajax/libs/prism/1.9.0/prism.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/@waline/client@v3/dist/waline.css">
 #   <!-- Global site tag (gtag.js) - Google Analytics -->
 #   <script async src="https://www.googletagmanager.com/gtag/js?id=G-4D4ZJ9G024"></script>
 #   <script>
@@ -130,27 +124,6 @@ slotHead: |
 #     gtag("config", "G-4D4ZJ9G024");
 #   </script>
 slotFooter: |
-  
-# <script src="https://cdn.bootcdn.net/ajax/libs/prism/1.9.0/plugins/file-highlight/prism-file-highlight.min.js"></script>
-# <script src="https://cdn.bootcdn.net/ajax/libs/prism/1.9.0/plugins/highlight-keywords/prism-highlight-keywords.min.js"></script>
-# <script src="/prism.js"></script>
-# <script src="https://cdn.jsdelivr.net/npm/medium-zoom@latest/dist/medium-zoom.min.js"></script>
-  # <script>
-  #   const doms = document.querySelectorAll('article img');
-  #   mediumZoom(doms)
-  # </script>
-# <script src="https://cdn.bootcdn.net/ajax/libs/prism/1.9.0/prism.min.js"></script>
-# <script src="https://cdn.bootcdn.net/ajax/libs/prism/1.9.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
-# <script src="https://cdn.bootcdn.net/ajax/libs/prism/1.9.0/plugins/show-language/prism-show-language.min.js"></script>
-# <script src="https://cdn.bootcdn.net/ajax/libs/prism/1.9.0/plugins/autolinker/prism-autolinker.min.js"></script>
-# <script src="https://cdn.bootcdn.net/ajax/libs/prism/1.9.0/plugins/file-highlight/prism-file-highlight.min.js"></script>
-# <script src="https://cdn.bootcdn.net/ajax/libs/prism/1.9.0/plugins/highlight-keywords/prism-highlight-keywords.min.js"></script>
-# <script src="https://cdn.bootcdn.net/ajax/libs/prism/1.9.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
-# <script src="https://cdn.bootcdn.net/ajax/libs/prism/1.9.0/plugins/toolbar/prism-toolbar.min.js"></script>
-# <script src="https://cdn.bootcdn.net/ajax/libs/prism/1.9.0/components/prism-bash.min.js"></script>
-# <script src="https://cdn.bootcdn.net/ajax/libs/prism/1.9.0/components/prism-typescript.min.js"></script>
-# <script src="https://cdn.bootcdn.net/ajax/libs/prism/1.9.0/components/prism-c.js"></script>
-# <script src="https://cdn.bootcdn.net/ajax/libs/prism/1.9.0/components/prism-powershell.min.js"></script>
 # <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2058306854838448" crossorigin="anonymous"></script>
 # 自定义侧边栏尾部内容
 slotSidebar: |
@@ -161,18 +134,29 @@ slotSidebar: |
   <script src="/cursor-effects.js" defer></script>
 # 评论框插槽
 slotComment: |
-  <script src='https://cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js'></script>
-  <div id="vcomments">
+  <div class="comment-count">
+    <span
+      class="waline-comment-count"
+      data-path="/guide/client/count.html"
+    ></span>
+    <span>条评论</span>
+  </div>
+  <div id="comments">
     正在努力加载评论
   </div>
-  <script>
-      new Valine({
-          el: '#vcomments',
-          appId: 'q3wFidkEgse9PfmKDYl9XugD-gzGzoHsz',
-          appKey: 'SvOMchDSYmvR50to670gIrzE',
-          placeholder: '留下你的足迹...',
-          enableQQ: true
-      })
+  <script type="module">
+    import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js';
+    init({
+      el: '#comments',
+      serverURL: 'https://comment.bietiaop.com',
+      comment: true,
+      emoji: [
+        '//unpkg.com/@waline/emojis@1.2.0/weibo',
+        '//unpkg.com/@waline/emojis@1.2.0/bmoji',
+        'https://unpkg.com/@waline/emojis@1.2.0/qq',
+        'https://unpkg.com/@waline/emojis@1.2.0/bilibili'
+      ],
+    });
   </script>
 slotCopyright: |
   <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
