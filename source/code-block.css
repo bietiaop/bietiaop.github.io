@@ -19,6 +19,23 @@
     rgba(12, 12, 12, 0.4)
   );
 }
+@media (prefers-color-scheme: dark) {
+  :root {
+    --hl-color: #e1e4e8;
+    --hl-bg: #1c1c1c;
+    --hl-bg-with-opacity: rgba(28, 28, 28, 0.3);
+    --hltools-bg: #0f0f0f;
+    --hltools-color: #c5c5c5;
+    --hlnumber-bg: #0e0e0e;
+    --hlnumber-color: #444d56;
+    --hlscrollbar-bg: #32383e;
+    --hlexpand-bg: linear-gradient(
+      180deg,
+      rgba(36, 36, 36, 0.1),
+      rgba(22, 22, 22, 0.9)
+    );
+  }
+}
 figure.shiki div.codeblock::-webkit-scrollbar-thumb {
   background: var(--hlscrollbar-bg);
   border-radius: 2.5px;

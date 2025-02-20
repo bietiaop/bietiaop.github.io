@@ -34,9 +34,23 @@
               "icon": "lucide-file",
               "title": "NextJS 小记（2）"
             }
+          },
+          {
+            "id": "a95d202d3b0ae071",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "web/front/css/图片投影阴影效果.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "图片投影阴影效果"
+            }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -109,7 +123,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "web/nextjs/NextJS 小记（2）.md",
+                "file": "web/front/css/图片投影阴影效果.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -119,7 +133,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "NextJS 小记（2） 的反向链接列表"
+              "title": "图片投影阴影效果 的反向链接列表"
             }
           },
           {
@@ -191,15 +205,15 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "98f3004aeb9e3202",
+  "active": "a95d202d3b0ae071",
   "lastOpenFiles": [
+    "web/nextjs/NextJS 小记（2）.md",
+    "web/front/css/图片投影阴影效果.md",
     "flutter/getx/getx学习日志.md",
     "web/nextjs/NextJS、Next-Auth 小记（1）——登录、鉴权（踩坑记录）.md",
-    "web/nextjs/NextJS 小记（2）.md",
     "web/nextjs/attachments/Pasted image 20250220153228.png",
     "web/nextjs/attachments",
     "[Edge.md",
-    "web/front/css/图片投影阴影效果.md",
     "web/front/css/字体切割减少字体大小.md",
     "未命名看板.md",
     "scaffolds/post.md",

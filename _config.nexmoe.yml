@@ -69,12 +69,12 @@ widgets:
         GitHub:
           - https://github.com/bietiaop/
           - icon-github
-          - rgb(25, 23, 23)
+          - 
           - rgba(25, 23, 23, .15)
         Email:
           - https://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=bietiaop%40bietiaop.com
           - icon-mail-fill
-          - rgb(25, 23, 23)
+          - 
           - rgba(25, 23, 23, .15)
   - name: category
     enable: true
@@ -124,6 +124,17 @@ slotHead: |
 #     gtag("config", "G-4D4ZJ9G024");
 #   </script>
 slotFooter: |
+  <script>
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+
+          document.querySelector(this.getAttribute('href')).scrollIntoView({
+              behavior: 'smooth'
+          });
+      });
+  });
+  </script>
 # <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2058306854838448" crossorigin="anonymous"></script>
 # 自定义侧边栏尾部内容
 slotSidebar: |
@@ -150,6 +161,7 @@ slotComment: |
       el: '#comments',
       serverURL: 'https://comment.bietiaop.com',
       comment: true,
+      dark: 'auto',
       emoji: [
         '//unpkg.com/@waline/emojis@1.2.0/weibo',
         '//unpkg.com/@waline/emojis@1.2.0/bmoji',

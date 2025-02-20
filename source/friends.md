@@ -24,6 +24,24 @@ layout: py
   "des": "影照浮世风流"
  },
  {
+  "title": "willing-sir",
+  "link": "https://www.cnblogs.com/willing-sir/",
+  "img": "https://pic.cnblogs.com/avatar/2676435/20211209085058.png",
+  "des": "willing"
+ },
+ {
+  "title": "Mlikiowa",
+  "link": "https://nanaeo.cn/",
+  "img": "https://q1.qlogo.cn/g?b=qq&nk=1627126029&s=100",
+  "des": "今年冷落江南夜，心事有谁知。"
+ },
+ {
+  "title": "憨憨博客",
+  "link": "https://blog.hanhanz.top/",
+  "img": "https://photo.hanhanz.top/image/favicon.jpeg",
+  "des": "One has to live a good life."
+ },
+ {
   "title": "折影轻梦",
   "link": "https://nexmoe.com",
   "img": "https://cravatar.cn/avatar/c7fd185f8c967dec20c29c75a40b9e09?s=500",
