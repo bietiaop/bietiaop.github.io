@@ -3,5 +3,7 @@
   "attachmentFolderPath": "./attachments",
   "promptDelete": false,
   "newFileLocation": "root",
-  "strictLineBreaks": true
+  "strictLineBreaks": true,
+  "newLinkFormat": "relative",
+  "useMarkdownLinks": true
 }
