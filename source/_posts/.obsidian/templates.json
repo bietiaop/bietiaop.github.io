@@ -1,4 +1,5 @@
 {
   "folder": "scaffolds",
-  "dateFormat": "YYYY-MM-DD HH:mm:ss"
+  "dateFormat": "YYYY-MM-DD",
+  "timeFormat": "HH:mm:ss"
 }

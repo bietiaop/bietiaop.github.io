@@ -453,6 +453,14 @@ article p:has(img) {
   background-color: var(--color-copyright-bg) !important;
   color: var(--color-text-1) !important;
 }
+.nexmoe-post-copyright a[rel='noopener'] {
+  white-space: nowrap;
+  word-break: keep-all;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+  margin-bottom: -1.5em;
+}
 #nexmoe-content .nexmoe-post .nexmoe-post-cover {
   min-height: 194px !important;
 }
