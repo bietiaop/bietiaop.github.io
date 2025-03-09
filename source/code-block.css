@@ -79,7 +79,7 @@ figure.shiki div.codeblock {
   margin: 0;
 }
 figure.shiki {
-  margin: 0 0 0 0;
+  margin: 0 0 24px;
   border-radius: 7px;
   -webkit-transform: translateZ(0);
   transform: translateZ(0);
@@ -453,7 +453,7 @@ figure.shiki .shiki-tools .preview-button:hover {
   margin-bottom: 24px; /* 把边距转移到预览框上 */
   width: 100%;
   overflow: hidden;
-  margin-top: -7px;
+  margin-top: -31px;
   z-index: 10;
   position: relative;
 }
