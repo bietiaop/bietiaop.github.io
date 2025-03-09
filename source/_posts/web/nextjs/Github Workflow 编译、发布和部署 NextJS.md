@@ -2,7 +2,7 @@
 title: Github Workflow 编译、发布和部署 NextJS
 date: 2025-03-07 13:32:23
 updated: 2025-03-07 13:32:23
-cover: https://pi.loili.com/2023/221762512aea1ab863978877368b4254.jpg
+cover: https://sa.ffft.net/2025/8bc44835-cb37-7d90-0ea8-857e5c5f5e8a.png
 categories:
   - 编程
   - 全栈
