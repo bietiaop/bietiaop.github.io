@@ -39,7 +39,7 @@ menu:
     - /favorites.html
     - icon-tags-fill
   关 于 我:
-    - https://www.bietiaop.com
+    - https://bietiaop.com
     - icon-info-circle
   友情链接:
     - /friends.html # 使用说明：https://docs.nexmoe.com/article/py
@@ -72,7 +72,7 @@ widgets:
           - 
           - rgba(25, 23, 23, .15)
         Email:
-          - https://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=bietiaop%40bietiaop.com
+          - mailto:bietiaop@qq.com
           - icon-mail-fill
           - 
           - rgba(25, 23, 23, .15)
