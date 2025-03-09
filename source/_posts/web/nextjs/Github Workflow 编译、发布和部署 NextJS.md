@@ -375,8 +375,6 @@ jobs:
 					echo "AUTH_GITHUB_ID=${{ env.AUTH_GITHUB_ID }}" >> .env
 ```
 
-除此之外，我们还可以指定运行“什么”，例如使用 `node` 运行 `index.js` 文件：
-
 ##### if
 
 我们可以通过 `if` 来决定是否执行步骤：
