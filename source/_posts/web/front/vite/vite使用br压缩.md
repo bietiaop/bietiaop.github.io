@@ -4,7 +4,6 @@ date: 2023-06-24 13:10:38
 updated: 2023-06-24 13:10:38
 cover: https://pi.loili.com/2023/edbdbb805891eaf1b17904c2d56cd98c.png
 categories:
-  - Vite
   - 前端
 tags:
   - gzip

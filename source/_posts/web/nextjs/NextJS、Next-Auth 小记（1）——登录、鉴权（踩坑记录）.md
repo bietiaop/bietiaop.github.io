@@ -4,7 +4,6 @@ date: 2025-02-18 15:29:23
 updated: 2025-02-18 15:29:23
 cover: https://sa.ffft.net/2025/2c647988-0a93-0b6d-7565-d0f3ec1b4c3a.png
 categories:
-  - web
   - 全栈
 tags:
   - NextJS

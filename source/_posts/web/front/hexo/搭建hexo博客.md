@@ -4,7 +4,6 @@ date: 2023-07-02 1:54:40
 updated: 2023-07-02 1:54:40
 cover: https://pi.loili.com/2023/08e1986803618842b18aa4862562abd7.png
 categories:
-  - web
   - 前端
 tags:
   - Hexo

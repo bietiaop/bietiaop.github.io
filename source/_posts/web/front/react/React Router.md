@@ -4,13 +4,13 @@ date: 2023-03-11 22:30:15
 updated: 2023-03-12 10:07:18
 cover: https://pi.loili.com/2023/1c4f5102a78ba7fec349dc73a5e2c1a3.png
 categories:
-  - web
   - 前端
 tags:
   - React
   - 前端
   - web
-  - React Router
+  - React
+  - Router
 ---
 
 > React Router 官网：[https://reactrouter.com](https://reactrouter.com)

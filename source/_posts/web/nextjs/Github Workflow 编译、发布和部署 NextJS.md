@@ -4,12 +4,12 @@ date: 2025-03-07 13:32:23
 updated: 2025-03-07 13:32:23
 cover: https://sa.ffft.net/2025/8bc44835-cb37-7d90-0ea8-857e5c5f5e8a.png
 categories:
-  - 编程
   - 全栈
 tags:
   - workflow
   - NextJS
   - actions
+  - Github
 mathjax: false
 ---
 每次打包部署 NextJS 都要经过 打包-上传-资源替换-重启pm2，要么就是 上传代码-打包-资源替换-重启pm2。这个过程切来切去很麻烦。
