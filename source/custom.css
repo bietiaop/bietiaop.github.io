@@ -2,6 +2,8 @@
 @import url('./code-block.css');
 
 :root {
+  --gutter: 24px;
+  --radius: 13px;
   --color-code-block-bg: rgba(27, 31, 35, 0.05);
   --color-code-block-border: rgba(27, 31, 35, 0.1);
   --color-table-border: #eee;
@@ -27,10 +29,74 @@
   --color-floating-button-bg: #fff;
   --color-floating-button-text: #444;
   --color-toc-bg: #fff;
+  --color-primary: #ff4e6a;
+  --color2: #ff761e;
+  --color3: #ffb900;
+  --color4: #33d57a;
+  --color5: #00dbff;
+  --color6: #1a98ff;
+  --color7: #9090ff;
+  --color-primary-bg: rgba(255, 78, 106, 0.15);
+  --color2-bg: rgba(255, 118, 30, 0.15);
+  --color3-bg: rgba(255, 185, 0, 0.15);
+  --color4-bg: rgba(51, 213, 122, 0.15);
+  --color5-bg: rgba(0, 219, 255, 0.15);
+  --color6-bg: rgba(26, 152, 255, 0.15);
+  --color7-bg: rgba(144, 144, 255, 0.15);
+  --color-shadow: rgba(161, 177, 204, 0.4);
+  --color-card: #fff;
+  --color-text-1: #111;
+  --color-text-2: #444;
+  --color-text-3: #363636;
 }
-
+html[data-theme='dark'] {
+  --color-code-block-bg: rgba(0, 0, 0, 0.3);
+  --color-code-block-border: rgba(255, 255, 255, 0.1);
+  --color-table-border: #272727;
+  --color-table-bg-1: #343434;
+  --color-table-bg-2: #474747;
+  --color-table-text: #fff;
+  --color-quote-bg: #272727;
+  --color-quote-border: #333;
+  --color-quote-text: #999;
+  --color-count-bg: rgba(67, 67, 67, 0.4);
+  --color-count-text: #999;
+  --color-count-value: #ff6b81;
+  --color-count-shadow: rgba(0, 0, 0, 0.3);
+  --color-menu-bg: rgba(64, 64, 64, 0.4);
+  --color-menu-text: #9ca2a8;
+  --color-menu-text-active: #fff;
+  --color-post-bottom: rgb(57, 57, 57);
+  --color-posts-item-bottom: rgb(93, 67, 67);
+  --color-copyright-bg: #333;
+  --color-footer-bg: #272727;
+  --waline-border-color: #333;
+  --color-footer-header: rgba(255, 255, 255, 0.2);
+  --color-shadow: rgba(0, 0, 0, 0.3);
+  --color-floating-button-bg: #333;
+  --color-floating-button-text: #fff;
+  --color-toc-bg: #333;
+  --color-primary: #ff4e6a;
+  --color2: #ff761e;
+  --color3: #ffb900;
+  --color4: #33d57a;
+  --color5: #00dbff;
+  --color6: #1a98ff;
+  --color7: #9090ff;
+  --color-primary-bg: rgba(255, 78, 106, 0.15);
+  --color2-bg: rgba(255, 118, 30, 0.15);
+  --color3-bg: rgba(255, 185, 0, 0.15);
+  --color4-bg: rgba(51, 213, 122, 0.15);
+  --color5-bg: rgba(0, 219, 255, 0.15);
+  --color6-bg: rgba(26, 152, 255, 0.15);
+  --color7-bg: rgba(144, 144, 255, 0.15);
+  --color-card: #333;
+  --color-text-1: #fff;
+  --color-text-2: #ccc;
+  --color-text-3: #999;
+}
 @media (prefers-color-scheme: dark) {
-  :root {
+  html:not([data-theme]) {
     --color-code-block-bg: rgba(0, 0, 0, 0.3);
     --color-code-block-border: rgba(255, 255, 255, 0.1);
     --color-table-border: #272727;
@@ -57,6 +123,24 @@
     --color-floating-button-bg: #333;
     --color-floating-button-text: #fff;
     --color-toc-bg: #333;
+    --color-primary: #ff4e6a;
+    --color2: #ff761e;
+    --color3: #ffb900;
+    --color4: #33d57a;
+    --color5: #00dbff;
+    --color6: #1a98ff;
+    --color7: #9090ff;
+    --color-primary-bg: rgba(255, 78, 106, 0.15);
+    --color2-bg: rgba(255, 118, 30, 0.15);
+    --color3-bg: rgba(255, 185, 0, 0.15);
+    --color4-bg: rgba(51, 213, 122, 0.15);
+    --color5-bg: rgba(0, 219, 255, 0.15);
+    --color6-bg: rgba(26, 152, 255, 0.15);
+    --color7-bg: rgba(144, 144, 255, 0.15);
+    --color-card: #333;
+    --color-text-1: #fff;
+    --color-text-2: #ccc;
+    --color-text-3: #999;
   }
 }
 
@@ -69,6 +153,40 @@ body {
 
 * {
   cursor: url('/cursor/arrow.cur'), auto;
+}
+
+.theme-switcher {
+  position: fixed;
+  right: 20px;
+  top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  z-index: 999;
+}
+
+/* .theme-switcher:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px var(--color-shadow);
+} */
+
+.theme-switcher-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background-color: var(--color-floating-button-bg);
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  cursor: url('/cursor/hand.cur'), pointer !important;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 5px 10px var(--color-shadow);
 }
 
 a[href],
