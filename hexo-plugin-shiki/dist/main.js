@@ -14603,79 +14603,150 @@ var addHighlightTool = function(code_config) {
   const highlightShrinkClass = isHighlightShrink === true ? "closed" : "";
   const highlightShrinkEle = isHighlightShrink !== void 0 ? `<i class="fas fa-angle-down expand ${highlightShrinkClass}"></i>` : "";
   const highlightCopyEle = highlightCopy ? '<div class="copy-notice"></div><i class="fas fa-paste copy-button" title="Copy Code"></i>' : "";
-  const copy = async (text2, ctx) => {
-    const showMsg = (msg) => {
-      const prevEle = ctx.previousElementSibling;
-      prevEle.textContent = msg;
-      prevEle.style.opacity = "1";
-      setTimeout(() => {
-        prevEle.style.opacity = "0";
-      }, 700);
-    };
-    if (document.queryCommandSupported && document.queryCommandSupported("copy")) {
-      document.execCommand("copy");
-      showMsg(config.copy.success);
-    } else if (navigator.clipboard) {
-      try {
-        await navigator.clipboard.writeText(text2);
-        showMsg(config.copy.success);
-      } catch {
-        showMsg(config.copy.error);
-      }
-    } else {
-      showMsg(config.copy.noSupport);
+  const copy = async (text2, ele) => {
+    const copyNotice = ele.parentElement?.querySelector(
+      ".copy-notice"
+    );
+    if (!copyNotice) {
+      console.error("Cannot find copy notice element");
+      return;
     }
+    let success = false;
+    try {
+      if (navigator.clipboard) {
+        await navigator.clipboard.writeText(text2);
+        success = true;
+      } else if (document.queryCommandSupported && document.queryCommandSupported("copy")) {
+        const textArea = document.createElement("textarea");
+        textArea.value = text2;
+        textArea.style.position = "fixed";
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+        try {
+          success = document.execCommand("copy");
+        } catch (err) {
+          console.error("Failed to copy: ", err);
+        }
+        document.body.removeChild(textArea);
+      }
+    } catch (err) {
+      console.error("Copy failed: ", err);
+    }
+    copyNotice.textContent = success ? config.copy.success : navigator.clipboard ? config.copy.error : config.copy.noSupport;
+    copyNotice.style.opacity = "1";
+    copyNotice.style.display = "block";
+    setTimeout(() => {
+      copyNotice.style.opacity = "0";
+      setTimeout(() => {
+        copyNotice.style.display = "none";
+      }, 400);
+    }, 2e3);
   };
   const highlightCopyFn = function(ele) {
-    const $buttonParent = ele.parentNode;
-    $buttonParent.classList.add("copy-true");
-    const selection = window.getSelection();
-    const range = document.createRange();
-    const preCodeSelector = "div.codeblock .code pre";
-    const preEle = $buttonParent.querySelector(preCodeSelector);
-    if (!preEle) return;
-    range.selectNodeContents(preEle);
-    selection?.removeAllRanges();
-    selection?.addRange(range);
-    const text2 = selection?.toString() || "";
-    copy(text2, ele.lastElementChild);
-    selection?.removeAllRanges();
-    $buttonParent.classList.remove("copy-true");
+    const codeBlock = ele.closest("figure.shiki");
+    if (!codeBlock) return;
+    const pre = codeBlock.querySelector(".code pre");
+    if (!pre) return;
+    const text2 = pre.textContent || "";
+    if (!text2) return;
+    copy(text2, ele);
   };
   const highlightShrinkFn = function(ele) {
-    const siblings2 = Array.from(ele.parentNode.children).slice(
-      1
-    );
-    ele.firstElementChild.classList.toggle("closed");
-    if (isHidden(siblings2[siblings2.length - 1])) {
-      siblings2.forEach((e) => {
-        e.style.display = "flex";
-      });
+    const figureContainer = this.closest("figure.shiki");
+    if (!figureContainer) return;
+    const expandIcon = this.querySelector(".expand");
+    if (!expandIcon) return;
+    const isClosed = expandIcon.classList.contains("closed");
+    if (isClosed) {
+      expandIcon.classList.remove("closed");
     } else {
-      siblings2.forEach((e) => {
-        e.style.display = "none";
-      });
+      expandIcon.classList.add("closed");
+    }
+    const codeblock = figureContainer.querySelector(
+      ".codeblock"
+    );
+    const expandBtn = figureContainer.querySelector(
+      ".code-expand-btn"
+    );
+    if (expandIcon.classList.contains("closed")) {
+      if (codeblock) codeblock.style.display = "none";
+      if (expandBtn) expandBtn.style.display = "none";
+    } else {
+      if (codeblock) codeblock.style.display = "flex";
+      if (expandBtn) expandBtn.style.display = "flex";
     }
   };
   const highlightToolsFn = function(e) {
-    const target = e.target.classList;
-    if (target.contains("expand")) {
-      highlightShrinkFn.call(this, this);
-    } else if (target.contains("copy-button")) {
-      highlightCopyFn.call(this, this);
+    e.stopPropagation();
+    const target = e.target;
+    console.log("Click target:", target.className);
+    if (target.classList.contains("expand")) {
+      highlightShrinkFn.call(this, target);
+    } else if (target.classList.contains("copy-button")) {
+      highlightCopyFn.call(this, target);
     }
   };
   const expandCode = function() {
     this.classList.toggle("expand-done");
+    const codeblock = this.nextElementSibling || this.nextElementSibling?.nextElementSibling;
+    const previewArea = this.parentElement?.querySelector(
+      ".code-preview-area"
+    );
+    if (previewArea) {
+      const wasVisible = previewArea.style.display !== "none";
+      if (wasVisible) {
+        setTimeout(() => {
+          previewArea.style.display = "block";
+        }, 0);
+      }
+    }
   };
   function createEle(lang236, item, service) {
     const fragment = document.createDocumentFragment();
     if (isShowTool) {
       const hlTools = document.createElement("div");
-      hlTools.className = `shiki-tools ${highlightShrinkClass}`;
-      hlTools.innerHTML = highlightShrinkEle + lang236 + highlightCopyEle;
-      hlTools.addEventListener("click", highlightToolsFn);
+      hlTools.className = "shiki-tools";
+      const iconClass = isHighlightShrink === true ? "fas fa-angle-down expand closed" : "fas fa-angle-down expand";
+      hlTools.innerHTML = `<i class="${iconClass}"></i>` + lang236 + highlightCopyEle;
+      hlTools.addEventListener("click", function(e) {
+        const target = e.target;
+        if (target.classList.contains("expand")) {
+          e.stopPropagation();
+          const expandIcon = target.classList.contains("expand") ? target : target.querySelector(".expand");
+          if (!expandIcon) return;
+          expandIcon.classList.toggle("closed");
+          const figure = hlTools.closest("figure.shiki");
+          if (!figure) return;
+          const codeblock = figure.querySelector(".codeblock");
+          const expandBtn = figure.querySelector(
+            ".code-expand-btn"
+          );
+          if (expandIcon.classList.contains("closed")) {
+            if (codeblock) codeblock.style.display = "none";
+            if (expandBtn) expandBtn.style.display = "none";
+          } else {
+            if (codeblock) codeblock.style.display = "flex";
+            if (expandBtn) {
+              expandBtn.style.display = highlightHeightLimit && figure.offsetHeight > highlightHeightLimit + 30 ? "flex" : "none";
+            }
+          }
+        } else if (target.classList.contains("copy-button")) {
+          e.stopPropagation();
+          highlightCopyFn.call(hlTools, target);
+        }
+      });
       fragment.appendChild(hlTools);
+      if (isHighlightShrink === true) {
+        setTimeout(() => {
+          const codeblock = item.querySelector(".codeblock");
+          const expandBtn = item.querySelector(
+            ".code-expand-btn"
+          );
+          if (codeblock) codeblock.style.display = "none";
+          if (expandBtn) expandBtn.style.display = "none";
+        }, 0);
+      }
     }
     if (highlightHeightLimit && item.offsetHeight > highlightHeightLimit + 30) {
       const ele = document.createElement("div");
@@ -14702,6 +14773,198 @@ var addHighlightTool = function(code_config) {
   });
 };
 var highlight_tool_default = addHighlightTool;
+
+// src/lib/preview-support.ts
+var addPreviewSupport = function(config) {
+  if (!config || !config.enable) return;
+  const loadScript = (src) => {
+    return new Promise((resolve, reject) => {
+      if (document.querySelector(`script[src="${src}"]`)) {
+        resolve();
+        return;
+      }
+      const script = document.createElement("script");
+      script.src = src;
+      script.onload = () => resolve();
+      script.onerror = () => reject(new Error(`Failed to load script: ${src}`));
+      document.head.appendChild(script);
+    });
+  };
+  const createHtmlPreview = (code, container) => {
+    const iframe = document.createElement("iframe");
+    iframe.classList.add("preview-iframe");
+    iframe.style.width = "100%";
+    iframe.style.height = config.defaultHeight;
+    iframe.style.border = "none";
+    iframe.style.borderRadius = "5px";
+    iframe.sandbox = "allow-scripts allow-same-origin";
+    const isDarkMode = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+    container.appendChild(iframe);
+    setTimeout(() => {
+      const iframeDoc = iframe.contentDocument || iframe.contentWindow?.document;
+      if (iframeDoc) {
+        const hasHtmlTag = /<html.*?>[\s\S]*<\/html>/i.test(code);
+        const hasBodyTag = /<body.*?>[\s\S]*<\/body>/i.test(code);
+        let fullHtml = code;
+        if (!hasHtmlTag) {
+          const basicStyles = `
+          <style>
+            @media (prefers-color-scheme: dark) {
+              body { background-color: #1a1a1a; color: #e1e4e8; }
+            }
+          </style>`;
+          if (!hasBodyTag) {
+            fullHtml = `<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  ${basicStyles}
+</head>
+<body>
+${code}
+</body>
+</html>`;
+          } else {
+            fullHtml = `<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  ${basicStyles}
+</head>
+${code}
+</html>`;
+          }
+        }
+        try {
+          iframeDoc.open();
+          iframeDoc.write(fullHtml);
+          iframeDoc.close();
+          const iframeWindow = iframe.contentWindow;
+          if (iframeWindow) {
+            iframeWindow.onerror = function(msg, url, line) {
+              console.error(`HTML\u9884\u89C8\u9519\u8BEF: ${msg} at line ${line}`);
+              return true;
+            };
+          }
+        } catch (error) {
+          console.error("Error writing to iframe:", error);
+          container.innerHTML = `<div class="preview-error">\u9884\u89C8\u9519\u8BEF: ${error.message}</div>`;
+        }
+      }
+    }, 100);
+  };
+  const createReactPreview = async (code, container, lang236) => {
+    try {
+      await Promise.all([
+        loadScript(config.reactRuntime),
+        loadScript(config.reactDomRuntime),
+        loadScript(config.babelRuntime)
+      ]);
+    } catch (error) {
+      console.error("Failed to load React preview dependencies:", error);
+      container.innerHTML = '<div class="preview-error">Failed to load React dependencies</div>';
+      return;
+    }
+    const reactRoot = document.createElement("div");
+    reactRoot.className = "react-preview-root";
+    container.appendChild(reactRoot);
+    const previewContainer = document.createElement("div");
+    previewContainer.className = "react-preview-container";
+    previewContainer.style.minHeight = config.defaultHeight;
+    previewContainer.style.padding = "1rem";
+    reactRoot.appendChild(previewContainer);
+    try {
+      let processedCode = window["Babel"].transform(code, {
+        presets: ["react"],
+        filename: `preview.${lang236}`
+      }).code;
+      const executeCode = new Function(
+        "React",
+        "ReactDOM",
+        "container",
+        `
+        try {
+          ${processedCode}
+          
+          // \u5C1D\u8BD5\u67E5\u627E\u5BFC\u51FA\u7684\u7EC4\u4EF6
+          let Component;
+          if (typeof App !== 'undefined') {
+            Component = App;
+          } else if (typeof default_1 !== 'undefined') {
+            Component = default_1;
+          } else if (typeof exports !== 'undefined' && exports.default) {
+            Component = exports.default;
+          }
+          
+          // \u5982\u679C\u627E\u5230\u7EC4\u4EF6\uFF0C\u6E32\u67D3\u5B83
+          if (Component) {
+            ReactDOM.render(React.createElement(Component), container);
+          }
+        } catch (error) {
+          container.innerHTML = '<div class="preview-error">' + error.toString() + '</div>';
+          console.error('React preview error:', error);
+        }
+        `
+      );
+      executeCode(window["React"], window["ReactDOM"], previewContainer);
+    } catch (error) {
+      console.error("Failed to execute React code:", error);
+      previewContainer.innerHTML = `<div class="preview-error">${error.toString()}</div>`;
+    }
+  };
+  const addPreviewButton = () => {
+    const previewableBlocks = document.querySelectorAll(
+      'figure.shiki[data-preview="true"]'
+    );
+    previewableBlocks.forEach((block) => {
+      const tools = block.querySelector(".shiki-tools");
+      if (!tools) return;
+      const previewLang = block.getAttribute("data-preview-lang");
+      const encodedCode = block.getAttribute("data-preview-code");
+      if (!encodedCode) return;
+      const code = atob(encodedCode);
+      const previewButton = document.createElement("i");
+      previewButton.className = "fas fa-play preview-button";
+      previewButton.title = "\u9884\u89C8\u4EE3\u7801";
+      previewButton.addEventListener("click", (e) => {
+        e.stopPropagation();
+        let previewArea = document.getElementById(
+          `preview-${block.id}`
+        );
+        if (!block.id) {
+          block.id = "code-block-" + Math.random().toString(36).substring(2, 9);
+        }
+        if (previewArea) {
+          previewArea.style.display = previewArea.style.display === "none" ? "block" : "none";
+          return;
+        }
+        previewArea = document.createElement("div");
+        previewArea.className = "code-preview-area";
+        previewArea.id = `preview-${block.id}`;
+        const previewTitle = document.createElement("div");
+        previewTitle.className = "preview-title";
+        previewTitle.innerHTML = '<i class="fas fa-code"></i> \u4EE3\u7801\u9884\u89C8\uFF08code preview\uFF09';
+        previewArea.appendChild(previewTitle);
+        block.parentNode.insertBefore(previewArea, block.nextSibling);
+        if (previewLang === "html" || previewLang === "htm") {
+          createHtmlPreview(code, previewArea);
+        } else if (["jsx", "tsx", "react"].includes(previewLang)) {
+          createReactPreview(code, previewArea, previewLang);
+        }
+      });
+      tools.appendChild(previewButton);
+    });
+  };
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", addPreviewButton);
+  } else {
+    addPreviewButton();
+  }
+};
 
 // src/main.ts
 var supported_transformers = {
@@ -14757,6 +15020,22 @@ async function init(hexo) {
           error: "\u590D\u5236\u51FA\u9519\uFF01",
           noSupport: "\u5F53\u524D\u6D4F\u89C8\u5668\u4E0D\u652F\u6301\u590D\u5236"
         }
+      },
+      preview: {
+        enable: true,
+        // 是否启用预览功能
+        html: true,
+        // 是否启用HTML预览
+        react: true,
+        // 是否启用React预览
+        defaultHeight: "300px",
+        // 预览区域默认高度
+        reactRuntime: "https://unpkg.com/react@18/umd/react.production.min.js",
+        // React运行时
+        reactDomRuntime: "https://unpkg.com/react-dom@18/umd/react-dom.production.min.js",
+        // ReactDOM运行时
+        babelRuntime: "https://unpkg.com/@babel/standalone/babel.min.js"
+        // Babel运行时
       }
     },
     hexo.config.shiki || {}
@@ -14875,15 +15154,21 @@ async function init(hexo) {
     }
     const caption = options.caption ? (0, import_hexo_util.htmlTag)("figcaption", {}, options.caption, false) : "";
     const finalLang = useOringinalLangName(lang236) ? originalLangName(lang236) : lang236;
+    const shouldAddPreview = config.preview && config.preview.enable && (config.preview.html && ["html", "htm"].includes(lang236) || config.preview.react && ["jsx", "tsx", "react"].includes(lang236));
     const code_div = (0, import_hexo_util.htmlTag)("div", { class: "code" }, pre, false);
     const gutter_div = numbers.length > 0 ? (0, import_hexo_util.htmlTag)("div", { class: "gutter" }, numbers, false) : "";
+    const previewAttrs = shouldAddPreview ? {
+      "data-preview": "true",
+      "data-preview-lang": lang236,
+      "data-preview-code": Buffer.from(code).toString("base64")
+    } : {};
     const html5 = (0, import_hexo_util.htmlTag)(
       "figure",
       {
-        class: `shiki ${finalLang}`
+        class: `shiki ${finalLang}`,
+        ...previewAttrs
       },
-      caption + // tools +
-      (0, import_hexo_util.htmlTag)(
+      caption + (0, import_hexo_util.htmlTag)(
         "div",
         {
           class: "codeblock"
@@ -14900,6 +15185,7 @@ async function init(hexo) {
     const injectScript = `
       <script>
         (${highlight_tool_default.toString()})(${JSON.stringify(config.code_config)});
+        (${addPreviewSupport.toString()})(${JSON.stringify(config.preview)});
       </script>
     `;
     return html5.replace("</body>", `${injectScript}</body>`);

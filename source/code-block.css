@@ -18,6 +18,10 @@
     rgba(40, 44, 52, 0.1),
     rgba(12, 12, 12, 0.4)
   );
+  --preview-button-color: #49b1f5;
+  --preview-error-bg: #ffefef;
+  --preview-error-color: #ff4949;
+  --preview-bg-color: #ffffff;
 }
 @media (prefers-color-scheme: dark) {
   :root {
@@ -34,6 +38,10 @@
       rgba(36, 36, 36, 0.1),
       rgba(22, 22, 22, 0.9)
     );
+    --preview-button-color: #49b1f5;
+    --preview-error-bg: #4f2a2a;
+    --preview-error-color: #ff7575;
+    --preview-bg-color: #1a1a1a;
   }
 }
 figure.shiki div.codeblock::-webkit-scrollbar-thumb {
@@ -52,7 +60,7 @@ figure.shiki div.codeblock {
   margin: 0;
 }
 figure.shiki {
-  margin: 0 0 24px;
+  margin: 0 0 0 0;
   border-radius: 7px;
   -webkit-transform: translateZ(0);
   transform: translateZ(0);
@@ -123,14 +131,20 @@ figure.shiki .shiki-tools .code-lang {
 }
 
 figure.shiki .shiki-tools .expand ~ .copy-notice {
-  right: 3.45em;
+  right: 4.35em;
   position: absolute;
   opacity: 0;
+  font-size: 0.8em;
   -webkit-transition: opacity 0.4s;
   -moz-transition: opacity 0.4s;
   -o-transition: opacity 0.4s;
   -ms-transition: opacity 0.4s;
   transition: opacity 0.4s;
+  z-index: 100;
+  background-color: var(--hltools-bg);
+  padding: 2px 5px;
+  border-radius: 3px;
+  white-space: nowrap;
 }
 
 figure.shiki .shiki-tools .expand ~ .copy-button {
@@ -399,4 +413,84 @@ span.line.highlighted.warning {
   flex-shrink: 0;
   overflow: hidden;
   border-radius: 0 0 7px 7px;
+}
+
+/* 预览按钮样式 */
+figure.shiki .shiki-tools .preview-button {
+  color: var(--hltools-color);
+  transition: color 0.2s;
+  position: absolute;
+  right: 3.75em;
+}
+
+figure.shiki .shiki-tools .preview-button:hover {
+  color: var(--preview-button-color);
+}
+
+/* 预览区域样式 */
+.code-preview-area {
+  background: var(--preview-bg-color);
+  border-radius: 0 0 7px 7px;
+  margin-bottom: 24px; /* 把边距转移到预览框上 */
+  width: 100%;
+  overflow: hidden;
+  margin-top: -7px;
+  z-index: 10;
+  position: relative;
+}
+
+/* 预览标题样式 */
+.preview-title {
+  background: var(--hltools-bg);
+  color: var(--hltools-color);
+  padding: 0.7em 1em;
+  font-size: 0.8em;
+  font-weight: bold;
+  border-radius: 7px;
+}
+
+/* 预览错误提示 */
+.preview-error {
+  padding: 1rem;
+  background-color: var(--preview-error-bg);
+  color: var(--preview-error-color);
+  border-left: 4px solid var(--preview-error-color);
+  font-family: monospace;
+  white-space: pre-wrap;
+}
+
+/* 预览iframe样式 */
+.preview-iframe {
+  background: var(--preview-bg-color);
+  border-radius: 5px;
+}
+
+/* React预览容器样式 */
+.react-preview-container {
+  background: var(--preview-bg-color);
+  padding: 1rem;
+  border-radius: 5px;
+  overflow: auto;
+}
+
+/* 当复制成功时的样式 */
+figure.shiki .copy-notice[style*='opacity: 1'] {
+  color: #2ecc71; /* 成功提示文字颜色 */
+}
+
+/* 修复当代码块折叠时，展开按钮也应该隐藏 */
+figure.shiki .shiki-tools.closed ~ .code-expand-btn {
+  display: none;
+}
+
+/* 清晰指定折叠规则 */
+figure.shiki .shiki-tools .expand.closed ~ .codeblock,
+figure.shiki .shiki-tools .expand.closed ~ .code-expand-btn {
+  display: none;
+}
+
+/* 修复当代码块折叠时，展开按钮也应该隐藏 - 更强的选择器 */
+figure.shiki .shiki-tools.closed ~ .code-expand-btn,
+figure.shiki .shiki-tools .expand.closed ~ .code-expand-btn {
+  display: none !important;
 }

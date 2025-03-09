@@ -23,6 +23,8 @@ import {
   transformerRenderWhitespace,
 } from '@shikijs/transformers';
 import addHighlightTool from './lib/highlight-tool';
+// 引入预览功能
+import { addPreviewSupport } from './lib/preview-support';
 
 const supported_transformers = {
   transformerCompactLineOptions,
@@ -76,6 +78,16 @@ export async function init(hexo: Hexo) {
           error: '复制出错！',
           noSupport: '当前浏览器不支持复制',
         },
+      },
+      preview: {
+        enable: true, // 是否启用预览功能
+        html: true, // 是否启用HTML预览
+        react: true, // 是否启用React预览
+        defaultHeight: '300px', // 预览区域默认高度
+        reactRuntime: 'https://unpkg.com/react@18/umd/react.production.min.js', // React运行时
+        reactDomRuntime:
+          'https://unpkg.com/react-dom@18/umd/react-dom.production.min.js', // ReactDOM运行时
+        babelRuntime: 'https://unpkg.com/@babel/standalone/babel.min.js', // Babel运行时
       },
     },
     hexo.config.shiki || {}
@@ -235,6 +247,13 @@ export async function init(hexo: Hexo) {
       ? originalLangName(lang)
       : lang;
 
+    // 检查是否需要添加预览按钮
+    const shouldAddPreview =
+      config.preview &&
+      config.preview.enable &&
+      ((config.preview.html && ['html', 'htm'].includes(lang)) ||
+        (config.preview.react && ['jsx', 'tsx', 'react'].includes(lang)));
+
     // 处理包裹标签
     const code_div = htmlTag('div', { class: 'code' }, pre, false);
     const gutter_div =
@@ -242,14 +261,23 @@ export async function init(hexo: Hexo) {
         ? htmlTag('div', { class: 'gutter' }, numbers, false)
         : '';
 
-    // 合并标签，工具容器插入在 figcaption 与代码块之间
+    // 创建预览数据属性
+    const previewAttrs = shouldAddPreview
+      ? {
+          'data-preview': 'true',
+          'data-preview-lang': lang,
+          'data-preview-code': Buffer.from(code).toString('base64'),
+        }
+      : {};
+
+    // 合并标签
     const html = htmlTag(
       'figure',
       {
         class: `shiki ${finalLang}`,
+        ...previewAttrs,
       },
       caption +
-        // tools +
         htmlTag(
           'div',
           {
@@ -264,11 +292,12 @@ export async function init(hexo: Hexo) {
   };
   hexo.extend.highlight.register('shiki', hexoHighlighter);
 
-  // 注入代码高亮工具脚本
+  // 注入代码高亮工具脚本和预览脚本
   hexo.extend.filter.register('after_render:html', html => {
     const injectScript = `
       <script>
         (${addHighlightTool.toString()})(${JSON.stringify(config.code_config)});
+        (${addPreviewSupport.toString()})(${JSON.stringify(config.preview)});
       </script>
     `;
     return html.replace('</body>', `${injectScript}</body>`);

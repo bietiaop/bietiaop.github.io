@@ -13,7 +13,6 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "packageManager": "pnpm@10.4.1",
   "devDependencies": {
     "@shikijs/transformers": "^3.0.0",
     "@types/node": "^22.13.4",
