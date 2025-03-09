@@ -4,7 +4,6 @@ date: 2023-03-16 16:01:44
 updated: 2023-03-16 16:01:44
 cover: https://pi.loili.com/2023/1c4f5102a78ba7fec349dc73a5e2c1a3.png
 categories:
-  - web
   - 前端
 tags:
   - React
