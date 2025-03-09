@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "524b2232cbbd6c6a",
+        "id": "ec3b9c04465e5330",
         "type": "tabs",
         "children": [
           {
-            "id": "8988772a2fd84a93",
+            "id": "6da4d65328e92a90",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -171,18 +171,22 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "8988772a2fd84a93",
+  "active": "6da4d65328e92a90",
   "lastOpenFiles": [
+    "database/mysql/查询语句优化.md",
+    "design/配色.md",
+    "flutter/getx/getx学习日志.md",
+    "rust/study/01.md",
+    "web/front/react/Redux的使用.md",
+    "web/front/react/React Router.md",
     "web/front/react/Canvas图片填充颜色.md",
+    "web/front/hexo/搭建hexo博客.md",
+    "web/front/css/字体切割减少字体大小.md",
+    "web/front/css/图片投影阴影效果.md",
     "web/front/vite/vite使用br压缩.md",
     "web/nextjs/Github Workflow 编译、发布和部署 NextJS.md",
     "web/nextjs/NextJS 小记（2）.md",
     "web/nextjs/NextJS、Next-Auth 小记（1）——登录、鉴权（踩坑记录）.md",
-    "web/front/css/图片投影阴影效果.md",
-    "web/front/css/字体切割减少字体大小.md",
-    "web/front/react/Redux的使用.md",
-    "web/front/react/React Router.md",
-    "web/front/hexo/搭建hexo博客.md",
     "web/nextjs/Github Workflow 编译、发布和部署 NextJS/file-20250307142416483.png",
     "scaffolds/page.md",
     "web/nextjs/我去22222.md",
@@ -204,8 +208,6 @@
     "{{folder}}/{{title}}",
     "{{folder}}",
     "web/nextjs/{{title}}",
-    "design/配色.md",
-    "flutter/getx/getx学习日志.md",
     "attachments/Pasted.md",
     "attachments",
     "2025-02-20.md",
@@ -213,7 +215,6 @@
     "[Edge.md",
     "未命名看板.md",
     "web/nextjs",
-    "未命名.md",
-    "rust/study/01.md"
+    "未命名.md"
   ]
 }
