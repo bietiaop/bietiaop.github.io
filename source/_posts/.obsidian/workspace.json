@@ -1,70 +1,37 @@
 {
   "main": {
-    "id": "236d57cd7f34c7de",
+    "id": "85081945637b21cc",
     "type": "split",
     "children": [
       {
-        "id": "ec3b9c04465e5330",
+        "id": "2a807ec239a53b7a",
         "type": "tabs",
         "children": [
           {
-            "id": "6da4d65328e92a90",
+            "id": "1126f8d77343b1a7",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "web/front/vite/vite使用br压缩.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "vite使用br压缩"
-            }
-          },
-          {
-            "id": "4740663defd4b20a",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "web/front/react/Vite+React/[01] Vite + React.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "[01] Vite + React"
-            }
-          },
-          {
-            "id": "3d8c85f57d6bffa2",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "web/front/react/Vite+React/[02] Vite + React.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "[02] Vite + React"
+              "title": "新标签页"
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
   },
   "left": {
-    "id": "ccef810f32ef981f",
+    "id": "f0061725fffc1411",
     "type": "split",
     "children": [
       {
-        "id": "3ef95e9080123faf",
+        "id": "53c0c075d1d8c9d8",
         "type": "tabs",
         "children": [
           {
-            "id": "e80402e95ed7af49",
+            "id": "0d7b91c7ff5294ec",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -77,7 +44,7 @@
             }
           },
           {
-            "id": "aa6a82c834c12bc8",
+            "id": "e408f0a082d03768",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -94,7 +61,7 @@
             }
           },
           {
-            "id": "87803088247c37fb",
+            "id": "f3f689a90e2593c5",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
@@ -110,15 +77,15 @@
     "width": 300
   },
   "right": {
-    "id": "0f0468b06cebe737",
+    "id": "165da23044492225",
     "type": "split",
     "children": [
       {
-        "id": "2fbb8723754a1986",
+        "id": "c560c93df08214b7",
         "type": "tabs",
         "children": [
           {
-            "id": "93b4fc56a17b36d4",
+            "id": "06d7335477b3cca3",
             "type": "leaf",
             "state": {
               "type": "backlink",
@@ -136,60 +103,53 @@
             }
           },
           {
-            "id": "b60f576098b00181",
+            "id": "265d4b0a571a43fb",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "web/front/hexo/搭建hexo博客.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "搭建hexo博客 的出链列表"
+              "title": "出链"
             }
           },
           {
-            "id": "085ca992f6060a4c",
+            "id": "09cc06abde014ce5",
             "type": "leaf",
             "state": {
               "type": "tag",
               "state": {
                 "sortOrder": "frequency",
-                "useHierarchy": true
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
               },
               "icon": "lucide-tags",
               "title": "标签"
             }
           },
           {
-            "id": "38c869247da399c9",
+            "id": "028fa4fb6ee9fb8e",
             "type": "leaf",
             "state": {
               "type": "outline",
               "state": {
-                "file": "web/front/hexo/搭建hexo博客.md"
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "搭建hexo博客 的大纲"
-            }
-          },
-          {
-            "id": "41bfe03a4df2b1ce",
-            "type": "leaf",
-            "state": {
-              "type": "git-view",
-              "state": {},
-              "icon": "git-pull-request",
-              "title": "Source Control"
+              "title": "大纲"
             }
           }
-        ],
-        "currentTab": 4
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -200,56 +160,9 @@
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
       "obsidian-kanban:创建新看板": false,
-      "obsidian-git:Open Git source control": false,
-      "obsidian-excalidraw-plugin:新建绘图文件": false
+      "obsidian-git:Open Git source control": false
     }
   },
-  "active": "3d8c85f57d6bffa2",
-  "lastOpenFiles": [
-    "web/front/react/Vite+React/[01] Vite + React.md",
-    "web/front/react/Vite+React/[02] Vite + React.md",
-    "web/front/vite/vite使用br压缩.md",
-    "database/mysql/查询语句优化.md",
-    "design/配色.md",
-    "flutter/getx/getx学习日志.md",
-    "rust/study/01.md",
-    "web/front/react/Redux的使用.md",
-    "web/front/react/React Router.md",
-    "web/front/react/Canvas图片填充颜色.md",
-    "web/front/hexo/搭建hexo博客.md",
-    "web/front/css/字体切割减少字体大小.md",
-    "web/front/css/图片投影阴影效果.md",
-    "web/nextjs/Github Workflow 编译、发布和部署 NextJS.md",
-    "web/nextjs/NextJS 小记（2）.md",
-    "web/nextjs/NextJS、Next-Auth 小记（1）——登录、鉴权（踩坑记录）.md",
-    "web/nextjs/Github Workflow 编译、发布和部署 NextJS/file-20250307142416483.png",
-    "scaffolds/page.md",
-    "web/nextjs/我去22222.md",
-    "scaffolds/post.md",
-    "web/nextjs/Github Workflow 编译、发布和部署 NextJS/file-20250307133856471.png",
-    "web/nextjs/Github Workflow 编译、发布和部署 NextJS/file-20250307133228545.png",
-    "web/nextjs/Github Workflow 编译、发布和部署 NextJS/file-20250307120631958.png",
-    "web/nextjs/Github Workflow 编译、发布和部署 NextJS/file-20250307115150398.png",
-    "web/nextjs/Github Workflow 编译、发布和部署 NextJS",
-    "scaffolds/draft.md",
-    "2025-03-07.md",
-    "scaffolds",
-    "web/nextjs/NextJS 小记（2）/Pasted image 20250220153228.png",
-    "web/nextjs/NextJS 小记（2）",
-    "web/nextjs/attachments/Pasted image 20250221154543.png",
-    "web/nextjs/NextJS 小记（2）/file-20250221155105594.png",
-    "web/nextjs/NextJS 小记（2）/file-20250221155048456.png",
-    "web/nextjs/attachments/Pasted image 20250221154436.png",
-    "{{folder}}/{{title}}",
-    "{{folder}}",
-    "web/nextjs/{{title}}",
-    "attachments/Pasted.md",
-    "attachments",
-    "2025-02-20.md",
-    "web/nextjs/attachments",
-    "[Edge.md",
-    "未命名看板.md",
-    "web/nextjs",
-    "未命名.md"
-  ]
+  "active": "1126f8d77343b1a7",
+  "lastOpenFiles": []
 }
