@@ -68,7 +68,7 @@ layout: py
  {
   "title": "乐逍遥",
   "link": "https://lexiaoyao.online/",
-  "img": "http://blog.lexiaoyao.online//upload/b_0be45bf6eeb5c4520ed349a53bb6a537.jpg",
+  "img": "http://blog.lexiaoyao.online/upload/b_0be45bf6eeb5c4520ed349a53bb6a537.jpg",
   "des": "一名石油行业的地质工作者，业余爱好是编程和打游戏"
  }
 ]
